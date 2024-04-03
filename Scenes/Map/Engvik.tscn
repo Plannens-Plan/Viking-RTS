@@ -10,4 +10,3 @@ position = Vector2( 514, 521 )
 
 [node name="Raider" parent="." instance=ExtResource( 2 )]
 position = Vector2( 287, 386 )
-motion/sync_to_physics = true
