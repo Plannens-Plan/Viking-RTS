@@ -10,6 +10,7 @@ extents = Vector2( 22.25, 30 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
 scale = Vector2( 0.141825, 0.195585 )
 texture = ExtResource( 1 )
 

@@ -17,13 +17,17 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	fall()
+	fallAndCollide()
 	velocity += acceleration * delta
 	move_and_slide(velocity, FLOOR)
 
-func fall():
+func fallAndCollide():
 	if is_on_floor() or is_on_ceiling():
 		acceleration.y = 0
 		velocity.y = 0
 	else:
 		acceleration.y += GRAVITY
+		
+	if is_on_wall():
+		acceleration.x = 0
+		velocity.x = 0
