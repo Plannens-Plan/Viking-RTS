@@ -5,4 +5,4 @@
 [node name="Engvik" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
-position = Vector2( 378, 324 )
+position = Vector2( 514, 521 )
