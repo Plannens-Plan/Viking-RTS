@@ -9,12 +9,15 @@ var target = false
 func _ready():
 	pass
 
-func _process(delta):
-	targetLocation()
+func _physics_process(delta):
+	if Input.is_action_just_pressed("right_click"):
+		if(get_global_mouse_position().x > position.x):
+			acceleration.x += moveSpeed
+		if(get_global_mouse_position().x < position.x):
+			acceleration.x -= moveSpeed
 
 func _on_Area2D_mouse_entered():
 	mouseOver=true
-
 
 func _on_Area2D_mouse_exited():
 	mouseOver=false
