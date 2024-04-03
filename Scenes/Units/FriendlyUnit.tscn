@@ -16,10 +16,10 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MouseOver" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 shape = SubResource( 1 )
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="MouseOver" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="MouseOver" to="." method="_on_Area2D_mouse_exited"]
