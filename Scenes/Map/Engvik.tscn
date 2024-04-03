@@ -14,7 +14,7 @@ current = true
 position = Vector2( 514, 521 )
 
 [node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 268, 196 )
+position = Vector2( 264, 188 )
 
 [node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 739, 271 )
+position = Vector2( 761, 263 )
