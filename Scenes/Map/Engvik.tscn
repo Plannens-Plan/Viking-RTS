@@ -19,3 +19,9 @@ position = Vector2( 341, 115 )
 
 [node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
 position = Vector2( 596, 107 )
+
+[node name="FriendlyUnit3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 967, 423 )
+
+[node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 91, 197 )
