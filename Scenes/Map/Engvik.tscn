@@ -13,14 +13,8 @@ current = true
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 514, 521 )
 
-[node name="Unit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 341, 115 )
-
 [node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 596, 107 )
+position = Vector2( 268, 196 )
 
-[node name="Ground2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1522, 456 )
-
-[node name="Ground3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -392, 461 )
+[node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 739, 271 )
