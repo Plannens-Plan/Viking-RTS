@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Viking RTS"
-run/main_scene="res://Scenes/Camera/Main.tscn"
+run/main_scene="res://Scenes/Map/Engvik.tscn"
 config/icon="res://icon.png"
 
 [gui]
