@@ -5,9 +5,10 @@ const GRAVITY = 100
 # Defines which direction counts as the floor
 const FLOOR = Vector2(0, -1)
 
-# Movement Vectors
+# Movement
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
+var onGround = false
 
 # Default unit stats
 var moveSpeed = 100
@@ -23,20 +24,24 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	fallAndCollide()
-	#Accelerate
+	# Accelerate
 	velocity += acceleration * delta
 	slowOverMaxSpeed()
 	# Friction slowdown
 	velocity.x = lerp(velocity.x, 0, friction)
+	stopOnCollision()
 	move_and_slide(velocity, FLOOR)
-
-func fallAndCollide():
+	
+func stopOnCollision():
 	if is_on_floor() or is_on_ceiling():
 		acceleration.y = 0
 		velocity.y = 0
+		if !onGround:
+			$DirtImpact.play()
+		onGround = true
 	else:
 		acceleration.y += GRAVITY
+		onGround = false
 		
 	if is_on_wall():
 		acceleration.x = 0
