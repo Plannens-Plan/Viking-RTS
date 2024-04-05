@@ -84,6 +84,10 @@ config/name="Viking RTS"
 run/main_scene="res://Scenes/Map/Engvik.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalVariables="*res://Scenes/GlobalVariables.tscn"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/godot_editor_discord_presence/plugin.cfg" )
