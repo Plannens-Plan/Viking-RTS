@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Constants
-const GRAVITY = 25
+const GRAVITY = 100
 # Defines which direction counts as the floor
 const FLOOR = Vector2(0, -1)
 
@@ -11,7 +11,8 @@ var acceleration = Vector2.ZERO
 
 # Default unit stats
 var moveSpeed = 100
-var maxSpeed = 300
+var maxMoveSpeed = 300
+var maxFallSpeed = 600
 var friction = 0.05
 var health = 100
 var attackDamage = 25
@@ -42,14 +43,14 @@ func fallAndCollide():
 		velocity.x = 0
 
 func slowOverMaxSpeed():
-	if velocity.x > maxSpeed:
-		velocity.x = maxSpeed
+	if velocity.x > maxMoveSpeed:
+		velocity.x = maxMoveSpeed
 	
-	if velocity.x < maxSpeed * -1:
-		velocity.x = maxSpeed * -1
+	if velocity.x < maxMoveSpeed * -1:
+		velocity.x = maxMoveSpeed * -1
 	
-	if velocity.y > maxSpeed:
-		velocity.y = maxSpeed
+	if velocity.y > maxFallSpeed:
+		velocity.y = maxFallSpeed
 	
-	if velocity.y < maxSpeed * -1:
-		velocity.y = maxSpeed * -1
+	if velocity.y < maxFallSpeed * -1:
+		velocity.y = maxFallSpeed * -1
