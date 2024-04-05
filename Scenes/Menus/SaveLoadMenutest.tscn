@@ -36,5 +36,14 @@ margin_right = 329.0
 margin_bottom = 182.0
 text = "Select save"
 
+[node name="SaveWarning" type="RichTextLabel" parent="Panel"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 181.0
+margin_top = 15.0
+margin_right = 410.0
+margin_bottom = 55.0
+text = "You must input a savename here!"
+
 [connection signal="pressed" from="Panel/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="Panel/Load" to="." method="_on_Load_pressed"]

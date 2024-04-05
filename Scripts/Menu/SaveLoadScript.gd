@@ -60,8 +60,14 @@ func _on_Save_pressed():
 	if GlobalVariable.VikingRts.savename != "":
 		savename=GlobalVariable.VikingRts.savename
 	GlobalVariable.VikingRts.savename=savename
+	if savename=="":
+		$Panel/SaveWarning.show()
+		return
 	save_data(savedir + savename+ ".dat", GlobalVariable.VikingRts)
 	reloadsaves()
+	if $Panel/SaveWarning.visible==true:
+		$Panel/SaveWarning.hide()
+		return
 
 	
 func _on_Load_pressed():
