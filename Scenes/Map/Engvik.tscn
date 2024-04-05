@@ -7,17 +7,17 @@
 
 [node name="Engvik" type="Node2D"]
 
-[node name="ForestBackground" type="Sprite" parent="."]
-position = Vector2( 480, 114 )
-scale = Vector2( 1.53516, 1.3603 )
-texture = ExtResource( 2 )
-
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
 current = true
 
+[node name="ForestBackground" type="Sprite" parent="."]
+position = Vector2( 513, 112 )
+scale = Vector2( 1.53516, 1.3603 )
+texture = ExtResource( 2 )
+
 [node name="Ground" parent="." instance=ExtResource( 1 )]
-position = Vector2( 508, 572 )
+position = Vector2( 511, 572 )
 
 [node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
 position = Vector2( 264, 188 )
