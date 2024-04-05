@@ -8,7 +8,6 @@ var cameraSpeed=20
 
 func _ready():
 	pass 
-	
 
 func _input(event):
 	if event.is_action_pressed("cam right"):
@@ -19,12 +18,10 @@ func _input(event):
 
 	if event.is_action_pressed("cam down"):
 		position.y=position.y+20
-	pass
 
 func _physics_process(delta):
 	inputChecker()
 	inputHandler()
-	pass
 
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):

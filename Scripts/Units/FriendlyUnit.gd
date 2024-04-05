@@ -1,6 +1,10 @@
 extends "res://Scripts/Units/Unit.gd"
+
+# Unit selection
 var selected = false
 var mouseOver = false
+
+# Unit ordering
 var targetLocationX = null
 var targetLocationY = null
 var target = false
@@ -12,9 +16,6 @@ func _ready():
 
 func _physics_process(delta):
 	targetLocation()
-#	if Input.is_action_just_pressed("right_click"):
-#		if(get_global_mouse_position().x < position.x):
-#			acceleration.x -= moveSpeed
 
 func _on_Area2D_mouse_entered():
 	mouseOver=true
@@ -43,13 +44,11 @@ func _input(event):
 				print ("bruh")
 				targetPosition=0
 				acceleration.x=0
-				velocity.x=0
 		else:
 			targetLocationX=get_global_mouse_position().x as float
 			targetLocationY=get_global_mouse_position().y as float
 			target=true
 		#selected=false
-
 
 func targetLocation():
 	if target==true:
@@ -64,20 +63,16 @@ func targetLocation():
 					targetPosition=2
 				acceleration.x += moveSpeed
 			
-			if position.x>targetLocationX&&targetPosition==2:
+			if position.x + velocity.x/friction/60 >= targetLocationX && targetPosition == 2:
 				acceleration.x=0
-				velocity.x=0
-				position.x=targetLocationX
 				target=false
 				targetPosition=0
 				targetLocationX=null
 				targetLocationY=null
 				return
 			
-			if position.x<targetLocationX&&targetPosition==1:
+			if position.x + velocity.x/friction/60 <= targetLocationX && targetPosition == 1:
 				acceleration.x=0
-				velocity.x=0
-				position.x=targetLocationX
 				target=false
 				targetPosition=0
 				targetLocationX=null
