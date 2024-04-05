@@ -20,7 +20,7 @@ texture = ExtResource( 2 )
 position = Vector2( 511, 572 )
 
 [node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 264, 188 )
+position = Vector2( 207, 145 )
 
 [node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 761, 263 )
+position = Vector2( 827, 504 )
