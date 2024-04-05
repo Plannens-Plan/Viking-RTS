@@ -63,7 +63,7 @@ func targetLocation():
 					targetPosition=2
 				acceleration.x += moveSpeed
 			
-			if position.x + velocity.x/friction/60 >= targetLocationX && targetPosition == 2:
+			if position.x + velocity.x/friction/61 >= targetLocationX && targetPosition == 2:
 				acceleration.x=0
 				target=false
 				targetPosition=0
@@ -71,7 +71,7 @@ func targetLocation():
 				targetLocationY=null
 				return
 			
-			if position.x + velocity.x/friction/60 <= targetLocationX && targetPosition == 1:
+			if position.x + velocity.x/friction/61 <= targetLocationX && targetPosition == 1:
 				acceleration.x=0
 				target=false
 				targetPosition=0

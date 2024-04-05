@@ -11,7 +11,7 @@ var acceleration = Vector2.ZERO
 
 # Default unit stats
 var moveSpeed = 100
-var maxSpeed = 300
+var maxSpeed = 500
 var friction = 0.05
 var health = 100
 var attackDamage = 25
