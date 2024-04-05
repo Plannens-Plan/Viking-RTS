@@ -9,6 +9,7 @@ extends Node
 #export var yyy = xxx
 
 export var VikingRts={
+	savename="",
 	balance=0,
 	troops=0,
 	resource=10,

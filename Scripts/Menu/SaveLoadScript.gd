@@ -55,8 +55,12 @@ func load_data(path):
 
 
 func _on_Save_pressed():
+	var savename=input_text.text
 	
-	save_data(savedir + input_text.text+ ".dat", GlobalVariable.VikingRts)
+	if GlobalVariable.VikingRts.savename != "":
+		savename=GlobalVariable.VikingRts.savename
+	GlobalVariable.VikingRts.savename=savename
+	save_data(savedir + savename+ ".dat", GlobalVariable.VikingRts)
 	reloadsaves()
 
 	
