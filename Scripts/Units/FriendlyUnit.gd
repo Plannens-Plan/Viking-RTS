@@ -35,13 +35,10 @@ func _input(event):
 			targetLocationY=get_global_mouse_position().y as float
 			target=true
 			if position.x>targetLocationX&&targetPosition==1:
-				print("")
 				pass
 			elif position.x<targetLocationX&&targetPosition==2:
-				print("no")
 				pass
 			else:
-				print ("bruh")
 				targetPosition=0
 				acceleration.x=0
 		else:
