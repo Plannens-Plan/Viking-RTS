@@ -24,13 +24,15 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	# Gravity
+	acceleration.y += GRAVITY
 	# Accelerate
 	velocity += acceleration * delta
 	slowOverMaxSpeed()
 	# Friction slowdown
 	velocity.x = lerp(velocity.x, 0, friction)
-	stopOnCollision()
 	move_and_slide(velocity, FLOOR)
+	stopOnCollision()
 	
 func stopOnCollision():
 	if is_on_floor() or is_on_ceiling():
@@ -40,8 +42,8 @@ func stopOnCollision():
 			$DirtImpact.play()
 		onGround = true
 	else:
-		acceleration.y += GRAVITY
 		onGround = false
+		
 		
 	if is_on_wall():
 		acceleration.x = 0
