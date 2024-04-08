@@ -2,7 +2,7 @@ extends Node
 
 #Brug denne i et script, hvis du skal fetch data
 #onready var GlobalVariable= get_node("/root/GlobalVariables")
-#GlobalVariable.VikinRts.xxx = yyy eller GlobalVariable.VikinRts["xxx"] = yyy
+#GlobalVariable.VikingRts.xxx = yyy eller GlobalVariable.VikingRts["xxx"] = yyy
 
 
 #lav data her
@@ -10,9 +10,10 @@ extends Node
 
 export var VikingRts={
 	savename="",
-	balance=0,
-	troops=0,
-	resource=10,
-	baldness="morbillion",
-	score=9
+	resources={
+		wood=0,
+		food=0,
+		stone=0,
+		silver=0
+	}
 }
