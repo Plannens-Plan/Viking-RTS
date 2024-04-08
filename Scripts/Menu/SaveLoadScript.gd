@@ -74,5 +74,10 @@ func _on_Load_pressed():
 	var dict=load_data(savedir + dropmenu.text + ".dat")
 	for key in dict:
 		if GlobalVariable.VikingRts.has(key):
-			GlobalVariable.VikingRts[key]=dict[key]
+			if typeof(GlobalVariable.VikingRts[key]) ==18:
+				for key2 in dict:
+					GlobalVariable.VikingRts[key][key2]
+			else:
+				GlobalVariable.VikingRts[key]=dict[key]
+			
 
