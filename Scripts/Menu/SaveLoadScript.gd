@@ -57,7 +57,7 @@ func load_data(path):
 func _on_Save_pressed():
 	var savename=input_text.text
 	
-	if GlobalVariable.VikingRts.savename != "":
+	if GlobalVariable.VikingRts.savename != "" && savename=="":
 		savename=GlobalVariable.VikingRts.savename
 	GlobalVariable.VikingRts.savename=savename
 	if savename=="":
