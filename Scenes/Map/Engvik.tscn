@@ -6,9 +6,8 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Barracks Build.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=8]
 
 [node name="Engvik" type="Node2D"]
 
@@ -43,6 +42,7 @@ margin_bottom = 525.0
 text = "Build mother fucker"
 
 [node name="selection" parent="." instance=ExtResource( 7 )]
+
 [node name="Barracks" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="."]

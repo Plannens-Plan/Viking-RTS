@@ -86,7 +86,7 @@ config/icon="res://Assets/Images/Icons/icon.png"
 
 [autoload]
 
-GlobalVariables="*res://Scenes/GlobalVariables.tscn"
+GlobalVariables="*res://Scenes/Structures/GlobalVariables.tscn"
 
 [editor_plugins]
 
