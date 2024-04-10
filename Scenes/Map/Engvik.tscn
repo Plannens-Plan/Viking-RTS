@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Level Objects/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://forest_background.webp" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=7]
 
 [node name="Engvik" type="Node2D"]
 
@@ -32,3 +33,5 @@ position = Vector2( 827, 504 )
 [node name="Node2D" parent="Resources" instance=ExtResource( 6 )]
 
 [node name="Node2D2" parent="Resources" instance=ExtResource( 5 )]
+
+[node name="selection" parent="." instance=ExtResource( 7 )]
