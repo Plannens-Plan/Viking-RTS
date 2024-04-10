@@ -26,7 +26,7 @@ func material_green() -> void:
 
 func _on_Button_pressed():
 	buildingMode = !buildingMode 
-	print(buildingMode) 
+	#print(buildingMode) 
 	pass # Replace with function body.
 
 func buildPreview():

@@ -1,38 +1,31 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Level Objects/Ground.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Images/Icons/forest_background.webp" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Icons/nature_background.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Units/FriendlyUnit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Barracks Build.gd" type="Script" id=8]
 
 [node name="Engvik" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1000, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 5, 283 )
+texture = ExtResource( 2 )
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
 current = true
 
-[node name="ForestBackground" type="Sprite" parent="."]
-position = Vector2( 513, 112 )
-scale = Vector2( 1.53516, 1.3603 )
-texture = ExtResource( 2 )
-
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
-
-[node name="FriendlyUnit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 207, 145 )
-
-[node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 827, 504 )
-
-[node name="Resources" type="Node" parent="."]
-
-[node name="Node2D" parent="Resources" instance=ExtResource( 6 )]
-
-[node name="Node2D2" parent="Resources" instance=ExtResource( 5 )]
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
 
@@ -47,5 +40,27 @@ margin_top = 505.0
 margin_right = 251.0
 margin_bottom = 525.0
 text = "Build mother fucker"
+
+[node name="Barracks" type="Node" parent="."]
+
+[node name="Resources" type="Node" parent="."]
+
+[node name="Food" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 417, 60 )
+
+[node name="Wood" parent="Resources" instance=ExtResource( 5 )]
+position = Vector2( 950, 11 )
+
+[node name="Stone" parent="Resources" instance=ExtResource( 6 )]
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="FriendlyUnits" type="Node" parent="."]
+
+[node name="FriendlyUnit" parent="FriendlyUnits" instance=ExtResource( 4 )]
+position = Vector2( 207, 145 )
+
+[node name="FriendlyUnit2" parent="FriendlyUnits" instance=ExtResource( 4 )]
+position = Vector2( 687, 314 )
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
