@@ -44,7 +44,6 @@ func stopOnCollision():
 	else:
 		onGround = false
 		
-		
 	if is_on_wall():
 		acceleration.x = 0
 		velocity.x = 0
