@@ -13,7 +13,6 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print(velocity)
 	targetLocation(delta)
 	if !selected:
 		$Sprite.material = null
