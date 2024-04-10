@@ -21,8 +21,6 @@ motion_mirroring = Vector2( 1000, 0 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="selection" parent="ParallaxBackground/ParallaxLayer/Sprite" instance=ExtResource( 9 )]
-
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
 current = true
@@ -67,5 +65,7 @@ position = Vector2( 207, 145 )
 
 [node name="FriendlyUnit2" parent="FriendlyUnits" instance=ExtResource( 4 )]
 position = Vector2( 687, 314 )
+
+[node name="selection" parent="FriendlyUnits" instance=ExtResource( 9 )]
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
