@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Level Objects/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Icons/forest_background.webp" type="Texture" id=2]
@@ -7,9 +7,6 @@
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Barracks Build.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Menus/SaveLoadMenutest.tscn" type="PackedScene" id=8]
-
 
 [node name="Engvik" type="Node2D"]
 
@@ -29,12 +26,11 @@ position = Vector2( 511, 572 )
 position = Vector2( 207, 145 )
 
 [node name="FriendlyUnit2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 827, 473 )
+position = Vector2( 827, 504 )
 
 [node name="Resources" type="Node" parent="."]
 
-[node name="Food" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 851, 4 )
+[node name="Node2D" parent="Resources" instance=ExtResource( 6 )]
 
 [node name="Node2D2" parent="Resources" instance=ExtResource( 5 )]
 
@@ -53,10 +49,3 @@ margin_bottom = 525.0
 text = "Build mother fucker"
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
-
-[node name="Stone" parent="Resources" instance=ExtResource( 6 )]
-
-[node name="Wood" parent="Resources" instance=ExtResource( 5 )]
-
-[node name="Node2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 341, 152 )
