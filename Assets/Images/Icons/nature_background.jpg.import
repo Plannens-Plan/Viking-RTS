@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forest_background.webp-ac4a152fd002b17e696100e7abc40612.stex"
+path="res://.import/nature_background.jpg-27578c7666ce89310d9a59fa056f7edc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Icons/forest_background.webp"
-dest_files=[ "res://.import/forest_background.webp-ac4a152fd002b17e696100e7abc40612.stex" ]
+source_file="res://Assets/Images/Icons/nature_background.jpg"
+dest_files=[ "res://.import/nature_background.jpg-27578c7666ce89310d9a59fa056f7edc.stex" ]
 
 [params]
 
