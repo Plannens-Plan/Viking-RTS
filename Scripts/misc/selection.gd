@@ -11,7 +11,6 @@ func _ready():
 func _physics_process(delta):
 	inputter()
 	checker()
-	$MonkeyBanana.position=$Area2D/CollisionShape2D.position
 
 func inputter():
 	if Input.is_action_just_pressed("select"):
@@ -64,7 +63,4 @@ func selector():
 		for body in $Area2D.get_overlapping_bodies():
 			if body.is_in_group("friendlyUnit"):
 				body.selected = true
-				pass
-	pass # Replace with function body.
-
 
