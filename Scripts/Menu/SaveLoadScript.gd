@@ -41,17 +41,18 @@ func _on_MenuButton_pressed(id):
 func save_data(path, data):
 	var file = File.new()
 	file.open(path, File.WRITE)
-	file.store_var(data)
 	
+	file.store_string(to_json(data))
+	print(data)
 	file.close()
 
 func load_data(path):
 	var file = File.new()
 	var content
 	file.open(path,File.READ)
-	content= file.get_var()
+	content= file.get_as_text()
 	file.close()
-	return content
+	return parse_json(content)
 
 
 func _on_Save_pressed():
@@ -63,7 +64,8 @@ func _on_Save_pressed():
 	if savename=="":
 		$Panel/SaveWarning.show()
 		return
-	save_data(savedir + savename+ ".dat", GlobalVariable.VikingRts)
+	var data = GlobalVariable.VikingRts
+	save_data(savedir + savename+ ".dat", data)
 	reloadsaves()
 	if $Panel/SaveWarning.visible==true:
 		$Panel/SaveWarning.hide()
@@ -71,13 +73,23 @@ func _on_Save_pressed():
 
 	
 func _on_Load_pressed():
+
+	if dropmenu.text == "Select save":
+		$Panel/LoadWarning.show()
+		return
+	if $Panel/LoadWarning.visible==true:
+		$Panel/LoadWarning.hide()
+		return
 	var dict=load_data(savedir + dropmenu.text + ".dat")
+
 	for key in dict:
 		if GlobalVariable.VikingRts.has(key):
 			if typeof(GlobalVariable.VikingRts[key]) ==18:
-				for key2 in dict:
-					GlobalVariable.VikingRts[key][key2]
+				var dict2=dict[key]
+				for key2 in dict2:
+					GlobalVariable.VikingRts[key][key2] = dict2[key2]
+
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
-			
+	
 

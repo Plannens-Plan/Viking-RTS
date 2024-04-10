@@ -14,6 +14,12 @@ func _ready():
 
 func _physics_process(delta):
 	targetLocation(delta)
+	if !selected:
+		$Sprite.material = null
+	else:
+		# Give outline
+		$Sprite.material = load("res://Assets/Materials/FriendlyUnit.tres")
+	targetLocation()
 
 func _on_Area2D_mouse_entered():
 	mouseOver = true

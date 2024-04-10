@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forest_background.webp-7b50d8e6efaddecb4a5c9741c6f35533.stex"
+path="res://.import/1st_(UK)_Division's_insignia.png-e6e3614138b2d9baec65a3c97155112f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://forest_background.webp"
-dest_files=[ "res://.import/forest_background.webp-7b50d8e6efaddecb4a5c9741c6f35533.stex" ]
+source_file="res://Assets/Images/Icons/1st_(UK)_Division's_insignia.png"
+dest_files=[ "res://.import/1st_(UK)_Division's_insignia.png-e6e3614138b2d9baec65a3c97155112f.stex" ]
 
 [params]
 
