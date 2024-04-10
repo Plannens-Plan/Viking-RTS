@@ -48,7 +48,7 @@ func checker():
 			scalery = get_global_mouse_position().y - massSelectionStartingPointY
 			$Sprite.scale.y = (scalery / $Sprite.texture.get_height())
 			$Area2D/CollisionShape2D.position.y = massSelectionStartingPointY + ($Sprite.scale.y * $Sprite.texture.get_height()) / 2
-			$Area2D/CollisionShape2D.scale=$Sprite.scale
+			$Area2D/CollisionShape2D.scale = $Sprite.scale
 		
 		elif get_global_mouse_position().y <= massSelectionStartingPointY:
 			$Sprite.position.y = get_global_mouse_position().y
