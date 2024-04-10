@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Resources/Wood.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/bruh.jpg" type="Texture" id=2]
 
-
 [node name="Wood" type="Node2D"]
 script = ExtResource( 1 )
 
