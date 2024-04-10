@@ -8,6 +8,7 @@ var mouseOver = false
 var target = false
 var targetReachedThreshold = 5.0
 var targetPosition = Vector2.ZERO
+var direction = Vector2.ZERO
 
 func _ready():
 	pass
@@ -37,23 +38,24 @@ func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
 		targetPosition = get_global_mouse_position()
 		target = true
+		direction = (targetPosition - position).normalized()
 
 func targetLocation(delta):
 	if target:
-		var direction = (targetPosition - position).normalized()
-
 		# Calculate acceleration
 		acceleration = moveSpeed * direction
 
 		# Update velocity
 		velocity += acceleration * delta
-
-		# Apply velocity to position
-		position += velocity * delta
+		
+		velocity.x = lerp(velocity.x, 0, friction)
+		velocity.y = lerp(velocity.y, 0, friction)
+		
+		move_and_slide(velocity)
 
 		# Check if target is reached
-		if position.distance_to(targetPosition) < targetReachedThreshold:
-			acceleration * friction
-		if velocity.length_squared() < 1.5:
+		# if position.distance_to(targetPosition) < targetReachedThreshold:
+			# acceleration * friction
+		if velocity.length_squared() < 1:
 			target = false
 			velocity = Vector2.ZERO
