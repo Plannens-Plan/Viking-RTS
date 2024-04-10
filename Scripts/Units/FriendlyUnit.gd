@@ -8,7 +8,6 @@ var mouseOver = false
 var target = false
 var targetReachedThreshold = 5.0
 var targetPosition = Vector2.ZERO
-var direction = Vector2.ZERO
 
 func _ready():
 	pass
@@ -38,10 +37,10 @@ func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
 		targetPosition = get_global_mouse_position()
 		target = true
-		direction = (targetPosition - position).normalized()
 
 func targetLocation(delta):
 	if target:
+		var direction = (targetPosition - position).normalized()
 		# Calculate acceleration
 		acceleration = moveSpeed * direction
 
