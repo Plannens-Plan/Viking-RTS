@@ -1,17 +1,51 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Images/Icons/1st_(UK)_Division's_insignia.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 109, 99 )
 
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+render_mode blend_mix;
+
+// Define the uniform for instance color
+uniform vec4 instance_color_01 : hint_color;
+
+void fragment() {
+    // Sample the texture color
+    vec4 texture_color = texture(TEXTURE, UV);
+    
+    // Check if the texture color is fully transparent (alpha == 0)
+    if (texture_color.a == 0.0) {
+        // If it's transparent, set output color to transparent
+        discard;
+    } else {
+        // If it's not transparent, mix the instance color and green based on the texture color
+        float luminance = (texture_color.r + texture_color.g + texture_color.b) / 3.0;
+        COLOR = mix(instance_color_01, vec4(0.0, 1.0, 0.0, 1.0), luminance);
+    }
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/instance_color_01 = Color( 0.321569, 0.219608, 0, 0.768627 )
+
 [node name="Area2D" type="Area2D"]
 
-[node name="1St(Uk)Division\'sInsignia" type="Sprite" parent="."]
+[node name="1St(Uk)Division\'sInsignia2" type="Sprite" parent="."]
 position = Vector2( 1, 1 )
 scale = Vector2( 0.639053, 0.623729 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 1, -2 )
 shape = SubResource( 1 )
+
+[node name="BarrackPreview" type="MeshInstance2D" parent="."]
+visible = false
+material = SubResource( 3 )
+texture = ExtResource( 1 )
