@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Units/FriendlyUnit.gd" type="Script" id=1]
-[ext_resource path="res://for_honor_viking.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Icons/for_honor_viking.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/dirt_impact2.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Materials/FriendlyUnit.tres" type="Material" id=4]
 

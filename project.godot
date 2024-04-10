@@ -82,7 +82,7 @@ _global_script_class_icons={
 
 config/name="Viking RTS"
 run/main_scene="res://Scenes/Map/Engvik.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Images/Icons/icon.png"
 
 [autoload]
 
