@@ -1,14 +1,7 @@
 extends Control
 
 var buildingMode
-
-#var Barracks = load("res://Scenes/Barracks.tscn")
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var previewBarrack = preload("res://Scenes/Structures/Barracks.tscn").instance()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,33 +14,31 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func material_green() -> void:
-	material.set("shader_param/instance_color_01", Color("6958dc0f"))
 
 func _on_Button_pressed():
 	buildingMode = !buildingMode 
 	#print(buildingMode) 
 	pass # Replace with function body.
 
-func buildPreview():
-	
-	pass
+func previewbuild():
+
+	add_child(previewBarrack)
+	var mousePos = get_global_mouse_position()
+	previewBarrack.position = mousePos
 
 func build():
 	if(Input.is_action_just_pressed("leftClick")):
-		var newBarrack = load("res://Scenes/Barracks.tscn").instance()
+		var newBarrack = load("res://Scenes/Structures/Barracks.tscn").instance()
+		add_child(newBarrack)
 		print("bruh")
 		var mousePos = get_global_mouse_position()
-		#var mousePosY = get_global_mouse_position().y
 		newBarrack.position = mousePos
-		#newBarrack.position = mousePosY
-		add_child(newBarrack)
+		buildingMode = !buildingMode 
+
 
 func _input(event):
 	
 	if (buildingMode == true):
-		
-		
 		build()
-
+		previewbuild()
 	pass # Replace with function body.
