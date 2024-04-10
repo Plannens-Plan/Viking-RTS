@@ -5,17 +5,15 @@ var selected = false
 var mouseOver = false
 
 # Unit ordering
-var targetLocationX = null
-var targetLocationY = null
 var target = false
-var targetPosition = 0
+var targetReachedThreshold = 5.0
+var targetPosition = Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func _physics_process(delta):
-	targetLocation()
+	targetLocation(delta)
 
 func _on_Area2D_mouse_entered():
 	mouseOver = true
@@ -24,54 +22,30 @@ func _on_Area2D_mouse_exited():
 	mouseOver = false
 
 func _input(event):
-	if event is InputEventMouseButton && event.get_button_index() == 1 && mouseOver == true:
-		selected = true
-		
-	if event is InputEventMouseButton && event.get_button_index() == 1 && mouseOver == false:
-		selected = false
-	if event is InputEventMouseButton && event.get_button_index() == 2 && selected == true:
-		if targetLocationX != null:
-			targetLocationX = get_global_mouse_position().x as float
-			targetLocationY = get_global_mouse_position().y as float
-			target = true
-			if position.x > targetLocationX && targetPosition == 1:
-				pass
-			elif position.x < targetLocationX && targetPosition == 2:
-				pass
-			else:
-				targetPosition = 0
-				acceleration.x = 0
-		else:
-			targetLocationX = get_global_mouse_position().x as float
-			targetLocationY = get_global_mouse_position().y as float
-			target = true
-		#selected = false
+	if event is InputEventMouseButton && event.get_button_index() == 1:
+		selected = mouseOver
 
-func targetLocation():
-	if target == true:
-		if position.x != targetLocationX:
-			if position.x > targetLocationX:
-				if targetPosition == 0:
-					targetPosition = 1
-				acceleration.x -= moveSpeed
-			
-			if position.x < targetLocationX:
-				if targetPosition == 0:
-					targetPosition = 2
-				acceleration.x += moveSpeed
-			
-			if position.x + velocity.x/friction/61 >= targetLocationX && targetPosition == 2:
-				acceleration.x = 0
-				target = false
-				targetPosition = 0
-				targetLocationX = null
-				targetLocationY = null
-				return
-			
-			if position.x + velocity.x/friction/61 <= targetLocationX && targetPosition == 1:
-				acceleration.x = 0
-				target = false
-				targetPosition = 0
-				targetLocationX = null
-				targetLocationY = null
-				return
+	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
+		targetPosition = get_global_mouse_position()
+		target = true
+
+func targetLocation(delta):
+	if target:
+		var direction = (targetPosition - position).normalized()
+
+		# Calculate acceleration
+		acceleration = moveSpeed * direction
+
+		# Update velocity
+		velocity += acceleration * delta
+
+		# Apply friction
+		velocity = velocity * (1.0 - friction)
+
+		# Apply velocity to position
+		position += velocity * delta
+
+		# Check if target is reached
+		if position.distance_to(targetPosition) < targetReachedThreshold:
+			target = false
+			velocity = Vector2.ZERO
