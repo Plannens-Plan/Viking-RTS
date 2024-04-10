@@ -13,6 +13,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	print(velocity)
 	targetLocation(delta)
 	if !selected:
 		$Sprite.material = null
@@ -47,13 +48,12 @@ func targetLocation(delta):
 		# Update velocity
 		velocity += acceleration * delta
 
-		# Apply friction
-		velocity = velocity * (1.0 - friction)
-
 		# Apply velocity to position
 		position += velocity * delta
 
 		# Check if target is reached
 		if position.distance_to(targetPosition) < targetReachedThreshold:
+			acceleration * friction
+		if velocity.length_squared() < 1.5:
 			target = false
 			velocity = Vector2.ZERO
