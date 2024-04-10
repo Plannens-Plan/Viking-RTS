@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bruh.jpg-d4473b80a33fb69dd0346717043edfa1.stex"
+path="res://.import/for_honor_viking.png-70b220578c99e595e2a42f4fd0447857.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bruh.jpg"
-dest_files=[ "res://.import/bruh.jpg-d4473b80a33fb69dd0346717043edfa1.stex" ]
+source_file="res://Assets/Images/Icons/for_honor_viking.png"
+dest_files=[ "res://.import/for_honor_viking.png-70b220578c99e595e2a42f4fd0447857.stex" ]
 
 [params]
 
