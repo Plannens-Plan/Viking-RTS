@@ -13,14 +13,13 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print(velocity)
 	targetLocation(delta)
 	if !selected:
 		$Sprite.material = null
 	else:
 		# Give outline
-		$Sprite.material = load("res://Assets/Materials/FriendlyUnit.tres")
-
+		$Sprite.material = load("res://Assets/Materials/Outline.tres")
+		
 func _on_Area2D_mouse_entered():
 	mouseOver = true
 
@@ -41,19 +40,20 @@ func _input(event):
 func targetLocation(delta):
 	if target:
 		var direction = (targetPosition - position).normalized()
-
 		# Calculate acceleration
 		acceleration = moveSpeed * direction
 
 		# Update velocity
 		velocity += acceleration * delta
-
-		# Apply velocity to position
-		position += velocity * delta
+		
+		velocity.x = lerp(velocity.x, 0, friction)
+		velocity.y = lerp(velocity.y, 0, friction)
+		
+		move_and_slide(velocity)
 
 		# Check if target is reached
-		if position.distance_to(targetPosition) < targetReachedThreshold:
-			acceleration * friction
-		if velocity.length_squared() < 1.5:
+		# if position.distance_to(targetPosition) < targetReachedThreshold:
+			# acceleration * friction
+		if velocity.length_squared() < 1:
 			target = false
 			velocity = Vector2.ZERO

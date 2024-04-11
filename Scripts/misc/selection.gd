@@ -57,7 +57,6 @@ func checker():
 			$Area2D/CollisionShape2D.position.y = massSelectionStartingPointY - ($Sprite.scale.y * $Sprite.texture.get_height()) / 2
 			$Area2D/CollisionShape2D.scale = $Sprite.scale
 
-
 func selector():
 	if Input.is_action_just_released("select") && $Area2D.get_overlapping_bodies():
 		for body in $Area2D.get_overlapping_bodies():
