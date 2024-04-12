@@ -4,33 +4,38 @@ func _ready():
 
 var harvest =false
 var harvestArea
+var inventory = 0
+var maxInventory = 10000
+var itemType = null
 
 func _physics_process(delta):
 	if $MouseOver.get_overlapping_areas() && targetPosition == null:
 		for area in $MouseOver.get_overlapping_areas():
 			if area.is_in_group("WorkSpace"):
-				harvest=true
-				harvestArea=area
-				if $Timer.is_stopped()==true||$Timer.is_paused()==true:
-					print("bruh")
-					$Timer.wait_time = area.workTime
-					$Timer.start()
-					$Timer.paused=false
-				
-			
-		
-		if harvest==false:
-			print("bruhballs")
-			$Timer.paused=true
-			$Timer.stop()
-		print("braaauh")
-		harvest=false
-
+				harvest = true
+				harvestArea = area
+				if $WorkTimer.is_stopped() == true||$WorkTimer.is_paused()==true:
+					$WorkTimer.wait_time = area.workTime
+					$WorkTimer.start()
+				if inventory < maxInventory && itemType == area.itemType && area.pickUp > 0 || inventory < maxInventory && itemType == null && area.pickUp > 0:
+					if itemType == null:
+						area.pickUp -= 1
+						inventory += 1
+						itemType = area.itemType
+					else: 
+						area.pickUp -= 1
+						inventory += 1
+						
+	
+	else:
+		harvest = false
+	
+	if harvest == false:
+		$WorkTimer.stop()
 
 func _on_Timer_timeout():
-	print("balls")
-	if $MouseOver.get_overlapping_areas() && targetPosition==null:
+	if $MouseOver.get_overlapping_areas() && targetPosition == null:
 			for area in $MouseOver.get_overlapping_areas():
 				if area.is_in_group("WorkSpace"):
-					if area==harvestArea:
+					if area == harvestArea:
 						area.Work()

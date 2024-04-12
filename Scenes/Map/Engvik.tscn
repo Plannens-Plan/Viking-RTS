@@ -24,7 +24,6 @@ texture = ExtResource( 2 )
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
-current = true
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )

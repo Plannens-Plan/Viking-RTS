@@ -38,8 +38,8 @@ collision_mask = 255
 visible = false
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="WorkTimer" type="Timer" parent="."]
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="WorkTimer" to="." method="_on_Timer_timeout"]
