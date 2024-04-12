@@ -4,6 +4,7 @@ onready var GlobalVariable= get_node("/root/GlobalVariables")
 var unlimited=false
 var ressourceAmmount = 500
 var harvestAmmount = 10
+var workTime = 1
 
 func Work():
 	var rngwood=RandomNumberGenerator.new()
