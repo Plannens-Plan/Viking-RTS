@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Level Objects/Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Level Objects/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/isometric_background.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Units/FriendlyUnit.tscn" type="PackedScene" id=4]
@@ -16,11 +16,20 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1000, 0 )
+motion_mirroring = Vector2( 3333, 2023 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 638, 379 )
 texture = ExtResource( 2 )
-centered = false
+
+[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 300 )
+current = true
+
+[node name="Wall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 511, 572 )
+
+[node name="BuildingSpawner" type="Node2D" parent="."]
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
