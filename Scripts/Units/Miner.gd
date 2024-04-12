@@ -3,10 +3,9 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if $MouseOver.get_overlapping_bodies():
-		for body in $MouseOver.get_overlapping_bodies():
-			if body.is_in_group("WorkSpace"):
-				body.Work()
+	if $MouseOver.get_overlapping_areas():
+		for area in $MouseOver.get_overlapping_areas():
+			if area.is_in_group("WorkSpace"):
+				area.Work()
 			else:
-				print ("no workspace")
-				print ($MouseOver.get_overlapping_bodies())
+				pass
