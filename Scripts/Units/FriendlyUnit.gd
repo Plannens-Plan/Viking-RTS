@@ -10,6 +10,7 @@ var targetReachedThreshold = 5.0
 var targetPosition = Vector2.ZERO
 
 func _ready():
+	targetPosition=null
 	pass
 
 func _physics_process(delta):
@@ -56,4 +57,5 @@ func targetLocation(delta):
 			# acceleration * friction
 		if velocity.length_squared() < 1:
 			target = false
+			targetPosition = null
 			velocity = Vector2.ZERO
