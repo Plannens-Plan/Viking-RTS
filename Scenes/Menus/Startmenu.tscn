@@ -11,7 +11,6 @@ margin_bottom = 599.0
 color = Color( 0.305882, 0.407843, 0.564706, 1 )
 
 [node name="MenuButtons" type="ColorRect" parent="Background"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -90,6 +89,7 @@ margin_bottom = -25.5
 text = "This field can't be empty!"
 
 [node name="Loadgame" type="ColorRect" parent="Background"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
