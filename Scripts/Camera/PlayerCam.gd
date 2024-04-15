@@ -4,24 +4,19 @@ var holdingLeft = false
 var holdingRight = false
 var holdingUp = false
 var holdingDown = false
-var cameraSpeed = 20
+var baseCameraSpeed = 20
+var cameraSpeed = 0
+var zoomValue = 1.2
+var zoomMax = 3
+var zoomMin = 0.2
 
 func _ready():
 	pass 
 
-func _input(event):
-	if event.is_action_pressed("cam right"):
-		position.x = position.x + 20
-
-	if event.is_action_pressed("cam up"):
-		position.y = position.y - 20
-
-	if event.is_action_pressed("cam down"):
-		position.y = position.y + 20
-
 func _physics_process(delta):
 	inputChecker()
 	inputHandler()
+	cameraSpeed=baseCameraSpeed*zoom.x
 
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):
@@ -32,6 +27,12 @@ func inputChecker():
 		holdingUp = true
 	if Input.is_action_just_pressed("cam down"):
 		holdingDown = true
+	if Input.is_action_just_released("zoom in"):
+		if zoom.x<zoomMax:
+			zoom*=zoomValue
+	if Input.is_action_just_released("zoom out"):
+		if zoom.x>zoomMin:
+			zoom/=zoomValue
 
 func inputHandler():
 	leftHeld()
