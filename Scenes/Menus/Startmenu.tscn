@@ -11,6 +11,7 @@ margin_bottom = 599.0
 color = Color( 0.305882, 0.407843, 0.564706, 1 )
 
 [node name="MenuButtons" type="ColorRect" parent="Background"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -37,7 +38,6 @@ margin_bottom = 349.0
 text = "Quit game"
 
 [node name="Newgame" type="ColorRect" parent="Background"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -87,6 +87,19 @@ margin_top = -49.5
 margin_right = 80.5
 margin_bottom = -25.5
 text = "This field can't be empty!"
+
+[node name="Warning2" type="RichTextLabel" parent="Background/Newgame"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.5
+margin_top = -64.5
+margin_right = 80.5
+margin_bottom = -34.5
+text = "You already have a save with this name"
 
 [node name="Loadgame" type="ColorRect" parent="Background"]
 visible = false
@@ -151,5 +164,6 @@ text = "Select save"
 [connection signal="pressed" from="Background/MenuButtons/quit game" to="." method="_on_quit_game_pressed"]
 [connection signal="pressed" from="Background/Newgame/Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="Background/Newgame/Start game" to="." method="_on_Start_game_pressed"]
+[connection signal="text_changed" from="Background/Newgame/Savenametext" to="." method="_on_Savenametext_text_changed"]
 [connection signal="pressed" from="Background/Loadgame/Backbutton" to="." method="_on_Backbutton_pressed2"]
 [connection signal="pressed" from="Background/Loadgame/Load game" to="." method="_on_Load_savegame_pressed"]

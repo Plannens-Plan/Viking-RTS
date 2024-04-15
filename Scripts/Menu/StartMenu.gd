@@ -66,13 +66,23 @@ func _on_Backbutton_pressed():
 	pass # Replace with function body.
 
 func _on_Start_game_pressed():
+	var file = File.new()
 	if input_text.text=="":
 		$Background/Newgame/Warning.show()
+		return
+	if file.file_exists(savedir + input_text.text + ".dat"):
+		$Background/Newgame/Warning2.show()
 		return
 	GlobalVariable.VikingRts.savename=input_text.text
 	get_tree().change_scene(startgamepath)
 	pass # Replace with function body.
 
+func _on_Savenametext_text_changed(new_text):
+	if $Background/Newgame/Warning.visible:
+		$Background/Newgame/Warning.hide()
+	if $Background/Newgame/Warning2.visible:
+		$Background/Newgame/Warning2.hide()
+	pass # Replace with function body.
 #Load game functions
 
 func _on_Backbutton_pressed2():
@@ -102,3 +112,6 @@ func _on_Load_savegame_pressed():
 				GlobalVariable.VikingRts[key]=dict[key]
 	get_tree().change_scene(startgamepath)
 	
+
+
+

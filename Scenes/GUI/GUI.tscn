@@ -74,4 +74,6 @@ margin_left = 60.0
 margin_right = 100.0
 margin_bottom = 24.0
 
+[node name="Pausemenu" type="CanvasLayer" parent="."]
+
 [connection signal="pressed" from="BarrackBuild/Button" to="." method="_on_Button_pressed"]
