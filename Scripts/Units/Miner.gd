@@ -4,13 +4,12 @@ func _ready():
 
 var harvest =false
 var harvestArea
-
 var inventory = 0
 var maxInventory = 10000
 var itemType = null
 
 func _physics_process(delta):
-	if $MouseOver.get_overlapping_areas() == null:
+	if $MouseOver.get_overlapping_areas() && targetPosition == null:
 		for area in $MouseOver.get_overlapping_areas():
 			if area.is_in_group("WorkSpace"):
 				harvest = true
@@ -35,7 +34,7 @@ func _physics_process(delta):
 		$WorkTimer.stop()
 
 func _on_Timer_timeout():
-	if $MouseOver.get_overlapping_areas()== null:
+	if $MouseOver.get_overlapping_areas() && targetPosition == null:
 			for area in $MouseOver.get_overlapping_areas():
 				if area.is_in_group("WorkSpace"):
 					if area == harvestArea:
