@@ -29,3 +29,5 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]

@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+onready var navigation_agent = $NavigationAgent2D
 # Movement
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
+var direction = Vector2.ZERO
+var did_arrive = false
 
 # Default unit stats
 var moveSpeed = 100
@@ -18,12 +21,24 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	pass
+	if is_instance_valid(navigation_agent):
+		direction = position.direction_to(navigation_agent.get_next_location())
+		velocity = direction * moveSpeed
+		navigation_agent.set_velocity(velocity)
 
-func stopOnCollision():
-	if is_on_wall():
-		acceleration.x = 0
-		velocity.x = 0
+func _arrived_at_location() -> bool:
+	return navigation_agent.is_navigation_finished()
+
+func set_target_location(target:Vector2):
+	navigation_agent.set_target_location(target)
+
+func _on_NavigationAgent2D_velocity_computed(safe_velocity):
+	if not _arrived_at_location():
+		velocity = move_and_slide(safe_velocity)
+	elif not did_arrive:
+		did_arrive = true
+		emit_signal("path_changed", [])
+		emit_signal("targed_reached")
 
 func setHealth(newHealth):
 	health = newHealth
