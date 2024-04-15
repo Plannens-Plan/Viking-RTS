@@ -1,10 +1,13 @@
 extends Camera2D
 
+#cam movement
 var holdingLeft = false
 var holdingRight = false
 var holdingUp = false
 var holdingDown = false
 var baseCameraSpeed = 20
+
+#cam zoom
 var cameraSpeed = 0
 var zoomValue = 1.2
 var zoomMax = 3
