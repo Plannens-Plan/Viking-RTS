@@ -6,21 +6,24 @@ var mouseOver = false
 
 # Unit ordering
 var target = false
-var targetReachedThreshold = 5.0
+var slowDown = false
+var targetReachedThreshold = 15.0
+var direction = Vector2.ZERO
 var targetPosition = Vector2.ZERO
 
 func _ready():
-	targetPosition=null
 	pass
 
 func _physics_process(delta):
 	targetLocation(delta)
+	slowAccel()
 	if !selected:
 		$Sprite.material = null
 	else:
 		# Give outline
 		$Sprite.material = load("res://Assets/Materials/Outline.tres")
-		
+	print(acceleration.length() )
+
 func _on_Area2D_mouse_entered():
 	mouseOver = true
 
@@ -35,27 +38,21 @@ func _input(event):
 		selected = mouseOver
 
 	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
+		slowDown = false
 		targetPosition = get_global_mouse_position()
-		target = true
-
-func targetLocation(delta):
-	if target:
-		var direction = (targetPosition - position).normalized()
-		# Calculate acceleration
+		direction = (targetPosition - position).normalized()
 		acceleration = moveSpeed * direction
 
-		# Update velocity
-		velocity += acceleration * delta
+func targetLocation(delta):
+		velocity += acceleration
 		
 		velocity.x = lerp(velocity.x, 0, friction)
 		velocity.y = lerp(velocity.y, 0, friction)
 		
 		move_and_slide(velocity)
-
-		# Check if target is reached
-		# if position.distance_to(targetPosition) < targetReachedThreshold:
-			# acceleration * friction
-		if velocity.length_squared() < 1:
-			target = false
-			targetPosition = null
-			velocity = Vector2.ZERO
+		if targetPosition != null && position.distance_to(targetPosition) < targetReachedThreshold:
+			slowDown = true
+			
+func slowAccel():
+	if (slowDown):
+		acceleration *= 0.9
