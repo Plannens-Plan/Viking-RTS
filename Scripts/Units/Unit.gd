@@ -21,7 +21,6 @@ onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
 
 func _ready():
 	$HealthBar.max_value = health
-	$HealthBar.value = health
 
 func _physics_process(delta):
 	if is_instance_valid(navigation_agent):
