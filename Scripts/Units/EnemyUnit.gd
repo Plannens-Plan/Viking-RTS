@@ -12,6 +12,7 @@ func Attack():
 			if body.is_in_group("friendlyUnit"):
 				body.setHealth(body.health - attackDamage)
 				$AttackTimer.start()
+				return
 
 func TargetingFriendly():
 	

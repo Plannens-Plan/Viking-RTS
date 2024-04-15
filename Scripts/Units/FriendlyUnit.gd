@@ -15,7 +15,6 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print(health)
 	targetLocation(delta)
 	slowAccel()
 	if !selected:
@@ -23,7 +22,6 @@ func _physics_process(delta):
 	else:
 		# Give outline
 		$Sprite.material = load("res://Assets/Materials/Outline.tres")
-	print(acceleration.length() )
 
 func _on_Area2D_mouse_entered():
 	mouseOver = true
