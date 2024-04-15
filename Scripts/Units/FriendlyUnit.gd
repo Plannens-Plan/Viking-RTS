@@ -5,7 +5,7 @@ var selected = false
 var mouseOver = false
 
 func _ready():
-	pass
+	set_target_location(position)
 
 func _physics_process(delta):
 	if !selected:
