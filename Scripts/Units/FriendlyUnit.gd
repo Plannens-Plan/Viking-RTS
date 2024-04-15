@@ -15,6 +15,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	print(health)
 	targetLocation(delta)
 	slowAccel()
 	if !selected:

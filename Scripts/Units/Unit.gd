@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-# Constants
-
 # Movement
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
@@ -24,3 +22,14 @@ func stopOnCollision():
 	if is_on_wall():
 		acceleration.x = 0
 		velocity.x = 0
+
+func setHealth(newHealth):
+	health = newHealth
+	if health <= 0:
+		die()
+
+func die():
+	$DeathSound.play()
+	while rotation_degrees < 90:
+		rotate(1)
+	queue_free()

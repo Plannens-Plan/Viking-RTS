@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/male_scream.mp3-c7fb30d1a9daf7deb49f72971e10b88f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/male_scream.mp3"
+dest_files=[ "res://.import/male_scream.mp3-c7fb30d1a9daf7deb49f72971e10b88f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
