@@ -18,6 +18,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	setHealth(health - 1)
 	pass
 
 func stopOnCollision():
@@ -33,6 +34,8 @@ func setHealth(newHealth):
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
+	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
+	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
