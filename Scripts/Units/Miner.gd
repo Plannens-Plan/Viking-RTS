@@ -26,7 +26,6 @@ func _physics_process(delta):
 					else: 
 						area.pickUp -= 1
 						inventory += 1
-						print(_arrived_at_location())
 	
 	else:
 		harvest = false
