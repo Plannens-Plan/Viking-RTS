@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GUI/ResouceDisplay.gd" type="Script" id=2]
 
 [node name="GUI" type="Control"]
 margin_right = 40.0
@@ -15,5 +16,62 @@ margin_top = 505.0
 margin_right = 251.0
 margin_bottom = 525.0
 text = "Build mother fucker"
+
+[node name="ResouceDisplay" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
+
+[node name="Panel" type="PanelContainer" parent="ResouceDisplay"]
+margin_left = 773.0
+margin_top = 499.0
+margin_right = 1023.0
+margin_bottom = 599.0
+
+[node name="Wood" type="RichTextLabel" parent="ResouceDisplay"]
+margin_left = 780.0
+margin_top = 506.0
+margin_right = 1016.0
+margin_bottom = 592.0
+text = "Wood"
+
+[node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Wood"]
+margin_left = 60.0
+margin_right = 100.0
+margin_bottom = 24.0
+
+[node name="Stone" type="RichTextLabel" parent="ResouceDisplay"]
+margin_left = 780.0
+margin_top = 524.0
+margin_right = 890.0
+margin_bottom = 548.0
+text = "Stone"
+
+[node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Stone"]
+margin_left = 60.0
+margin_right = 100.0
+margin_bottom = 24.0
+
+[node name="Silver" type="RichTextLabel" parent="ResouceDisplay"]
+margin_left = 780.0
+margin_top = 542.0
+margin_right = 890.0
+margin_bottom = 566.0
+text = "Silver"
+
+[node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Silver"]
+margin_left = 60.0
+margin_right = 100.0
+margin_bottom = 24.0
+
+[node name="Food" type="RichTextLabel" parent="ResouceDisplay"]
+margin_left = 780.0
+margin_top = 560.0
+margin_right = 890.0
+margin_bottom = 584.0
+text = "Food"
+
+[node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Food"]
+margin_left = 60.0
+margin_right = 100.0
+margin_bottom = 24.0
 
 [connection signal="pressed" from="BarrackBuild/Button" to="." method="_on_Button_pressed"]
