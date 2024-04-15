@@ -4,6 +4,7 @@ onready var attackArea = $AttackArea
 onready var attackTimer = $AttackTimer
 
 # Unit selection
+
 var selected = false
 var mouseOver = false
 
@@ -20,6 +21,8 @@ func _ready():
 	attackTimer.one_shot=true
 	attackTimer.start()
 	pass
+func _ready():
+	set_target_location(position)
 
 func Attack():
 	if attackArea.get_overlapping_bodies().size()>0 && attackTimer.time_left <= 0:
@@ -30,32 +33,24 @@ func Attack():
 				return
 
 func _physics_process(delta):
-	targetLocation(delta)
-	slowAccel()
 	if !selected:
 		$Sprite.material = null
 	else:
 		# Give outline
 		$Sprite.material = load("res://Assets/Materials/Outline.tres")
-
+	
 func _on_Area2D_mouse_entered():
 	mouseOver = true
 
 func _on_Area2D_mouse_exited():
 	mouseOver = false
 
-
-
-
 func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 1:
 		selected = mouseOver
 
 	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
-		slowDown = false
-		targetPosition = get_global_mouse_position()
-		direction = (targetPosition - position).normalized()
-		acceleration = moveSpeed * direction
+		set_target_location(get_global_mouse_position())
 
 func targetLocation(delta):
 		velocity += acceleration
@@ -71,3 +66,6 @@ func slowAccel():
 	if (slowDown):
 		acceleration *= 0.9
 
+
+func _on_NavigationAgent2D_target_reached():
+	pass # Replace with function body.
