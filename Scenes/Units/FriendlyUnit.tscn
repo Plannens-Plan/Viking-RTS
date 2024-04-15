@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Units/FriendlyUnit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/for_honor_viking.png" type="Texture" id=2]
-[ext_resource path="res://Sounds/Units/dirt_impact2.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 35.0
@@ -24,10 +23,6 @@ region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 6 )
 shape = SubResource( 4 )
-
-[node name="DirtImpact" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-volume_db = -10.0
 
 [node name="MouseOver" type="Area2D" parent="."]
 
