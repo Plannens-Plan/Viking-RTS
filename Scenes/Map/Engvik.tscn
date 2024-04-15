@@ -25,6 +25,7 @@ texture = ExtResource( 2 )
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
+current = true
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
@@ -43,15 +44,6 @@ margin_right = 251.0
 margin_bottom = 525.0
 text = "Build mother fucker"
 
-[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 300 )
-current = true
-
-[node name="Ground" parent="." instance=ExtResource( 1 )]
-position = Vector2( 511, 572 )
-
-[node name="BuildingSpawner" type="Node2D" parent="."]
-
 [node name="Barracks" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
@@ -64,9 +56,6 @@ position = Vector2( 950, 11 )
 
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 280, 325 )
-
-[node name="Stone2" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
-position = Vector2( 280, 386 )
 
 [node name="Enemy" type="Node" parent="."]
 

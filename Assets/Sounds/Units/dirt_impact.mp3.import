@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dirt_impact.mp3-e5bc9723f37bbfc53d8cfa74f5789815.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/dirt_impact.mp3"
+dest_files=[ "res://.import/dirt_impact.mp3-e5bc9723f37bbfc53d8cfa74f5789815.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
