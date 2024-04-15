@@ -18,5 +18,4 @@ func _physics_process(delta):
 		rotate(0.05)
 	$Sprite.modulate.a -= 0.005
 	if !$DeathSound.playing and rotation_degrees >= 90 and $Sprite.modulate.a <= 0:
-		print("death")
 		queue_free()
