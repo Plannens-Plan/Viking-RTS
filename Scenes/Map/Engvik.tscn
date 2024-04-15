@@ -22,6 +22,10 @@ motion_mirroring = Vector2( 3333, 2023 )
 position = Vector2( 638, 379 )
 texture = ExtResource( 2 )
 
+[node name="Structure menus" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
 
@@ -30,12 +34,14 @@ position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="."]
+[node name="GUI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 8 )
 
-[node name="Button" type="Button" parent="Control"]
+[node name="BarrackBuild" type="CanvasLayer" parent="GUI"]
+
+[node name="Button" type="Button" parent="GUI/BarrackBuild"]
 margin_left = 68.0
 margin_top = 505.0
 margin_right = 251.0
@@ -50,8 +56,6 @@ current = true
 position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
-
-[node name="Barracks" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
 
@@ -79,7 +83,9 @@ position = Vector2( 687, 314 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
 
-[node name="Miner" parent="." instance=ExtResource( 10 )]
-position = Vector2( 413, 267 )
+[node name="Mine1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 467, 434 )
 
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
+[node name="Miner" type="Node" parent="."]
+
+[connection signal="pressed" from="GUI/BarrackBuild/Button" to="GUI" method="_on_Button_pressed"]
