@@ -6,7 +6,6 @@ onready var previewBarrack = preload("res://Scenes/Structures/Barracks.tscn").in
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	
 	pass # Replace with function body.
 
 
@@ -27,10 +26,10 @@ func previewbuild():
 	previewBarrack.position = mousePos
 
 func build():
-	if(Input.is_action_just_pressed("leftClick")):
+	if(Input.is_action_just_released("leftClick")):
 		var newBarrack = load("res://Scenes/Structures/Barracks.tscn").instance()
 		add_child(newBarrack)
-		print("bruh")
+		newBarrack.buildingPlaced = true
 		var mousePos = get_global_mouse_position()
 		newBarrack.position = mousePos
 		buildingMode = !buildingMode 

@@ -6,6 +6,7 @@ onready var dropmenu : MenuButton  = get_node("Background/Loadgame/PanelContaine
 
 onready var dir = Directory.new()
 onready var savedir="user://Saves/"
+onready var startgamepath="res://Scenes/Map/Engvik.tscn"
 
 func _ready():
 	if dropmenu.get_popup().items.size()>0:
@@ -69,7 +70,7 @@ func _on_Start_game_pressed():
 		$Background/Newgame/Warning.show()
 		return
 	GlobalVariable.VikingRts.savename=input_text.text
-	get_tree().change_scene("res://Scenes/Map/Engvik.tscn")
+	get_tree().change_scene(startgamepath)
 	pass # Replace with function body.
 
 #Load game functions
@@ -99,5 +100,5 @@ func _on_Load_savegame_pressed():
 
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
-	get_tree().change_scene("res://Scenes/Map/Engvik.tscn")
+	get_tree().change_scene(startgamepath)
 	

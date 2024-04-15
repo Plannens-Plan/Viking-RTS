@@ -13,6 +13,7 @@ var attackDamage = 25
 var attackSpeed = 1
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
+onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
 
 func _ready():
 	pass
@@ -28,6 +29,11 @@ func stopOnCollision():
 
 func setHealth(newHealth):
 	health = newHealth
+	var bloodParticleInstance = bloodParticle.instance()
+	bloodParticleInstance.emitting=true
+	add_child(bloodParticleInstance)
+	move_child(bloodParticleInstance,1)
+	print(bloodParticleInstance)
 	if health <= 0:
 		die()
 
