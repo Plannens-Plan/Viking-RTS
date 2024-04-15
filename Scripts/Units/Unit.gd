@@ -10,11 +10,10 @@ var maxSpeed = 100
 var friction = 0.5
 var health = 100
 var attackDamage = 25
-var attackSpeed = 1.0
+var attackSpeed = 1
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
-
 
 func _ready():
 	pass
