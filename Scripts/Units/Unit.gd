@@ -16,7 +16,6 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	setHealth(health - 1)
 	pass
 
 func stopOnCollision():
