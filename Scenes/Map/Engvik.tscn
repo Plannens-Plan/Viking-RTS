@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/Miner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Units/EnemyUnit.tscn" type="PackedScene" id=11]
@@ -28,26 +28,28 @@ motion_mirroring = Vector2( 3333, 2023 )
 position = Vector2( 638, 379 )
 texture = ExtResource( 2 )
 
+[node name="Structure menus" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
-current = true
+
+[node name="GUI" parent="." instance=ExtResource( 8 )]
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 8 )
+[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 300 )
+current = true
 
-[node name="Button" type="Button" parent="Control"]
-margin_left = 68.0
-margin_top = 505.0
-margin_right = 251.0
-margin_bottom = 525.0
-text = "Build mother fucker"
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 511, 572 )
+
+[node name="BuildingSpawner" type="Node2D" parent="."]
 
 [node name="Barracks" type="Node" parent="."]
 
@@ -82,7 +84,7 @@ position = Vector2( 413, 267 )
 position = Vector2( 207, 145 )
 
 [node name="FriendlyUnit2" parent="FriendlyUnits" instance=ExtResource( 4 )]
-position = Vector2( 687, 314 )
+position = Vector2( 83, 148 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -90,4 +92,7 @@ visible = false
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 1 )
 
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
+[node name="Mine1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 467, 434 )
+
+[node name="Miner" type="Node" parent="."]

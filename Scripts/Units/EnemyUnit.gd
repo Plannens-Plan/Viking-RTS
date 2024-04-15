@@ -10,8 +10,9 @@ func Attack():
 	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
 			if body.is_in_group("friendlyUnit"):
-				body.health -= attackDamage
+				body.setHealth(body.health - attackDamage)
 				$AttackTimer.start()
+				return
 
 func TargetingFriendly():
 	

@@ -16,6 +16,7 @@ var attackDamage = 25
 var attackSpeed = 1
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
+onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
 
 func _ready():
 	pass
@@ -25,6 +26,9 @@ func _physics_process(delta):
 		direction = position.direction_to(navigation_agent.get_next_location())
 		velocity = direction * moveSpeed
 		navigation_agent.set_velocity(velocity)
+		
+	if $HealthBar.value != health:
+		$HealthBar.value = lerp($HealthBar.value, health, 0.1)
 
 func _arrived_at_location() -> bool:
 	return navigation_agent.is_navigation_finished()
@@ -42,12 +46,19 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 
 func setHealth(newHealth):
 	health = newHealth
+	var bloodParticleInstance = bloodParticle.instance()
+	bloodParticleInstance.emitting=true
+	add_child(bloodParticleInstance)
+	move_child(bloodParticleInstance,1)
+	print(bloodParticleInstance)
 	if health <= 0:
 		die()
 
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
+	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
+	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
