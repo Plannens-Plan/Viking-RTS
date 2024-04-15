@@ -10,8 +10,6 @@ func _ready():
 	$Sprite.scale.x = unitSpriteWidth
 	$Sprite.scale.y = unitSpriteHeight
 	$DeathSound.play()
-	
-	pass
 
 func _physics_process(delta):
 	if rotation_degrees < 90:
