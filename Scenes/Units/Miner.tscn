@@ -11,7 +11,7 @@ radius = 35.0
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 41.5, 61 )
 
-[node name="Miner" type="KinematicBody2D" groups=["friendlyUnit", "unit"]]
+[node name="Miner" type="KinematicBody2D" groups=["friendlyUnit", "harvester", "unit"]]
 collision_layer = 2
 script = ExtResource( 1 )
 
