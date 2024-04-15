@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/Miner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Units/EnemyUnit.tscn" type="PackedScene" id=11]
@@ -29,26 +29,13 @@ margin_bottom = 40.0
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
-current = true
+
+[node name="GUI" parent="." instance=ExtResource( 8 )]
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
-
-[node name="GUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 8 )
-
-[node name="BarrackBuild" type="CanvasLayer" parent="GUI"]
-
-[node name="Button" type="Button" parent="GUI/BarrackBuild"]
-margin_left = 68.0
-margin_top = 505.0
-margin_right = 251.0
-margin_bottom = 525.0
-text = "Build mother fucker"
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
@@ -58,6 +45,7 @@ current = true
 position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
+
 [node name="Barracks" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
@@ -93,6 +81,3 @@ position = Vector2( 687, 314 )
 position = Vector2( 467, 434 )
 
 [node name="Miner" type="Node" parent="."]
-
-[connection signal="pressed" from="GUI/BarrackBuild/Button" to="GUI" method="_on_Button_pressed"]
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
