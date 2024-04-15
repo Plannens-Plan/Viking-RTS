@@ -84,7 +84,6 @@ func die():
 	queue_free()
 
 func _on_MouseOver_mouse_entered():
-	print("bruh")
 	mouseOver = true
 
 func _on_MouseOver_mouse_exited():
