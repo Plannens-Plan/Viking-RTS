@@ -19,7 +19,7 @@ onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
 
 func _ready():
-	pass
+	$HealthBar.max_value = health
 
 func _physics_process(delta):
 	if is_instance_valid(navigation_agent):
