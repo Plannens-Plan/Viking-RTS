@@ -14,6 +14,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	print(health)
 	targetLocation(delta)
 	if !selected:
 		$Sprite.material = null
