@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Units/FriendlyUnit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/for_honor_viking.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 35.0
 height = 48.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 41.5, 61 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41.5, 61 )
@@ -23,6 +26,13 @@ region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 6 )
 shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource( 5 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 

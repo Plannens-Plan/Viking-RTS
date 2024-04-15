@@ -1,17 +1,20 @@
 extends "res://Scripts/Units/Unit.gd"
 
+onready var attackArea = $AttackArea
+onready var attackTimer = $AttackTimer
+
 func _ready():
-	$AttackTimer.wait_time = attackSpeed
-	$AttackTimer.one_shot=true
-	$AttackTimer.start()
+	attackTimer.wait_time = attackSpeed
+	attackTimer.one_shot=true
+	attackTimer.start()
 	pass
 
 func Attack():
-	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
-		for body in $AttackArea.get_overlapping_bodies():
+	if attackArea.get_overlapping_bodies().size()>0 && attackTimer.time_left <= 0:
+		for body in attackArea.get_overlapping_bodies():
 			if body.is_in_group("friendlyUnit"):
 				body.setHealth(body.health - attackDamage)
-				$AttackTimer.start()
+				attackTimer.start()
 				return
 
 func TargetingFriendly():
