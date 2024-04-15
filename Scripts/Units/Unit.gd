@@ -18,7 +18,16 @@ var attackSpeed = 1
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
 
+# Unit selection
+var selected = false
+var mouseOver = false
+
+# Health bar
+var healthBarFadeSpeed = 0.1
+var healthBarProgressSpeed = 0.1
+
 func _ready():
+	# Set health bar to correct values
 	$HealthBar.max_value = health
 	$HealthBar.value = health
 
@@ -27,9 +36,17 @@ func _physics_process(delta):
 		direction = position.direction_to(navigation_agent.get_next_location())
 		velocity = direction * moveSpeed
 		navigation_agent.set_velocity(velocity)
-		
+	
+	# Slowly approach correct health value on health bar
 	if $HealthBar.value != health:
-		$HealthBar.value = lerp($HealthBar.value, health, 0.1)
+		$HealthBar.value = lerp($HealthBar.value, health, healthBarProgressSpeed)
+	
+	# Health bar fade in if recently hit
+	if $HealthBarTimer.time_left > 0 or mouseOver:
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
+	# Healh bar fade out if not hit and not selected
+	elif !selected:
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
 
 func _arrived_at_location() -> bool:
 	return navigation_agent.is_navigation_finished()
@@ -52,6 +69,7 @@ func setHealth(newHealth):
 	add_child(bloodParticleInstance)
 	move_child(bloodParticleInstance,1)
 	print(bloodParticleInstance)
+	$HealthBarTimer.start()
 	if health <= 0:
 		die()
 
@@ -64,3 +82,10 @@ func die():
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
 	queue_free()
+
+func _on_MouseOver_mouse_entered():
+	print("bruh")
+	mouseOver = true
+
+func _on_MouseOver_mouse_exited():
+	mouseOver = false

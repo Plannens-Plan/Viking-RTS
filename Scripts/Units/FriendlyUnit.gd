@@ -1,8 +1,4 @@
 extends "res://Scripts/Units/Unit.gd"
-# Unit selection
-
-var selected = false
-var mouseOver = false
 
 func _ready():
 	set_target_location(position)
@@ -10,17 +6,11 @@ func _ready():
 func _physics_process(delta):
 	if !selected:
 		$Sprite.material = null
-		$HealthBar.hide()
 	else:
 		# Give outline
 		$Sprite.material = load("res://Assets/Materials/Outline.tres")
-		$HealthBar.show()
-	
-func _on_Area2D_mouse_entered():
-	mouseOver = true
-
-func _on_Area2D_mouse_exited():
-	mouseOver = false
+		# Fade in to show health bar
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
 
 func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 1:
