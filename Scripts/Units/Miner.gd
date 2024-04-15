@@ -15,7 +15,7 @@ func _physics_process(delta):
 			if area.is_in_group("WorkSpace"):
 				harvest = true
 				harvestArea = area
-				if $WorkTimer.is_stopped() == true||$WorkTimer.is_paused()==true:
+				if $WorkTimer.is_stopped() == true || $WorkTimer.is_paused()==true:
 					$WorkTimer.wait_time = area.workTime
 					$WorkTimer.start()
 				if inventory < maxInventory && itemType == area.itemType && area.pickUp > 0 || inventory < maxInventory && itemType == null && area.pickUp > 0:
