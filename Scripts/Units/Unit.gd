@@ -18,7 +18,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	pass
+	if $HealthBar.value != health:
+		$HealthBar.value = lerp($HealthBar.value, health, 0.1)
 
 func stopOnCollision():
 	if is_on_wall():

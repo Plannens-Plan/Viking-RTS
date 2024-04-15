@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Units/FriendlyUnit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/for_honor_viking.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 35.0
@@ -29,6 +31,17 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
 shape = SubResource( 1 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -87.0
+margin_top = -100.0
+margin_right = 409.0
+margin_bottom = 60.0
+rect_scale = Vector2( 0.3, 0.3 )
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+texture_progress_offset = Vector2( 152, 0 )
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_Area2D_mouse_exited"]
