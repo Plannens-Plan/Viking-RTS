@@ -71,7 +71,7 @@ func leftHeld():
 		return
 
 func rightHeld():
-	if holdingRight == true && position.x < mapSize.x:# - (get_viewport().size.x * zoomValue) / 2:
+	if holdingRight == true && position.x < mapSize.x:	# - (get_viewport().size.x * zoomValue) / 2:
 		acceleration.x = min(acceleration.x + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam right"):
 		holdingRight = false
