@@ -9,8 +9,6 @@ onready var GlobalVariable = get_node("/root/GlobalVariables")
 func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:
 		$Panel.visible = !$Panel.visible
-	pass
-
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("unit"):
@@ -27,7 +25,6 @@ func unitCollision():
 		else:
 			unitsInside = false
 
-
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("unit"):
 		unitsInside = false
@@ -36,7 +33,6 @@ func _on_Area2D_body_exited(body):
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
 	# Do something when the timer times out
-
 
 func _on_PurchaseSword_pressed():
 	var timer
@@ -61,8 +57,6 @@ func _on_PurchaseSword_pressed():
 			timer.start()
 			$CanvasLayer/NoRoomMessage.show()
 			print("bruh")
-	pass # Replace with function body.
-
 
 func _on_PurchaseMiner_pressed():
 	var timer
@@ -86,4 +80,3 @@ func _on_PurchaseMiner_pressed():
 			add_child(timer)
 			timer.start()
 			$CanvasLayer/NoRoomMessage.show()
-	pass # Replace with function body.
