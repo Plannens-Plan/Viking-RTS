@@ -15,7 +15,9 @@ export var VikingRts={
 		food=0,
 		stone=0,
 		silver=0
-	}
+	},
+	units=[],
+	structures=[]
 }
 
 export var Default={
@@ -25,5 +27,7 @@ export var Default={
 		food=0,
 		stone=0,
 		silver=0
-	}
+	},
+	units=[],
+	structures=[]
 }

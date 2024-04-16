@@ -50,7 +50,7 @@ position = Vector2( 511, 572 )
 
 [node name="BuildingSpawner" type="Node2D" parent="."]
 
-[node name="Barracks" type="Node" parent="."]
+[node name="Structures" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
 
