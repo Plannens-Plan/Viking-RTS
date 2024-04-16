@@ -101,3 +101,21 @@ expand = true
 visible = false
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Units" type="Node" parent="."]
+
+[node name="EnemyUnits" type="Node" parent="Units"]
+
+[node name="EnemyUnit" parent="Units/EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 208, 120 )
+
+[node name="FriendlyUnits" type="Node" parent="Units"]
+
+[node name="Miner" parent="Units/FriendlyUnits" instance=ExtResource( 10 )]
+position = Vector2( 439, 342 )
+
+[node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 133, 126 )
+
+[node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 116, 291 )
