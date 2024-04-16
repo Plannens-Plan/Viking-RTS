@@ -7,6 +7,8 @@
 extents = Vector2( 109, 99 )
 
 [node name="Area2D" type="Area2D" groups=["Building"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="Barrack" type="Sprite" parent="."]
@@ -59,8 +61,6 @@ margin_right = 155.0
 margin_bottom = 85.0
 text = "Miners??!!!?!!!"
 
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
 [connection signal="pressed" from="CollisionShape2D/PurchaseTroop" to="." method="_on_PurchaseTroop_pressed"]
 [connection signal="pressed" from="Panel/PurchaseSword" to="." method="_on_PurchaseSword_pressed"]
 [connection signal="pressed" from="Panel/PurchaseMiner" to="." method="_on_PurchaseMiner_pressed"]

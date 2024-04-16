@@ -49,16 +49,16 @@ position = Vector2( 511, 572 )
 
 [node name="Structures" type="Node" parent="."]
 
-[node name="Resources" type="Node" parent="." groups=["Workspace"]]
-
-[node name="Food" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 417, 60 )
+[node name="Resources" type="Node" parent="." groups=["Terrain", "Workspace"]]
 
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 950, 11 )
 
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 280, 325 )
+
+[node name="Food" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 417, 60 )
 
 [node name="Enemy" type="Node" parent="."]
 
