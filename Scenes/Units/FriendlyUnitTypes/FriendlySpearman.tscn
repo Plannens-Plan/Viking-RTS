@@ -5,9 +5,8 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Units/FriendlySpearman.gd" type="Script" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 35.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 19.5, 31.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -29,8 +28,8 @@ region_enabled = true
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 6 )
-shape = SubResource( 1 )
+position = Vector2( 1.5, 12.5 )
+shape = SubResource( 4 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 
