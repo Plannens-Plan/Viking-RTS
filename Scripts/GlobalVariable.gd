@@ -8,8 +8,6 @@ extends Node
 #lav data her
 #export var yyy = xxx
 
-export var mapScaledDifference = 0
-
 export var VikingRts={
 	savename="",
 	resources={
