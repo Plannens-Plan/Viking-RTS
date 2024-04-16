@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/LevelObjects/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/isometric_background.jpg" type="Texture" id=2]
@@ -14,20 +14,25 @@
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Images/Backgrounds/ddu.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Environments/Engvik.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Environments/Engvik2.png" type="Texture" id=16]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 1041, 12, 1273, 410, 1261, 665, 1078, 880, 671, 1168, -637, 1023, -941, 188, -264, -291 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ) ]
-outlines = [ PoolVector2Array( -264, -291, -941, 188, -637, 1023, 671, 1168, 1078, 880, 1261, 665, 1273, 410, 1041, 12 ) ]
+vertices = PoolVector2Array( 1172, -665, 1771, -665, 1767, 24, 1253, 724, 869, -625, 1764, 720, -644, 1047, -1253, 976, -1263, -423, -52, -521, -231, 936, 82, 1067, 731, 905, 1142, 875, 502, 1043 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 2, 5, 3 ), PoolIntArray( 6, 7, 8, 9, 10 ), PoolIntArray( 11, 10, 9, 4, 3, 12 ), PoolIntArray( 3, 13, 12 ), PoolIntArray( 11, 12, 14 ) ]
+outlines = [ PoolVector2Array( -52, -521, -1263, -423, -1253, 976, -644, 1047, -231, 936, 82, 1067, 502, 1043, 731, 905, 1142, 875, 1253, 724, 1764, 720, 1767, 24, 1771, -665, 1172, -665, 869, -625 ) ]
 
 [node name="Engvik" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 3333, 2023 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
 position = Vector2( 638, 379 )
 texture = ExtResource( 2 )
 
@@ -52,23 +57,23 @@ position = Vector2( 511, 572 )
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
 
 [node name="Food" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 417, 60 )
+position = Vector2( 527, 33 )
 
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
-position = Vector2( 950, 11 )
+position = Vector2( 833, 32 )
 
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
-position = Vector2( 280, 325 )
+position = Vector2( 682, 33 )
 
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyUnit" parent="Enemy" instance=ExtResource( 11 )]
-position = Vector2( 208, 120 )
+position = Vector2( 230, 275 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
 [node name="FriendlyMiner" parent="FriendlyUnits" instance=ExtResource( 10 )]
-position = Vector2( 439, 342 )
+position = Vector2( 499, 407 )
 
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 133, 126 )
@@ -80,14 +85,13 @@ position = Vector2( 116, 291 )
 visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-visible = false
 position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
 
 [node name="FriendlyMiner" type="Node" parent="."]
 
 [node name="Deposit" parent="." instance=ExtResource( 12 )]
-position = Vector2( 555, 281 )
+position = Vector2( 838, 105 )
 
 [node name="Map" type="TextureRect" parent="."]
 visible = false
@@ -107,15 +111,26 @@ centered = false
 [node name="EnemyUnits" type="Node" parent="Units"]
 
 [node name="EnemyUnit" parent="Units/EnemyUnits" instance=ExtResource( 11 )]
-position = Vector2( 208, 120 )
+position = Vector2( 361, 278 )
 
 [node name="FriendlyUnits" type="Node" parent="Units"]
 
 [node name="Miner" parent="Units/FriendlyUnits" instance=ExtResource( 10 )]
-position = Vector2( 439, 342 )
+position = Vector2( 665, 413 )
 
 [node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 133, 126 )
 
 [node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 116, 291 )
+
+[node name="Engvik" type="Sprite" parent="."]
+visible = false
+position = Vector2( 515, 304 )
+scale = Vector2( 3.07263, 3.12876 )
+texture = ExtResource( 15 )
+
+[node name="Engvik2" type="Sprite" parent="."]
+position = Vector2( 510, 291 )
+scale = Vector2( 1.97727, 2.01339 )
+texture = ExtResource( 16 )
