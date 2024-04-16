@@ -72,14 +72,14 @@ func _on_PurchaseMiner_pressed():
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 20 and res.wood >= 20:
 		if unitsInside == false:
-			var troop = load("res://Scenes/Units/Miner.tscn").instance()
+			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyMiner.tscn").instance()
 			res.food-=15
 			res.wood-=8
 			troop.position = position
 			var scene=get_tree().get_root().get_child(0)
 			if scene.name=="GlobalVariables":
 				scene=get_tree().get_root().get_child(1)
-			scene.get_node("Miner").add_child(troop)
+			scene.get_node("FriendlyMiner").add_child(troop)
 			print("yep")
 		else:
 			timer.wait_time = 2

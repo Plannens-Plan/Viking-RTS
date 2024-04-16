@@ -9,10 +9,10 @@
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Units/Friendly Unit Types/FriendlyMiner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyMiner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Units/EnemyUnit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Units/Friendly Unit Types/FriendlySpearman.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Images/Backgrounds/ddu.png" type="Texture" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -84,7 +84,7 @@ visible = false
 position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
 
-[node name="Miner" type="Node" parent="."]
+[node name="FriendlyMiner" type="Node" parent="."]
 
 [node name="Deposit" parent="." instance=ExtResource( 12 )]
 position = Vector2( 555, 281 )
