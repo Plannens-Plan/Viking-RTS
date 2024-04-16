@@ -59,11 +59,11 @@ func elementCreator():
 		for ressource in ressourcePath.get_children():
 			match ressource.itemType:
 				"Wood":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.jpg")
 				"Stone":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.jpg")
 				"Food":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.jpg")
 					
 		for unit in friendlyUnitPath.get_children():
 			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png")
@@ -81,9 +81,3 @@ func mapPinCreator(var pos, var img):
 	newMapPin.texture = load(img)
 	newMapPin.scale = mapScaledDifference
 	$Viewport/MapPins.add_child(newMapPin)
-
-func pinUpdater():
-		for i in friendlyUnitPath.get_child_count():
-			$Viewport/Friendly.get_child(i).position = friendlyUnitPath.get_child(i).position / mapScaledDifference
-			print("buh")
-
