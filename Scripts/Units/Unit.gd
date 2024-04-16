@@ -33,14 +33,14 @@ func _ready():
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
 	$AttackTimer.wait_time = attackSpeed
-	$AttackTimer.one_shot=true
+	$AttackTimer.one_shot = true
 	$AttackTimer.start()
 	pass
 
 func Attack():
 	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
-			if friendly==true:
+			if friendly == true:
 				if body.is_in_group("enemyUnit"):
 					body.setHealth(body.health - attackDamage)
 					$AttackTimer.start()
@@ -50,7 +50,6 @@ func Attack():
 					body.setHealth(body.health - attackDamage)
 					$AttackTimer.start()
 					return
-
 
 func _physics_process(delta):
 	if is_instance_valid(navigation_agent):
@@ -86,7 +85,7 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 func setHealth(newHealth):
 	health = newHealth
 	var bloodParticleInstance = bloodParticle.instance()
-	bloodParticleInstance.emitting=true
+	bloodParticleInstance.emitting = true
 	add_child(bloodParticleInstance)
 	#move_child(bloodParticleInstance,0)
 	$HealthBarTimer.start()
