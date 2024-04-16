@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/for_honor_viking.png-70b220578c99e595e2a42f4fd0447857.stex"
+path="res://.import/stone.jpg-b3265fa6e08fc351340b9c2f79bd77de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Icons/for_honor_viking.png"
-dest_files=[ "res://.import/for_honor_viking.png-70b220578c99e595e2a42f4fd0447857.stex" ]
+source_file="res://Assets/Images/Icons/stone.jpg"
+dest_files=[ "res://.import/stone.jpg-b3265fa6e08fc351340b9c2f79bd77de.stex" ]
 
 [params]
 

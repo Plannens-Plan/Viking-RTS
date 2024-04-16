@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Units/Miner.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/Icons/Miner_sprite_preview.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Units/Miner_sprite_preview.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 

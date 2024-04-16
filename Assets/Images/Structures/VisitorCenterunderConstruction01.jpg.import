@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-466babddebba2d7cab09b0d8cf9928c5.stex"
+path="res://.import/VisitorCenterunderConstruction01.jpg-7a8ea1be28a82aa50e79590143d1b8b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Icons/wall.png"
-dest_files=[ "res://.import/wall.png-466babddebba2d7cab09b0d8cf9928c5.stex" ]
+source_file="res://Assets/Images/Structures/VisitorCenterunderConstruction01.jpg"
+dest_files=[ "res://.import/VisitorCenterunderConstruction01.jpg-7a8ea1be28a82aa50e79590143d1b8b4.stex" ]
 
 [params]
 
