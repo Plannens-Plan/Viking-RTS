@@ -24,12 +24,13 @@ func _input(event):
 
 
 func _on_NavigationAgent2D_target_reached():
-	pass # Replace with function body.
+	pass 
+
 func sethealth():
 	pass
 
 func updateElements():
-	$HealthBar.max_value = health
+	$HealthBar.max_value = maxHealth
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
 	

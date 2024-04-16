@@ -30,6 +30,8 @@ position = Vector2( 1, 17 )
 shape = SubResource( 4 )
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="CollisionShape2D"]
+position = Vector2( 1, 6 )
+shape = SubResource( 1 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 
@@ -60,6 +62,8 @@ position = Vector2( 0, 1.5 )
 shape = SubResource( 3 )
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]

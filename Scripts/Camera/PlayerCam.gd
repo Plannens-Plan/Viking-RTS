@@ -16,8 +16,16 @@ var zoomValue = 1
 var zoomMax = 3
 var zoomMin = 0.5
 
+var scene
+
+#Map
+var mapPath
+var mapSize
+
 func _ready():
-	pass 
+	scene = get_tree().current_scene
+	mapPath = scene.get_node("Map")
+	mapSize = mapPath.get_size() * mapPath.get_scale()
 
 func _physics_process(delta):
 	inputChecker()
@@ -56,28 +64,28 @@ func inputHandler():
 	downHeld()
 
 func leftHeld():
-	if holdingLeft == true:
+	if holdingLeft == true && position.x > 0:
 		acceleration.x = max(acceleration.x - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam left"):
 		holdingLeft = false
 		return
 
 func rightHeld():
-	if holdingRight == true:
+	if holdingRight == true && position.x < mapSize.x:
 		acceleration.x = min(acceleration.x + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam right"):
 		holdingRight = false
 		return
 
 func upHeld():
-	if holdingUp == true:
+	if holdingUp == true && position.y > 0:
 		acceleration.y = max(acceleration.y - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam up"):
 		holdingUp = false
 		return
 
 func downHeld():
-	if holdingDown == true:
+	if holdingDown == true && position.y < mapSize.y:
 		acceleration.y = min(acceleration.y + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam down"):
 		holdingDown = false

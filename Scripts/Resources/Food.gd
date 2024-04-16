@@ -16,7 +16,7 @@ func Work():
 		harvestAmmount = ressourceAmmount
 		pickUp += harvestAmmount
 		ressourceAmmount = 0
-		$Image.texture = load("res://Assets/Images/Icons/bruh.jpg")
+		$Image.texture = load("res://Assets/Images/Icons/food.jpg")
 	else:
 		pickUp += harvestAmmount
 		ressourceAmmount = ressourceAmmount-harvestAmmount

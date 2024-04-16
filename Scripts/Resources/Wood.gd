@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 var unlimited = false
@@ -17,7 +16,7 @@ func Work():
 		harvestAmmount = ressourceAmmount
 		pickUp += harvestAmmount
 		ressourceAmmount = 0
-		$Image.texture = load("res://Assets/Images/Icons/bruh.jpg")
+		$Image.texture = load("res://Assets/Images/Icons/tree.jpg")
 	else:
 		pickUp += harvestAmmount
 		ressourceAmmount = ressourceAmmount-harvestAmmount
