@@ -66,7 +66,7 @@ position = Vector2( 682, 33 )
 
 [node name="EnemyUnits" type="Node" parent="."]
 
-[node name="EnemyUnit" parent="Enemy" instance=ExtResource( 11 )]
+[node name="Enemy@EnemyUnit" parent="." instance=ExtResource( 11 )]
 position = Vector2( 306, 239 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
@@ -122,6 +122,6 @@ position = Vector2( 133, 126 )
 position = Vector2( 146, 441 )
 
 [node name="Engvik" type="Sprite" parent="."]
-position = Vector2( 515, 304 )
-scale = Vector2( 3.07263, 3.12876 )
+position = Vector2( 384, 257 )
+scale = Vector2( 0.479262, 0.488017 )
 texture = ExtResource( 15 )
