@@ -9,6 +9,7 @@ onready var GlobalVariable = get_node("/root/GlobalVariables")
 func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:
 		$Panel.visible = !$Panel.visible
+	pass
 
 func unitCollision():
 	var overlapping = false
@@ -26,6 +27,7 @@ func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
 	# Do something when the timer times out
 
+
 func _on_PurchaseSword_pressed():
 	var timer
 	timer = Timer.new()
@@ -34,7 +36,7 @@ func _on_PurchaseSword_pressed():
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 15 and res.wood >= 8:
 		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn").instance()
+			var troop = load("res://Scenes/Units/FriendlyUnit.tscn").instance()
 			res.food-=15
 			res.wood-=8
 			troop.position = position
@@ -49,6 +51,8 @@ func _on_PurchaseSword_pressed():
 			timer.start()
 			$CanvasLayer/NoRoomMessage.show()
 			print("bruh")
+	pass # Replace with function body.
+
 
 func _on_PurchaseMiner_pressed():
 	var timer
@@ -58,7 +62,7 @@ func _on_PurchaseMiner_pressed():
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 20 and res.wood >= 20:
 		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyMiner.tscn").instance()
+			var troop = load("res://Scenes/Units/Miner.tscn").instance()
 			res.food-=15
 			res.wood-=8
 			troop.position = position
@@ -72,3 +76,4 @@ func _on_PurchaseMiner_pressed():
 			add_child(timer)
 			timer.start()
 			$CanvasLayer/NoRoomMessage.show()
+	pass # Replace with function body.
