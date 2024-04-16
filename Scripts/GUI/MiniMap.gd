@@ -18,14 +18,17 @@ var structurePosition
 
 #Map
 var mapSize = Vector2(2560,1440)
-onready var mapScaledDifference = self.get_size() / mapSize
+var mapScaledDifference
 
 func _physics_process(delta):
+	print(mapSize)
 	cameraResize()
 
 
 func _ready():
 	scene = get_tree().current_scene 
+	mapSize = scene.get_node("Map").get_size() * scene.get_node("Map").get_scale()
+	mapScaledDifference = self.get_size() / mapSize
 	cameraPath = scene.get_node("PlayerCam")
 	pass 
 
