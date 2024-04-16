@@ -1,7 +1,9 @@
 extends "res://Scripts/Units/FriendlyUnit.gd"
+
 func _ready():
-	
-	pass
+	health = 60
+	moveSpeed = 90
+	updateElements()
 
 var harvest =false
 var harvestArea

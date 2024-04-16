@@ -28,3 +28,11 @@ func _on_NavigationAgent2D_target_reached():
 func sethealth():
 	pass
 
+func updateElements():
+	$HealthBar.max_value = health
+	$HealthBar.value = health
+	$HealthBar.modulate.a = 0
+	
+	$AttackTimer.wait_time = attackSpeed
+	$AttackTimer.one_shot = true
+	$AttackTimer.start()

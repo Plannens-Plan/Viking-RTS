@@ -14,4 +14,3 @@ func TargettingFriendly():
 
 func _physics_process(delta):
 	Attack()
-	pass

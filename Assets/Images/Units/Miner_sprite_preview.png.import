@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-466babddebba2d7cab09b0d8cf9928c5.stex"
+path="res://.import/Miner_sprite_preview.png-135711ad8b85b0bbb4246dfbcaaf1d78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Icons/wall.png"
-dest_files=[ "res://.import/wall.png-466babddebba2d7cab09b0d8cf9928c5.stex" ]
+source_file="res://Assets/Images/Units/Miner_sprite_preview.png"
+dest_files=[ "res://.import/Miner_sprite_preview.png-135711ad8b85b0bbb4246dfbcaaf1d78.stex" ]
 
 [params]
 
