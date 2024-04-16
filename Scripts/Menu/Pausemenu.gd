@@ -23,8 +23,7 @@ func _ready():
 	pass
 
 func _input(ev):
-	if Input.is_key_pressed(KEY_ESCAPE):
-		
+	if Input.is_action_just_released("Pause"):
 		get_tree().paused =!get_tree().paused
 		$Background.visible = !$Background.visible 
 		

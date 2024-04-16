@@ -11,6 +11,7 @@ margin_bottom = 599.0
 color = Color( 0.305882, 0.407843, 0.564706, 1 )
 
 [node name="MenuButtons" type="ColorRect" parent="Background"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -37,7 +38,6 @@ margin_bottom = 349.0
 text = "Quit game"
 
 [node name="Newgame" type="ColorRect" parent="Background"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -100,6 +100,19 @@ margin_top = -64.5
 margin_right = 80.5
 margin_bottom = -34.5
 text = "You already have a save with this name"
+
+[node name="Warning3" type="RichTextLabel" parent="Background/Newgame"]
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -69.5
+margin_right = 140.0
+margin_bottom = -33.5
+text = "Savename cannot contain these characters:
+\\ / . : , ; ? * | \" ' "
 
 [node name="Loadgame" type="ColorRect" parent="Background"]
 visible = false
