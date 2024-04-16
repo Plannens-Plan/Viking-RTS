@@ -21,11 +21,12 @@ outlines = [ PoolVector2Array( -423, -766, -1263, -423, -1253, 976, -1890, 1048,
 [node name="Engvik" type="Node2D"]
 
 [node name="Map" type="TextureRect" parent="."]
-margin_right = 2560.0
+margin_right = 2168.0
 margin_bottom = 1440.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 expand = true
+stretch_mode = 5
 
 [node name="Structure menus" type="Control" parent="."]
 margin_right = 40.0
