@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/LevelObjects/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Map/Minimap/Minimap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
@@ -19,6 +20,18 @@ outlines = [ PoolVector2Array( -423, -766, -1263, -423, -1253, 976, -1890, 1048,
 
 [node name="Engvik" type="Node2D"]
 
+[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
+
+[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 300 )
+current = true
+
+[node name="GUI" parent="." instance=ExtResource( 8 )]
+
+[node name="Structure menus" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 2560.0
 margin_bottom = 1440.0
@@ -27,18 +40,11 @@ texture = ExtResource( 15 )
 expand = true
 stretch_mode = 5
 
-[node name="Structure menus" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+position = Vector2( 252, -53 )
+navpoly = SubResource( 1 )
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 511, 572 )
-
-[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 300 )
-current = true
-
-[node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
 [node name="Structures" type="Node" parent="."]
@@ -55,9 +61,6 @@ position = Vector2( 833, 32 )
 position = Vector2( 682, 33 )
 
 [node name="EnemyUnits" type="Node" parent="."]
-
-[node name="Enemy@EnemyUnit" parent="." instance=ExtResource( 11 )]
-position = Vector2( 306, 239 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
@@ -87,7 +90,7 @@ position = Vector2( 838, 105 )
 [node name="EnemyUnits" type="Node" parent="Units"]
 
 [node name="EnemyUnit" parent="Units/EnemyUnits" instance=ExtResource( 11 )]
-position = Vector2( 670, 238 )
+position = Vector2( 1393, 96 )
 
 [node name="FriendlyUnits" type="Node" parent="Units"]
 

@@ -2,6 +2,7 @@ extends ViewportContainer
 
 var scene
 var mapPinPath = "res://Scenes/Map/Minimap/MapPin.tscn"
+onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 #Camera
 var cameraPath
@@ -27,15 +28,14 @@ var ressourcePosition
 var mapSize = Vector2(2560,1440)
 var mapScaledDifference
 
-var mapPin
-
-
+var total = 0
 
 
 func _physics_process(delta):
 	cameraResize()
 	#pinUpdater()
-	elementCreator()
+	mapPinUpdater()
+
 
 
 func _ready():
@@ -59,31 +59,33 @@ func elementCreator():
 		for ressource in ressourcePath.get_children():
 			match ressource.itemType:
 				"Wood":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.jpg", "Ressource")
 				"Stone":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.jpg", "Ressource")
 				"Food":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.jpg", "Ressource")
 					
 		for unit in friendlyUnitPath.get_children():
-			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png")
+			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png", "Friendly")
 			
 		for unit in enemyUnitPath.get_children():
-			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png")
+			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png", "Enemy")
 			
 		for structure in structurePath.get_children():
-			mapPinCreator(structure.position, "res://Assets/Images/Icons/monkey_banana.png")
-			
+			mapPinCreator(structure.position, "res://Assets/Images/Icons/monkey_banana.png", "Structure")
 
-func mapPinCreator(var pos, var img):
+func mapPinCreator(var pos, var img, var loc):
 	var newMapPin = load(mapPinPath).instance()
 	newMapPin.position = pos * mapScaledDifference
 	newMapPin.texture = load(img)
 	newMapPin.scale = mapScaledDifference
-	$Viewport/MapPins.add_child(newMapPin)
+	$Viewport.get_node(loc).add_child(newMapPin)
 
-func pinUpdater():
-		for i in friendlyUnitPath.get_child_count():
-			$Viewport/Friendly.get_child(i).position = friendlyUnitPath.get_child(i).position / mapScaledDifference
-			print("buh")
+func mapPinUpdater():
+	if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
+		for mapPin in $Viewport/Friendly.get_child_count():
+			$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
+		for mapPin in $Viewport/Enemy.get_child_count():
+			$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
+	
 
