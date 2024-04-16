@@ -27,7 +27,7 @@ func previewbuild():
 	previewBarrack.position = mousePos
 	
 	var overlapping = false
-	var sprite = previewBarrack.get_node("Barrack")
+	var sprite = previewBarrack.get_node("Structures")
 	for area in previewBarrack.get_overlapping_areas():
 		if area.is_in_group("Building") || area.is_in_group("Terrain"):
 			placeableBuilding = false
