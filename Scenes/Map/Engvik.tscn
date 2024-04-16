@@ -90,7 +90,7 @@ position = Vector2( 439, 342 )
 [node name="selection" parent="." instance=ExtResource( 9 )]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-position = Vector2( 94, 959 )
+position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
 
 [node name="Miner" type="Node" parent="."]
