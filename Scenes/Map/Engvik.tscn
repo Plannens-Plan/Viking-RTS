@@ -111,12 +111,9 @@ centered = false
 [node name="EnemyUnits" type="Node" parent="Units"]
 
 [node name="EnemyUnit" parent="Units/EnemyUnits" instance=ExtResource( 11 )]
-position = Vector2( 361, 278 )
+position = Vector2( 649, 128 )
 
 [node name="FriendlyUnits" type="Node" parent="Units"]
-
-[node name="Miner" parent="Units/FriendlyUnits" instance=ExtResource( 10 )]
-position = Vector2( 665, 413 )
 
 [node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 133, 126 )

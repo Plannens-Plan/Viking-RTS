@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/male_grunt4.mp3-87b970dfeeb68b6e85335cdffd267ed0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3"
+dest_files=[ "res://.import/male_grunt4.mp3-87b970dfeeb68b6e85335cdffd267ed0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

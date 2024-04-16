@@ -6,7 +6,7 @@ func _ready():
 		maxHealth = 75
 		moveSpeed = 75
 		attackDamage = 35
-		attackSpeed = 2
+		attackSpeed = 1.75
 		blockChance = 25
 	updateElements()
 
