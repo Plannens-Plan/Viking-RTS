@@ -30,6 +30,7 @@ func _ready():
 	# Set health bar to correct values
 	$HealthBar.max_value = health
 	$HealthBar.value = health
+	$HealthBar.modulate.a = 0
 
 func _physics_process(delta):
 	if is_instance_valid(navigation_agent):
