@@ -44,12 +44,12 @@ func build():
 	var res=GlobalVariable.VikingRts.resources
 	if(Input.is_action_just_released("leftClick") && placeableBuilding == true):
 		var newBarrack = load("res://Scenes/Structures/Barracks.tscn").instance()
-		add_child(newBarrack)
 		newBarrack.buildingPlaced = true
 		var mousePos = get_global_mouse_position()
 		newBarrack.position = mousePos
 		newBarrack.add_to_group("Building")
 		res.wood-=40
+		get_tree().current_scene.get_node("Structures").add_child(newBarrack)
 		buildingMode = !buildingMode 
 
 
