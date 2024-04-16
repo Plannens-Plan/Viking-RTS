@@ -23,11 +23,10 @@ outlines = [ PoolVector2Array( -52, -521, -1263, -423, -1253, 976, -644, 1047, -
 [node name="Engvik" type="Node2D"]
 
 [node name="Map" type="TextureRect" parent="."]
-margin_right = 2560.0
-margin_bottom = 1440.0
+margin_right = 1600.0
+margin_bottom = 1069.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 15 )
-expand = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
