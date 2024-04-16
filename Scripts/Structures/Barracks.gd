@@ -9,10 +9,6 @@ onready var GlobalVariable = get_node("/root/GlobalVariables")
 func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:
 		$Panel.visible = !$Panel.visible
-<<<<<<< Updated upstream
-=======
-	pass
->>>>>>> Stashed changes
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("unit"):
