@@ -67,7 +67,7 @@ func _on_PurchaseMiner_pressed():
 			var scene=get_tree().get_root().get_child(0)
 			if scene.name=="GlobalVariables":
 				scene=get_tree().get_root().get_child(1)
-			scene.get_node("Miner").add_child(troop)
+			scene.get_node("friendlyUnit").add_child(troop)
 			print("yep")
 		else:
 			timer.wait_time = 2

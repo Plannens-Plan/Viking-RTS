@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 var unlimited = false

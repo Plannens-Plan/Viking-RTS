@@ -60,21 +60,8 @@ position = Vector2( 950, 11 )
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 280, 325 )
 
-[node name="Enemy" type="Node" parent="."]
-
-[node name="EnemyUnit" parent="Enemy" instance=ExtResource( 11 )]
-position = Vector2( 208, 120 )
-
-[node name="FriendlyUnits" type="Node" parent="."]
-
-[node name="Miner" parent="FriendlyUnits" instance=ExtResource( 10 )]
-position = Vector2( 439, 342 )
-
-[node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 133, 126 )
-
-[node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 116, 291 )
+[node name="Stone2" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
+position = Vector2( 1638, 887 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -83,8 +70,6 @@ visible = false
 visible = false
 position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
-
-[node name="Miner" type="Node" parent="."]
 
 [node name="Deposit" parent="." instance=ExtResource( 12 )]
 position = Vector2( 555, 281 )
@@ -101,3 +86,21 @@ expand = true
 visible = false
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Units" type="Node" parent="."]
+
+[node name="EnemyUnits" type="Node" parent="Units"]
+
+[node name="EnemyUnit" parent="Units/EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 208, 120 )
+
+[node name="FriendlyUnits" type="Node" parent="Units"]
+
+[node name="Miner" parent="Units/FriendlyUnits" instance=ExtResource( 10 )]
+position = Vector2( 439, 342 )
+
+[node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 133, 126 )
+
+[node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 116, 291 )
