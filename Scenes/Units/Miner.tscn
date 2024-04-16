@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Units/Miner.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/Miner_sprite_preview.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 radius = 35.0
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 41.5, 61 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 41.5, 61 )
 
 [node name="Miner" type="KinematicBody2D" groups=["friendlyUnit", "harvester", "unit"]]
@@ -52,6 +55,14 @@ one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
+shape = SubResource( 6 )
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]

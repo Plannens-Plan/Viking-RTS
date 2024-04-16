@@ -1,9 +1,11 @@
 extends "res://Scripts/Units/Unit.gd"
 
 func _ready():
+	friendly=true
 	set_target_location(position)
 
 func _physics_process(delta):
+	Attack()
 	if !selected:
 		$Sprite.material = null
 	else:
@@ -11,6 +13,7 @@ func _physics_process(delta):
 		$Sprite.material = load("res://Assets/Materials/Outline.tres")
 		# Fade in to show health bar
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
+
 
 func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 1:
@@ -24,3 +27,4 @@ func _on_NavigationAgent2D_target_reached():
 	pass # Replace with function body.
 func sethealth():
 	pass
+

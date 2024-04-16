@@ -73,6 +73,7 @@ func _on_Start_game_pressed():
 	if file.file_exists(savedir + input_text.text + ".dat"):
 		$Background/Newgame/Warning2.show()
 		return
+	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
 	get_tree().change_scene(startgamepath)
 	pass # Replace with function body.

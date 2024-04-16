@@ -75,13 +75,18 @@ margin_left = 60.0
 margin_right = 100.0
 margin_bottom = 24.0
 
-[node name="Pausemenu" type="CanvasLayer" parent="."]
+[node name="Pausemenu" type="Control" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="Pausemenu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 986.0
+margin_bottom = 561.0
 color = Color( 0.360784, 0.32549, 0.32549, 0.286275 )
 
 [node name="Save" type="Button" parent="Pausemenu/Background"]
@@ -118,4 +123,6 @@ margin_bottom = -30.0
 text = "Continue"
 
 [connection signal="pressed" from="BarrackBuild/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Pausemenu/Background/Save" to="Pausemenu" method="_on_Save_pressed"]
+[connection signal="pressed" from="Pausemenu/Background/BackToMenu" to="Pausemenu" method="_on_BackToMenu_pressed"]
 [connection signal="pressed" from="Pausemenu/Background/Continue" to="Pausemenu" method="_on_Continue_pressed"]

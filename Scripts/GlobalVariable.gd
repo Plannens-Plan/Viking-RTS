@@ -17,3 +17,13 @@ export var VikingRts={
 		silver=0
 	}
 }
+
+export var Default={
+	savename="",
+	resources={
+		wood=0,
+		food=0,
+		stone=0,
+		silver=0
+	}
+}
