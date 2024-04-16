@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Units/Miner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Units/Friendly Unit Types/FriendlyMiner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Units/EnemyUnit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/Friendly Unit Types/FriendlySpearman.tscn" type="PackedScene" id=13]
@@ -67,7 +67,7 @@ position = Vector2( 208, 120 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
-[node name="Miner" parent="FriendlyUnits" instance=ExtResource( 10 )]
+[node name="FriendlyMiner" parent="FriendlyUnits" instance=ExtResource( 10 )]
 position = Vector2( 439, 342 )
 
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 13 )]
@@ -90,6 +90,7 @@ navpoly = SubResource( 1 )
 position = Vector2( 555, 281 )
 
 [node name="Map" type="TextureRect" parent="."]
+visible = false
 margin_right = 2560.0
 margin_bottom = 1440.0
 rect_scale = Vector2( 3, 3 )
@@ -97,5 +98,6 @@ texture = ExtResource( 14 )
 expand = true
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 4 )
 centered = false

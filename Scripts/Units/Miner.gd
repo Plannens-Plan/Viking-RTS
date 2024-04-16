@@ -1,8 +1,10 @@
 extends "res://Scripts/Units/FriendlyUnit.gd"
 
 func _ready():
-	health = 60
-	moveSpeed = 90
+	if newunit:
+		health = 60
+		maxHealth=60
+		moveSpeed = 90
 	updateElements()
 
 var harvest =false
