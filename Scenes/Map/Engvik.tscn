@@ -90,6 +90,7 @@ navpoly = SubResource( 1 )
 position = Vector2( 555, 281 )
 
 [node name="Map" type="TextureRect" parent="."]
+visible = false
 margin_right = 2560.0
 margin_bottom = 1440.0
 rect_scale = Vector2( 3, 3 )
@@ -97,5 +98,6 @@ texture = ExtResource( 14 )
 expand = true
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 4 )
 centered = false
