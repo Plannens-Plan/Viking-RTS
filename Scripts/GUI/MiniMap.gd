@@ -48,8 +48,6 @@ func _ready():
 	friendlyUnitPath = scene.get_node("FriendlyUnits")
 	ressourcePath = scene.get_node("Resources")
 	elementCreator()
-	$Timer.wait_time = 0.1
-	$Timer.start()
 
 func cameraResize():
 	cameraZoom = cameraPath.zoom
@@ -61,11 +59,11 @@ func elementCreator():
 		for ressource in ressourcePath.get_children():
 			match ressource.itemType:
 				"Wood":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/monkey_banana.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.png")
 				"Stone":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/monkey_banana.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.png")
 				"Food":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/monkey_banana.png")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.png")
 					
 		for unit in friendlyUnitPath.get_children():
 			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png")
@@ -89,8 +87,3 @@ func pinUpdater():
 			$Viewport/Friendly.get_child(i).position = friendlyUnitPath.get_child(i).position / mapScaledDifference
 			print("buh")
 
-
-func _on_Timer_timeout():
-	for i in $Viewport/MapPins.get_child_count():
-		$Viewport/MapPins.get_child(i).queue_free()
-	pass # Replace with function body.

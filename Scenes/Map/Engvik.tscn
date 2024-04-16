@@ -14,9 +14,9 @@
 [ext_resource path="res://Assets/Environments/Engvik.png" type="Texture" id=15]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 869, -625, 1172, -665, 1981, 4952, -798, 4356, -2555, 3859, -1830, 2483, -644, 1047, -2230, 2351, -2078, 1799, 3815, -1672, 8761, -633, 7990, 4554, -1253, 976, -1263, -423, -52, -521 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6 ), PoolIntArray( 5, 7, 8, 6 ), PoolIntArray( 9, 10, 11, 2, 1 ), PoolIntArray( 12, 13, 14, 6 ), PoolIntArray( 14, 0, 6 ) ]
-outlines = [ PoolVector2Array( -52, -521, -1263, -423, -1253, 976, -644, 1047, -2078, 1799, -2230, 2351, -1830, 2483, -2555, 3859, -798, 4356, 1981, 4952, 7990, 4554, 8761, -633, 3815, -1672, 1172, -665, 869, -625 ) ]
+vertices = PoolVector2Array( -798, 4356, -2555, 3859, -1830, 2483, 869, -625, 1172, -665, 1981, 4952, -2230, 2351, -2078, 1799, -1253, 976, 3815, -1672, 8761, -633, 7990, 4554, -423, -766, -1890, 1048, -1263, -423 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 2, 6, 7, 8 ), PoolIntArray( 9, 10, 11, 5, 4 ), PoolIntArray( 12, 3, 2, 8 ), PoolIntArray( 7, 13, 8 ), PoolIntArray( 8, 14, 12 ) ]
+outlines = [ PoolVector2Array( -423, -766, -1263, -423, -1253, 976, -1890, 1048, -2078, 1799, -2230, 2351, -1830, 2483, -2555, 3859, -798, 4356, 1981, 4952, 7990, 4554, 8761, -633, 3815, -1672, 1172, -665, 869, -625 ) ]
 
 [node name="Engvik" type="Node2D"]
 
@@ -33,7 +33,7 @@ margin_bottom = 40.0
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 2560.0
 margin_bottom = 1440.0
-rect_scale = Vector2( 3, 3 )
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 expand = true
 
