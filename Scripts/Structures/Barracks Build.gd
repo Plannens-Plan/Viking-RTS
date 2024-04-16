@@ -12,7 +12,7 @@ onready var toolTip = get_node("Tooltip")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_child(previewBarrack)
+	get_tree().current_scene.get_node("Structures").add_child(previewBarrack)
 	previewBarrack.hide()
 	pass # Replace with function body.
 
