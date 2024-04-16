@@ -12,13 +12,20 @@ func _on_PurchaseTroop_pressed():
 
 func unitCollision():
 	var overlapping = false
-	for body in self.get_overlapping_bodies():
-		if body.is_in_group("unit"):
-			print("BRUUUH")
-			unitsInside = true
-			overlapping = true
-		else:
-			unitsInside = false
+	if get_overlapping_bodies().size() > 0:
+		for body in get_overlapping_bodies():
+			if body.is_in_group("unit"):
+				print("BRUUUH")
+				unitsInside = true
+				overlapping = true
+			else:
+				print("balls")
+				unitsInside = false
+				overlapping = false
+	else:
+		unitsInside = false
+		overlapping = false
+		pass
 
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
