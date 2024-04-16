@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/male_scream2.mp3-b0050230f17e4e836ddc9ef0b8b557de.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/DeathSounds/male_scream2.mp3"
+dest_files=[ "res://.import/male_scream2.mp3-b0050230f17e4e836ddc9ef0b8b557de.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

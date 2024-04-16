@@ -1,5 +1,4 @@
 extends Control
-var previewBarrackArea
 
 var buildingMode
 var kollision
@@ -27,7 +26,7 @@ func previewbuild():
 	previewBarrack.position = mousePos
 	
 	var overlapping = false
-	var sprite = previewBarrack.get_node("Structures")
+	var sprite = previewBarrack.get_node("Barrack")
 	for area in previewBarrack.get_overlapping_areas():
 		if area.is_in_group("Building") || area.is_in_group("Terrain"):
 			placeableBuilding = false
