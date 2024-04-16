@@ -20,6 +20,16 @@ outlines = [ PoolVector2Array( -52, -521, -1263, -423, -1253, 976, -644, 1047, -
 
 [node name="Engvik" type="Node2D"]
 
+[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 300 )
+current = true
+
+[node name="GUI" parent="." instance=ExtResource( 8 )]
+
+[node name="Structure menus" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 2560.0
 margin_bottom = 1440.0
@@ -27,18 +37,11 @@ rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 15 )
 expand = true
 
-[node name="Structure menus" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+position = Vector2( 252, -53 )
+navpoly = SubResource( 1 )
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 511, 572 )
-
-[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 300 )
-current = true
-
-[node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
 [node name="Structures" type="Node" parent="."]
@@ -73,10 +76,6 @@ position = Vector2( 103, 282 )
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-position = Vector2( 252, -53 )
-navpoly = SubResource( 1 )
-
 [node name="FriendlyMiner" type="Node" parent="."]
 
 [node name="Deposit" parent="." instance=ExtResource( 12 )]
@@ -96,5 +95,3 @@ position = Vector2( 133, 126 )
 
 [node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 146, 441 )
-
-[node name="GUI" parent="." instance=ExtResource( 8 )]
