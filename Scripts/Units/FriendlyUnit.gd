@@ -24,7 +24,8 @@ func _input(event):
 
 
 func _on_NavigationAgent2D_target_reached():
-	pass # Replace with function body.
+	pass 
+
 func sethealth():
 	pass
 

@@ -90,12 +90,16 @@ func setHealth(newHealth, canBeBlocked):
 		blockNumber = rng.randi_range(0, 100)
 		if blockNumber <= blockChance:
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
+			$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
 			$UnitAudio.play()
 			return
+	if health > newHealth:
+		setAudioRandomGrunt()
+		$UnitAudio.play()
+		var bloodParticleInstance = bloodParticle.instance()
+		bloodParticleInstance.emitting = true
+		add_child(bloodParticleInstance)
 	health = newHealth
-	var bloodParticleInstance = bloodParticle.instance()
-	bloodParticleInstance.emitting = true
-	add_child(bloodParticleInstance)
 	$HealthBarTimer.start()
 	if health <= 0:
 		die()
@@ -127,3 +131,17 @@ func updateElements():
 	$AttackTimer.start()
 	
 	maxSpeed = moveSpeed
+
+func setAudioRandomGrunt():
+	rng.randomize()
+	var gruntSoundNumber = rng.randi_range(1, 4)
+	match gruntSoundNumber:
+		1:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt.mp3")
+		2:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt2.mp3")
+		3:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt3.mp3")
+		4:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
+	$UnitAudio.pitch_scale = 1
