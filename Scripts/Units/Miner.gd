@@ -29,12 +29,14 @@ func _physics_process(delta):
 					else: 
 						area.pickUp -= 1
 						inventory += 1
-	
 	else:
 		harvest = false
 	
 	if harvest == false:
 		$WorkTimer.stop()
+	
+	if inventory <= 0:
+		itemType = null
 
 func _on_Timer_timeout():
 	if $AttackArea.get_overlapping_areas() != null && _arrived_at_location() == true:
@@ -42,4 +44,3 @@ func _on_Timer_timeout():
 				if area.is_in_group("WorkSpace"):
 					if area == harvestArea:
 						area.Work()
-						print("Work")
