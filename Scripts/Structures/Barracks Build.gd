@@ -19,7 +19,7 @@ func _ready():
 
 
 
-func _on_Button_release():
+func _on_Button_pressed():
 	buildingMode = !buildingMode 
 	pass # Replace with function body.
 
