@@ -31,6 +31,7 @@ func _ready():
 	# Set health bar to correct values
 	$HealthBar.max_value = health
 	$HealthBar.value = health
+	$HealthBar.modulate.a = 0
 	$AttackTimer.wait_time = attackSpeed
 	$AttackTimer.one_shot=true
 	$AttackTimer.start()
