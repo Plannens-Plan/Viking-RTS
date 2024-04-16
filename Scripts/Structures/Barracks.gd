@@ -11,12 +11,10 @@ func _on_PurchaseTroop_pressed():
 		$Panel.visible = !$Panel.visible
 
 func unitCollision():
-	var overlapping = false
 	for body in self.get_overlapping_bodies():
 		if body.is_in_group("unit"):
 			print("BRUUUH")
 			unitsInside = true
-			overlapping = true
 		else:
 			unitsInside = false
 
