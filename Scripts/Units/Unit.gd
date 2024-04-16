@@ -118,7 +118,7 @@ func _on_MouseOver_mouse_exited():
 
 # Call this when you change unit stats
 func updateElements():
-	$HealthBar.max_value = health
+	$HealthBar.max_value = maxHealth
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
 	
