@@ -33,7 +33,7 @@ var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
 var rng = RandomNumberGenerator.new()
-
+# rng block number
 var blockNumber
 
 func _ready():
@@ -87,7 +87,7 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 func setHealth(newHealth, canBeBlocked):
 	if canBeBlocked:
 		rng.randomize()
-		blockNumber = rng.randf_range(0, 100)
+		blockNumber = rng.randi_range(0, 100)
 		if blockNumber <= blockChance:
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
 			$UnitAudio.play()
