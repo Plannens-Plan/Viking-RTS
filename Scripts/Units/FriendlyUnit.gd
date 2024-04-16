@@ -1,7 +1,7 @@
 extends "res://Scripts/Units/Unit.gd"
 
 func _ready():
-	friendly=true
+	friendly = true
 	set_target_location(position)
 
 func _physics_process(delta):

@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Level Objects/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/isometric_background.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Units/FriendlyUnit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
@@ -12,6 +11,7 @@
 [ext_resource path="res://Scenes/Units/Miner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Units/EnemyUnit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Units/Friendly Unit Types/FriendlySpearman.tscn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 1041, 12, 1273, 410, 1261, 665, 1078, 880, 671, 1168, -637, 1023, -941, 188, -264, -291 )
@@ -74,22 +74,24 @@ position = Vector2( 280, 325 )
 [node name="Enemy" type="Node" parent="."]
 
 [node name="EnemyUnit" parent="Enemy" instance=ExtResource( 11 )]
-position = Vector2( 700, 144 )
+position = Vector2( 208, 120 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
-
-[node name="FriendlyUnit" parent="FriendlyUnits" instance=ExtResource( 4 )]
-position = Vector2( 207, 145 )
-
-[node name="FriendlyUnit2" parent="FriendlyUnits" instance=ExtResource( 4 )]
-position = Vector2( 83, 148 )
 
 [node name="Miner" parent="FriendlyUnits" instance=ExtResource( 10 )]
 position = Vector2( 439, 342 )
 
+[node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 133, 126 )
+
+[node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 116, 291 )
+
 [node name="selection" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
 position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
 
