@@ -44,10 +44,9 @@ func _ready():
 	mapScaledDifference = self.get_size() / mapSize
 	cameraPath = scene.get_node("PlayerCam")
 	structurePath = scene.get_node("Structures")
-	unitPath = scene.get_node("Units")
+	enemyUnitPath = scene.get_node("EnemyUnits")
+	friendlyUnitPath = scene.get_node("FriendlyUnits")
 	ressourcePath = scene.get_node("Resources")
-	friendlyUnitPath = unitPath.get_node("FriendlyUnits")
-	enemyUnitPath = unitPath.get_node("EnemyUnits")
 	elementCreator()
 	$Timer.wait_time = 0.1
 	$Timer.start()

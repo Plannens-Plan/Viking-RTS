@@ -10,31 +10,22 @@ func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:
 		$Panel.visible = !$Panel.visible
 
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("unit"):
-		unitsInside = true
-	print(unitsInside)
-
-#func unitCollision():
-#	var overlapping = false
-#	for area in self.get_overlapping_areas():
-#		if area.is_in_group("unit"):
-#			print("BRUUUH")
-#			unitsInside = true
-#			overlapping = true
-#		else:
-#			unitsInside = false
-
-func _on_Area2D_body_exited(body):
-	if body.is_in_group("unit"):
-		unitsInside = false
-	print(unitsInside)
+func unitCollision():
+	var overlapping = false
+	for body in self.get_overlapping_bodies():
+		if body.is_in_group("unit"):
+			print("BRUUUH")
+			unitsInside = true
+			overlapping = true
+		else:
+			unitsInside = false
 
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
 	# Do something when the timer times out
 
 func _on_PurchaseSword_pressed():
+	unitCollision()
 	var timer
 	timer = Timer.new()
 	timer.connect("timeout", self, "_on_Timer_timeout")
@@ -49,7 +40,6 @@ func _on_PurchaseSword_pressed():
 			if scene.name=="GlobalVariables":
 				scene=get_tree().get_root().get_child(1)
 			scene.get_node("FriendlyUnits").add_child(troop)
-			print("yes")
 		else:
 			timer.wait_time = 2
 			add_child(timer)
@@ -72,7 +62,7 @@ func _on_PurchaseMiner_pressed():
 			var scene=get_tree().get_root().get_child(0)
 			if scene.name=="GlobalVariables":
 				scene=get_tree().get_root().get_child(1)
-			scene.get_node("FriendlyMiner").add_child(troop)
+			scene.get_node("FriendlyUnits").add_child(troop)
 			print("yep")
 		else:
 			timer.wait_time = 2

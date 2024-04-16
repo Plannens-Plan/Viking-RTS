@@ -64,28 +64,28 @@ func inputHandler():
 	downHeld()
 
 func leftHeld():
-	if holdingLeft == true && position.x > 0:
+	if holdingLeft == true && position.x > 0:# + (get_viewport().size.x * zoomValue) / 2:
 		acceleration.x = max(acceleration.x - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam left"):
 		holdingLeft = false
 		return
 
 func rightHeld():
-	if holdingRight == true && position.x < mapSize.x:
+	if holdingRight == true && position.x < mapSize.x:# - (get_viewport().size.x * zoomValue) / 2:
 		acceleration.x = min(acceleration.x + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam right"):
 		holdingRight = false
 		return
 
 func upHeld():
-	if holdingUp == true && position.y > 0:
+	if holdingUp == true && position.y > 0:# + (get_viewport().size.y * zoomValue) / 2:
 		acceleration.y = max(acceleration.y - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam up"):
 		holdingUp = false
 		return
 
 func downHeld():
-	if holdingDown == true && position.y < mapSize.y:
+	if holdingDown == true && position.y < mapSize.y:# - (get_viewport().size.y * zoomValue) / 2:
 		acceleration.y = min(acceleration.y + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam down"):
 		holdingDown = false

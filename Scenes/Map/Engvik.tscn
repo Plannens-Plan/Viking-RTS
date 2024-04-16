@@ -64,7 +64,7 @@ position = Vector2( 833, 32 )
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 682, 33 )
 
-[node name="Enemy" type="Node" parent="."]
+[node name="EnemyUnits" type="Node" parent="."]
 
 [node name="EnemyUnit" parent="Enemy" instance=ExtResource( 11 )]
 position = Vector2( 306, 239 )
@@ -78,7 +78,7 @@ position = Vector2( 499, 407 )
 position = Vector2( 133, 126 )
 
 [node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 116, 291 )
+position = Vector2( 103, 282 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
