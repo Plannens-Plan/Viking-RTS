@@ -59,17 +59,11 @@ position = Vector2( 511, 572 )
 [node name="Food" parent="Resources" instance=ExtResource( 7 )]
 position = Vector2( 417, 60 )
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Food"]
-
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 950, 11 )
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Wood"]
-
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 280, 325 )
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Stone"]
 
 [node name="Enemy" type="Node" parent="."]
 
