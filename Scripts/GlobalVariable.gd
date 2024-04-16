@@ -11,10 +11,10 @@ extends Node
 export var VikingRts={
 	savename="",
 	resources={
-		wood=100,
-		food=100,
-		stone=100,
-		silver=100
+		wood=0,
+		food=0,
+		stone=0,
+		silver=0
 	},
 	units=[],
 	structures=[]
@@ -23,10 +23,10 @@ export var VikingRts={
 export var Default={
 	savename="",
 	resources={
-		wood=100,
-		food=100,
-		stone=100,
-		silver=100
+		wood=0,
+		food=0,
+		stone=0,
+		silver=0
 	},
 	units=[],
 	structures=[]

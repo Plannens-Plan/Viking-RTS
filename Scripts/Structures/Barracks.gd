@@ -11,17 +11,15 @@ func _on_PurchaseTroop_pressed():
 		$Panel.visible = !$Panel.visible
 	pass
 
-func unitCollision():
-	var overlapping = false
-	for area in self.get_overlapping_areas():
-		if area.is_in_group("unit"):
-			print("BRUUUH")
-			unitsInside = true
-			overlapping = true
-			break
-	if not overlapping:
-		unitsInside = false
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("unit"):
+		unitsInside = true
+	print(unitsInside)
 
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("unit"):
+		unitsInside = false
+	print(unitsInside)
 
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()

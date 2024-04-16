@@ -21,6 +21,7 @@ var mapSize = Vector2(2560,1440)
 var mapScaledDifference
 
 func _physics_process(delta):
+	print(mapSize)
 	cameraResize()
 
 
