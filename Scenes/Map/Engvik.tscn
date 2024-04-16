@@ -33,15 +33,10 @@ texture = ExtResource( 2 )
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="PlayerCam" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 300 )
-
 [node name="GUI" parent="." instance=ExtResource( 8 )]
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
-
-[node name="BuildingSpawner" type="Node2D" parent="."]
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
@@ -50,26 +45,18 @@ current = true
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
-[node name="BuildingSpawner" type="Node2D" parent="."]
-
-[node name="Barracks" type="Node" parent="."]
+[node name="Structures" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
 
 [node name="Food" parent="Resources" instance=ExtResource( 7 )]
 position = Vector2( 417, 60 )
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Food"]
-
 [node name="Wood" parent="Resources" instance=ExtResource( 5 )]
 position = Vector2( 950, 11 )
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Wood"]
-
 [node name="Stone" parent="Resources" groups=["Workspace"] instance=ExtResource( 6 )]
 position = Vector2( 280, 325 )
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Resources/Stone"]
 
 [node name="Enemy" type="Node" parent="."]
 
@@ -99,3 +86,7 @@ navpoly = SubResource( 1 )
 
 [node name="Deposit" parent="." instance=ExtResource( 12 )]
 position = Vector2( 555, 281 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+centered = false
