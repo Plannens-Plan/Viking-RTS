@@ -29,7 +29,7 @@ func sethealth():
 	pass
 
 func updateElements():
-	$HealthBar.max_value = health
+	$HealthBar.max_value = maxHealth
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
 	

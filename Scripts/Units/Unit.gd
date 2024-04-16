@@ -12,12 +12,14 @@ var moveSpeed = 100
 var maxSpeed
 var friction = 0.5
 var health = 100
+var maxHealth = 100
 var attackDamage = 25
 # Time between each attack in seconds
 var attackSpeed = 1
 var friendly = false
 # Chance to block an attack in percent
 var blockChance = 0
+var newunit = true
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")

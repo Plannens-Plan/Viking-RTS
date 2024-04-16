@@ -9,8 +9,16 @@ func _ready():
 		if scene.name=="GlobalVariables":
 			scene=get_tree().get_root().get_child(1)
 		var FriendlyUnits = scene.get_node("FriendlyUnits")
+
 		for i in units:
-			FriendlyUnits.add_child(i)
+			var troop = load(i.scene).instance()
+			troop.position.x = int(i.pos.x)
+			troop.position.y = int(i.pos.y)
+			troop.health=int(i.health)
+			troop.maxHealth=int(i.maxhealth)
+			troop.newunit=false
+			print(String(i.health) +String(i.maxhealth) )
+			FriendlyUnits.add_child(troop)
 		pass
 	pass
 
@@ -39,7 +47,6 @@ func save_data(path, data):
 	file.open(path, File.WRITE)
 	
 	file.store_string(to_json(data))
-	print(data)
 	file.close()
 	
 	
@@ -54,15 +61,18 @@ func save_currentmapstate():
 	
 	#var buildings = scene.get_node("Structures")
 	for i in FriendlyUnits.get_children():
-		print(i)
-		
+
 		units.append({
 			scene=i.filename,
-			pos=i.position
-			
+			pos={
+				x=i.position.x,
+				y=i.position.y
+			},
+			health=i.health,
+			maxhealth=i.maxHealth
 		})
 	
-	print(units)
+
 	
 func _on_Save_pressed():
 	var savename=GlobalVariable.VikingRts.savename
