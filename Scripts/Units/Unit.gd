@@ -14,9 +14,10 @@ var friction = 0.5
 var health = 100
 var attackDamage = 25
 var attackSpeed = 1
+var friendly = false
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
-onready var bloodParticle = load("res://Scenes/Particle/BloodParticle.tscn")
+onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")
 
 # Unit selection
 var selected = false
@@ -30,6 +31,25 @@ func _ready():
 	# Set health bar to correct values
 	$HealthBar.max_value = health
 	$HealthBar.value = health
+	$AttackTimer.wait_time = attackSpeed
+	$AttackTimer.one_shot=true
+	$AttackTimer.start()
+	pass
+
+func Attack():
+	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
+		for body in $AttackArea.get_overlapping_bodies():
+			if friendly==true:
+				if body.is_in_group("enemyUnit"):
+					body.setHealth(body.health - attackDamage)
+					$AttackTimer.start()
+					return
+			if friendly==false:
+				if body.is_in_group("friendlyUnit"):
+					body.setHealth(body.health - attackDamage)
+					$AttackTimer.start()
+					return
+
 
 func _physics_process(delta):
 	if is_instance_valid(navigation_agent):
@@ -67,8 +87,7 @@ func setHealth(newHealth):
 	var bloodParticleInstance = bloodParticle.instance()
 	bloodParticleInstance.emitting=true
 	add_child(bloodParticleInstance)
-	move_child(bloodParticleInstance,1)
-	print(bloodParticleInstance)
+	#move_child(bloodParticleInstance,0)
 	$HealthBarTimer.start()
 	if health <= 0:
 		die()
