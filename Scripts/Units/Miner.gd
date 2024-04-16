@@ -1,5 +1,6 @@
 extends "res://Scripts/Units/FriendlyUnit.gd"
 func _ready():
+	
 	pass
 
 var harvest =false
@@ -10,8 +11,8 @@ var maxInventory = 10000
 var itemType = null
 
 func _physics_process(delta):
-	if $MouseOver.get_overlapping_areas() != null && _arrived_at_location() == true:
-		for area in $MouseOver.get_overlapping_areas():
+	if $AttackArea.get_overlapping_areas() != null && _arrived_at_location() == true:
+		for area in $AttackArea.get_overlapping_areas():
 			if area.is_in_group("WorkSpace"):
 				harvest = true
 				harvestArea = area
@@ -34,8 +35,9 @@ func _physics_process(delta):
 		$WorkTimer.stop()
 
 func _on_Timer_timeout():
-	if $MouseOver.get_overlapping_areas() != null && _arrived_at_location() == true:
-			for area in $MouseOver.get_overlapping_areas():
+	if $AttackArea.get_overlapping_areas() != null && _arrived_at_location() == true:
+			for area in $AttackArea.get_overlapping_areas():
 				if area.is_in_group("WorkSpace"):
 					if area == harvestArea:
 						area.Work()
+						print("Work")
