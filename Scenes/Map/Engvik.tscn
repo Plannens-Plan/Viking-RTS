@@ -84,7 +84,6 @@ position = Vector2( 133, 126 )
 position = Vector2( 103, 282 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
-visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 visible = false
