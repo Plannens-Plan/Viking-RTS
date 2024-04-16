@@ -25,6 +25,8 @@ avoidance_enabled = true
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.323077, 0.323077 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 6 )
