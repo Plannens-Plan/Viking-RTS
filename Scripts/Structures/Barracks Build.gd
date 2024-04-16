@@ -10,8 +10,6 @@ func _ready():
 	add_child(previewBarrack)
 	pass # Replace with function body.
 
-
-
 func _on_Button_pressed():
 	buildingMode = !buildingMode 
 	pass # Replace with function body.
