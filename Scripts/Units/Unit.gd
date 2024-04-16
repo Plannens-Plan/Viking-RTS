@@ -16,6 +16,8 @@ var attackDamage = 25
 # Time between each attack in seconds
 var attackSpeed = 1
 var friendly = false
+# Chance to block an attack in percent
+var blockChance = 0
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")
@@ -28,6 +30,10 @@ var mouseOver = false
 var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
+var rng = RandomNumberGenerator.new()
+
+var blockNumber
+
 func _ready():
 	updateElements()
 
@@ -36,12 +42,12 @@ func Attack():
 		for body in $AttackArea.get_overlapping_bodies():
 			if friendly == true:
 				if body.is_in_group("enemyUnit"):
-					body.setHealth(body.health - attackDamage)
+					body.setHealth(body.health - attackDamage, true)
 					$AttackTimer.start()
 					return
 			elif friendly==false:
 				if body.is_in_group("friendlyUnit"):
-					body.setHealth(body.health - attackDamage)
+					body.setHealth(body.health - attackDamage, true)
 					$AttackTimer.start()
 					return
 
@@ -76,12 +82,18 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 		emit_signal("path_changed", [])
 		emit_signal("targed_reached")
 
-func setHealth(newHealth):
+func setHealth(newHealth, canBeBlocked):
+	if canBeBlocked:
+		rng.randomize()
+		blockNumber = rng.randf_range(0, 100)
+		if blockNumber <= blockChance:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
+			$UnitAudio.play()
+			return
 	health = newHealth
 	var bloodParticleInstance = bloodParticle.instance()
 	bloodParticleInstance.emitting = true
 	add_child(bloodParticleInstance)
-	#move_child(bloodParticleInstance,0)
 	$HealthBarTimer.start()
 	if health <= 0:
 		die()

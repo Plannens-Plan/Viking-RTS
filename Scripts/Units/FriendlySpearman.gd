@@ -5,6 +5,7 @@ func _ready():
 	moveSpeed = 75
 	attackDamage = 35
 	attackSpeed = 2
+	blockChance = 25
 	updateElements()
 
 func _physics_process(delta):
