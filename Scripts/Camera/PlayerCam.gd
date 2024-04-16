@@ -12,9 +12,9 @@ var cameraMaxSpeed = 100
 
 #cam zoom
 var cameraSpeed = 0
-var zoomValue = 1.2
+var zoomValue = 1
 var zoomMax = 3
-var zoomMin = 0.2
+var zoomMin = 0.5
 
 func _ready():
 	pass 
@@ -26,7 +26,13 @@ func _physics_process(delta):
 	velocity += acceleration
 	cameraSpeed = baseCameraSpeed * zoom.x
 	cameraSlowdown()
-
+	if zoomValue > zoom.x:
+		zoom.x = lerp(zoom.x, zoom.x + zoomValue, 0.02)
+		zoom.y = lerp(zoom.y, zoom.x + zoomValue, 0.02)
+	if zoomValue < zoom.x:
+		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.02)
+		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.02)
+	
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):
 		holdingLeft = true
@@ -38,10 +44,10 @@ func inputChecker():
 		holdingDown = true
 	if Input.is_action_just_released("zoom in"):
 		if zoom.x < zoomMax:
-			zoom *= zoomValue
+			zoomValue = min(zoomValue + 0.25, zoomMax)
 	if Input.is_action_just_released("zoom out"):
-		if zoom. x> zoomMin:
-			zoom /= zoomValue
+		if zoom.x > zoomMin:
+			zoomValue = max(zoomValue - 0.25, zoomMin)
 
 func inputHandler():
 	leftHeld()
