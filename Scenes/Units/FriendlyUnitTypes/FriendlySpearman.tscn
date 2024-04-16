@@ -5,15 +5,16 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Units/FriendlySpearman.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 20, 32 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 35.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 151.0
-height = 31.0
+radius = 102.0
+height = 59.0
 
 [node name="FriendlySpearman" type="KinematicBody2D" groups=["friendlyUnit", "unit"]]
 script = ExtResource( 4 )
@@ -26,10 +27,6 @@ scale = Vector2( 0.323077, 0.323077 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 17 )
-shape = SubResource( 4 )
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="CollisionShape2D"]
 position = Vector2( 1, 6 )
 shape = SubResource( 1 )
 
