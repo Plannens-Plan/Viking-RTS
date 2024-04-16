@@ -15,15 +15,15 @@ func _on_Area2D_body_entered(body):
 		unitsInside = true
 	print(unitsInside)
 
-func unitCollision():
-	var overlapping = false
-	for area in self.get_overlapping_areas():
-		if area.is_in_group("unit"):
-			print("BRUUUH")
-			unitsInside = true
-			overlapping = true
-		else:
-			unitsInside = false
+#func unitCollision():
+#	var overlapping = false
+#	for area in self.get_overlapping_areas():
+#		if area.is_in_group("unit"):
+#			print("BRUUUH")
+#			unitsInside = true
+#			overlapping = true
+#		else:
+#			unitsInside = false
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("unit"):
@@ -38,7 +38,6 @@ func _on_PurchaseSword_pressed():
 	var timer
 	timer = Timer.new()
 	timer.connect("timeout", self, "_on_Timer_timeout")
-	unitCollision()
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 15 and res.wood >= 8:
 		if unitsInside == false:
