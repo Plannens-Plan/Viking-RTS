@@ -6,7 +6,7 @@ onready var dropmenu : MenuButton  = get_node("Background/Loadgame/PanelContaine
 
 onready var dir = Directory.new()
 onready var savedir="user://Saves/"
-onready var startgamepath="res://Scenes/Map/Engvik.tscn"
+onready var startgamepath="res://Scenes/Map/Beach1.tscn"
 
 func _ready():
 	if dropmenu.get_popup().items.size()>0:
@@ -70,9 +70,27 @@ func _on_Start_game_pressed():
 	if input_text.text=="":
 		$Background/Newgame/Warning.show()
 		return
+	var disallowedcharacters=[
+		"/",
+		";",
+		":",
+		"<",
+		">",
+		"*",
+		"?",
+		"|",
+		"\\",
+		'"',
+		"'"
+	]
+	for i in disallowedcharacters:
+		if i in input_text.text:
+			$Background/Newgame/Warning3.show()
+			return
 	if file.file_exists(savedir + input_text.text + ".dat"):
 		$Background/Newgame/Warning2.show()
 		return
+	
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
 	get_tree().change_scene(startgamepath)
@@ -83,6 +101,8 @@ func _on_Savenametext_text_changed(new_text):
 		$Background/Newgame/Warning.hide()
 	if $Background/Newgame/Warning2.visible:
 		$Background/Newgame/Warning2.hide()
+	if $Background/Newgame/Warning3.visible:
+		$Background/Newgame/Warning3.hide()
 	pass # Replace with function body.
 #Load game functions
 
