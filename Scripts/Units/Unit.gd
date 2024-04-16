@@ -102,6 +102,7 @@ func _on_MouseOver_mouse_entered():
 func _on_MouseOver_mouse_exited():
 	mouseOver = false
 
+# Call this when you change unit stats
 func updateElements():
 	$HealthBar.max_value = health
 	$HealthBar.value = health
