@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Miner_sprite_preview.png-69e1f5042d2e273e033e5bf4e55dda3e.stex"
+path="res://.import/spearman.png-ad9d32ae7754987b543c01a2d6a330e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Icons/Miner_sprite_preview.png"
-dest_files=[ "res://.import/Miner_sprite_preview.png-69e1f5042d2e273e033e5bf4e55dda3e.stex" ]
+source_file="res://Assets/Images/Units/spearman.png"
+dest_files=[ "res://.import/spearman.png-ad9d32ae7754987b543c01a2d6a330e9.stex" ]
 
 [params]
 

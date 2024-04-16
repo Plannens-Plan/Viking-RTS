@@ -38,16 +38,12 @@ margin_bottom = 40.0
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
 
-[node name="BuildingSpawner" type="Node2D" parent="."]
-
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
 current = true
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 572 )
-
-[node name="BuildingSpawner" type="Node2D" parent="."]
 
 [node name="Structures" type="Node" parent="."]
 

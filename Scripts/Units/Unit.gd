@@ -9,7 +9,7 @@ var did_arrive = false
 
 # Default unit stats
 var moveSpeed = 100
-var maxSpeed = 100
+var maxSpeed
 var friction = 0.5
 var health = 100
 var attackDamage = 25
@@ -29,14 +29,7 @@ var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
 func _ready():
-	# Set health bar to correct values
-	$HealthBar.max_value = health
-	$HealthBar.value = health
-	$HealthBar.modulate.a = 0
-	
-	$AttackTimer.wait_time = attackSpeed
-	$AttackTimer.one_shot = true
-	$AttackTimer.start()
+	updateElements()
 
 func Attack():
 	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
@@ -108,3 +101,15 @@ func _on_MouseOver_mouse_entered():
 
 func _on_MouseOver_mouse_exited():
 	mouseOver = false
+
+# Call this when you change unit stats
+func updateElements():
+	$HealthBar.max_value = health
+	$HealthBar.value = health
+	$HealthBar.modulate.a = 0
+	
+	$AttackTimer.wait_time = attackSpeed
+	$AttackTimer.one_shot = true
+	$AttackTimer.start()
+	
+	maxSpeed = moveSpeed
