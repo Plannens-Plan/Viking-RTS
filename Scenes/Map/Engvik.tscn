@@ -25,8 +25,9 @@ outlines = [ PoolVector2Array( -52, -521, -1263, -423, -1253, 976, -644, 1047, -
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 1600.0
 margin_bottom = 1069.0
-rect_scale = Vector2( 3, 3 )
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
+stretch_mode = 5
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
