@@ -1,10 +1,28 @@
 extends Node2D
 
-onready var GlobalVariable= get_node("/root/GlobalVariables")
+
+onready var GlobalVariable = get_node("/root/GlobalVariables")
+
+var unlimited = false
+var ressourceAmmount = 500
+var harvestAmmount = 50
+var workTime = 0.1
+var pickUp = 0 
+var itemType = "Wood"
+
+func Work():
+	var rngwood = RandomNumberGenerator.new()
+	harvestAmmount = rngwood.randi_range(5,12)
+	if harvestAmmount > ressourceAmmount:
+		harvestAmmount = ressourceAmmount
+		pickUp += harvestAmmount
+		ressourceAmmount = 0
+		$Image.texture = load("res://Assets/Images/Icons/bruh.jpg")
+	else:
+		pickUp += harvestAmmount
+		ressourceAmmount = ressourceAmmount-harvestAmmount
 
 
-func _on_Click_pressed():
-	var rngwood=RandomNumberGenerator.new()
-	GlobalVariable.VikingRts.resources.wood+=rngwood.randi_range(8,15)
-	print(GlobalVariable.VikingRts.resources.wood)
-	pass # Replace with function body.
+func _process(delta):
+	if pickUp==0 && ressourceAmmount==0:
+		queue_free()

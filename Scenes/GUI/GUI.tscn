@@ -15,10 +15,12 @@ script = ExtResource( 1 )
 [node name="Button" type="Button" parent="BarrackBuild"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 33.0
-margin_top = -44.0
-margin_right = 216.0
-margin_bottom = -24.0
+margin_left = 16.0
+margin_top = -577.0
+margin_right = 199.0
+margin_bottom = -557.0
+hint_tooltip = "40 wood"
+mouse_filter = 1
 text = "Build mother fucker"
 
 [node name="ResouceDisplay" type="CanvasLayer" parent="."]

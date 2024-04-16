@@ -11,8 +11,9 @@ radius = 35.0
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 41.5, 61 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 41.5, 61 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 83.0
+height = 8.0
 
 [node name="Miner" type="KinematicBody2D" groups=["friendlyUnit", "harvester", "unit"]]
 collision_layer = 2

@@ -4,7 +4,7 @@ extends Area2D
 var unitsInside = false
 var buildingPlaced = false
 
-onready var GlobalVariable= get_node("/root/GlobalVariables")
+onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:

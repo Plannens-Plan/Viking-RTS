@@ -5,13 +5,16 @@ var holdingLeft = false
 var holdingRight = false
 var holdingUp = false
 var holdingDown = false
-var baseCameraSpeed = 20
+var baseCameraSpeed = 125
+var velocity = Vector2.ZERO
+var acceleration = Vector2.ZERO
+var cameraMaxSpeed = 100
 
 #cam zoom
 var cameraSpeed = 0
-var zoomValue = 1.2
+var zoomValue = 1
 var zoomMax = 3
-var zoomMin = 0.2
+var zoomMin = 0.5
 
 func _ready():
 	pass 
@@ -19,8 +22,17 @@ func _ready():
 func _physics_process(delta):
 	inputChecker()
 	inputHandler()
-	cameraSpeed=baseCameraSpeed*zoom.x
-
+	position += velocity * delta
+	velocity += acceleration
+	cameraSpeed = baseCameraSpeed * zoom.x
+	cameraSlowdown()
+	if zoomValue > zoom.x:
+		zoom.x = lerp(zoom.x, zoom.x + zoomValue, 0.02)
+		zoom.y = lerp(zoom.y, zoom.x + zoomValue, 0.02)
+	if zoomValue < zoom.x:
+		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.02)
+		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.02)
+	
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):
 		holdingLeft = true
@@ -31,11 +43,11 @@ func inputChecker():
 	if Input.is_action_just_pressed("cam down"):
 		holdingDown = true
 	if Input.is_action_just_released("zoom in"):
-		if zoom.x<zoomMax:
-			zoom*=zoomValue
+		if zoom.x < zoomMax:
+			zoomValue = min(zoomValue + 0.25, zoomMax)
 	if Input.is_action_just_released("zoom out"):
-		if zoom.x>zoomMin:
-			zoom/=zoomValue
+		if zoom.x > zoomMin:
+			zoomValue = max(zoomValue - 0.25, zoomMin)
 
 func inputHandler():
 	leftHeld()
@@ -45,28 +57,34 @@ func inputHandler():
 
 func leftHeld():
 	if holdingLeft == true:
-		position.x = position.x - cameraSpeed
+		acceleration.x = max(acceleration.x - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam left"):
 		holdingLeft = false
 		return
 
 func rightHeld():
 	if holdingRight == true:
-		position.x = position.x + cameraSpeed
+		acceleration.x = min(acceleration.x + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam right"):
 		holdingRight = false
 		return
 
 func upHeld():
 	if holdingUp == true:
-		position.y = position.y - cameraSpeed
+		acceleration.y = max(acceleration.y - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam up"):
 		holdingUp = false
 		return
 
 func downHeld():
 	if holdingDown == true:
-		position.y = position.y + cameraSpeed
+		acceleration.y = min(acceleration.y + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam down"):
 		holdingDown = false
 		return
+
+func cameraSlowdown():
+	velocity.x = lerp(velocity.x, 0, 0.175)
+	velocity.y = lerp(velocity.y, 0, 0.175)
+	acceleration.x = lerp(acceleration.x, 0, 0.175)
+	acceleration.y = lerp(acceleration.y, 0, 0.175)
