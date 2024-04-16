@@ -13,6 +13,7 @@ var maxSpeed = 100
 var friction = 0.5
 var health = 100
 var attackDamage = 25
+# Time between each attack in seconds
 var attackSpeed = 1
 var friendly = false
 
@@ -32,10 +33,10 @@ func _ready():
 	$HealthBar.max_value = health
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
+	
 	$AttackTimer.wait_time = attackSpeed
 	$AttackTimer.one_shot = true
 	$AttackTimer.start()
-	pass
 
 func Attack():
 	if $AttackArea.get_overlapping_bodies().size()>0 && $AttackTimer.time_left <= 0:
