@@ -14,9 +14,9 @@
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( -5, 613, -45, 16, 1041, 12, 847, 205, 1019, 605, 862, 603, 669, 598 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5, 3 ), PoolIntArray( 0, 3, 6 ) ]
-outlines = [ PoolVector2Array( -45, 16, -5, 613, 669, 598, 847, 205, 862, 603, 1019, 605, 1041, 12 ) ]
+vertices = PoolVector2Array( 1041, 12, 1273, 410, 1261, 665, 1078, 880, 671, 1168, -637, 1023, -941, 188, -264, -291 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ) ]
+outlines = [ PoolVector2Array( -264, -291, -941, 188, -637, 1023, 671, 1168, 1078, 880, 1261, 665, 1273, 410, 1041, 12 ) ]
 
 [node name="Engvik" type="Node2D"]
 
@@ -90,7 +90,7 @@ position = Vector2( 439, 342 )
 [node name="selection" parent="." instance=ExtResource( 9 )]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-visible = false
+position = Vector2( 94, 959 )
 navpoly = SubResource( 1 )
 
 [node name="Miner" type="Node" parent="."]
