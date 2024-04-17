@@ -8,6 +8,7 @@ func _ready():
 	delay_timer = $PanicTimer
 	delay_timer.one_shot = true
 	delay_timer.start()
+	setRandomTexture()
  
 func _physics_process(delta):
 	TargetFriendly()
@@ -35,3 +36,12 @@ func _on_CollisionChecker_body_entered(body):
 	targetY = -targetY
 	
 	set_target_location(Vector2(targetX, targetY))
+
+func setRandomTexture():
+	rng.randomize()
+	var textureNumber = rng.randi_range(1, 2)
+	match textureNumber:
+		1:
+			$Sprite.texture = load("res://Assets/Images/Units/monk.png")
+		2:
+			$Sprite.texture = load("res://Assets/Images/Units/monk_staffless.png")
