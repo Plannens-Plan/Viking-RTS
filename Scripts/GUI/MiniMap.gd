@@ -55,7 +55,6 @@ func cameraResize():
 	cameraSpritePosition = cameraPosition * mapScaledDifference
 	cameraSpritePosition.x = clamp(cameraSpritePosition.x, 0 + $Viewport/CamSprite.get_texture().get_size().x / 2 * $Viewport/CamSprite.scale.x, mapSize.x*mapScaledDifference.x - $Viewport/CamSprite.get_texture().get_size().x / 2 * $Viewport/CamSprite.scale.x)
 	cameraSpritePosition.y = clamp(cameraSpritePosition.y, 0 + $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y, mapSize.y*mapScaledDifference.y - $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y)
-	print(cameraSpritePosition)
 	camSprite.position = cameraSpritePosition
 
 func elementCreator():
