@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=13]
+[ext_resource path="res://TEST.gd" type="Script" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -798, 4356, -2555, 3859, -1830, 2483, 869, -625, 1172, -665, 1981, 4952, -2230, 2351, -2078, 1799, -1253, 976, 3815, -1672, 8761, -633, 7990, 4554, -423, -766, -1890, 1048, -1263, -423 )
@@ -21,18 +22,11 @@ outlines = [ PoolVector2Array( -423, -766, -1263, -423, -1253, 976, -1890, 1048,
 
 [node name="Engvik" type="Node2D"]
 
-[node name="Map" type="TextureRect" parent="."]
-margin_right = 2168.0
-margin_bottom = 1440.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
+[node name="GUI" parent="." instance=ExtResource( 8 )]
 
 [node name="Structure menus" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-
-[node name="GUI2" parent="." instance=ExtResource( 8 )]
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
@@ -114,4 +108,9 @@ position = Vector2( 838, 105 )
 
 [node name="EnemyUnits" type="Node" parent="Units"]
 
-[node name="GUI" parent="." instance=ExtResource( 8 )]
+[node name="Map" type="TextureRect" parent="."]
+margin_right = 5000.0
+margin_bottom = 3313.0
+texture = ExtResource( 2 )
+stretch_mode = 5
+script = ExtResource( 14 )
