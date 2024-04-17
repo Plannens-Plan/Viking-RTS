@@ -22,6 +22,8 @@ func inputter():
 		massSelectionStartingPointX = null
 		massSelectionStartingPointY = null
 		$Sprite.hide()
+		$Area2D/CollisionShape2D.position=Vector2(0,0)
+		$Area2D/CollisionShape2D.scale=Vector2(0,0)
 		selector()
 
 func checker():
