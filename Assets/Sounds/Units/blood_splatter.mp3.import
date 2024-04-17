@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/blood_splatter.mp3-c41e194c9692ab3f2cd852358a727bd3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/blood_splatter.mp3"
+dest_files=[ "res://.import/blood_splatter.mp3-c41e194c9692ab3f2cd852358a727bd3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

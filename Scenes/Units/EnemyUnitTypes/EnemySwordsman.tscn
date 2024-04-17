@@ -57,14 +57,18 @@ wait_time = 5.0
 one_shot = true
 
 [node name="DetectArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+visible = false
 shape = SubResource( 4 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="UnitVoice" type="AudioStreamPlayer2D" parent="."]
+
+[node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]

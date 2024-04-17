@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/quick_whoosh.mp3-072e1026ab7f1cd456e38d6387a44089.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/quick_whoosh.mp3"
+dest_files=[ "res://.import/quick_whoosh.mp3-072e1026ab7f1cd456e38d6387a44089.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

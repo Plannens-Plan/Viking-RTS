@@ -5,7 +5,7 @@ var closestUnit = null
 
 func _physics_process(delta):
 	TargetFriendly()
-	Attack()
+	attack()
 
 func TargetFriendly():
 	for body in $DetectArea.get_overlapping_bodies():

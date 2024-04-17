@@ -8,6 +8,7 @@ func _ready():
 		attackDamage = 35
 		attackSpeed = 1.75
 		blockChance = 25
+		attackSound = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
 	updateElements()
 
 func _physics_process(delta):

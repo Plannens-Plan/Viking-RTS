@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flesh_impact.mp3-3180031f8aefbca565340e9bcdec6c19.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/flesh_impact.mp3"
+dest_files=[ "res://.import/flesh_impact.mp3-3180031f8aefbca565340e9bcdec6c19.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

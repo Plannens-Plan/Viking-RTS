@@ -36,20 +36,32 @@ var rng = RandomNumberGenerator.new()
 # rng block number
 var blockNumber
 
+var attackSound
+
 func _ready():
 	updateElements()
 
-func Attack():
+func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
 			if friendly == true:
 				if body.is_in_group("enemyUnit"):
 					body.setHealth(body.health - attackDamage, true)
+					if attackSound != null:
+						resetAudio("UnitAudio")
+						$UnitAudio.stream = attackSound
+						$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
+						$UnitAudio.volume_db = -10
+						$UnitAudio.play()
 					$AttackTimer.start()
 					return
 			elif friendly == false:
 				if body.is_in_group("friendlyUnit"):
 					body.setHealth(body.health - attackDamage, true)
+					if attackSound != null:
+						resetAudio("UnitAudio")
+						$UnitAudio.stream = attackSound
+						$UnitAudio.play()
 					$AttackTimer.start()
 					return
 
@@ -75,20 +87,24 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 			$Sprite.flip_h = true
 	elif not did_arrive:
 		did_arrive = true
-		emit_signal("path_changed", [])
-		emit_signal("targed_reached")
+		#emit_signal("path_changed", [])
+		#emit_signal("targed_reached")
 
 func setHealth(newHealth, canBeBlocked):
 	if canBeBlocked:
 		rng.randomize()
 		blockNumber = rng.randi_range(0, 100)
 		if blockNumber <= blockChance:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
-			$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
+			setAudioRandomBlock()
 			$UnitAudio.play()
 			return
 	if health > newHealth:
 		setAudioRandomGrunt()
+		$UnitVoice.play()
+		resetAudio("UnitAudio")
+		$UnitAudio.stream = load("res://Assets/Sounds/Units/flesh_impact.mp3")
+		$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
+		$UnitAudio.volume_db = -10
 		$UnitAudio.play()
 		var bloodParticleInstance = bloodParticle.instance()
 		bloodParticleInstance.emitting = true
@@ -135,14 +151,29 @@ func setAudioRandomGrunt():
 	var gruntSoundNumber = rng.randi_range(1, 4)
 	match gruntSoundNumber:
 		1:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt.mp3")
+			$UnitVoice.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt.mp3")
 		2:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt2.mp3")
+			$UnitVoice.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt2.mp3")
 		3:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt3.mp3")
+			$UnitVoice.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt3.mp3")
 		4:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
-	$UnitAudio.pitch_scale = 1
+			$UnitVoice.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
+	resetAudio("UnitVoice")
+	$UnitVoice.volume_db = -10
+	$UnitVoice.pitch_scale = rng.randf_range(0.9,1.1)
+
+func setAudioRandomBlock():
+	rng.randomize()
+	var blockSoundNumber = rng.randi_range(1, 3)
+	match blockSoundNumber:
+		1:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
+		2:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block2.mp3")
+		3:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block3.mp3")
+	resetAudio("UnitAudio")
+	$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
 
 func updateHealthBar():
 	# Slowly approach correct health value on health bar
@@ -155,3 +186,15 @@ func updateHealthBar():
 	# Healh bar fade out if not hit and not selected
 	elif !selected:
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
+
+func resetAudio(var audioPlayer):
+	match audioPlayer:
+		"UnitAudio":
+			$UnitAudio.volume_db = 0
+			$UnitAudio.pitch_scale = 1
+		"UnitVoice":
+			$UnitVoice.volume_db = 0
+			$UnitVoice.pitch_scale = 1
+		"UnitVoiceLines":
+			$UnitVoiceLines.volume_db = 0
+			$UnitVoiceLines.pitch_scale = 1

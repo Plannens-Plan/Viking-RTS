@@ -8,10 +8,8 @@ func _ready():
 		attackDamage = 25
 		attackSpeed = 4
 		blockChance = 0
+		attackSound = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
 	updateElements()
 
 func _physics_process(delta):
-	if velocity.x or velocity.y != 0:
-		$AttackTimer.stop()
-	else:
-		$AttackTimer.start()
+	pass
