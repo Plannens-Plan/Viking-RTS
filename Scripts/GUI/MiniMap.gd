@@ -32,6 +32,7 @@ var mapPin
 var scaler = Vector2(400,400)
 var areaStartingPosition = Vector2(100,100)
 var camDrag
+var camDragPosition = Vector2(0,0)
 
 
 func _physics_process(delta):
@@ -163,9 +164,15 @@ func camDragger():
 		camDrag=true
 		scene.get_node("selection").selectionStopper = true
 		
-	if Input.is_action_just_released("leftClick") || get_local_mouse_position().x > get_viewport().size.x / 4 || get_local_mouse_position().y > get_viewport().size.y / 4:
+	if Input.is_action_just_released("leftClick"):
 		camDrag = false
 		scene.get_node("selection").selectionStopper = false
 		
+		
 	if camDrag==true:
-		scene.get_node("PlayerCam").position = get_local_mouse_position() / mapScaledDifference
+		camDragPosition = get_local_mouse_position() / mapScaledDifference
+		print(camDragPosition)
+		camDragPosition.x = clamp (camDragPosition.x,0,mapSize.x)
+		camDragPosition.y = clamp (camDragPosition.y,0,mapSize.y)
+		print(camDragPosition)
+		scene.get_node("PlayerCam").position = camDragPosition
