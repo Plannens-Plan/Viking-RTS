@@ -139,7 +139,7 @@ func mapPinBuilder():
 	#Ressource (ændre maybe til at den er lidt pænerer
 	ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
 	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Ressource")
+		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/WoodMarker.png", "Ressource")
 	if ammount > 0:
 		$Viewport/Ressource.get_child(0).queue_free()
 	
