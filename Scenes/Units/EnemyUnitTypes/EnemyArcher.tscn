@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.5, 33.5 )
+extents = Vector2( 22, 40.75 )
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 486.333
@@ -29,11 +29,13 @@ texture = ExtResource( 3 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -7.25 )
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 shape = SubResource( 5 )
 
 [node name="MouseOver" type="Area2D" parent="."]
@@ -46,9 +48,9 @@ shape = SubResource( 3 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -54.0
-margin_top = -101.0
+margin_top = -80.0
 margin_right = 442.0
-margin_bottom = 59.0
+margin_bottom = 80.0
 rect_scale = Vector2( 0.2, 0.2 )
 value = 100.0
 texture_under = ExtResource( 2 )
