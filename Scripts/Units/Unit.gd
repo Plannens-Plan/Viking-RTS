@@ -74,6 +74,9 @@ func _physics_process(delta):
 		direction = position.direction_to(navigation_agent.get_next_location())
 		velocity = direction * moveSpeed
 		navigation_agent.set_velocity(velocity)
+	if mouseOver and !selected:
+		$Sprite.material.set_shader_param("hide", false)
+		$Sprite.material.set_shader_param("line_thickness", 3)
 	updateHealthBar()
 
 func _arrived_at_location() -> bool:

@@ -10,6 +10,7 @@ func _physics_process(delta):
 		$Sprite.material.set_shader_param("hide", true)
 	else:
 		$Sprite.material.set_shader_param("hide", false)
+		$Sprite.material.set_shader_param("line_thickness", 6)
 		# Fade in to show health bar
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
 
