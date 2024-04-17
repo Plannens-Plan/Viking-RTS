@@ -33,8 +33,6 @@ margin_bottom = 3313.0
 rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
-
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
@@ -576,12 +574,12 @@ position = Vector2( 5742, 3552 )
 [node name="WoodArea16" parent="Resources" instance=ExtResource( 7 )]
 position = Vector2( 5532, 2511 )
 
-[node name="EnemyUnits" type="Node" parent="."]
+[node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 278, 3905 )
 
-[node name="FriendlyUnits" type="Node" parent="."]
+[node name="FriendlyUnits" type="YSort" parent="."]
 
 [node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 11 )]
 position = Vector2( 1118, 963 )

@@ -33,10 +33,14 @@ var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
 var rng = RandomNumberGenerator.new()
-# rng block number
+# RNG block number
 var blockNumber
 
+# The sound a unit makes when attacking
 var attackSound
+
+# The signal a unit sends when it dies
+signal dead_soldier
 
 func _ready():
 	updateElements()
@@ -70,6 +74,9 @@ func _physics_process(delta):
 		direction = position.direction_to(navigation_agent.get_next_location())
 		velocity = direction * moveSpeed
 		navigation_agent.set_velocity(velocity)
+	if mouseOver and !selected:
+		$Sprite.material.set_shader_param("hide", false)
+		$Sprite.material.set_shader_param("line_thickness", 3)
 	updateHealthBar()
 
 func _arrived_at_location() -> bool:
@@ -114,8 +121,6 @@ func setHealth(newHealth, canBeBlocked):
 	if health <= 0:
 		die()
 
-
-signal dead_soldier
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
