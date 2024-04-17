@@ -146,3 +146,4 @@ func setAudioRandomGrunt():
 		4:
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
 	$UnitAudio.pitch_scale = 1
+
