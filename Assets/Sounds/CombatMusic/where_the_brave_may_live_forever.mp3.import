@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/where_the_brave_may_live_forever.mp3-3e677a6241ab50184ba87bb8eebb270d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/CombatMusic/where_the_brave_may_live_forever.mp3"
+dest_files=[ "res://.import/where_the_brave_may_live_forever.mp3-3e677a6241ab50184ba87bb8eebb270d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
