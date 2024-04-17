@@ -21,9 +21,7 @@ vertices = PoolVector2Array( 346.053, 903.796, 371.55, -16.1392, 438.247, 255.29
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 7, 0, 3 ), PoolIntArray( 8, 9, 10, 7 ), PoolIntArray( 4, 6, 11, 8, 7, 3, 12, 13, 14 ) ]
 outlines = [ PoolVector2Array( 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.482, 284.159, 997.697, 346.053, 903.796, 371.55, -16.1392, 438.247, 255.293, 457.093, 1499.48, 459.741, 3999.59, 445.699, 6540.78, 389.533, 6665.49, 303.066, 6614.14, 80.4932, 6969.2, 17.3057, 5588.57, 9.42267, 2922.66 ) ]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 5000.0
@@ -454,6 +452,8 @@ scale = Vector2( 3, 3 )
 position = Vector2( 549, 469 )
 current = true
 
+[node name="GUI" parent="." instance=ExtResource( 4 )]
+
 [node name="Structures" type="Node" parent="."]
 
 [node name="Deposit" parent="Structures" instance=ExtResource( 9 )]
@@ -633,4 +633,3 @@ position = Vector2( 2108, 670 )
 position = Vector2( 6739, 1438 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
-visible = false
