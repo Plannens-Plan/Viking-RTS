@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Images/Backgrounds/ddu.png" type="Texture" id=1]
+[gd_scene load_steps=12 format=2]
+
+
+[ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
+
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 10.8391, 1272.06, 302.511, 335.989, 391.256, 189.269, 424.636, 330.12, 428.331, 723.33, 428.146, 1119.47, 415.829, 1800.25, 9.42267, 2922.66, 30.6083, 89.4992, 207.483, 101.237, 412.319, 2520.65, 22.6021, 4043.6, 408.808, 3578.5, 380.971, 3937.97, 324.743, 4048.01 )
@@ -460,6 +468,24 @@ current = true
 [node name="Resources" type="Node" parent="."]
 
 [node name="EnemyUnits" type="Node" parent="."]
+
+[node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6608, 2574 )
+
+[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6619, 2444 )
+
+[node name="EnemySpearman3" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6682, 2681 )
+
+[node name="EnemySpearman4" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6676, 2240 )
+
+[node name="EnemySpearman5" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6687, 2110 )
+
+[node name="EnemySpearman6" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6750, 2347 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
