@@ -5,7 +5,7 @@ func _ready():
 	set_target_location(position)
 
 func _physics_process(delta):
-	Attack()
+	attack()
 	if !selected:
 		$Sprite.material.set_shader_param("hide", true)
 	else:

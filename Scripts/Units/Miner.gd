@@ -2,9 +2,13 @@ extends "res://Scripts/Units/FriendlyUnit.gd"
 
 func _ready():
 	if newunit:
-		health = 60
-		maxHealth=60
+		health = 50
+		maxHealth = 50
 		moveSpeed = 90
+		attackDamage = 10
+		attackSpeed = 1
+		blockChance = 0
+		attackSound = load("res://Assets/Sounds/Units/whoosh_light.mp3")
 	updateElements()
 
 var harvest =false
