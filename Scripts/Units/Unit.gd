@@ -102,8 +102,9 @@ func setHealth(newHealth, canBeBlocked):
 		setAudioRandomGrunt()
 		$UnitVoice.play()
 		resetAudio("UnitAudio")
-		$UnitAudio.stream = load("res://Assets/Sounds/Units/blood_splatter.mp3")
+		$UnitAudio.stream = load("res://Assets/Sounds/Units/flesh_impact.mp3")
 		$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
+		$UnitAudio.volume_db = -10
 		$UnitAudio.play()
 		var bloodParticleInstance = bloodParticle.instance()
 		bloodParticleInstance.emitting = true
