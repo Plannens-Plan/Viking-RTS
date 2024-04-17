@@ -5,7 +5,6 @@
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 3006, 1006, 2447, 652, 2172, 131, 5094, 118, 5212, 395, 4963, 1091, 4958, 1708, 4562, 2064, 2457, 2075, 2678, 1408, 1861, 1514, 274, 2098, 1327, 1250, 99, 1736, 76, 718, 110, 214, 704, 107, 1804, 822, 2515, 698, 2664, 118 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 0, 5, 6, 7, 8, 9 ), PoolIntArray( 10, 9, 8, 11 ), PoolIntArray( 12, 10, 11, 13, 14 ), PoolIntArray( 12, 14, 15, 16, 17 ), PoolIntArray( 18, 17, 16, 19 ) ]
@@ -783,9 +782,9 @@ scale = Vector2( 5, 5 )
 
 [node name="Miners" type="Node" parent="."]
 
-[node name="Rescources" type="Node" parent="."]
+[node name="Resources" type="Node" parent="."]
 
-[node name="Enemy" type="Node" parent="."]
+[node name="EnemyUnits" type="Node" parent="."]
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
