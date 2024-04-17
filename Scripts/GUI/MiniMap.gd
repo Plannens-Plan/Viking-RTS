@@ -73,12 +73,27 @@ func mapPinCreator(var pos, var img, var loc):
 	$Viewport.get_node(loc).add_child(newMapPin)
 
 func mapPinUpdater():
+	#Friendly
 	if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
 		for mapPin in $Viewport/Friendly.get_child_count():
 			$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
+			
+	#Enemy
 	if $Viewport/Enemy.get_child_count() == enemyUnitPath.get_child_count():
 		for mapPin in $Viewport/Enemy.get_child_count():
 			$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
+			
+	#Structures
+	if $Viewport/Structure.get_child_count() == structurePath.get_child_count():
+		for mapPin in $Viewport/Structure.get_child_count():
+			$Viewport/Structure.get_child(mapPin).position = structurePath.get_child(mapPin).position * mapScaledDifference
+			
+	#Ressource
+	if $Viewport/Ressource.get_child_count() == ressourcePath.get_child_count():
+		for mapPin in $Viewport/Ressource.get_child_count():
+			print("balls")
+			$Viewport/Ressource.get_child(mapPin).position = ressourcePath.get_child(mapPin).position * mapScaledDifference
+
 
 
 func updateScene():
@@ -111,58 +126,16 @@ func mapPinBuilder():
 		$Viewport/Enemy.get_child(0).queue_free()
 	
 	#Ressource (ændre maybe til at den er lidt pænerer
-		ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
+	ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
+	print($Viewport/Ressource.get_child_count())
 	if ammount < 0:
 		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Ressource")
 	if ammount > 0:
 		$Viewport/Ressource.get_child(0).queue_free()
 	
 	#Structure
-		ammount = $Viewport/Structure.get_child_count() - structurePath.get_child_count()
+	ammount = $Viewport/Structure.get_child_count() - structurePath.get_child_count()
 	if ammount < 0:
 		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Structure")
 	if ammount > 0:
 		$Viewport/Structure.get_child(0).queue_free()
-
-
-
-#	ammount = $Viewport/Enemy.get_child_count() - enemyUnitPath.get_child_count()
-#	for pin in ammount:
-#		if pin > 0:
-#			$Viewport/Enemy.get_child(pin).queue_free()
-#		if pin < 0:
-#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Enemy")
-#
-#
-#
-#
-#
-#
-#	for pin in $Viewport/Enemy.get_child_count() > enemyUnitPath.get_child_count():
-#		if pin > 0:
-#			$Viewport/Enemy.remove_child(pin)
-#
-#	for pin in $Viewport/Structure.get_child_count() > structurePath.get_child_count():
-#		if pin > 0:
-#			$Viewport/Structure.remove_child(pin)
-#
-#	for pin in $Viewport/Ressource.get_child_count() > ressourcePath.get_child_count():
-#		if pin > 0:
-#			$Viewport/Ressource.remove_child(pin)
-#
-#	#adder
-#	for pin in $Viewport/Friendly.get_child_count() < friendlyUnitPath.get_child_count():
-#		if pin > 0:
-#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Friendly")
-#
-#	for pin in $Viewport/Enemy.get_child_count() < enemyUnitPath.get_child_count():
-#		if pin > 0:
-#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Enemy")
-#
-#	for pin in $Viewport/Structure.get_child_count() < structurePath.get_child_count():
-#		if pin > 0:
-#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Structure")
-#
-#	for pin in $Viewport/Ressource.get_child_count() < ressourcePath.get_child_count():
-#		if pin > 0:
-#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Ressource")
