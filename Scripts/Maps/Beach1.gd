@@ -7,7 +7,8 @@ var fcount
 var enemyUnits
 var ecount
 
-onready var winScreen = load("res://Scenes/GUI/WinScreen.tscn").instance()
+onready var winScreen = preload("res://Scenes/GUI/WinScreen.tscn").instance()
+onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
 	
@@ -24,7 +25,7 @@ func _on_EnemyUnits_child_exiting_tree(node):
 	ecount = enemyUnits.size()
 	print(ecount)
 	if ecount == 1:
-		winScreen.remainingTroops = 500
+		GlobalVariable.RemainingTroops = fcount
 		get_tree().change_scene("res://Scenes/GUI/WinScreen.tscn")
 	pass # Replace with function body.
 

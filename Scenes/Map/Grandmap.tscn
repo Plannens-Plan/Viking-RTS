@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Images/Backgrounds/united kingdom.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Icons/icon.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/misc/Grandmap.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Maps/Grandmap.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Menus/Pausemenu.tscn" type="PackedScene" id=5]
 
