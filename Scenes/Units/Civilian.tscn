@@ -54,6 +54,10 @@ one_shot = true
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
 
+[node name="UnitVoice" type="AudioStreamPlayer2D" parent="."]
+
+[node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
+
 [node name="DetectArea" type="Area2D" parent="."]
 visible = false
 
