@@ -112,11 +112,8 @@ func updateScene():
 
 func minimapResizer():
 	$Viewport.size = get_viewport().size / 4
-	print(self.rect_size)
 	self.rect_size = $Viewport.size
-	print($Viewport/Background.get_texture().get_size())
 	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
-	print($Viewport/Background.scale)
 	pass
 
 
