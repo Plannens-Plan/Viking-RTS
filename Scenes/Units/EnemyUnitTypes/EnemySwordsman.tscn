@@ -11,9 +11,8 @@ extents = Vector2( 20.5, 33.5 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 52.0865
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 81.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 41.5, 61 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 535.35
@@ -36,19 +35,17 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="MouseOver" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
-position = Vector2( 1, 7 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -54.0
-margin_top = -101.0
+margin_top = -73.0
 margin_right = 442.0
-margin_bottom = 59.0
+margin_bottom = 87.0
 rect_scale = Vector2( 0.2, 0.2 )
 value = 100.0
 texture_under = ExtResource( 2 )
@@ -69,3 +66,5 @@ shape = SubResource( 4 )
 avoidance_enabled = true
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
