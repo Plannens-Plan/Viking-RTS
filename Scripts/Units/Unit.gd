@@ -58,17 +58,7 @@ func _physics_process(delta):
 		direction = position.direction_to(navigation_agent.get_next_location())
 		velocity = direction * moveSpeed
 		navigation_agent.set_velocity(velocity)
-	
-	# Slowly approach correct health value on health bar
-	if $HealthBar.value != health:
-		$HealthBar.value = lerp($HealthBar.value, health, healthBarProgressSpeed)
-	
-	# Health bar fade in if recently hit
-	if $HealthBarTimer.time_left > 0 or mouseOver:
-		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
-	# Healh bar fade out if not hit and not selected
-	elif !selected:
-		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
+	updateHealthBar()
 
 func _arrived_at_location() -> bool:
 	return navigation_agent.is_navigation_finished()
@@ -151,3 +141,14 @@ func setAudioRandomGrunt():
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
 	$UnitAudio.pitch_scale = 1
 
+func updateHealthBar():
+	# Slowly approach correct health value on health bar
+	if $HealthBar.value != health:
+		$HealthBar.value = lerp($HealthBar.value, health, healthBarProgressSpeed)
+	
+	# Health bar fade in if recently hit or mouse over
+	if $HealthBarTimer.time_left > 0 or mouseOver:
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
+	# Healh bar fade out if not hit and not selected
+	elif !selected:
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
