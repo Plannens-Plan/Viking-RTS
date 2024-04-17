@@ -82,6 +82,12 @@ position = Vector2( 323, 368 )
 [node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 103, 282 )
 
+[node name="FriendlySpearman3" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 133, 126 )
+
+[node name="FriendlySpearman4" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 146, 441 )
+
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
 

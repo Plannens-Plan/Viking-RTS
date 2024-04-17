@@ -34,7 +34,10 @@ var mapPin
 
 func _physics_process(delta):
 	cameraResize()
+	mapPinBuilder()
 	mapPinUpdater()
+	print($Viewport/Friendly.get_child_count())
+	print(friendlyUnitPath.get_child_count())
 
 
 func _ready():
@@ -89,3 +92,52 @@ func mapPinUpdater():
 		for mapPin in $Viewport/Enemy.get_child_count():
 			$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
 
+var ammount
+
+func mapPinBuilder():
+	ammount = $Viewport/Friendly.get_child_count() - friendlyUnitPath.get_child_count()
+	for pin in ammount:
+		if pin > 0:
+			$Viewport/Friendly.get_child(pin).queue_free()
+		if pin < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Friendly")
+	ammount = $Viewport/Enemy.get_child_count() - enemyUnitPath.get_child_count()
+	for pin in ammount:
+		if pin > 0:
+			$Viewport/Enemy.get_child(pin).queue_free()
+		if pin < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Enemy")
+#
+#
+#
+#
+#
+#
+#	for pin in $Viewport/Enemy.get_child_count() > enemyUnitPath.get_child_count():
+#		if pin > 0:
+#			$Viewport/Enemy.remove_child(pin)
+#
+#	for pin in $Viewport/Structure.get_child_count() > structurePath.get_child_count():
+#		if pin > 0:
+#			$Viewport/Structure.remove_child(pin)
+#
+#	for pin in $Viewport/Ressource.get_child_count() > ressourcePath.get_child_count():
+#		if pin > 0:
+#			$Viewport/Ressource.remove_child(pin)
+#
+#	#adder
+#	for pin in $Viewport/Friendly.get_child_count() < friendlyUnitPath.get_child_count():
+#		if pin > 0:
+#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Friendly")
+#
+#	for pin in $Viewport/Enemy.get_child_count() < enemyUnitPath.get_child_count():
+#		if pin > 0:
+#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Enemy")
+#
+#	for pin in $Viewport/Structure.get_child_count() < structurePath.get_child_count():
+#		if pin > 0:
+#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Structure")
+#
+#	for pin in $Viewport/Ressource.get_child_count() < ressourcePath.get_child_count():
+#		if pin > 0:
+#			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Ressource")
