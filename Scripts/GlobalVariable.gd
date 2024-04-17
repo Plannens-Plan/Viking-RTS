@@ -18,7 +18,12 @@ export var VikingRts={
 		silver=100
 	},
 	units=[],
-	structures=[]
+	structures=[],
+	progression={
+		beach=false,
+		engvik=false,
+		buns=false
+	}
 }
 
 export var Default={
@@ -30,5 +35,10 @@ export var Default={
 		silver=100
 	},
 	units=[],
-	structures=[]
+	structures=[],
+	progression={
+		beach=false,
+		engvik=false,
+		buns=false
+	}
 }
