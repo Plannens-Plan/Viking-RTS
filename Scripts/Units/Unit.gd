@@ -36,20 +36,32 @@ var rng = RandomNumberGenerator.new()
 # rng block number
 var blockNumber
 
+var attackSound
+
 func _ready():
 	updateElements()
 
-func Attack():
+func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
 			if friendly == true:
 				if body.is_in_group("enemyUnit"):
 					body.setHealth(body.health - attackDamage, true)
+					if attackSound != null:
+						resetUnitAudio()
+						$UnitAudio.stream = attackSound
+						$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
+						$UnitAudio.volume_db = -10
+						$UnitAudio.play()
 					$AttackTimer.start()
 					return
 			elif friendly == false:
 				if body.is_in_group("friendlyUnit"):
 					body.setHealth(body.health - attackDamage, true)
+					if attackSound != null:
+						resetUnitAudio()
+						$UnitAudio.stream = attackSound
+						$UnitAudio.play()
 					$AttackTimer.start()
 					return
 
@@ -83,8 +95,7 @@ func setHealth(newHealth, canBeBlocked):
 		rng.randomize()
 		blockNumber = rng.randi_range(0, 100)
 		if blockNumber <= blockChance:
-			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
-			$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
+			setAudioRandomBlock()
 			$UnitAudio.play()
 			return
 	if health > newHealth:
@@ -139,7 +150,22 @@ func setAudioRandomGrunt():
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt3.mp3")
 		4:
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/HurtSounds/male_grunt4.mp3")
-	$UnitAudio.pitch_scale = 1
+	resetUnitAudio()
+	$UnitAudio.volume_db = -10
+	$UnitAudio.pitch_scale = rng.randf_range(0.9,1.1)
+
+func setAudioRandomBlock():
+	rng.randomize()
+	var blockSoundNumber = rng.randi_range(1, 3)
+	match blockSoundNumber:
+		1:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block.mp3")
+		2:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block2.mp3")
+		3:
+			$UnitAudio.stream = load("res://Assets/Sounds/Units/block3.mp3")
+	resetUnitAudio()
+	$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
 
 func updateHealthBar():
 	# Slowly approach correct health value on health bar
@@ -152,3 +178,7 @@ func updateHealthBar():
 	# Healh bar fade out if not hit and not selected
 	elif !selected:
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
+
+func resetUnitAudio():
+	$UnitAudio.volume_db = 0
+	$UnitAudio.pitch_scale = 1

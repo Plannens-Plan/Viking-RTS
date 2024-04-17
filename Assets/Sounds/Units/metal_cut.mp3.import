@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/metal_cut.mp3-a5698fa03168681458eb96b0a040bca2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/metal_cut.mp3"
+dest_files=[ "res://.import/metal_cut.mp3-a5698fa03168681458eb96b0a040bca2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -30,6 +30,7 @@ rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
 travel_cost = 0.0
@@ -594,6 +595,15 @@ position = Vector2( 6614, 2324 )
 [node name="EnemySpearman7" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 6557, 2919 )
 
+[node name="EnemySwordsman" parent="EnemyUnits" instance=ExtResource( 14 )]
+position = Vector2( 6863, 2047 )
+
+[node name="EnemySwordsman2" parent="EnemyUnits" instance=ExtResource( 14 )]
+position = Vector2( 2419, 415 )
+
+[node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 14 )]
+position = Vector2( 6448, 1892 )
+
 [node name="FriendlyUnits" type="Node" parent="."]
 
 [node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 11 )]
@@ -616,15 +626,6 @@ position = Vector2( 6388, 1642 )
 
 [node name="FriendlyAxeman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 6732, 1589 )
-
-[node name="EnemySwordsman" parent="FriendlyUnits/FriendlyAxeman2" instance=ExtResource( 14 )]
-position = Vector2( 131, 458 )
-
-[node name="EnemySwordsman2" parent="FriendlyUnits/FriendlyAxeman2" instance=ExtResource( 14 )]
-position = Vector2( -5214, -1166 )
-
-[node name="EnemySwordsman3" parent="FriendlyUnits/FriendlyAxeman2" instance=ExtResource( 14 )]
-position = Vector2( 100, 798 )
 
 [node name="FriendlyArcher" parent="FriendlyUnits" instance=ExtResource( 15 )]
 position = Vector2( 2108, 670 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/whoosh_heavy.mp3-62fe3a9f5f5805a1f6b5b8eaf850147b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Units/whoosh_heavy.mp3"
+dest_files=[ "res://.import/whoosh_heavy.mp3-62fe3a9f5f5805a1f6b5b8eaf850147b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
