@@ -32,7 +32,6 @@ texture = ExtResource( 1 )
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
-travel_cost = 0.0
 
 [node name="tree" type="Node" parent="."]
 
