@@ -61,11 +61,11 @@ func elementCreator():
 		for ressource in ressourcePath.get_children():
 			match ressource.itemType:
 				"Wood":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.png", "Ressource")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.jpg", "Ressource")
 				"Stone":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.png", "Ressource")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.jpg", "Ressource")
 				"Food":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.png", "Ressource")
+					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.jpg", "Ressource")
 					
 		for unit in friendlyUnitPath.get_children():
 			mapPinCreator(unit.position, "res://Assets/Images/Icons/monkey_banana.png", "Friendly")
