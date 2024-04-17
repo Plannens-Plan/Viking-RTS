@@ -33,4 +33,8 @@ func _on_EnemyUnits_child_exiting_tree(node):
 func _on_FriendlyUnits_child_exiting_tree(node):
 	fcount = friendlyUnits.size()
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
+	print(ecount)
+	if fcount == 1:
+		GlobalVariable.RemainingTroops = fcount
+		get_tree().change_scene("res://Scenes/GUI/WinScreen.tscn")
 	pass # Replace with function body.
