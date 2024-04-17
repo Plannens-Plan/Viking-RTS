@@ -16,13 +16,11 @@ size = Vector2( 200, 200 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="Background" type="TextureRect" parent="ViewportContainer/Viewport"]
-visible = false
+[node name="Background" type="Sprite" parent="ViewportContainer/Viewport"]
 texture = ExtResource( 1 )
-expand = true
-stretch_mode = 3
 
 [node name="CamSprite" type="Sprite" parent="ViewportContainer/Viewport"]
+self_modulate = Color( 1, 1, 1, 0.52549 )
 texture = ExtResource( 2 )
 
 [node name="Structure" type="Node2D" parent="ViewportContainer/Viewport"]

@@ -31,11 +31,9 @@ var mapPin
 
 var scaler = Vector2(400,400)
 
-
-
 func _physics_process(delta):
-	minimapResizer()
 	updateScene()
+	minimapResizer()
 	cameraResize()
 	mapPinBuilder()
 	mapPinUpdater()
@@ -110,12 +108,15 @@ func updateScene():
 	enemyUnitPath = scene.get_node("EnemyUnits")
 	friendlyUnitPath = scene.get_node("FriendlyUnits")
 	ressourcePath = scene.get_node("Resources")
+	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
 func minimapResizer():
 	$Viewport.size = get_viewport().size / 4
 	print(self.rect_size)
 	self.rect_size = $Viewport.size
-	print(get_viewport().size)
+	print($Viewport/Background.get_texture().get_size())
+	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
+	print($Viewport/Background.scale)
 	pass
 
 
