@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vikings.mp3-88d10fd39cd342a60e7dc8551536f1f9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/CombatMusic/vikings.mp3"
+dest_files=[ "res://.import/vikings.mp3-88d10fd39cd342a60e7dc8551536f1f9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/heilir.mp3-9d93b63566b795dfaf2016e2a5fba24a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/CombatMusic/heilir.mp3"
+dest_files=[ "res://.import/heilir.mp3-9d93b63566b795dfaf2016e2a5fba24a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
