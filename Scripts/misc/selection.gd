@@ -4,6 +4,7 @@ var massSelectionStartingPointY=null
 var held=false
 var scalerx=null
 var scalery=null
+var selectionStopper = false
 
 func _ready():
 	$Sprite.hide()
@@ -11,9 +12,10 @@ func _ready():
 func _physics_process(delta):
 	inputter()
 	checker()
+	print(selectionStopper)
 
 func inputter():
-	if Input.is_action_just_pressed("select"):
+	if Input.is_action_just_pressed("select") && selectionStopper==false :
 		held = true
 		$Sprite.show()
 	if Input.is_action_just_released("select"):

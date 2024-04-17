@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/viking_saga.mp3-73981e50cc493043030880391c898447.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/CombatMusic/viking_saga.mp3"
+dest_files=[ "res://.import/viking_saga.mp3-73981e50cc493043030880391c898447.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
