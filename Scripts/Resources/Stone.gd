@@ -24,3 +24,9 @@ func Work():
 func _process(delta):
 	if pickUp==0 && ressourceAmmount==0:
 		queue_free()
+
+
+
+
+
+

@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySwordsman.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/misc/CombatMusicPlayer.tscn" type="PackedScene" id=16]
 
@@ -23,6 +23,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 
 outlines = [ PoolVector2Array( 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.482, 284.159, 997.697, 346.053, 903.796, 371.55, -16.1392, 438.247, 255.293, 457.093, 1499.48, 459.741, 3999.59, 445.699, 6540.78, 389.533, 6665.49, 303.066, 6614.14, 80.4932, 6969.2, 17.3057, 5588.57, 9.42267, 2922.66 ) ]
 
 [node name="Node2D2" type="Node2D"]
+script = ExtResource( 14 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 16 )]
 
@@ -35,7 +36,6 @@ texture = ExtResource( 1 )
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-visible = false
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
 
@@ -579,34 +579,7 @@ position = Vector2( 5532, 2511 )
 [node name="EnemyUnits" type="Node" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6608, 2574 )
-
-[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6619, 2444 )
-
-[node name="EnemySpearman3" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6563, 2783 )
-
-[node name="EnemySpearman4" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6665, 2172 )
-
-[node name="EnemySpearman5" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6687, 1923 )
-
-[node name="EnemySpearman6" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6614, 2324 )
-
-[node name="EnemySpearman7" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6557, 2919 )
-
-[node name="EnemySwordsman" parent="EnemyUnits" instance=ExtResource( 14 )]
-position = Vector2( 6863, 2047 )
-
-[node name="EnemySwordsman2" parent="EnemyUnits" instance=ExtResource( 14 )]
-position = Vector2( 2419, 415 )
-
-[node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 14 )]
-position = Vector2( 6448, 1892 )
+position = Vector2( 6300, 2163 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
@@ -619,8 +592,47 @@ position = Vector2( 1246, 880 )
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 12 )]
 position = Vector2( 6233, 1748 )
 
+[node name="FriendlySpearman9" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 5875, 1969 )
+
+[node name="FriendlySpearman14" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6437, 2333 )
+
+[node name="FriendlySpearman15" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6206, 2344 )
+
+[node name="FriendlySpearman16" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6056, 2157 )
+
+[node name="FriendlySpearman10" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 5962, 1760 )
+
+[node name="FriendlySpearman11" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6144, 1242 )
+
+[node name="FriendlySpearman12" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 5957, 1472 )
+
+[node name="FriendlySpearman13" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6385, 1292 )
+
 [node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 12 )]
 position = Vector2( 6569, 1635 )
+
+[node name="FriendlySpearman7" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 7351, 1799 )
+
+[node name="FriendlySpearman8" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 7077, 1422 )
+
+[node name="FriendlySpearman4" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6742, 1779 )
+
+[node name="FriendlySpearman5" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6331, 1912 )
+
+[node name="FriendlySpearman6" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 7200, 1569 )
 
 [node name="FriendlySpearman3" parent="FriendlyUnits" instance=ExtResource( 12 )]
 position = Vector2( 6898, 1620 )
@@ -635,10 +647,9 @@ position = Vector2( 6732, 1589 )
 position = Vector2( 2108, 670 )
 
 [node name="FriendlyArcher2" parent="FriendlyUnits" instance=ExtResource( 15 )]
-position = Vector2( 6739, 1438 )
+position = Vector2( 6739, 1435 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
-visible = false
 
-[connection signal="tree_exited" from="EnemyUnits" to="." method="_on_EnemyUnits_tree_exited"]
-[connection signal="tree_exited" from="FriendlyUnits" to="." method="_on_FriendlyUnits_tree_exited"]
+[connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]

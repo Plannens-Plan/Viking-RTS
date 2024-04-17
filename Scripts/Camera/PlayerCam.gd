@@ -67,30 +67,32 @@ func inputHandler():
 	rightHeld()
 	upHeld()
 	downHeld()
+	self.position.x = clamp(self.position.x , 0, get_tree().current_scene.get_node("Map").get_size().x * get_tree().current_scene.get_node("Map").get_scale().x)
+	self.position.y = clamp(self.position.y , 0, get_tree().current_scene.get_node("Map").get_size().y * get_tree().current_scene.get_node("Map").get_scale().y)
 
 func leftHeld():
-	if holdingLeft == true && position.x > 0:# + (get_viewport().size.x * zoomValue) / 2:
+	if holdingLeft == true:
 		acceleration.x = max(acceleration.x - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam left"):
 		holdingLeft = false
 		return
 
 func rightHeld():
-	if holdingRight == true && position.x < mapSize.x:	# - (get_viewport().size.x * zoomValue) / 2:
+	if holdingRight == true:
 		acceleration.x = min(acceleration.x + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam right"):
 		holdingRight = false
 		return
 
 func upHeld():
-	if holdingUp == true && position.y > 0:# + (get_viewport().size.y * zoomValue) / 2:
+	if holdingUp == true:
 		acceleration.y = max(acceleration.y - cameraSpeed, -cameraMaxSpeed - cameraSpeed)
 	if Input.is_action_just_released("cam up"):
 		holdingUp = false
 		return
 
 func downHeld():
-	if holdingDown == true && position.y < mapSize.y:# - (get_viewport().size.y * zoomValue) / 2:
+	if holdingDown == true:
 		acceleration.y = min(acceleration.y + cameraSpeed, cameraMaxSpeed + cameraSpeed)
 	if Input.is_action_just_released("cam down"):
 		holdingDown = false

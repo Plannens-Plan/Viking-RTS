@@ -2,9 +2,6 @@ extends Area2D
 
 
 
-
-
-
 #var overlap = get_node("CollisionShape2D")
 var unitsInside = false
 var buildingPlaced = false

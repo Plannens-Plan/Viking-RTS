@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Units/FriendlyArcher.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 38.75 )
+extents = Vector2( 22, 17.25 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -29,12 +29,13 @@ texture = ExtResource( 1 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -7.25 )
+position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
@@ -53,7 +54,6 @@ wait_time = 5.0
 one_shot = true
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 3 )
