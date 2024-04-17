@@ -34,17 +34,15 @@ position = Vector2( 0, 1 )
 shape = SubResource( 4 )
 
 [node name="MouseOver" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
-visible = false
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -57.0
-margin_top = -63.0
-margin_right = 439.0
-margin_bottom = 97.0
+margin_left = -55.0
+margin_top = -75.0
+margin_right = 441.0
+margin_bottom = 85.0
 rect_scale = Vector2( 0.2, 0.2 )
 value = 100.0
 texture_under = ExtResource( 3 )
