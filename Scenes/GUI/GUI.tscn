@@ -1,22 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GUI/ResouceDisplay.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Menu/Pausemenu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Map/Minimap/Minimap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Structures/farmHouse Build.gd" type="Script" id=5]
 
 [node name="GUI" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 1 )
 
 [node name="Minimap" type="CanvasLayer" parent="."]
 
 [node name="ViewportContainer" parent="Minimap" instance=ExtResource( 4 )]
 
-[node name="BarrackBuild" type="CanvasLayer" parent="."]
+[node name="BarrackControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="BarrackBuild"]
+[node name="BarrackBuild" type="CanvasLayer" parent="BarrackControl"]
+
+[node name="Button" type="Button" parent="BarrackControl/BarrackBuild"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 21.0
@@ -25,7 +30,25 @@ margin_right = 204.0
 margin_bottom = -29.0
 hint_tooltip = "40 wood"
 mouse_filter = 1
-text = "Build mother fucker"
+text = "Build Barrack"
+
+[node name="FarmHouseControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="FarmHouseControl" type="CanvasLayer" parent="FarmHouseControl"]
+
+[node name="Button" type="Button" parent="FarmHouseControl/FarmHouseControl"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 224.0
+margin_top = -48.0
+margin_right = 407.0
+margin_bottom = -28.0
+hint_tooltip = "40 wood"
+mouse_filter = 1
+text = "Build Farm House"
 
 [node name="ResouceDisplay" type="CanvasLayer" parent="."]
 script = ExtResource( 2 )
@@ -151,7 +174,10 @@ margin_right = 55.0
 margin_bottom = -30.0
 text = "Continue"
 
-[connection signal="pressed" from="BarrackBuild/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="BarrackControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="FarmHouseControl" method="_on_Button_pressed"]
 [connection signal="pressed" from="Pausemenu/Background/Save" to="Pausemenu" method="_on_Save_pressed"]
 [connection signal="pressed" from="Pausemenu/Background/BackToMenu" to="Pausemenu" method="_on_BackToMenu_pressed"]
 [connection signal="pressed" from="Pausemenu/Background/Continue" to="Pausemenu" method="_on_Continue_pressed"]
