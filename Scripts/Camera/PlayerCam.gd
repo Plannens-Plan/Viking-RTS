@@ -35,11 +35,11 @@ func _physics_process(delta):
 	cameraSpeed = baseCameraSpeed * zoom.x
 	cameraSlowdown()
 	if zoomValue > zoom.x:
-		zoom.x = lerp(zoom.x, zoom.x + zoomValue, 0.02)
-		zoom.y = lerp(zoom.y, zoom.x + zoomValue, 0.02)
+		zoom.x = lerp(zoom.x, zoom.x + zoomValue, 0.03*(zoomValue-zoom.x)+0.01)
+		zoom.y = lerp(zoom.y, zoom.x + zoomValue, 0.03*(zoomValue-zoom.y)+0.01)
 	if zoomValue < zoom.x:
-		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.02)
-		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.02)
+		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.12*(zoom.x-zoomValue)-0.01)
+		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.12*(zoom.y-zoomValue)-0.01)
 	
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):

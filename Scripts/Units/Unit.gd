@@ -114,6 +114,8 @@ func setHealth(newHealth, canBeBlocked):
 	if health <= 0:
 		die()
 
+
+signal dead_soldier
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
@@ -122,6 +124,7 @@ func die():
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
+	emit_signal("dead_soldier")
 	queue_free()
 
 func _on_MouseOver_mouse_entered():
