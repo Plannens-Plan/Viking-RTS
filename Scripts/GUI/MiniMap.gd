@@ -46,7 +46,6 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
-	print(get_global_mouse_position() - get_global_rect().position)
 
 
 func cameraResize():
