@@ -12,7 +12,6 @@ func _ready():
 func _physics_process(delta):
 	inputter()
 	checker()
-	print(selectionStopper)
 
 func inputter():
 	if Input.is_action_just_pressed("select") && selectionStopper==false :
