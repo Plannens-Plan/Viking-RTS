@@ -23,9 +23,18 @@ func _ready():
 func _on_EnemyUnits_child_exiting_tree(node):
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	ecount = enemyUnits.size()
-	print(ecount)
-	if ecount == 1:
+	if ecount == 1 && GlobalVariable.Exiting ==false:
 		GlobalVariable.RemainingTroops = fcount
+		var units= GlobalVariable.VikingRts.units
+		var scene = get_tree().current_scene
+
+			
+		var FriendlyUnits = scene.get_node("FriendlyUnits")
+		for i in FriendlyUnits.get_children():
+			units.append({
+			scene=i.filename,
+		})
+		GlobalVariable.VikingRts.progression.beach=true
 		get_tree().change_scene("res://Scenes/GUI/WinScreen.tscn")
 	pass # Replace with function body.
 

@@ -4,6 +4,7 @@ extends Node
 #onready var GlobalVariable= get_node("/root/GlobalVariables")
 #GlobalVariable.VikingRts.xxx = yyy eller GlobalVariable.VikingRts["xxx"] = yyy
 export var RemainingTroops=0
+export var Exiting=false
 
 #lav data her
 #export var yyy = xxx

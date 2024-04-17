@@ -8,6 +8,7 @@ var cameraPath
 var cameraZoom
 var cameraPosition
 onready var camSprite=$Viewport/CamSprite
+var cameraSpritePosition = Vector2(0,0)
 
 #Unit
 var unitPath
@@ -34,6 +35,9 @@ var areaStartingPosition = Vector2(100,100)
 var camDrag
 var camDragPosition = Vector2(0,0)
 
+#en X del af skærmen (skærm/X=minimap Størrelse
+var screenSize=6
+
 
 func _physics_process(delta):
 	updateScene()
@@ -48,7 +52,10 @@ func cameraResize():
 	cameraZoom = cameraPath.zoom
 	cameraPosition = cameraPath.position 
 	camSprite.scale = get_viewport().size * cameraPath.zoom / camSprite.texture.get_size() * mapScaledDifference
-	camSprite.position = cameraPosition * mapScaledDifference
+	cameraSpritePosition = cameraPosition * mapScaledDifference
+	cameraSpritePosition.x = clamp(cameraSpritePosition.x, 0 + $Viewport/CamSprite.get_texture().get_size().x / 2 * $Viewport/CamSprite.scale.x, mapSize.x*mapScaledDifference.x - $Viewport/CamSprite.get_texture().get_size().x / 2 * $Viewport/CamSprite.scale.x)
+	cameraSpritePosition.y = clamp(cameraSpritePosition.y, 0 + $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y, mapSize.y*mapScaledDifference.y - $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y)
+	camSprite.position = cameraSpritePosition
 
 func elementCreator():
 		for ressource in ressourcePath.get_children():
@@ -116,7 +123,7 @@ func updateScene():
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
 func minimapResizer():
-	$Viewport.size = get_viewport().size / 4
+	$Viewport.size = get_viewport().size / screenSize
 	self.rect_size = $Viewport.size
 	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
@@ -154,13 +161,13 @@ func mapPinBuilder():
 	#Structure
 	ammount = $Viewport/Structure.get_child_count() - structurePath.get_child_count()
 	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", "Structure")
+		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", "Structure")
 	if ammount > 0:
 		$Viewport/Structure.get_child(0).queue_free()
 
 func camDragger():
 	
-	if Input.is_action_just_pressed("leftClick") && get_local_mouse_position().x < get_viewport().size.x / 4 && get_local_mouse_position().y < get_viewport().size.y / 4 :
+	if Input.is_action_just_pressed("leftClick") && get_local_mouse_position().x < get_viewport().size.x / screenSize && get_local_mouse_position().y < get_viewport().size.y / screenSize :
 		camDrag=true
 		scene.get_node("selection").selectionStopper = true
 		
