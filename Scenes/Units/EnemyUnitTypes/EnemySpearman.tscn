@@ -75,4 +75,6 @@ avoidance_enabled = true
 
 [node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
+[connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
+[connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]

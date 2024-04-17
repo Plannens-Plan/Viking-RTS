@@ -3,12 +3,12 @@ extends "res://Scripts/Units/Unit.gd"
 func _ready():
 	friendly = true
 	set_target_location(position)
+	outlineColor = Color(0, 1, 1, 1)
+	updateElements()
 
 func _physics_process(delta):
 	attack()
-	if !selected:
-		$Sprite.material.set_shader_param("hide", true)
-	else:
+	if selected:
 		$Sprite.material.set_shader_param("hide", false)
 		$Sprite.material.set_shader_param("line_thickness", 6)
 		# Fade in to show health bar
