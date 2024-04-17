@@ -574,12 +574,12 @@ position = Vector2( 5742, 3552 )
 [node name="WoodArea16" parent="Resources" instance=ExtResource( 7 )]
 position = Vector2( 5532, 2511 )
 
-[node name="EnemyUnits" type="Node" parent="."]
+[node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 6300, 2163 )
 
-[node name="FriendlyUnits" type="Node" parent="."]
+[node name="FriendlyUnits" type="YSort" parent="."]
 
 [node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 11 )]
 position = Vector2( 1118, 963 )
