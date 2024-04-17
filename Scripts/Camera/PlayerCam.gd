@@ -34,8 +34,6 @@ func _physics_process(delta):
 	velocity += acceleration
 	cameraSpeed = baseCameraSpeed * zoom.x
 	cameraSlowdown()
-	print(zoomValue)
-	print(zoom.x)
 	if zoomValue > zoom.x:
 		zoom.x = lerp(zoom.x, zoom.x + zoomValue, 0.03*(zoomValue-zoom.x)+0.01)
 		zoom.y = lerp(zoom.y, zoom.x + zoomValue, 0.03*(zoomValue-zoom.y)+0.01)
