@@ -79,6 +79,10 @@ func set_target_location(target:Vector2):
 func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 	if not _arrived_at_location():
 		velocity = move_and_slide(safe_velocity)
+		if velocity.x > 0:
+			$Sprite.flip_h = false
+		if velocity.x < 0:
+			$Sprite.flip_h = true
 	elif not did_arrive:
 		did_arrive = true
 		emit_signal("path_changed", [])
