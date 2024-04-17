@@ -63,15 +63,15 @@ position = Vector2( 300, 600 )
 position = Vector2( 400, 600 )
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 11 )]
-position = Vector2( 713, 307 )
+position = Vector2( 601, 106 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
 
 [node name="FriendlyMiner" parent="FriendlyUnits" instance=ExtResource( 10 )]
-position = Vector2( 668, 563 )
+position = Vector2( 38, 385 )
 
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 133, 126 )
+position = Vector2( 323, 368 )
 
 [node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 103, 282 )
@@ -96,9 +96,15 @@ position = Vector2( 838, 105 )
 [node name="FriendlyUnits" type="Node" parent="Units"]
 
 [node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 133, 126 )
+position = Vector2( 344, 185 )
 
 [node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 146, 441 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
+
+[node name="FriendlyMiner2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 38, 385 )
+
+[node name="EnemySpearman" parent="." instance=ExtResource( 11 )]
+position = Vector2( 633, 499 )
