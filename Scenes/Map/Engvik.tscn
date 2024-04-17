@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/LevelObjects/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Units/Monk.tscn" type="PackedScene" id=4]
@@ -32,10 +32,7 @@ stretch_mode = 5
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 511, 572 )
-
-[node name="GUI" parent="." instance=ExtResource( 8 )]
+[node name="GUI2" parent="." instance=ExtResource( 8 )]
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 300 )
@@ -71,6 +68,12 @@ position = Vector2( 400, 600 )
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 11 )]
 position = Vector2( 601, 106 )
 
+[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 633, 499 )
+
+[node name="EnemySpearman3" parent="EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 624, 303 )
+
 [node name="FriendlyUnits" type="Node" parent="."]
 
 [node name="FriendlyMiner" parent="FriendlyUnits" instance=ExtResource( 10 )]
@@ -87,6 +90,12 @@ position = Vector2( 258, 233 )
 
 [node name="FriendlySpearman4" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 146, 441 )
+
+[node name="FriendlyAxeman" parent="FriendlyUnits" instance=ExtResource( 1 )]
+position = Vector2( 549, 532 )
+
+[node name="FriendlyAxeman2" parent="FriendlyUnits" instance=ExtResource( 1 )]
+position = Vector2( 198, 336 )
 
 [node name="selection" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -106,9 +115,3 @@ position = Vector2( 838, 105 )
 [node name="EnemyUnits" type="Node" parent="Units"]
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
-
-[node name="FriendlyMiner2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 38, 385 )
-
-[node name="EnemySpearman" parent="." instance=ExtResource( 11 )]
-position = Vector2( 633, 499 )
