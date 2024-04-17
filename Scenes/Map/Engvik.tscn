@@ -83,7 +83,7 @@ position = Vector2( 323, 368 )
 position = Vector2( 103, 282 )
 
 [node name="FriendlySpearman3" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 133, 126 )
+position = Vector2( 258, 233 )
 
 [node name="FriendlySpearman4" parent="FriendlyUnits" instance=ExtResource( 13 )]
 position = Vector2( 146, 441 )
@@ -104,14 +104,6 @@ position = Vector2( 838, 105 )
 [node name="Units" type="Node" parent="."]
 
 [node name="EnemyUnits" type="Node" parent="Units"]
-
-[node name="FriendlyUnits" type="Node" parent="Units"]
-
-[node name="FriendlySpearman" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 344, 185 )
-
-[node name="FriendlySpearman2" parent="Units/FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 146, 441 )
 
 [node name="GUI" parent="." instance=ExtResource( 8 )]
 
