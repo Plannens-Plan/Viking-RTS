@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 18, 31.5 )
+extents = Vector2( 18, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -30,7 +30,7 @@ scale = Vector2( 0.182277, 0.182277 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 9 )
 shape = SubResource( 4 )
 
 [node name="MouseOver" type="Area2D" parent="."]

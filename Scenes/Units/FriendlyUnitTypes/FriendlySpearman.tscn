@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 18, 31.5 )
+extents = Vector2( 18, 16.75 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -30,6 +30,7 @@ region_enabled = true
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
 shape = SubResource( 6 )
 
 [node name="MouseOver" type="Area2D" parent="."]

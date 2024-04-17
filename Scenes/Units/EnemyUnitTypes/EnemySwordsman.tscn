@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Images/Units/for_honor_viking.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.5, 33.5 )
+extents = Vector2( 20.5, 17.5 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 52.0865
@@ -27,14 +27,17 @@ texture = ExtResource( 4 )
 region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 10 )
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 2 )
 
 [node name="MouseOver" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 shape = SubResource( 5 )

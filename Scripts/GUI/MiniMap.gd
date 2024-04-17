@@ -171,8 +171,6 @@ func camDragger():
 		
 	if camDrag==true:
 		camDragPosition = get_local_mouse_position() / mapScaledDifference
-		print(camDragPosition)
 		camDragPosition.x = clamp (camDragPosition.x,0,mapSize.x)
 		camDragPosition.y = clamp (camDragPosition.y,0,mapSize.y)
-		print(camDragPosition)
 		scene.get_node("PlayerCam").position = camDragPosition

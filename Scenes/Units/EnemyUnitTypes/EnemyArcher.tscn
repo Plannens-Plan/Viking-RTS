@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 40.75 )
+extents = Vector2( 22, 20.75 )
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 486.333
@@ -29,7 +29,7 @@ texture = ExtResource( 3 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -7.25 )
+position = Vector2( 0, 6 )
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
