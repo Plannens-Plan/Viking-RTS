@@ -75,8 +75,8 @@ func _on_NavigationAgent2D_velocity_computed(safe_velocity):
 			$Sprite.flip_h = true
 	elif not did_arrive:
 		did_arrive = true
-		emit_signal("path_changed", [])
-		emit_signal("targed_reached")
+		#emit_signal("path_changed", [])
+		#emit_signal("targed_reached")
 
 func setHealth(newHealth, canBeBlocked):
 	if canBeBlocked:
