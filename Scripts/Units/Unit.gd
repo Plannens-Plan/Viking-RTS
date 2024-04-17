@@ -33,10 +33,14 @@ var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
 var rng = RandomNumberGenerator.new()
-# rng block number
+# RNG block number
 var blockNumber
 
+# The sound a unit makes when attacking
 var attackSound
+
+# The signal a unit sends when it dies
+signal dead_soldier
 
 func _ready():
 	updateElements()
@@ -114,8 +118,6 @@ func setHealth(newHealth, canBeBlocked):
 	if health <= 0:
 		die()
 
-
-signal dead_soldier
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
