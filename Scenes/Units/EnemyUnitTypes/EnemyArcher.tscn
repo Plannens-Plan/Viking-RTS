@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Images/Units/saxon_green.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/Units/for_honor_viking.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Units/EnemyArcher.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.5, 33.5 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 90.0056
+[sub_resource type="CircleShape2D" id=5]
+radius = 486.333
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 41.5, 61 )
@@ -21,10 +22,11 @@ radius = 486.333
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1, -18 )
-scale = Vector2( 0.233099, 0.233099 )
+material = ExtResource( 5 )
+position = Vector2( -1.19209e-07, -7 )
+scale = Vector2( 0.122672, 0.122672 )
 texture = ExtResource( 3 )
-region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
+region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -32,7 +34,7 @@ shape = SubResource( 1 )
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 
@@ -58,6 +60,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="DetectArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 shape = SubResource( 4 )
