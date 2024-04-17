@@ -3,24 +3,17 @@ extends Control
 var buildingMode
 var kollision
 
-#Override i _ready() previewBuilding med preload ligesom = preload("res://Scenes/Structures/Barracks.tscn").instance()
-onready var previewBuilding
-var placeableBuilding
-
 onready var GlobalVariable = get_node("/root/GlobalVariables")
+
+#Override i _ready() previewBuilding med preload ligesom = preload("res://Scenes/Structures/Barracks.tscn").instance()
+onready var previewBuilding = preload("res://Scenes/Structures/Barracks.tscn").instance()
+var placeableBuilding 
 
 #Override i _ready() med spritens navn
 var spriteName
 
-
-#Override i _ready() newBuilding med load path ligesom:  = load("res://Scenes/Structures/Barracks.tscn").instance()
-var newBuilding
-
-
-
+#override hele _ready()
 func _ready():
-
-
 	add_child(previewBuilding)
 	previewBuilding.hide()
 	pass # Replace with function body.
@@ -47,9 +40,9 @@ func previewbuild():
 
 
 
-
+#Hele funktionene skal overrides
 func build():
-	
+	var newBuilding
 	var res=GlobalVariable.VikingRts.resources
 	if(Input.is_action_just_released("leftClick") && placeableBuilding == true):
 		newBuilding.buildingPlaced = true
