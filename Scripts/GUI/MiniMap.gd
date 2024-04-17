@@ -91,7 +91,6 @@ func mapPinUpdater():
 	#Ressource
 	if $Viewport/Ressource.get_child_count() == ressourcePath.get_child_count():
 		for mapPin in $Viewport/Ressource.get_child_count():
-			print("balls")
 			$Viewport/Ressource.get_child(mapPin).position = ressourcePath.get_child(mapPin).position * mapScaledDifference
 
 

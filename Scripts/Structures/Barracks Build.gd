@@ -1,10 +1,16 @@
 extends "res://Scripts/Structures/BaseStructureBuild.gd"
 
 
+
 func _ready():
 	#previewBuilding = preload("res://Scenes/Structures/Barracks.tscn").instance()
 	spriteName = "Barrack"
 	pass
+
+func addPreview():
+	previewBuilding = preload("res://Scenes/Structures/Barracks.tscn").instance()
+	add_child(previewBuilding)
+	previewBuilding.hide()
 
 func build():
 	var newBuilding = load("res://Scenes/Structures/Barracks.tscn").instance()
