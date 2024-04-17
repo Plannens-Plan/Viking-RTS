@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 351.534, 956.615, 354.798, 1.4672, 462.636, 8.8032, 462.636, 1449.59, 1.66283, 2938.8, 0.985379, 1270.6, 284.159, 997.697, 463.744, 3961.44, 1.29331, 48.4176, 282.434, 48.4176, 85.8512, 7203.96, 0.739035, 7196.62, 312.796, 7211.29, 466.023, 7220.09, 396.615, 7234.77 )
@@ -590,5 +593,26 @@ position = Vector2( 6614, 2324 )
 position = Vector2( 6557, 2919 )
 
 [node name="FriendlyUnits" type="Node" parent="."]
+
+[node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 11 )]
+position = Vector2( 1118, 963 )
+
+[node name="FriendlyThrall2" parent="FriendlyUnits" instance=ExtResource( 11 )]
+position = Vector2( 1246, 880 )
+
+[node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6233, 1748 )
+
+[node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6569, 1635 )
+
+[node name="FriendlySpearman3" parent="FriendlyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6898, 1620 )
+
+[node name="FriendlyAxeman" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6388, 1642 )
+
+[node name="FriendlyAxeman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6732, 1589 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
