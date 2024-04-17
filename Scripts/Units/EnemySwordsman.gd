@@ -1,13 +1,13 @@
-extends "res://Scripts/Units/FriendlyUnit.gd"
+extends "res://Scripts/Units/EnemyUnit.gd"
 
 func _ready():
 	if newunit:
-		health = 125
-		maxHealth = 125
+		health = 100
+		maxHealth = 100
 		moveSpeed = 90
-		attackDamage = 40
+		attackDamage = 25
 		attackSpeed = 1
-		blockChance = 0
+		blockChance = 40
 	updateElements()
 
 func _physics_process(delta):
