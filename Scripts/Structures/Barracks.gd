@@ -39,7 +39,7 @@ func _on_PurchaseSword_pressed():
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 15 and res.wood >= 8:
 		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/Spearman.tscn").instance()
+			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn").instance()
 			res.food-=15
 			res.wood-=8
 			troop.position = position
