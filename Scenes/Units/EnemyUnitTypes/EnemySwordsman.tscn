@@ -57,9 +57,9 @@ wait_time = 5.0
 one_shot = true
 
 [node name="DetectArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+visible = false
 shape = SubResource( 4 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

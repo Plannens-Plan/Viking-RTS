@@ -621,13 +621,13 @@ position = Vector2( 6732, 1589 )
 position = Vector2( 131, 458 )
 
 [node name="EnemySwordsman2" parent="FriendlyUnits/FriendlyAxeman2" instance=ExtResource( 14 )]
-position = Vector2( 109, 1118 )
+position = Vector2( -5214, -1166 )
 
 [node name="EnemySwordsman3" parent="FriendlyUnits/FriendlyAxeman2" instance=ExtResource( 14 )]
 position = Vector2( 100, 798 )
 
 [node name="FriendlyArcher" parent="FriendlyUnits" instance=ExtResource( 15 )]
-position = Vector2( 6313, 1540 )
+position = Vector2( 2108, 670 )
 
 [node name="FriendlyArcher2" parent="FriendlyUnits" instance=ExtResource( 15 )]
 position = Vector2( 6739, 1438 )

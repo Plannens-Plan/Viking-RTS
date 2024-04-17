@@ -11,7 +11,4 @@ func _ready():
 	updateElements()
 
 func _physics_process(delta):
-	if velocity.x or velocity.y != 0:
-		$AttackTimer.stop()
-	else:
-		$AttackTimer.start()
+	pass
