@@ -34,6 +34,9 @@ current = true
 
 [node name="Structures" type="Node" parent="."]
 
+[node name="Deposit" parent="Structures" instance=ExtResource( 12 )]
+position = Vector2( 838, 105 )
+
 [node name="Resources" type="Node" parent="." groups=["Workspace"]]
 
 [node name="Food" parent="Resources" instance=ExtResource( 7 )]
@@ -100,9 +103,6 @@ position = Vector2( 252, -53 )
 navpoly = SubResource( 1 )
 
 [node name="FriendlyMiner" type="Node" parent="."]
-
-[node name="Deposit" parent="." instance=ExtResource( 12 )]
-position = Vector2( 838, 105 )
 
 [node name="Units" type="Node" parent="."]
 
