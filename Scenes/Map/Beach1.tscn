@@ -33,7 +33,6 @@ texture = ExtResource( 1 )
 visible = false
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
-travel_cost = 0.0
 
 [node name="tree" type="Node" parent="."]
 

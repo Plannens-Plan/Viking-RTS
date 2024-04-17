@@ -1,25 +1,26 @@
-extends Control
+extends CanvasLayer
 onready var savedir="user://Saves/"
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
-	var units= GlobalVariable.VikingRts.units
-	if units !=[]:
-		var scene=get_tree().get_root().get_child(0)
-		if scene.name=="GlobalVariables":
-			scene=get_tree().get_root().get_child(1)
-		var FriendlyUnits = scene.get_node("FriendlyUnits")
-
-		for i in units:
-			var troop = load(i.scene).instance()
-			troop.position.x = int(i.pos.x)
-			troop.position.y = int(i.pos.y)
-			troop.health=int(i.health)
-			troop.maxHealth=int(i.maxhealth)
-			troop.newunit=false
-			print(String(i.health) +String(i.maxhealth) )
-			FriendlyUnits.add_child(troop)
-		pass
+	print(get_tree().paused)
+#	var units= GlobalVariable.VikingRts.units
+#	if units !=[]:
+#		var scene=get_tree().get_root().get_child(0)
+#		if scene.name=="GlobalVariables":
+#			scene=get_tree().get_root().get_child(1)
+#		var FriendlyUnits = scene.get_node("FriendlyUnits")
+#
+#		for i in units:
+#			var troop = load(i.scene).instance()
+#			troop.position.x = int(i.pos.x)
+#			troop.position.y = int(i.pos.y)
+#			troop.health=int(i.health)
+#			troop.maxHealth=int(i.maxhealth)
+#			troop.newunit=false
+#			print(String(i.health) +String(i.maxhealth) )
+#			FriendlyUnits.add_child(troop)
+#		pass
 	pass
 
 func _input(ev):
@@ -75,7 +76,7 @@ func save_currentmapstate():
 	
 func _on_Save_pressed():
 	var savename=GlobalVariable.VikingRts.savename
-	save_currentmapstate()
+	#save_currentmapstate()
 	var data = GlobalVariable.VikingRts
 	save_data(savedir + savename + ".dat", data)
 	pass # Replace with function body.
