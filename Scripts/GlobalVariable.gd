@@ -3,7 +3,7 @@ extends Node
 #Brug denne i et script, hvis du skal fetch data
 #onready var GlobalVariable= get_node("/root/GlobalVariables")
 #GlobalVariable.VikingRts.xxx = yyy eller GlobalVariable.VikingRts["xxx"] = yyy
-
+export var RemainingTroops=0
 
 #lav data her
 #export var yyy = xxx
