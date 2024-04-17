@@ -42,8 +42,12 @@ var attackSound
 # The signal a unit sends when it dies
 signal dead_soldier
 
+# The RGB color code for the unit's outline, default value is white
+var outlineColor = Color(1, 1, 1, 1)
+
 func _ready():
 	updateElements()
+	
 
 func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
@@ -77,6 +81,8 @@ func _physics_process(delta):
 	if mouseOver and !selected:
 		$Sprite.material.set_shader_param("hide", false)
 		$Sprite.material.set_shader_param("line_thickness", 3)
+	if !mouseOver and !selected:
+		$Sprite.material.set_shader_param("hide", true)
 	updateHealthBar()
 
 func _arrived_at_location() -> bool:
@@ -149,6 +155,7 @@ func updateElements():
 		$AttackTimer.one_shot = true
 		$AttackTimer.start()
 	
+	$Sprite.material.set_shader_param("line_color", outlineColor)
 	maxSpeed = moveSpeed
 
 func setAudioRandomGrunt():

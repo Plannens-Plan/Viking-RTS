@@ -3,6 +3,10 @@ extends "res://Scripts/Units/Unit.gd"
 var closestDistance = 1000
 var closestUnit = null
 
+func _ready():
+	outlineColor = Color(1, 0, 0, 1)
+	updateElements()
+
 func _physics_process(delta):
 	TargetFriendly()
 	attack()
