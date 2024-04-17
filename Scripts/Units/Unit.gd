@@ -126,9 +126,10 @@ func updateElements():
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
 	
-	$AttackTimer.wait_time = attackSpeed
-	$AttackTimer.one_shot = true
-	$AttackTimer.start()
+	if not ($AttackTimer == null):
+		$AttackTimer.wait_time = attackSpeed
+		$AttackTimer.one_shot = true
+		$AttackTimer.start()
 	
 	maxSpeed = moveSpeed
 
