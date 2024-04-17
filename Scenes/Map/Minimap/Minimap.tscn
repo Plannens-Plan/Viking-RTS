@@ -4,29 +4,31 @@
 [ext_resource path="res://Assets/Images/Icons/MapTester.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/GUI/MiniMap.gd" type="Script" id=3]
 
-[node name="ViewportContainer" type="ViewportContainer"]
+[node name="MiniMap" type="CanvasLayer"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
 margin_right = 100.0
 margin_bottom = 100.0
 script = ExtResource( 3 )
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 200, 200 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="Background" type="TextureRect" parent="Viewport"]
-margin_left = -400.0
-margin_top = -100.0
-margin_right = 880.0
-margin_bottom = 620.0
+[node name="Background" type="TextureRect" parent="ViewportContainer/Viewport"]
+visible = false
 texture = ExtResource( 1 )
+expand = true
 stretch_mode = 3
 
-[node name="CamSprite" type="Sprite" parent="Viewport"]
+[node name="CamSprite" type="Sprite" parent="ViewportContainer/Viewport"]
 texture = ExtResource( 2 )
 
-[node name="MapPins" type="Node" parent="Viewport"]
+[node name="Structure" type="Node2D" parent="ViewportContainer/Viewport"]
 
-[node name="Friendly" type="Node" parent="Viewport"]
+[node name="Friendly" type="Node2D" parent="ViewportContainer/Viewport"]
 
-[node name="Enemy" type="Node" parent="Viewport"]
+[node name="Enemy" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="Ressource" type="Node2D" parent="ViewportContainer/Viewport"]
