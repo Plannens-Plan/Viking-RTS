@@ -13,7 +13,7 @@ var cameraMaxSpeed = 100
 #cam zoom
 var cameraSpeed = 0
 var zoomValue = 1
-var zoomMax = 3
+var zoomMax = 2.5
 var zoomMin = 0.5
 
 var scene
@@ -26,10 +26,15 @@ func _ready():
 	scene = get_tree().current_scene
 	mapPath = scene.get_node("Map")
 	mapSize = mapPath.get_size() * mapPath.get_scale()
+	limit_left = 0
+	limit_right = mapSize.x
+	limit_bottom = mapSize.y
+	limit_top = 0
 
 func _physics_process(delta):
 	inputChecker()
 	inputHandler()
+	position = get_camera_screen_center()
 	position += velocity * delta
 	velocity += acceleration
 	cameraSpeed = baseCameraSpeed * zoom.x
