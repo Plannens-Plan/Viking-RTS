@@ -118,7 +118,6 @@ func setHealth(newHealth, canBeBlocked):
 	if health <= 0:
 		die()
 
-
 func die():
 	var deathEffectInst = death_effect.instance()
 	deathEffectInst.unitSprite = $Sprite.texture
