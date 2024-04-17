@@ -62,6 +62,10 @@ shape = SubResource( 5 )
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
 
+[node name="UnitVoice" type="AudioStreamPlayer2D" parent="."]
+
+[node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
+
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
