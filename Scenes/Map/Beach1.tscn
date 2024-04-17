@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/ddu.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GUI/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/misc/selection.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 10.8391, 1272.06, 302.511, 335.989, 391.256, 189.269, 424.636, 330.12, 428.331, 723.33, 428.146, 1119.47, 415.829, 1800.25, 9.42267, 2922.66, 30.6083, 89.4992, 207.483, 101.237, 412.319, 2520.65, 22.6021, 4043.6, 408.808, 3578.5, 380.971, 3937.97, 324.743, 4048.01 )
@@ -455,9 +459,75 @@ current = true
 
 [node name="Structures" type="Node" parent="."]
 
+[node name="Deposit" parent="Structures" instance=ExtResource( 9 )]
+position = Vector2( 6004, 1516 )
+
 [node name="Miners" type="Node" parent="."]
 
 [node name="Resources" type="Node" parent="."]
+
+[node name="WoodArea" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 4675, 1965 )
+
+[node name="WoodArea2" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 3779, 2503 )
+
+[node name="WoodArea3" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 4413, 1998 )
+
+[node name="WoodArea4" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 3501, 2724 )
+
+[node name="StoneArea" parent="Resources" instance=ExtResource( 8 )]
+position = Vector2( 4586, 1806 )
+
+[node name="FoodArea" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4745, 1162 )
+
+[node name="FoodArea2" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4830, 1598 )
+
+[node name="FoodArea3" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4554, 2005 )
+
+[node name="WoodArea5" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 4729, 1654 )
+
+[node name="FoodArea4" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4802, 1286 )
+
+[node name="FoodArea5" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4108, 958 )
+
+[node name="WoodArea6" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 4258, 1020 )
+
+[node name="WoodArea7" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 4302, 458 )
+
+[node name="WoodArea8" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 3758, 814 )
+
+[node name="WoodArea9" parent="Resources" instance=ExtResource( 7 )]
+position = Vector2( 3916, 383 )
+
+[node name="FoodArea6" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 4122, 434 )
+
+[node name="StoneArea2" parent="Resources" instance=ExtResource( 8 )]
+position = Vector2( 3531, 2435 )
+
+[node name="StoneArea3" parent="Resources" instance=ExtResource( 8 )]
+position = Vector2( 3913, 884 )
+
+[node name="StoneArea4" parent="Resources" instance=ExtResource( 8 )]
+position = Vector2( 5729, 578 )
+
+[node name="StoneArea5" parent="Resources" instance=ExtResource( 8 )]
+position = Vector2( 5667, 2513 )
+
+[node name="FoodArea7" parent="Resources" instance=ExtResource( 6 )]
+position = Vector2( 3548, 2243 )
 
 [node name="EnemyUnits" type="Node" parent="."]
 
