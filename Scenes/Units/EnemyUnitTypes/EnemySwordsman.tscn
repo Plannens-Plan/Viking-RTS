@@ -69,3 +69,5 @@ shape = SubResource( 4 )
 avoidance_enabled = true
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
