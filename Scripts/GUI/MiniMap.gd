@@ -85,6 +85,7 @@ func mapPinUpdater():
 	if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
 		for mapPin in $Viewport/Friendly.get_child_count():
 			$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
+	if $Viewport/Enemy.get_child_count() == enemyUnitPath.get_child_count():
 		for mapPin in $Viewport/Enemy.get_child_count():
 			$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
 
