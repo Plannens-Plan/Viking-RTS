@@ -36,7 +36,7 @@ var camDrag
 var camDragPosition = Vector2(0,0)
 
 #en X del af skærmen (skærm/X=minimap Størrelse
-var screenSize=6
+var screenSize=4
 
 
 func _physics_process(delta):
@@ -46,6 +46,7 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
+	print(get_global_mouse_position() - get_global_rect().position)
 
 
 func cameraResize():
@@ -167,7 +168,7 @@ func mapPinBuilder():
 
 func camDragger():
 	
-	if Input.is_action_just_pressed("leftClick") && get_local_mouse_position().x < get_viewport().size.x / screenSize && get_local_mouse_position().y < get_viewport().size.y / screenSize :
+	if Input.is_action_just_pressed("leftClick") && get_global_mouse_position().x - rect_global_position.x < get_viewport().size.x / screenSize && get_global_mouse_position().y - get_global_rect().position.x < get_viewport().size.y / screenSize && get_global_mouse_position().x - get_global_rect().position.x > 0 && get_global_mouse_position().y - get_global_rect().position.y > 0:
 		camDrag=true
 		scene.get_node("selection").selectionStopper = true
 		
