@@ -9,8 +9,6 @@
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="CollisionShape2D"]
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.49012e-08, 1.19209e-07 )
 scale = Vector2( 0.008125, 0.008125 )
