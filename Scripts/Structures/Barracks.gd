@@ -62,7 +62,7 @@ func _on_PurchaseMiner_pressed():
 	var res=GlobalVariable.VikingRts.resources
 	if res.food >= 20 and res.wood >= 20:
 		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyMiner.tscn").instance()
+			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn").instance()
 			res.food-=15
 			res.wood-=8
 			troop.position = position
