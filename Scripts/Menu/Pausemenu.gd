@@ -3,7 +3,9 @@ onready var savedir="user://Saves/"
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
-	print(get_tree().paused)
+	var scene = get_tree().current_scene
+	if not "Grandmap" in scene.filename:
+		$Background/Save.disabled=true
 #	var units= GlobalVariable.VikingRts.units
 #	if units !=[]:
 #		var scene=get_tree().get_root().get_child(0)
@@ -37,8 +39,10 @@ func _on_Continue_pressed():
 
 
 func _on_BackToMenu_pressed():
-	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
 	get_tree().paused =false
+	GlobalVariable.Exiting=true
+	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
+	
 	pass # Replace with function body.
 
 
@@ -50,28 +54,28 @@ func save_data(path, data):
 	file.close()
 	
 	
-func save_currentmapstate():
-	var units= GlobalVariable.VikingRts.units
-	#var structures=GlobalVariable.VikingRts.structures
-	
-	var scene=get_tree().get_root().get_child(0)
-	if scene.name=="GlobalVariables":
-		scene=get_tree().get_root().get_child(1)
-	var FriendlyUnits = scene.get_node("FriendlyUnits")
-	
-	#var buildings = scene.get_node("Structures")
-	for i in FriendlyUnits.get_children():
-
-		units.append({
-			scene=i.filename,
-			pos={
-				x=i.position.x,
-				y=i.position.y
-			},
-			health=i.health,
-			maxhealth=i.maxHealth
-		})
-	
+#func save_currentmapstate():
+#	var units= GlobalVariable.VikingRts.units
+#	#var structures=GlobalVariable.VikingRts.structures
+#
+#	var scene=get_tree().get_root().get_child(0)
+#	if scene.name=="GlobalVariables":
+#		scene=get_tree().get_root().get_child(1)
+#	var FriendlyUnits = scene.get_node("FriendlyUnits")
+#
+#	#var buildings = scene.get_node("Structures")
+#	for i in FriendlyUnits.get_children():
+#
+#		units.append({
+#			scene=i.filename,
+#			pos={
+#				x=i.position.x,
+#				y=i.position.y
+#			},
+#			health=i.health,
+#			maxhealth=i.maxHealth
+#		})
+#
 
 	
 func _on_Save_pressed():
