@@ -8,6 +8,7 @@ extends Node
 #lav data her
 #export var yyy = xxx
 
+
 export var VikingRts={
 	savename="",
 	resources={
