@@ -7,7 +7,7 @@ var fcount
 var enemyUnits
 var ecount
 
-onready var winScreen = preload("res://Scenes/GUI/WinScreen.tscn").instance()
+onready var winScreen = preload("res://Scenes/GUI/EndScreen.tscn").instance()
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
@@ -27,15 +27,14 @@ func _on_EnemyUnits_child_exiting_tree(node):
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
 		var scene = get_tree().current_scene
-
-			
+		
 		var FriendlyUnits = scene.get_node("FriendlyUnits")
 		for i in FriendlyUnits.get_children():
 			units.append({
 			scene=i.filename,
 		})
 		GlobalVariable.VikingRts.progression.beach=true
-		get_tree().change_scene("res://Scenes/GUI/WinScreen.tscn")
+		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 	pass # Replace with function body.
 
 
@@ -45,5 +44,5 @@ func _on_FriendlyUnits_child_exiting_tree(node):
 	print(ecount)
 	if fcount == 1:
 		GlobalVariable.RemainingTroops = fcount
-		get_tree().change_scene("res://Scenes/GUI/WinScreen.tscn")
+		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 	pass # Replace with function body.
