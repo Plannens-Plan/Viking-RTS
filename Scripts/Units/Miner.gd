@@ -11,7 +11,7 @@ func _ready():
 		attackSound = load("res://Assets/Sounds/Units/whoosh_light.mp3")
 	updateElements()
 
-var harvest =false
+var harvest = false
 var harvestArea
 
 var inventory = 0
