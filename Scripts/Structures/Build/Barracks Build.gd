@@ -5,6 +5,8 @@ extends "res://Scripts/Structures/Build/BaseStructureBuild.gd"
 func _ready():
 	#previewBuilding = preload("res://Scenes/Structures/Barracks.tscn").instance()
 	spriteName = "Barrack"
+	if GlobalVariable.Friendly:
+		$BarrackBuild.show()
 	pass
 
 func addPreview():

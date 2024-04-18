@@ -25,6 +25,7 @@ func setHealth(newHealth):
 		#var bloodParticleInstance = bloodParticle.instance()
 		#bloodParticleInstance.emitting = true
 		#add_child(bloodParticleInstance)
+	print(newHealth)
 	health = newHealth
 	$HealthBarTimer.start()
 	if health <= 0:
