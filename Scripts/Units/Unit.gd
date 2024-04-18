@@ -154,7 +154,6 @@ func updateElements():
 		$AttackTimer.wait_time = attackSpeed
 		$AttackTimer.one_shot = true
 		$AttackTimer.start()
-	
 	$Sprite.material.set_shader_param("line_color", outlineColor)
 	maxSpeed = moveSpeed
 
