@@ -1,5 +1,7 @@
 extends "res://Scripts/Units/Unit.gd"
 
+var shiftHeld = false
+
 func _ready():
 	friendly = true
 	set_target_location(position)
@@ -16,10 +18,18 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 1:
-		selected = mouseOver
+		if selected == true && shiftHeld == true:
+			selected = true
+		else:
+			selected = mouseOver
 
 	if event is InputEventMouseButton && event.get_button_index() == 2 && selected:
 		set_target_location(get_global_mouse_position())
+	
+	if event.is_action_pressed("shift"):
+		shiftHeld = true
+	if event.is_action_released("shift"):
+		shiftHeld = false
 
 func _on_NavigationAgent2D_target_reached():
 	pass 
@@ -35,3 +45,4 @@ func updateElements():
 	$AttackTimer.wait_time = attackSpeed
 	$AttackTimer.one_shot = true
 	$AttackTimer.start()
+	

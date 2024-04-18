@@ -1,8 +1,8 @@
 extends StaticBody2D
 
 var friendly = false
-var Damage = 1
-var attackSpeed = 0.1
+var Damage = 20
+var attackSpeed = 3
 var buildingPlaced = true
 
 func _ready():
