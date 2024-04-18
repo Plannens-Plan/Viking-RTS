@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/misc/selection.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/Icons/bruh.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Icons/Selector.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 639.5, 360 )
+extents = Vector2( 200, 200 )
 
 [node name="selection" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,5 +18,5 @@ centered = false
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 639.5, 360 )
+position = Vector2( 199, 200 )
 shape = SubResource( 1 )
