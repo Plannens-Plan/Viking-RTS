@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Scripts/Structures/farmHouse.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/Structures/farmHouse.jpg" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -8,6 +9,7 @@ extents = Vector2( 208.5, 99 )
 [node name="FarmHouse" type="Area2D" groups=["Building"]]
 collision_layer = 5
 collision_mask = 5
+script = ExtResource( 2 )
 
 [node name="FarmHouse" type="Sprite" parent="."]
 position = Vector2( -98.2258, 2.5 )
