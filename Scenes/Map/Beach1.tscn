@@ -462,7 +462,7 @@ current = true
 position = Vector2( 584, 417 )
 
 [node name="Tower" parent="Structures" instance=ExtResource( 17 )]
-position = Vector2( 6664, 2013 )
+position = Vector2( 4899, 1181 )
 
 [node name="Miners" type="Node" parent="."]
 
@@ -579,7 +579,7 @@ position = Vector2( 5532, 2511 )
 [node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6275, 2073 )
+position = Vector2( 5079, 1631 )
 
 [node name="EnemyBuilding1" parent="EnemyUnits" instance=ExtResource( 11 )]
 position = Vector2( 6687, 1899 )
