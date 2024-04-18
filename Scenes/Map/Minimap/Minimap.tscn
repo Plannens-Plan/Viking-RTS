@@ -38,7 +38,13 @@ texture = ExtResource( 2 )
 
 [node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
 
-[node name="Ressource" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+[node name="Resource" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+
+[node name="Food" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
+
+[node name="Wood" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
+
+[node name="Stone" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
 
 [node name="Area2D" type="Area2D" parent="Node2D/ViewportContainer"]
 

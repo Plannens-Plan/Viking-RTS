@@ -49,6 +49,9 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
+	print($Viewport/Resource/Food.get_child_count(),1)
+	print(get_tree().current_scene.get_node("Resources").get_node("Food").get_child_count())
+
 
 
 
@@ -85,8 +88,11 @@ func mapPinUpdater():
 	#Enemy
 	subMapPinUpdater(scene,"EnemyUnits",$Viewport/Enemy)
 	
-	#Ressource
-	subMapPinUpdater(scene, "Resources", $Viewport/Ressource)
+	#Resource
+	if scene.has_node("Resources"):
+		subMapPinUpdater(scene.get_node("Resources"),"Wood", $Viewport/Resource/Wood)
+		subMapPinUpdater(scene.get_node("Resources"),"Food", $Viewport/Resource/Food)
+		subMapPinUpdater(scene.get_node("Resources"),"Stone", $Viewport/Resource/Stone)
 	
 	#Structures
 	if scene.has_node("Structures"):
@@ -128,18 +134,19 @@ func minimapResizer():
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
 
 func mapPinBuilder():
-	
 	#Friendly
 	subMapPinBuilder(scene, "FriendlyUnits", "res://Assets/Images/Icons/FriendlyUnit.png", $Viewport/Friendly)
 	#Enemy
 	subMapPinBuilder(scene, "EnemyUnits", "res://Assets/Images/Icons/EnemyUnit.png", $Viewport/Enemy)
 	#Ressource (ændre maybe til at den er lidt pænerer
-	subMapPinBuilder(scene, "Resources", "res://Assets/Images/Icons/WoodMarker.png", $Viewport/Ressource)
+	if scene.has_node("Resources"):
+		subMapPinBuilder(scene.get_node("Resources"),"Wood", "res://Assets/Images/Icons/WoodMarker.png", $Viewport/Resource/Wood)
+		subMapPinBuilder(scene.get_node("Resources"),"Food", "res://Assets/Images/Icons/FoodMarker.png", $Viewport/Resource/Food)
+		subMapPinBuilder(scene.get_node("Resources"),"Stone", "res://Assets/Images/Icons/StoneMarker.png", $Viewport/Resource/Stone)
 	#Structure
 	if scene.has_node("Structures"):
 		subMapPinBuilder(scene.get_node("Structures"), "Friendly", "res://Assets/Images/Icons/StructureMarker.png",$Viewport/Structure/Friendly)
 		subMapPinBuilder(scene.get_node("Structures"), "Enemy","res://Assets/Images/Icons/monkey_banana.png",$Viewport/Structure/Enemy)
-
 
 func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var localNode):
 	if getSceneNode.has_node(sceneChildCounter):
