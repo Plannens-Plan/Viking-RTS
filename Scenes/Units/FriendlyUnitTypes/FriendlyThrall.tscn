@@ -59,10 +59,10 @@ one_shot = true
 avoidance_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 shape = SubResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]

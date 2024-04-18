@@ -40,7 +40,6 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-visible = false
 margin_left = -60.0
 margin_top = -65.0
 margin_right = 436.0
@@ -62,9 +61,9 @@ one_shot = true
 [node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
 [node name="DetectArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+visible = false
 shape = SubResource( 4 )
 
 [node name="PanicTimer" type="Timer" parent="."]

@@ -3,6 +3,7 @@ extends Control
 var buildingMode
 var kollision
 
+
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 var previewBuilding
 #Override i _ready() previewBuilding med preload ligesom = preload("res://Scenes/Structures/Barracks.tscn").instance()
@@ -16,11 +17,6 @@ func addPreview():
 
 	add_child(previewBuilding)
 	previewBuilding.hide()
-
-#override hele _ready()
-#func _ready():
-#
-#	pass 
 
 func _on_Button_pressed():
 	addPreview()
@@ -69,7 +65,7 @@ func build():
 		newBuilding.position = mousePos
 		newBuilding.add_to_group("Building")
 		res.wood-=40
-		get_tree().current_scene.get_node("Structures").add_child(newBuilding)
+		get_tree().current_scene.get_node("Structures").get_node("Friendly").add_child(newBuilding)
 		buildingMode = !buildingMode 
 
 	if(Input.is_action_just_released("rightClick")):
@@ -90,3 +86,5 @@ func _input(event):
 		notBuild()
 		previewbuild()
 	pass # Replace with function body.
+	
+
