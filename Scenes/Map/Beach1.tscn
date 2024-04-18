@@ -644,6 +644,9 @@ position = Vector2( 1113, 952 )
 [node name="FriendlyThrall2" parent="FriendlyUnits" instance=ExtResource( 21 )]
 position = Vector2( 1325, 876 )
 
+[node name="FriendlyAxeman3" parent="FriendlyUnits" instance=ExtResource( 19 )]
+position = Vector2( 6145, 1895 )
+
 [node name="selection" parent="." instance=ExtResource( 5 )]
 
 [connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
