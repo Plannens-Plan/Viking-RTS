@@ -8,6 +8,8 @@ var tradeSellType
 var tradeBuyType
 var trades
 
+var popUpWait = 1
+
 #Reputation
 
 
@@ -35,10 +37,12 @@ func _physics_process(delta):
 	if location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
-		$Panel/RichTextLabel.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
+		$Panel/TradeText.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
 
 
 func _ready():
+	$Panel/Warning/Timer.wait_time = popUpWait
+	$Panel/Warning/Timer.one_shot = true
 	pass 
 
 func _input(event):
@@ -50,7 +54,9 @@ func _input(event):
 			GlobalVariables.VikingRts.resources[trades[3]] -= trades[2]
 			pass
 		else: 
-			print("you broke bitch")
+			$Panel/Warning.text="you dont have enougt resources"
+			$Panel/Warning.show()
+			$Panel/Warning/Timer.start()
 
 
 
@@ -78,3 +84,7 @@ func _on_TradeMapLocation5_mouse_entered():
 	location="e"
 func _on_TradeMapLocation5_mouse_exited():
 		location=null
+
+
+func _on_Timer_timeout():
+	$Panel/Warning.hide()

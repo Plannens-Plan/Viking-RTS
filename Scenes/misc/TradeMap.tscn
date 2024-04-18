@@ -31,9 +31,18 @@ position = Vector2( 257, 373 )
 margin_right = 327.0
 margin_bottom = 40.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="TradeText" type="RichTextLabel" parent="Panel"]
 margin_right = 327.0
 margin_bottom = 40.0
+fit_content_height = true
+
+[node name="Warning" type="RichTextLabel" parent="Panel"]
+modulate = Color( 1, 0, 0, 1 )
+margin_top = 17.0
+margin_right = 326.0
+margin_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="Panel/Warning"]
 
 [connection signal="mouse_entered" from="TradeMapLocation" to="." method="_on_TradeMapLocation_mouse_entered"]
 [connection signal="mouse_exited" from="TradeMapLocation" to="." method="_on_TradeMapLocation_mouse_exited"]
@@ -45,3 +54,4 @@ margin_bottom = 40.0
 [connection signal="mouse_exited" from="TradeMapLocation4" to="." method="_on_TradeMapLocation4_mouse_exited"]
 [connection signal="mouse_entered" from="TradeMapLocation5" to="." method="_on_TradeMapLocation5_mouse_entered"]
 [connection signal="mouse_exited" from="TradeMapLocation5" to="." method="_on_TradeMapLocation5_mouse_exited"]
+[connection signal="timeout" from="Panel/Warning/Timer" to="." method="_on_Timer_timeout"]
