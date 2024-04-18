@@ -46,7 +46,10 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
-	print(scene.get_node("Structures").get_node("Enemy").get_child_count())
+	print($Viewport/Structure/Friendly.get_child_count())
+
+
+
 
 
 func cameraResize():
@@ -58,12 +61,20 @@ func cameraResize():
 	cameraSpritePosition.y = clamp(cameraSpritePosition.y, 0 + $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y, mapSize.y*mapScaledDifference.y - $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y)
 	camSprite.position = cameraSpritePosition
 
-func mapPinCreator(var pos, var img, var loc):
+
+
+
+
+func mapPinCreator(var pos,var img,var loc):
 	var newMapPin = load(mapPinPath).instance()
 	newMapPin.position = pos * mapScaledDifference
 	newMapPin.texture = load(img)
 	newMapPin.scale = scaler/load(img).get_size() * mapScaledDifference
-	$Viewport.get_node(loc).add_child(newMapPin)
+	loc.add_child(newMapPin)
+
+
+
+
 
 func mapPinUpdater():
 	#Friendly
@@ -103,6 +114,9 @@ func mapPinUpdater():
 
 
 
+
+
+
 func updateScene():
 	scene = get_tree().current_scene 
 	mapSize = scene.get_node("Map").get_size() * scene.get_node("Map").get_scale()
@@ -118,61 +132,72 @@ func updateScene():
 		ressourcePath = scene.get_node("Resources")
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
+
+
+
+
 func minimapResizer():
 	$Viewport.size = get_viewport().size / screenSize
 	self.rect_size = $Viewport.size
 	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
-	
-	pass
+
+
+
 
 
 
 var ammount
+onready var loc = $Viewport/Friendly
 
 func mapPinBuilder():
 	
 	#Friendly
 	if scene.has_node("FriendlyUnits"):
-		
-		ammount = $Viewport/Friendly.get_child_count() - friendlyUnitPath.get_child_count()
+		loc = $Viewport/Friendly
+		ammount = loc.get_child_count() - friendlyUnitPath.get_child_count()
 		if ammount < 0:
-			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/FriendlyUnit.png", "Friendly")
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/FriendlyUnit.png", loc)
 		if ammount > 0:
-			$Viewport/Friendly.get_child(0).queue_free()
+			loc.get_child(0).queue_free()
 		
 		#Enemy
 	if scene.has_node("EnemyUnits"):
-		ammount = $Viewport/Enemy.get_child_count() - enemyUnitPath.get_child_count()
+		loc = $Viewport/Enemy
+		ammount = loc.get_child_count() - enemyUnitPath.get_child_count()
 		if ammount < 0:
-			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/EnemyUnit.png", "Enemy")
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/EnemyUnit.png", loc)
 		if ammount > 0:
-			$Viewport/Enemy.get_child(0).queue_free()
+			loc.get_child(0).queue_free()
 		
 	#Ressource (ændre maybe til at den er lidt pænerer
+	
 	if scene.has_node("Resources"):
-		ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
+		loc = $Viewport/Ressource
+		ammount = loc.get_child_count() - ressourcePath.get_child_count()
 		if ammount < 0:
-			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/WoodMarker.png", "Ressource")
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/WoodMarker.png", loc)
 		if ammount > 0:
-			$Viewport/Ressource.get_child(0).queue_free()
+			loc.get_child(0).queue_free()
 	
 	#Structure
 	if scene.has_node("Structures"):
 		if scene.get_node("Structures").has_node("Friendly"):
-			ammount = $Viewport/Structure/Friendly.get_child_count() - scene.get_node("Structures").get_node("Friendly").get_child_count()
+			loc=$Viewport/Structure/Friendly
+			ammount = loc.get_child_count() - scene.get_node("Structures").get_node("Friendly").get_child_count()
 			if ammount < 0:
-				mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", "Structure")
+				mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", loc)
 			if ammount > 0:
-				$Viewport/Structure/Friendly.get_child(0).queue_free()
+				loc.get_child(0).queue_free()
 		
 		if scene.get_node("Structures").has_node("Enemy"):
-			ammount = $Viewport/Structure/Enemy.get_child_count() - scene.get_node("Structures").get_node("Enemy").get_child_count()
+			loc = $Viewport/Structure/Enemy
+			ammount = loc.get_child_count() - scene.get_node("Structures").get_node("Enemy").get_child_count()
 			if ammount < 0:
-				mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", "Structure")
+				mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/monkey_banana.png", loc)
 			if ammount > 0:
-				$Viewport/Structure/Enemy.get_child(0).queue_free()
+				loc.get_child(0).queue_free()
 
 func camDragger():
 	
