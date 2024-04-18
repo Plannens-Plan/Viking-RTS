@@ -49,7 +49,9 @@ func _on_EnemyUnits_child_exiting_tree(node):
 			scene=i.filename,
 		})
 		GlobalVariable.VikingRts.progression.beach=true
-		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
+		
+		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
+	pass # Replace with function body.
 
 
 func _on_FriendlyUnits_child_exiting_tree(node):
@@ -61,4 +63,5 @@ func _on_FriendlyUnits_child_exiting_tree(node):
 
 	if fcount == 1&& GlobalVariable.VikingRts.progression.beach==false:
 		GlobalVariable.RemainingTroops = fcount
-		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
+		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
+	pass # Replace with function body.
