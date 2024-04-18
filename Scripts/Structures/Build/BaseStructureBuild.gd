@@ -3,6 +3,7 @@ extends Control
 var buildingMode
 var kollision
 
+
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 var previewBuilding
 #Override i _ready() previewBuilding med preload ligesom = preload("res://Scenes/Structures/Barracks.tscn").instance()
@@ -90,3 +91,5 @@ func _input(event):
 		notBuild()
 		previewbuild()
 	pass # Replace with function body.
+	
+
