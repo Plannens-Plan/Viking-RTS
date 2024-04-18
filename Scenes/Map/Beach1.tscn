@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Structures/enemyStructure.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemyArcher.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
@@ -473,9 +472,6 @@ position = Vector2( 4899, 1181 )
 position = Vector2( 584, 417 )
 
 [node name="Enemy" type="YSort" parent="Structures"]
-
-[node name="enemyStructure" parent="Structures/Enemy" instance=ExtResource( 11 )]
-position = Vector2( 2597, 286 )
 
 [node name="Miners" type="Node" parent="."]
 
