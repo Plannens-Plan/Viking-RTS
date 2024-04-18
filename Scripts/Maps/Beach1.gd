@@ -20,9 +20,12 @@ func _ready():
 	print(ecount)
 	if GlobalVariable.VikingRts.progression.beach:
 		GlobalVariable.Friendly=true
-		get_tree().current_scene.get_node("EnemyUnits").queue_free()
-		get_tree().current_scene.get_node("FriendlyUnits").queue_free()
-		
+		var eu = get_tree().current_scene.get_node("EnemyUnits")
+		var fu = get_tree().current_scene.get_node("FriendlyUnits")
+		for n in eu.get_children():
+			eu.remove_child(n)
+		for n in fu.get_children():
+			fu.remove_child(n)
 	else:
 		friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 		fcount = friendlyUnits.size()
