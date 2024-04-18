@@ -3,6 +3,7 @@ extends Node2D
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 onready var progression=GlobalVariable.VikingRts.progression
 func _ready():
+	GlobalVariable.Friendly=false
 	if progression.beach:
 		$Control/Engvik.disabled=false
 	if progression.engvik:

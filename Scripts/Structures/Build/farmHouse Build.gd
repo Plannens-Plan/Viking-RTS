@@ -10,8 +10,11 @@ onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_child(previewFarm)
-	previewFarm.hide()
+	if GlobalVariable.Friendly:
+		$FarmHouseControl.show()
+		add_child(previewFarm)
+		previewFarm.hide()
+	
 	pass # Replace with function body.
 
 func _on_Button_pressed():
