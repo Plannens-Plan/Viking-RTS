@@ -35,6 +35,9 @@ var areaStartingPosition = Vector2(100,100)
 var camDrag
 var camDragPosition = Vector2(0,0)
 
+var ammount
+onready var loc = $Viewport/Friendly
+
 #en X del af skærmen (skærm/X=minimap Størrelse
 var screenSize = 5.5
 
@@ -46,7 +49,6 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
-	print($Viewport/Friendly.get_child_count())
 
 
 
@@ -78,42 +80,26 @@ func mapPinCreator(var pos,var img,var loc):
 
 func mapPinUpdater():
 	#Friendly
-	if scene.has_node("FriendlyUnits"):
-		if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
-			for mapPin in $Viewport/Friendly.get_child_count():
-				$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
-				$Viewport/Friendly.get_child(mapPin).scale = scaler / $Viewport/Friendly.get_child(mapPin).get_texture().get_size() * mapScaledDifference
-			
+	subMapPinUpdater(scene,"FriendlyUnits",$Viewport/Friendly)
+	
 	#Enemy
-	if scene.has_node("EnemyUnits"):
-		if $Viewport/Enemy.get_child_count() == enemyUnitPath.get_child_count():
-			for mapPin in $Viewport/Enemy.get_child_count():
-				$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
-				$Viewport/Enemy.get_child(mapPin).scale = scaler / $Viewport/Enemy.get_child(mapPin).get_texture().get_size() * mapScaledDifference
-			
+	subMapPinUpdater(scene,"EnemyUnits",$Viewport/Enemy)
+	
+	#Ressource
+	subMapPinUpdater(scene, "Resources", $Viewport/Ressource)
+	
 	#Structures
 	if scene.has_node("Structures"):
-		if scene.get_node("Structures").has_node("Friendly"):
-			if $Viewport/Structure/Friendly.get_child_count() == structurePath.get_node("Friendly").get_child_count():
-				for mapPin in $Viewport/Structure/Friendly.get_child_count():
-					$Viewport/Structure/Friendly.get_child(mapPin).position = structurePath.get_node("Friendly").get_child(mapPin).position * mapScaledDifference
-					$Viewport/Structure/Friendly.get_child(mapPin).scale = scaler / $Viewport/Structure/Friendly.get_child(mapPin).get_texture().get_size() * mapScaledDifference
-		
-		if scene.get_node("Structures").has_node("Enemy"):
-			if $Viewport/Structure/Enemy.get_child_count() == structurePath.get_node("Enemy").get_child_count():
-				for mapPin in $Viewport/Structure/Enemy.get_child_count():
-					$Viewport/Structure/Enemy.get_child(mapPin).position = structurePath.get_node("Enemy").get_child(mapPin).position * mapScaledDifference
-					$Viewport/Structure/Enemy.get_child(mapPin).scale = scaler / $Viewport/Structure/Enemy.get_child(mapPin).get_texture().get_size() * mapScaledDifference
-			
-	#Ressource
-	if scene.has_node("Resources"):
-		if $Viewport/Ressource.get_child_count() == ressourcePath.get_child_count():
-			for mapPin in $Viewport/Ressource.get_child_count():
-				$Viewport/Ressource.get_child(mapPin).position = ressourcePath.get_child(mapPin).position * mapScaledDifference
-				$Viewport/Ressource.get_child(mapPin).scale = scaler / $Viewport/Ressource.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+		subMapPinUpdater(scene.get_node("Structures"),"Friendly",$Viewport/Structure/Friendly)
+		subMapPinUpdater(scene.get_node("Structures"),"Enemy",$Viewport/Structure/Enemy)
 
-
-
+func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
+	if getMainNode.has_node(sceneChildCounter):
+		if localNode.get_child_count() == getMainNode.get_node(sceneChildCounter).get_child_count():
+			for mapPin in localNode.get_child_count():
+				localNode.get_child(mapPin).position = getMainNode.get_node(sceneChildCounter).get_child(mapPin).position * mapScaledDifference
+				localNode.get_child(mapPin).scale = scaler / localNode.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+	pass
 
 
 
@@ -134,20 +120,12 @@ func updateScene():
 
 
 
-
-
 func minimapResizer():
 	$Viewport.size = get_viewport().size / screenSize
 	self.rect_size = $Viewport.size
 	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
-
-
-
-var ammount
-onready var loc = $Viewport/Friendly
-
 
 func mapPinBuilder():
 	
