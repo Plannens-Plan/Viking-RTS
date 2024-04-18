@@ -10,10 +10,10 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Structures/EnemyBuilding.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Structures/EnemyBarrack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemyArcher.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Maps/Beach2.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySwordsman.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/misc/CombatMusicPlayer.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Structures/Tower.tscn" type="PackedScene" id=17]
@@ -27,7 +27,7 @@ vertices = PoolVector2Array( 346.053, 903.796, 371.55, -16.1392, 438.247, 255.29
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 7, 0, 3 ), PoolIntArray( 8, 9, 10, 7 ), PoolIntArray( 4, 6, 11, 8, 7, 3, 12, 13, 14 ) ]
 outlines = [ PoolVector2Array( 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.482, 284.159, 997.697, 346.053, 903.796, 371.55, -16.1392, 438.247, 255.293, 457.093, 1499.48, 459.741, 3999.59, 445.699, 6540.78, 389.533, 6665.49, 303.066, 6614.14, 80.4932, 6969.2, 17.3057, 5588.57, 9.42267, 2922.66 ) ]
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 script = ExtResource( 14 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 16 )]
@@ -474,8 +474,8 @@ position = Vector2( 584, 417 )
 
 [node name="Enemy" type="YSort" parent="Structures"]
 
-[node name="EnemyBuilding1" parent="Structures" instance=ExtResource( 11 )]
-position = Vector2( 2422, 404 )
+[node name="EnemyBuilding1" parent="Structures/Enemy" instance=ExtResource( 11 )]
+position = Vector2( 6687, 1899 )
 
 [node name="Miners" type="Node" parent="."]
 
@@ -594,6 +594,9 @@ position = Vector2( 5532, 2511 )
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 1352, 1995 )
 
+[node name="EnemyBuilding1" parent="EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 6687, 1899 )
+
 [node name="EnemyArcher" parent="EnemyUnits" instance=ExtResource( 13 )]
 position = Vector2( 1562, 2227 )
 
@@ -643,9 +646,6 @@ position = Vector2( 1113, 952 )
 
 [node name="FriendlyThrall2" parent="FriendlyUnits" instance=ExtResource( 21 )]
 position = Vector2( 1325, 876 )
-
-[node name="FriendlyAxeman3" parent="FriendlyUnits" instance=ExtResource( 19 )]
-position = Vector2( 1954, 331 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 

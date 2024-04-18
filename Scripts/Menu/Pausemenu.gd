@@ -4,25 +4,10 @@ onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
 	var scene = get_tree().current_scene
-	if not "Grandmap" in scene.filename:
+	if not "Grandmap" in scene.filename && GlobalVariable.Friendly==false:
 		$Background/Save.disabled=true
-#	var units= GlobalVariable.VikingRts.units
-#	if units !=[]:
-#		var scene=get_tree().get_root().get_child(0)
-#		if scene.name=="GlobalVariables":
-#			scene=get_tree().get_root().get_child(1)
-#		var FriendlyUnits = scene.get_node("FriendlyUnits")
-#
-#		for i in units:
-#			var troop = load(i.scene).instance()
-#			troop.position.x = int(i.pos.x)
-#			troop.position.y = int(i.pos.y)
-#			troop.health=int(i.health)
-#			troop.maxHealth=int(i.maxhealth)
-#			troop.newunit=false
-#			print(String(i.health) +String(i.maxhealth) )
-#			FriendlyUnits.add_child(troop)
-#		pass
+	if "Grandmap" in scene.filename:
+		$Background/Grandmap.disabled=true
 	pass
 
 func _input(ev):
@@ -53,34 +38,16 @@ func save_data(path, data):
 	file.store_string(to_json(data))
 	file.close()
 	
-	
-#func save_currentmapstate():
-#	var units= GlobalVariable.VikingRts.units
-#	#var structures=GlobalVariable.VikingRts.structures
-#
-#	var scene=get_tree().get_root().get_child(0)
-#	if scene.name=="GlobalVariables":
-#		scene=get_tree().get_root().get_child(1)
-#	var FriendlyUnits = scene.get_node("FriendlyUnits")
-#
-#	#var buildings = scene.get_node("Structures")
-#	for i in FriendlyUnits.get_children():
-#
-#		units.append({
-#			scene=i.filename,
-#			pos={
-#				x=i.position.x,
-#				y=i.position.y
-#			},
-#			health=i.health,
-#			maxhealth=i.maxHealth
-#		})
-#
-
-	
 func _on_Save_pressed():
 	var savename=GlobalVariable.VikingRts.savename
 	#save_currentmapstate()
 	var data = GlobalVariable.VikingRts
 	save_data(savedir + savename + ".dat", data)
+	pass # Replace with function body.
+
+
+func _on_Button_pressed():
+	get_tree().paused =false
+	GlobalVariable.Exiting=true
+	get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
 	pass # Replace with function body.

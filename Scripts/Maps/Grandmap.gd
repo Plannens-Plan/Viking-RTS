@@ -20,5 +20,12 @@ func _on_Beach_pressed():
 
 
 func _on_Engvik_pressed():
-	get_tree().change_scene("res://Scenes/Map/Engvik.tscn")
+	if progression.engvik:
+		GlobalVariable.Friendly=true
+	get_tree().change_scene("res://Scenes/Map/Beach2.tscn")
+	pass # Replace with function body.
+
+
+func _on_Buns_pressed():
+	get_tree().quit()
 	pass # Replace with function body.

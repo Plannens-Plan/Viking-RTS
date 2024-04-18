@@ -87,6 +87,7 @@ config/icon="res://Assets/Images/Icons/icon.png"
 [autoload]
 
 GlobalVariables="*res://Scenes/GlobalVariables.tscn"
+TransitionScreen="*res://Scenes/GUI/TransitionScreen.tscn"
 
 [editor_plugins]
 

@@ -95,7 +95,7 @@ func _on_Start_game_pressed():
 	
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
-	get_tree().change_scene(startgamepath)
+	TransitionScreen.change_scene(startgamepath)
 	pass # Replace with function body.
 
 func _on_Savenametext_text_changed(new_text):
@@ -133,7 +133,7 @@ func _on_Load_savegame_pressed():
 
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
-	get_tree().change_scene(startgamepath)
+	TransitionScreen.change_scene(startgamepath)
 	
 
 
