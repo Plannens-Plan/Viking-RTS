@@ -36,7 +36,7 @@ var camDrag
 var camDragPosition = Vector2(0,0)
 
 #en X del af skærmen (skærm/X=minimap Størrelse
-var screenSize=4
+var screenSize = 5.5
 
 
 func _physics_process(delta):
