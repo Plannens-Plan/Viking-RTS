@@ -47,9 +47,7 @@ func _on_PurchaseSword_pressed():
 			res.food-=15
 			res.wood-=8
 			troop.position = position
-			var scene=get_tree().get_root().get_child(0)
-			if scene.name=="GlobalVariables":
-				scene=get_tree().get_root().get_child(1)
+			var scene = get_tree().current_scene
 			scene.get_node("FriendlyUnits").add_child(troop)
 		else:
 			timer.wait_time = 2
@@ -70,9 +68,7 @@ func _on_PurchaseMiner_pressed():
 			res.food-=10
 			res.wood-=10
 			troop.position = position
-			var scene=get_tree().get_root().get_child(0)
-			if scene.name=="GlobalVariables":
-				scene=get_tree().get_root().get_child(1)
+			var scene = get_tree().current_scene
 			scene.get_node("FriendlyUnits").add_child(troop)
 			print("yep")
 		else:
