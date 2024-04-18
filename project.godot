@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Viking RTS"
-run/main_scene="res://Scenes/Menus/Startmenu.tscn"
+run/main_scene="res://Scenes/misc/TradeMap.tscn"
 config/icon="res://Assets/Images/Icons/icon.png"
 
 [autoload]
