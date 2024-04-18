@@ -12,6 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	shoot()
+	buildingpreview()
 
 func shoot():
 	#Friendly version
@@ -28,3 +29,10 @@ func shoot():
 				body.setHealth(body.health-Damage,body.blockChance)
 				$Timer.start()
 				return
+
+func buildingpreview():
+	if buildingPlaced == false:
+		$CollisionShape2D.set_disabled(true)
+	else:
+		$CollisionShape2D.set_disabled(false)
+		pass

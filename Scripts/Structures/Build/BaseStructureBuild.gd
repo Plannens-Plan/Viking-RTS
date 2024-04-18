@@ -43,7 +43,7 @@ func previewbuild():
 				placeableBuilding = true
 				sprite.modulate = Color(0, 1, 0)
 	
-	if previewBuilding is StaticBody2D:
+	else:
 		var previewArea
 		previewArea = previewBuilding.get_node("PreviewArea")
 		for area in previewArea.get_overlapping_areas():
