@@ -1,10 +1,15 @@
-extends Area2D
+extends "res://Scripts/Structures/FriendlyStructure.gd"
 
 #var overlap = get_node("CollisionShape2D")
 var unitsInside = false
 var buildingPlaced = false
 
 onready var GlobalVariable = get_node("/root/GlobalVariables")
+
+func _ready():
+	health = 500
+	maxHealth = 500
+	updateElements()
 
 func _on_PurchaseTroop_pressed():
 	if buildingPlaced == true:
@@ -25,7 +30,6 @@ func unitCollision():
 	else:
 		unitsInside = false
 		overlapping = false
-		pass
 
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()

@@ -6,13 +6,13 @@ var selected = false
 var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
-var health = 100
-var maxHealth = 100
+var health = 500
+var maxHealth = 500
 
-var friendly = false
+var friendly
 
 # The RGB color code for the unit's outline, default value is white
-var outlineColor = Color(0, 0, 0, 1)
+var outlineColor = Color(1, 1, 1, 1)
 
 func _ready():
 	updateElements()
