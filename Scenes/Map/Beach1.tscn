@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -10,11 +10,9 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Structures/EnemyBarrack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/misc/CombatMusicPlayer.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Structures/Tower.tscn" type="PackedScene" id=17]
 
@@ -581,75 +579,18 @@ position = Vector2( 5532, 2511 )
 [node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 278, 3905 )
+position = Vector2( 6275, 2073 )
+
+[node name="EnemyBuilding1" parent="EnemyUnits" instance=ExtResource( 11 )]
+position = Vector2( 6687, 1899 )
 
 [node name="FriendlyUnits" type="YSort" parent="."]
-
-[node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 11 )]
-position = Vector2( 1118, 963 )
-
-[node name="FriendlyThrall2" parent="FriendlyUnits" instance=ExtResource( 11 )]
-position = Vector2( 1246, 880 )
 
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 12 )]
 position = Vector2( 6233, 1748 )
 
-[node name="FriendlySpearman9" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 5875, 1969 )
-
-[node name="FriendlySpearman14" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6437, 2333 )
-
-[node name="FriendlySpearman15" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6206, 2344 )
-
-[node name="FriendlySpearman16" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6056, 2157 )
-
-[node name="FriendlySpearman10" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 5962, 1760 )
-
-[node name="FriendlySpearman11" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6144, 1242 )
-
-[node name="FriendlySpearman12" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 5957, 1472 )
-
-[node name="FriendlySpearman13" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6385, 1292 )
-
 [node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6569, 1635 )
-
-[node name="FriendlySpearman7" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 7351, 1799 )
-
-[node name="FriendlySpearman8" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 7077, 1422 )
-
-[node name="FriendlySpearman4" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6742, 1779 )
-
-[node name="FriendlySpearman5" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6331, 1912 )
-
-[node name="FriendlySpearman6" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 7200, 1569 )
-
-[node name="FriendlySpearman3" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6898, 1620 )
-
-[node name="FriendlyAxeman" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 6388, 1642 )
-
-[node name="FriendlyAxeman2" parent="FriendlyUnits" instance=ExtResource( 13 )]
-position = Vector2( 6732, 1589 )
-
-[node name="FriendlyArcher" parent="FriendlyUnits" instance=ExtResource( 15 )]
-position = Vector2( 2108, 670 )
-
-[node name="FriendlyArcher2" parent="FriendlyUnits" instance=ExtResource( 15 )]
-position = Vector2( 6739, 1435 )
+position = Vector2( 6065, 1960 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 

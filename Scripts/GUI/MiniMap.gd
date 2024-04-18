@@ -66,28 +66,32 @@ func mapPinCreator(var pos, var img, var loc):
 
 func mapPinUpdater():
 	#Friendly
-	if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
-		for mapPin in $Viewport/Friendly.get_child_count():
-			$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
-			$Viewport/Friendly.get_child(mapPin).scale = scaler / $Viewport/Friendly.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+	if scene.has_node("FriendlyUnits"):
+		if $Viewport/Friendly.get_child_count() == friendlyUnitPath.get_child_count():
+			for mapPin in $Viewport/Friendly.get_child_count():
+				$Viewport/Friendly.get_child(mapPin).position = friendlyUnitPath.get_child(mapPin).position * mapScaledDifference
+				$Viewport/Friendly.get_child(mapPin).scale = scaler / $Viewport/Friendly.get_child(mapPin).get_texture().get_size() * mapScaledDifference
 			
 	#Enemy
-	if $Viewport/Enemy.get_child_count() == enemyUnitPath.get_child_count():
-		for mapPin in $Viewport/Enemy.get_child_count():
-			$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
-			$Viewport/Enemy.get_child(mapPin).scale = scaler / $Viewport/Enemy.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+	if scene.has_node("EnemyUnits"):
+		if $Viewport/Enemy.get_child_count() == enemyUnitPath.get_child_count():
+			for mapPin in $Viewport/Enemy.get_child_count():
+				$Viewport/Enemy.get_child(mapPin).position = enemyUnitPath.get_child(mapPin).position * mapScaledDifference
+				$Viewport/Enemy.get_child(mapPin).scale = scaler / $Viewport/Enemy.get_child(mapPin).get_texture().get_size() * mapScaledDifference
 			
 	#Structures
-	if $Viewport/Structure.get_child_count() == structurePath.get_child_count():
-		for mapPin in $Viewport/Structure.get_child_count():
-			$Viewport/Structure.get_child(mapPin).position = structurePath.get_child(mapPin).position * mapScaledDifference
-			$Viewport/Structure.get_child(mapPin).scale = scaler / $Viewport/Structure.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+	if scene.has_node("Structures"):
+		if $Viewport/Structure.get_child_count() == structurePath.get_child_count():
+			for mapPin in $Viewport/Structure.get_child_count():
+				$Viewport/Structure.get_child(mapPin).position = structurePath.get_child(mapPin).position * mapScaledDifference
+				$Viewport/Structure.get_child(mapPin).scale = scaler / $Viewport/Structure.get_child(mapPin).get_texture().get_size() * mapScaledDifference
 			
 	#Ressource
-	if $Viewport/Ressource.get_child_count() == ressourcePath.get_child_count():
-		for mapPin in $Viewport/Ressource.get_child_count():
-			$Viewport/Ressource.get_child(mapPin).position = ressourcePath.get_child(mapPin).position * mapScaledDifference
-			$Viewport/Ressource.get_child(mapPin).scale = scaler / $Viewport/Ressource.get_child(mapPin).get_texture().get_size() * mapScaledDifference
+	if scene.has_node("Resources"):
+		if $Viewport/Ressource.get_child_count() == ressourcePath.get_child_count():
+			for mapPin in $Viewport/Ressource.get_child_count():
+				$Viewport/Ressource.get_child(mapPin).position = ressourcePath.get_child(mapPin).position * mapScaledDifference
+				$Viewport/Ressource.get_child(mapPin).scale = scaler / $Viewport/Ressource.get_child(mapPin).get_texture().get_size() * mapScaledDifference
 
 
 
@@ -118,32 +122,37 @@ var ammount
 func mapPinBuilder():
 	
 	#Friendly
-	ammount = $Viewport/Friendly.get_child_count() - friendlyUnitPath.get_child_count()
-	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/FriendlyUnit.png", "Friendly")
-	if ammount > 0:
-		$Viewport/Friendly.get_child(0).queue_free()
+	if scene.has_node("FriendlyUnits"):
+		
+		ammount = $Viewport/Friendly.get_child_count() - friendlyUnitPath.get_child_count()
+		if ammount < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/FriendlyUnit.png", "Friendly")
+		if ammount > 0:
+			$Viewport/Friendly.get_child(0).queue_free()
 		
 		#Enemy
-	ammount = $Viewport/Enemy.get_child_count() - enemyUnitPath.get_child_count()
-	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/EnemyUnit.png", "Enemy")
-	if ammount > 0:
-		$Viewport/Enemy.get_child(0).queue_free()
-	
+	if scene.has_node("EnemyUnits"):
+		ammount = $Viewport/Enemy.get_child_count() - enemyUnitPath.get_child_count()
+		if ammount < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/EnemyUnit.png", "Enemy")
+		if ammount > 0:
+			$Viewport/Enemy.get_child(0).queue_free()
 	#Ressource (ændre maybe til at den er lidt pænerer
-	ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
-	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/WoodMarker.png", "Ressource")
-	if ammount > 0:
-		$Viewport/Ressource.get_child(0).queue_free()
+	if scene.has_node("Resources"):
+
+		ammount = $Viewport/Ressource.get_child_count() - ressourcePath.get_child_count()
+		if ammount < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/WoodMarker.png", "Ressource")
+		if ammount > 0:
+			$Viewport/Ressource.get_child(0).queue_free()
 	
 	#Structure
-	ammount = $Viewport/Structure.get_child_count() - structurePath.get_child_count()
-	if ammount < 0:
-		mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", "Structure")
-	if ammount > 0:
-		$Viewport/Structure.get_child(0).queue_free()
+	if scene.has_node("Structures"):
+		ammount = $Viewport/Structure.get_child_count() - structurePath.get_child_count()
+		if ammount < 0:
+			mapPinCreator(Vector2(0,0), "res://Assets/Images/Icons/StructureMarker.png", "Structure")
+		if ammount > 0:
+			$Viewport/Structure.get_child(0).queue_free()
 
 func camDragger():
 	
