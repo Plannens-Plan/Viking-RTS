@@ -62,11 +62,11 @@ func _on_PurchaseMiner_pressed():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	
 	var res=GlobalVariable.VikingRts.resources
-	if res.food >= 20 and res.wood >= 20:
+	if res.food >= 10 and res.wood >= 10:
 		if unitsInside == false:
 			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn").instance()
-			res.food-=15
-			res.wood-=8
+			res.food-=10
+			res.wood-=10
 			troop.position = position
 			var scene=get_tree().get_root().get_child(0)
 			if scene.name=="GlobalVariables":
