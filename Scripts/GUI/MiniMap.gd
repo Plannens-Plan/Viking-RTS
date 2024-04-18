@@ -49,8 +49,6 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
-	print($Viewport/Resource/Food.get_child_count(),1)
-	print(get_tree().current_scene.get_node("Resources").get_node("Food").get_child_count())
 
 
 
