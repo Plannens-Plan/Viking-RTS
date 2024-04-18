@@ -16,7 +16,7 @@ export var VikingRts={
 		wood=100,
 		food=100,
 		stone=100,
-		silver=100
+		silver=600
 	},
 	units=[],
 	structures=[],

@@ -13,7 +13,7 @@ scale = Vector2( 0.409375, 0.293244 )
 texture = ExtResource( 1 )
 
 [node name="TradeMapLocation" parent="." instance=ExtResource( 3 )]
-position = Vector2( 418, 310 )
+position = Vector2( 388, 258 )
 
 [node name="TradeMapLocation2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 381, 180 )

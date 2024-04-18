@@ -6,16 +6,26 @@ var tradeSellAmmount
 var tradeBuyAmmount
 var tradeSellType
 var tradeBuyType
+var trades
 
 #Reputation
 
 
 var dicReputation = {
-"a":0,
-"b":0,
-"c":0,
-"d":0,
-"e":0
+	"a":0,
+	"b":0,
+	"c":0,
+	"d":0,
+	"e":0
+}
+
+var dicTrades = {
+	# ammountLocation, typeLocation, ammountPlayer, typePlayer
+	"a" : [100,"silver",100,"wood"],
+	"b" : [100,"silver",100,"food"],
+	"c" : [100,"silver",100,"stone"],
+	"d" : [100,"stone",100,"wood"],
+	"e" : [100,"food",100,"stone"],
 }
 
 
@@ -29,13 +39,11 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("leftClick"):
+	if event.is_action_pressed("leftClick") && location != null:
 		reputation = dicReputation[location]
-		tradeBuyAmmount = 100/(reputation+1)
-		tradeBuyType = "Wood"
-		tradeSellAmmount = 100/(reputation+1)
-		tradeSellType = "Stone"
-		print(tradeSellAmmount)
+		trades = dicTrades[location]
+		print(GlobalVariables.VikingRts.resources.get(trades[0]))
+		$Panel/RichTextLabel.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
 		dicReputation[location] += 1
 
 
