@@ -31,20 +31,26 @@ var dicTrades = {
 
 var reputation=0
 
-
+func _physics_process(delta):
+	if location != null:
+		reputation = dicReputation[location]
+		trades = dicTrades[location]
+		$Panel/RichTextLabel.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
 
 
 func _ready():
 	pass 
 
-
 func _input(event):
 	if event.is_action_pressed("leftClick") && location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
-		print(GlobalVariables.VikingRts.resources.get(trades[0]))
-		$Panel/RichTextLabel.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
-		dicReputation[location] += 1
+		if GlobalVariables.VikingRts.resources.get(trades[3]) >= trades[2]:
+			GlobalVariables.VikingRts.resources[trades[1]] += trades[0]
+			GlobalVariables.VikingRts.resources[trades[3]] -= trades[2]
+			pass
+		else: 
+			print("you broke bitch")
 
 
 
