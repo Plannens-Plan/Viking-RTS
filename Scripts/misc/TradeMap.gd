@@ -1,4 +1,7 @@
-extends CanvasLayer
+extends Node2D
+
+var mouseOver=false
+
 
 var location
 
@@ -11,8 +14,7 @@ var trades
 var popUpWait = 1
 
 #Reputation
-
-
+var reputation
 var dicReputation = {
 	"a":0,
 	"b":0,
@@ -31,7 +33,6 @@ var dicTrades = {
 }
 
 
-var reputation=0
 
 func _physics_process(delta):
 	if location != null:
@@ -86,5 +87,17 @@ func _on_TradeMapLocation5_mouse_exited():
 		location=null
 
 
+
+
+
 func _on_Timer_timeout():
 	$Panel/Warning.hide()
+
+
+
+
+
+func _on_Area2D_mouse_entered():
+	mouseOver=true
+func _on_Area2D_mouse_exited():
+	mouseOver=false

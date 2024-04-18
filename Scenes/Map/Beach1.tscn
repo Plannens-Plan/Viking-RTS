@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Structures/Deposit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Structures/TradingPost.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemyArcher.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
@@ -460,6 +461,7 @@ position = Vector2( 549, 469 )
 current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="Structures" type="Node" parent="."]
 
@@ -477,113 +479,119 @@ position = Vector2( 584, 417 )
 
 [node name="Resources" type="Node" parent="."]
 
-[node name="WoodArea" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2432, 916 )
+[node name="Wood" type="YSort" parent="Resources"]
 
-[node name="WoodArea2" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2008, 1227 )
-
-[node name="WoodArea3" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 1861, 1810 )
-
-[node name="WoodArea4" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 1103, 1770 )
-
-[node name="WoodArea5" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 1595, 2930 )
-
-[node name="WoodArea6" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2160, 4248 )
-
-[node name="WoodArea7" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 1086, 3513 )
-
-[node name="WoodArea8" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2528, 3490 )
-
-[node name="WoodArea9" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2438, 2726 )
-
-[node name="WoodArea10" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 2545, 2070 )
-
-[node name="WoodArea11" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 3417, 2421 )
-
-[node name="WoodArea12" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 3111, 1035 )
-
-[node name="WoodArea13" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 4763, 1957 )
-
-[node name="FoodArea" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 1624, 2393 )
-
-[node name="FoodArea2" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 1030, 3258 )
-
-[node name="FoodArea3" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 1346, 1211 )
-
-[node name="FoodArea4" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 2342, 1505 )
-
-[node name="FoodArea5" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 1804, 606 )
-
-[node name="FoodArea6" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 1069, 2337 )
-
-[node name="FoodArea7" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 2438, 2303 )
-
-[node name="FoodArea8" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 2636, 2914 )
-
-[node name="FoodArea9" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 3037, 1856 )
-
-[node name="FoodArea10" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 3931, 1946 )
-
-[node name="FoodArea11" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 3665, 3174 )
-
-[node name="FoodArea12" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 3750, 911 )
-
-[node name="FoodArea13" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 4406, 3224 )
-
-[node name="FoodArea14" parent="Resources" instance=ExtResource( 6 )]
-position = Vector2( 4887, 2659 )
-
-[node name="StoneArea" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 3128, 2828 )
-
-[node name="StoneArea2" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 2687, 2296 )
-
-[node name="StoneArea3" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 4599, 1131 )
-
-[node name="StoneArea4" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 4537, 2556 )
-
-[node name="StoneArea5" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 4254, 2138 )
-
-[node name="StoneArea6" parent="Resources" instance=ExtResource( 8 )]
-position = Vector2( 5000, 3501 )
-
-[node name="WoodArea14" parent="Resources" instance=ExtResource( 7 )]
+[node name="WoodArea14" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5679, 1205 )
 
-[node name="WoodArea15" parent="Resources" instance=ExtResource( 7 )]
+[node name="WoodArea15" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5742, 3552 )
 
-[node name="WoodArea16" parent="Resources" instance=ExtResource( 7 )]
+[node name="WoodArea16" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5532, 2511 )
+
+[node name="WoodArea" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2432, 916 )
+
+[node name="WoodArea2" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2008, 1227 )
+
+[node name="WoodArea3" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 1861, 1810 )
+
+[node name="WoodArea4" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 1103, 1770 )
+
+[node name="WoodArea5" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 1595, 2930 )
+
+[node name="WoodArea6" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2160, 4248 )
+
+[node name="WoodArea7" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 1086, 3513 )
+
+[node name="WoodArea8" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2528, 3490 )
+
+[node name="WoodArea9" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2438, 2726 )
+
+[node name="WoodArea10" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 2545, 2070 )
+
+[node name="WoodArea11" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 3417, 2421 )
+
+[node name="WoodArea12" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 3111, 1035 )
+
+[node name="WoodArea13" parent="Resources/Wood" instance=ExtResource( 7 )]
+position = Vector2( 4763, 1957 )
+
+[node name="Stone" type="YSort" parent="Resources"]
+
+[node name="StoneArea" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 3128, 2828 )
+
+[node name="StoneArea2" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 2687, 2296 )
+
+[node name="StoneArea3" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 4599, 1131 )
+
+[node name="StoneArea4" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 4537, 2556 )
+
+[node name="StoneArea5" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 4254, 2138 )
+
+[node name="StoneArea6" parent="Resources/Stone" instance=ExtResource( 8 )]
+position = Vector2( 5000, 3501 )
+
+[node name="Food" type="YSort" parent="Resources"]
+
+[node name="FoodArea" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 1624, 2393 )
+
+[node name="FoodArea2" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 1030, 3258 )
+
+[node name="FoodArea3" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 1346, 1211 )
+
+[node name="FoodArea4" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 2342, 1505 )
+
+[node name="FoodArea5" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 1804, 606 )
+
+[node name="FoodArea6" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 1069, 2337 )
+
+[node name="FoodArea7" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 2438, 2303 )
+
+[node name="FoodArea8" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 2636, 2914 )
+
+[node name="FoodArea9" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 3037, 1856 )
+
+[node name="FoodArea10" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 3931, 1946 )
+
+[node name="FoodArea11" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 3665, 3174 )
+
+[node name="FoodArea12" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 3750, 911 )
+
+[node name="FoodArea13" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 4406, 3224 )
+
+[node name="FoodArea14" parent="Resources/Food" instance=ExtResource( 6 )]
+position = Vector2( 4887, 2659 )
 
 [node name="EnemyUnits" type="YSort" parent="."]
 
@@ -644,6 +652,9 @@ position = Vector2( 1325, 876 )
 position = Vector2( 1954, 331 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
+
+[node name="TradingPost" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2466, 434 )
 
 [connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]
