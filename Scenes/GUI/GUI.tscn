@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/Structures/Barracks Build.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Structures/Build/Barracks Build.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GUI/ResouceDisplay.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Menus/Pausemenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Map/Minimap/Minimap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Structures/farmHouse Build.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Structures/Build/farmHouse Build.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Structures/Build/Tower Build.gd" type="Script" id=6]
 
 [node name="GUI" type="Control"]
 margin_right = 40.0
@@ -49,6 +50,24 @@ margin_bottom = -28.0
 hint_tooltip = "40 wood"
 mouse_filter = 1
 text = "Build Farm House"
+
+[node name="TowerControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="TowerCanvasLayer" type="CanvasLayer" parent="TowerControl"]
+
+[node name="Button" type="Button" parent="TowerControl/TowerCanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 438.0
+margin_top = -47.0
+margin_right = 621.0
+margin_bottom = -27.0
+hint_tooltip = "40 wood"
+mouse_filter = 1
+text = "Build Tower"
 
 [node name="ResouceDisplay" type="CanvasLayer" parent="."]
 script = ExtResource( 2 )
@@ -133,3 +152,5 @@ margin_bottom = 24.0
 [connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="BarrackControl" method="_on_Button_pressed"]
 [connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="FarmHouseControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="TowerControl" method="_on_Button_pressed"]

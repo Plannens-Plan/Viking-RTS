@@ -33,14 +33,27 @@ func previewbuild():
 	
 	var overlapping = false
 	var sprite = previewBuilding.get_node(spriteName)
-	for area in previewBuilding.get_overlapping_areas():
-		if area.is_in_group("Building") || area.is_in_group("Terrain"):
-			placeableBuilding = false
-			sprite.modulate = Color(1, 0, 0)
-			overlapping = true
-	if not overlapping:
-			placeableBuilding = true
-			sprite.modulate = Color(0, 1, 0)
+	if previewBuilding is Area2D:
+		for area in previewBuilding.get_overlapping_areas():
+			if area.is_in_group("Building") || area.is_in_group("Terrain"):
+				placeableBuilding = false
+				sprite.modulate = Color(1, 0, 0)
+				overlapping = true
+		if not overlapping:
+				placeableBuilding = true
+				sprite.modulate = Color(0, 1, 0)
+	
+	else:
+		var previewArea
+		previewArea = previewBuilding.get_node("PreviewArea")
+		for area in previewArea.get_overlapping_areas():
+			if area.is_in_group("Building") || area.is_in_group("Terrain"):
+				placeableBuilding = false
+				sprite.modulate = Color(1, 0, 0)
+				overlapping = true
+		if not overlapping:
+				placeableBuilding = true
+				sprite.modulate = Color(0, 1, 0)
 
 
 

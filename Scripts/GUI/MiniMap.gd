@@ -57,26 +57,6 @@ func cameraResize():
 	cameraSpritePosition.y = clamp(cameraSpritePosition.y, 0 + $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y, mapSize.y*mapScaledDifference.y - $Viewport/CamSprite.get_texture().get_size().y / 2 * $Viewport/CamSprite.scale.y)
 	camSprite.position = cameraSpritePosition
 
-func elementCreator():
-		for ressource in ressourcePath.get_children():
-			match ressource.itemType:
-				"Wood":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/tree.jpg", "Ressource")
-				"Stone":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/stone.jpg", "Ressource")
-				"Food":
-					mapPinCreator(ressource.position, "res://Assets/Images/Icons/food.jpg", "Ressource")
-					
-		for unit in friendlyUnitPath.get_children():
-			mapPinCreator(unit.position, "res://Assets/Images/Icons/FriendlyUnit.png", "Friendly")
-			
-		for unit in enemyUnitPath.get_children():
-			mapPinCreator(unit.position, "res://Assets/Images/Icons/EnemyUnit.png", "Enemy")
-			
-		for structure in structurePath.get_children():
-			mapPinCreator(structure.position, "res://Assets/Images/Icons/monkey_banana.png", "Structure")
-			
-
 func mapPinCreator(var pos, var img, var loc):
 	var newMapPin = load(mapPinPath).instance()
 	newMapPin.position = pos * mapScaledDifference
