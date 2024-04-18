@@ -13,20 +13,22 @@ var placeableBuilding
 var spriteName
 
 func addPreview():
-	
+
 	add_child(previewBuilding)
 	previewBuilding.hide()
 
 #override hele _ready()
-func _ready():
-	addPreview()
-	pass # Replace with function body.
+#func _ready():
+#
+#	pass 
 
 func _on_Button_pressed():
+	addPreview()
 	buildingMode = !buildingMode 
 	pass # Replace with function body.
 
 func previewbuild():
+	#add_child(previewBuilding)
 	previewBuilding.set_visible(true)
 	var mousePos = get_global_mouse_position()
 	previewBuilding.position = mousePos
@@ -61,7 +63,7 @@ func previewbuild():
 func build():
 	var newBuilding
 	var res=GlobalVariable.VikingRts.resources
-	if(Input.is_action_just_released("leftClick") && placeableBuilding == true):
+	if(buildingMode && Input.is_action_just_released("leftClick") && placeableBuilding == true):
 		newBuilding.buildingPlaced = true
 		var mousePos = get_global_mouse_position()
 		newBuilding.position = mousePos
@@ -70,10 +72,21 @@ func build():
 		get_tree().current_scene.get_node("Structures").add_child(newBuilding)
 		buildingMode = !buildingMode 
 
+	if(Input.is_action_just_released("rightClick")):
+		buildingMode = !buildingMode 
+		print("akfhbaehkiteqtqwer")
+
+func notBuild():
+	if(Input.is_action_just_released("rightClick")):
+		previewBuilding.set_visible(false)
+		previewBuilding.queue_free()
+		buildingMode = !buildingMode 
+		print("akfhbaehkiteqtqwer")
 
 func _input(event):
 	var res=GlobalVariable.VikingRts.resources
 	if (buildingMode == true && res.wood >= 40):
 		build()
+		notBuild()
 		previewbuild()
 	pass # Replace with function body.
