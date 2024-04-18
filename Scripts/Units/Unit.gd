@@ -68,7 +68,7 @@ func attack():
 						$UnitAudio.play()
 					$AttackTimer.start()
 					return
-	if $AttackArea.get_overlapping_areas().size() > 0 && $AttackTimer.time_left <= 0:
+	if $AttackArea.get_overlapping_areas().size() > 0 && $AttackTimer.time_left <= 0 && !$AttackArea.get_overlapping_bodies().size() < 0:
 		for area in $AttackArea.get_overlapping_areas():
 			if friendly == true:
 				if area.is_in_group("enemyBuilding"):

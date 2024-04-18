@@ -1,6 +1,7 @@
 extends Area2D
 
 var mouseOver = false
+var selected = false
 
 var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
@@ -10,16 +11,21 @@ var maxHealth = 100
 
 var friendly = false
 
+# The RGB color code for the unit's outline, default value is white
+var outlineColor = Color(1, 0, 0, 1)
+
 func _ready():
 	updateElements()
-	pass
-	
 
 signal dead_building
 
-func _process(delta):
+func _physics_process(delta):
+	if mouseOver and !selected:
+		$Sprite.material.set_shader_param("hide", false)
+		$Sprite.material.set_shader_param("line_thickness", 3)
+	if !mouseOver and !selected:
+		$Sprite.material.set_shader_param("hide", true)
 	updateHealthBar()
-	pass
 
 func setHealth(newHealth):
 	#if health > newHealth:
@@ -42,13 +48,11 @@ func _on_MouseOver_mouse_entered():
 func _on_MouseOver_mouse_exited():
 	mouseOver = false
 
-
 func updateElements():
 	$HealthBar.max_value = maxHealth
 	$HealthBar.value = health
 	$HealthBar.modulate.a = 0
-	
-	#$Sprite.material.set_shader_param("line_color", outlineColor)
+	$Sprite.material.set_shader_param("line_color", outlineColor)
 
 func updateHealthBar():
 	# Slowly approach correct health value on health bar
@@ -58,3 +62,6 @@ func updateHealthBar():
 	# Health bar fade in if recently hit or mouse over
 	if $HealthBarTimer.time_left > 0 or mouseOver:
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 1, healthBarFadeSpeed)
+	# Healh bar fade out
+	elif !selected:
+		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
