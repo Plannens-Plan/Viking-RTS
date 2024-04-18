@@ -100,10 +100,14 @@ func updateScene():
 	mapSize = scene.get_node("Map").get_size() * scene.get_node("Map").get_scale()
 	mapScaledDifference = self.rect_size / mapSize
 	cameraPath = scene.get_node("PlayerCam")
-	structurePath = scene.get_node("Structures")
-	enemyUnitPath = scene.get_node("EnemyUnits")
-	friendlyUnitPath = scene.get_node("FriendlyUnits")
-	ressourcePath = scene.get_node("Resources")
+	if scene.has_node("Structures"):
+		structurePath = scene.get_node("Structures")
+	if scene.has_node("EnemyUnits"):
+		enemyUnitPath = scene.get_node("EnemyUnits")
+	if scene.has_node("FriendlyUnits"):
+		friendlyUnitPath = scene.get_node("FriendlyUnits")
+	if scene.has_node("Resources"):
+		ressourcePath = scene.get_node("Resources")
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
 func minimapResizer():

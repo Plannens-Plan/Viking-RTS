@@ -19,8 +19,10 @@ func _ready():
 	print(fcount)
 	print(ecount)
 	if GlobalVariable.VikingRts.progression.beach:
+		GlobalVariable.Friendly=true
 		get_tree().current_scene.get_node("EnemyUnits").queue_free()
 		get_tree().current_scene.get_node("FriendlyUnits").queue_free()
+		
 	else:
 		friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 		fcount = friendlyUnits.size()
