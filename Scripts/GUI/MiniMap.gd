@@ -10,20 +10,6 @@ var cameraPosition
 onready var camSprite=$Viewport/CamSprite
 var cameraSpritePosition = Vector2(0,0)
 
-#Unit
-var unitPath
-var unitPosition
-var friendlyUnitPath
-var enemyUnitPath
-
-#Structure
-var structurePath
-var structurePosition
-
-#Ressource
-var ressourcePath
-var ressourcePosition
-
 #Map
 var mapSize = Vector2(2560,1440)
 var mapScaledDifference
@@ -51,10 +37,6 @@ func _physics_process(delta):
 	camDragger()
 
 
-
-
-
-
 func cameraResize():
 	cameraZoom = cameraPath.zoom
 	cameraPosition = cameraPath.position 
@@ -65,18 +47,12 @@ func cameraResize():
 	camSprite.position = cameraSpritePosition
 
 
-
-
-
 func mapPinCreator(var pos,var img,var loc):
 	var newMapPin = load(mapPinPath).instance()
 	newMapPin.position = pos * mapScaledDifference
 	newMapPin.texture = load(img)
 	newMapPin.scale = scaler/load(img).get_size() * mapScaledDifference
 	loc.add_child(newMapPin)
-
-
-
 
 
 func mapPinUpdater():
@@ -97,6 +73,7 @@ func mapPinUpdater():
 		subMapPinUpdater(scene.get_node("Structures"),"Friendly",$Viewport/Structure/Friendly)
 		subMapPinUpdater(scene.get_node("Structures"),"Enemy",$Viewport/Structure/Enemy)
 
+
 func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
 	if getMainNode.has_node(sceneChildCounter):
 		if localNode.get_child_count() == getMainNode.get_node(sceneChildCounter).get_child_count():
@@ -106,22 +83,12 @@ func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
 	pass
 
 
-
 func updateScene():
 	scene = get_tree().current_scene 
 	mapSize = scene.get_node("Map").get_size() * scene.get_node("Map").get_scale()
 	mapScaledDifference = self.rect_size / mapSize
 	cameraPath = scene.get_node("PlayerCam")
-	if scene.has_node("Structures"):
-		structurePath = scene.get_node("Structures")
-	if scene.has_node("EnemyUnits"):
-		enemyUnitPath = scene.get_node("EnemyUnits")
-	if scene.has_node("FriendlyUnits"):
-		friendlyUnitPath = scene.get_node("FriendlyUnits")
-	if scene.has_node("Resources"):
-		ressourcePath = scene.get_node("Resources")
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
-
 
 
 func minimapResizer():
@@ -130,6 +97,7 @@ func minimapResizer():
 	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
+
 
 func mapPinBuilder():
 	#Friendly
@@ -146,6 +114,7 @@ func mapPinBuilder():
 		subMapPinBuilder(scene.get_node("Structures"), "Friendly", "res://Assets/Images/Icons/StructureMarker.png",$Viewport/Structure/Friendly)
 		subMapPinBuilder(scene.get_node("Structures"), "Enemy","res://Assets/Images/Icons/monkey_banana.png",$Viewport/Structure/Enemy)
 
+
 func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var localNode):
 	if getSceneNode.has_node(sceneChildCounter):
 		ammount = localNode.get_child_count() - getSceneNode.get_node(sceneChildCounter).get_child_count()
@@ -153,9 +122,6 @@ func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var loca
 			mapPinCreator(Vector2(0,0), img, localNode)
 		if ammount > 0:
 			localNode.get_child(0).queue_free()
-
-
-
 
 
 func camDragger():
