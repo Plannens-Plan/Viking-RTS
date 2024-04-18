@@ -54,3 +54,4 @@ icon = ExtResource( 2 )
 
 [connection signal="pressed" from="Control/Beach" to="." method="_on_Beach_pressed"]
 [connection signal="pressed" from="Control/Engvik" to="." method="_on_Engvik_pressed"]
+[connection signal="pressed" from="Control/Buns" to="." method="_on_Buns_pressed"]
