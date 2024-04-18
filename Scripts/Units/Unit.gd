@@ -53,13 +53,10 @@ func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
 			if friendly == true:
-				if body.is_in_group("enemyUnit") || body.is_in_group("enemyBuilding"):
+				if body.is_in_group("enemyUnit"):
 					body.setHealth(body.health - attackDamage, true)
 					if attackSound != null:
-						resetAudio("UnitAudio")
-						$UnitAudio.stream = attackSound
-						$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
-						$UnitAudio.volume_db = -10
+						setAttackSound()
 						$UnitAudio.play()
 					$AttackTimer.start()
 					return
@@ -67,8 +64,17 @@ func attack():
 				if body.is_in_group("friendlyUnit"):
 					body.setHealth(body.health - attackDamage, true)
 					if attackSound != null:
-						resetAudio("UnitAudio")
-						$UnitAudio.stream = attackSound
+						setAttackSound()
+						$UnitAudio.play()
+					$AttackTimer.start()
+					return
+	if $AttackArea.get_overlapping_areas().size() > 0 && $AttackTimer.time_left <= 0:
+		for area in $AttackArea.get_overlapping_areas():
+			if friendly == true:
+				if area.is_in_group("enemyBuilding"):
+					area.setHealth(area.health - attackDamage)
+					if attackSound != null:
+						setAttackSound()
 						$UnitAudio.play()
 					$AttackTimer.start()
 					return
@@ -185,6 +191,12 @@ func setAudioRandomBlock():
 			$UnitAudio.stream = load("res://Assets/Sounds/Units/block3.mp3")
 	resetAudio("UnitAudio")
 	$UnitAudio.pitch_scale = rng.randf_range(0.7,1.3)
+
+func setAttackSound():
+	resetAudio("UnitAudio")
+	$UnitAudio.stream = attackSound
+	$UnitAudio.pitch_scale = rng.randf_range(0.8,1.2)
+	$UnitAudio.volume_db = -10
 
 func updateHealthBar():
 	# Slowly approach correct health value on health bar

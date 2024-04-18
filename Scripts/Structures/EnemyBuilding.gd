@@ -2,7 +2,6 @@ extends Area2D
 
 var mouseOver = false
 
-
 var healthBarFadeSpeed = 0.1
 var healthBarProgressSpeed = 0.1
 
@@ -12,13 +11,15 @@ var maxHealth = 100
 var friendly = false
 
 func _ready():
-	updateElements()
+	#updateElements()
+	pass
 	
 
 signal dead_building
 
 func _process(delta):
-	updateHealthBar()
+	#updateHealthBar()
+	pass
 
 func setHealth(newHealth):
 	#if health > newHealth:
@@ -32,13 +33,6 @@ func setHealth(newHealth):
 		die()
 
 func die():
-	#var deathEffectInst = death_effect.instance()
-	#deathEffectInst.unitSprite = $Sprite.texture
-	#deathEffectInst.unitSpriteWidth = $Sprite.scale.x
-	#deathEffectInst.unitSpriteHeight = $Sprite.scale.y
-	#var world = get_tree().current_scene
-	#world.add_child(deathEffectInst)
-	#deathEffectInst.global_position = global_position
 	emit_signal("dead_building")
 	queue_free()
 
