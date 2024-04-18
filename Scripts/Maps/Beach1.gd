@@ -33,7 +33,6 @@ func _ready():
 		ecount = enemyUnits.size()
 		print(fcount)
 		print(ecount)
-	pass # Replace with function body.
 
 func _on_EnemyUnits_child_exiting_tree(node):
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
