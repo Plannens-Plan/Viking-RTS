@@ -11,15 +11,14 @@ var maxHealth = 100
 var friendly = false
 
 func _ready():
-	#updateElements()
+	updateElements()
 	pass
 	
 
 signal dead_building
 
 func _process(delta):
-	$HealthBar.modulate.a = 0
-	#updateHealthBar()
+	updateHealthBar()
 	pass
 
 func setHealth(newHealth):
