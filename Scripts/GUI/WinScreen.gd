@@ -29,4 +29,4 @@ func _on_Button_pressed():
 
 
 func _on_Timer_timeout():
-	get_tree().quit()
+	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")

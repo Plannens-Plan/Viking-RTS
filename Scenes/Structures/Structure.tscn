@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Structures/EnemyBuilding.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Structures/Structure.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Structures/viking_longhouse.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
@@ -15,7 +15,7 @@ extents = Vector2( 256, 166 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 257.5, 169.5 )
 
-[node name="EnemyBuilding1" type="Area2D" groups=["Building", "enemy", "enemyBuilding"]]
+[node name="Structure" type="Area2D" groups=["Building"]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

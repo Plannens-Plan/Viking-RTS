@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Structures/Tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Icons/monkey_banana.png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 152.5, 150.5 )
 
