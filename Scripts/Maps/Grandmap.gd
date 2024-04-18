@@ -12,6 +12,8 @@ func _ready():
 
 
 func _on_Beach_pressed():
+	if progression.beach:
+		GlobalVariable.Friendly=true
 	get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
 	pass # Replace with function body.
 
