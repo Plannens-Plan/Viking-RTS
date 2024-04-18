@@ -475,7 +475,7 @@ position = Vector2( 584, 417 )
 [node name="Enemy" type="YSort" parent="Structures"]
 
 [node name="EnemyBuilding1" parent="Structures/Enemy" instance=ExtResource( 11 )]
-position = Vector2( 6687, 1899 )
+position = Vector2( 2298, 362 )
 
 [node name="Miners" type="Node" parent="."]
 
@@ -594,9 +594,6 @@ position = Vector2( 5532, 2511 )
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 1352, 1995 )
 
-[node name="EnemyBuilding1" parent="EnemyUnits" instance=ExtResource( 11 )]
-position = Vector2( 6687, 1899 )
-
 [node name="EnemyArcher" parent="EnemyUnits" instance=ExtResource( 13 )]
 position = Vector2( 1562, 2227 )
 
@@ -648,7 +645,7 @@ position = Vector2( 1113, 952 )
 position = Vector2( 1325, 876 )
 
 [node name="FriendlyAxeman3" parent="FriendlyUnits" instance=ExtResource( 19 )]
-position = Vector2( 6145, 1895 )
+position = Vector2( 1954, 331 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 

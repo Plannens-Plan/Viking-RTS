@@ -18,6 +18,7 @@ func _ready():
 signal dead_building
 
 func _process(delta):
+	$HealthBar.modulate.a = 0
 	#updateHealthBar()
 	pass
 
