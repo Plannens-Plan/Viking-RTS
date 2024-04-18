@@ -18,12 +18,23 @@ func _ready():
 	ecount = enemyUnits.size()
 	print(fcount)
 	print(ecount)
+	if GlobalVariable.VikingRts.progression.beach:
+		get_tree().current_scene.get_node("EnemyUnits").queue_free()
+		get_tree().current_scene.get_node("FriendlyUnits").queue_free()
+	else:
+		friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
+		fcount = friendlyUnits.size()
+		enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
+		ecount = enemyUnits.size()
+		print(fcount)
+		print(ecount)
 	pass # Replace with function body.
 
 func _on_EnemyUnits_child_exiting_tree(node):
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	ecount = enemyUnits.size()
-	if ecount == 1 && GlobalVariable.Exiting ==false:
+	
+	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.beach==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
 		var scene = get_tree().current_scene
@@ -39,10 +50,13 @@ func _on_EnemyUnits_child_exiting_tree(node):
 
 
 func _on_FriendlyUnits_child_exiting_tree(node):
-	fcount = friendlyUnits.size()
+
+	
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
+	fcount = friendlyUnits.size()
 	print(ecount)
-	if fcount == 1:
+
+	if fcount == 1&& GlobalVariable.VikingRts.progression.beach==false:
 		GlobalVariable.RemainingTroops = fcount
 		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 	pass # Replace with function body.

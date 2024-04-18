@@ -11,8 +11,6 @@ onready var startgamepath="res://Scenes/Map/Grandmap.tscn"
 func _ready():
 	GlobalVariable.Exiting=false
 	
-	GlobalVariable.VikingRts=GlobalVariable.Default
-	
 	if dropmenu.get_popup().items.size()>0:
 		while dropmenu.get_popup().items.size()>0:
 			dropmenu.get_popup().remove_item(0)
