@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Images/Icons/bruh.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Icons/Selector.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/GUI/MiniMap.gd" type="Script" id=3]
-[ext_resource path="res://TEST.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100.5 )
 
 [node name="MiniMap" type="CanvasLayer"]
-script = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -31,6 +29,10 @@ self_modulate = Color( 1, 1, 1, 0.52549 )
 texture = ExtResource( 2 )
 
 [node name="Structure" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+
+[node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
+
+[node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
 
 [node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
 

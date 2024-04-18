@@ -18,11 +18,6 @@ func addPreview():
 	add_child(previewBuilding)
 	previewBuilding.hide()
 
-#override hele _ready()
-#func _ready():
-#
-#	pass 
-
 func _on_Button_pressed():
 	addPreview()
 	buildingMode = !buildingMode 
@@ -70,7 +65,7 @@ func build():
 		newBuilding.position = mousePos
 		newBuilding.add_to_group("Building")
 		res.wood-=40
-		get_tree().current_scene.get_node("Structures").add_child(newBuilding)
+		get_tree().current_scene.get_node("Structures").get_node("Friendly").add_child(newBuilding)
 		buildingMode = !buildingMode 
 
 	if(Input.is_action_just_released("rightClick")):

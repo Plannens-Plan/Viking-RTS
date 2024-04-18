@@ -464,11 +464,18 @@ current = true
 
 [node name="Structures" type="Node" parent="."]
 
-[node name="Deposit" parent="Structures" instance=ExtResource( 9 )]
+[node name="Friendly" type="YSort" parent="Structures"]
+
+[node name="Tower" parent="Structures/Friendly" instance=ExtResource( 17 )]
+position = Vector2( 4899, 1181 )
+
+[node name="Deposit" parent="Structures/Friendly" instance=ExtResource( 9 )]
 position = Vector2( 584, 417 )
 
-[node name="Tower" parent="Structures" instance=ExtResource( 17 )]
-position = Vector2( 4899, 1181 )
+[node name="Enemy" type="YSort" parent="Structures"]
+
+[node name="EnemyBuilding1" parent="Structures/Enemy" instance=ExtResource( 11 )]
+position = Vector2( 6687, 1899 )
 
 [node name="Miners" type="Node" parent="."]
 
