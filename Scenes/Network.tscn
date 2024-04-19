@@ -23,6 +23,7 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="MainScene" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Login" type="Button" parent="MainScene"]
 anchor_left = 0.5
@@ -118,10 +119,23 @@ margin_top = -150.0
 margin_right = 124.5
 margin_bottom = -88.0
 text = "Username or password cannot contain these letters
-\\ / . : , ; ? * | \" ' , . ` ´ + -"
+\\ / . : , ; ? * | \" ' , . ` ´ + - < >"
+
+[node name="Warning3" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -150.0
+margin_right = 124.5
+margin_bottom = -88.0
+text = "Password cannot contain these letters
+\\ / < >: ; | \" '  ` ´ < >"
 
 [node name="Signup" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Back" type="Button" parent="Signup"]
 anchor_left = 0.5
@@ -177,16 +191,21 @@ margin_right = 610.0
 margin_bottom = 199.0
 text = "Username is already taken"
 
-[node name="Success" type="RichTextLabel" parent="Signup"]
-visible = false
-margin_left = 415.0
-margin_top = 166.0
-margin_right = 606.0
-margin_bottom = 197.0
-text = "Signup succes!
-Hit the back button and login"
-
 [node name="Warning2" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -150.0
+margin_right = 127.0
+margin_bottom = -88.0
+text = "Username cannot contain these letters
+\\ / < > . : , ; ? * | \" ' , . ` ´ + - < >"
+
+[node name="Warning3" type="RichTextLabel" parent="Signup"]
 visible = false
 modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.5
@@ -197,8 +216,36 @@ margin_left = -124.5
 margin_top = -150.0
 margin_right = 124.5
 margin_bottom = -88.0
-text = "Username or password cannot contain these letters
-\\ / . : , ; ? * | \" ' , . ` ´ + -"
+text = "Password cannot contain these letters
+\\ / < >: ; | \" '  ` ´ < >"
+
+[node name="Success" type="Panel" parent="Signup"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.92549 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = -134.0
+margin_right = 54.0
+margin_bottom = -103.0
+
+[node name="Success" type="RichTextLabel" parent="Signup/Success"]
+modulate = Color( 0, 0.560784, 0.192157, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = -15.5
+margin_right = 54.0
+margin_bottom = 15.5
+bbcode_enabled = true
+bbcode_text = "[b]Signup success![/b]
+[b]Go back to login[/b]"
+text = "Signup success!
+Go back to login"
 
 [connection signal="pressed" from="MainScene/Login" to="." method="_on_Login_pressed"]
 [connection signal="pressed" from="MainScene/Signup" to="." method="_on_Signup_pressed"]

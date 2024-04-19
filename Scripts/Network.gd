@@ -197,12 +197,26 @@ func _on_Logingame_pressed():
 		"-",
 		"+"
 	]
+	var disallowedpassword=[
+		"/",
+		";",
+		":",
+		"<",
+		">",
+		"|",
+		"\\",
+		'"',
+		"'",
+		"`",
+		"´",
+	]
 	for i in disallowedcharacters:
 		if i in $Login/Username.text:
 			$Login/Warning2.show()
 			return
+	for i in disallowedpassword:
 		if i in $Login/Password.text:
-			$Login/Warning2.show()
+			$Login/Warning3.show()
 			return
 	$Login/Back.disabled=true
 	$Login/Login.disabled=true	
@@ -231,6 +245,8 @@ func _on_Back_pressed():
 		$Signup.visible=false
 	if $Login.visible:
 		$Login.visible=false
+	if $Signup/Success.visible:
+		$Signup/Success.visible=false
 	$MainScene.visible=true
 		
 	pass # Replace with function body.
@@ -239,6 +255,10 @@ func _on_Back_pressed():
 func _on_Login_text_changed(new_text):
 	if $Login/Warning.visible:
 		$Login/Warning.hide()
+	if $Login/Warning2.visible:
+		$Login/Warning2.hide()
+	if $Login/Warning3.visible:
+		$Login/Warning3.hide()
 	pass # Replace with function body.
 
 
@@ -263,12 +283,26 @@ func _on_Signupgame_pressed():
 		"-",
 		"+"
 	]
+	var disallowedpassword=[
+		"/",
+		";",
+		":",
+		"<",
+		">",
+		"|",
+		"\\",
+		'"',
+		"'",
+		"`",
+		"´",
+	]
 	for i in disallowedcharacters:
 		if i in $Signup/Username.text:
 			$Signup/Warning2.show()
 			return
+	for i in disallowedpassword:
 		if i in $Signup/Password.text:
-			$Signup/Warning2.show()
+			$Signup/Warning3.show()
 			return
 	$Signup/Back.disabled=true
 	$Signup/Signup.disabled=true
@@ -296,6 +330,10 @@ func handlesignup(data):
 func _on_signup_text_changed(new_text):
 	if $Signup/Warning.visible:
 		$Signup/Warning.visible=false
+	if $Signup/Warning2.visible:
+		$Signup/Warning2.visible=false
+	if $Signup/Warning3.visible:
+		$Signup/Warning3.visible=false
 	pass # Replace with function body.
 
 
