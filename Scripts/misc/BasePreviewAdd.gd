@@ -24,11 +24,13 @@ func loadPreview():
 	previewShowerInst.sprite = object.instance().get_node("Sprite").texture
 	previewShowerInst.spriteWidth = object.instance().get_node("Sprite").scale.x
 	previewShowerInst.spriteHeight = object.instance().get_node("Sprite").scale.y
-	if object.instance().get_node("CollisionShape2D").shape == CircleShape2D:
+	print(object.instance().get_node("CollisionShape2D").shape)
+	if object.instance().get_node("CollisionShape2D").shape is CircleShape2D:
 		previewShowerInst.collisionScaleRadius = object.instance().get_node("CollisionShape2D").shape.radius
 		previewShowerInst.collisionScaleX = null
 		previewShowerInst.collisionScaleY = null
-	if object.instance().get_node("CollisionShape2D").shape == RectangleShape2D:
+	if object.instance().get_node("CollisionShape2D").shape is RectangleShape2D:
+		print(object.instance().get_node("CollisionShape2D").shape)
 		previewShowerInst.collisionScaleRadius = null
 		previewShowerInst.collisionScaleX = object.instance().get_node("CollisionShape2D").shape.extents.x
 		previewShowerInst.collisionScaleY = object.instance().get_node("CollisionShape2D").shape.extents.y
