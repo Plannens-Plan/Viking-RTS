@@ -73,22 +73,28 @@ func _physics_process(delta):
 	position = get_global_mouse_position()
 	if previewingUnit == false:
 		if $placableDetect.get_overlapping_areas().size() > 0:
+			var obstacle = 0
 			for area in $placableDetect.get_overlapping_areas():
 				if area.is_in_group("Building") || area.is_in_group("Terrain") :
-					$Sprite.modulate = Color(1, 0, 0)
+					obstacle += 1
+			for bodies in $placableDetect.get_overlapping_bodies():
+				if bodies.is_in_group("unit") :
+					obstacle += 1
+				if obstacle > 0:
+					placable = true
+				else:
 					placable = false
-			for area in $placableDetect.get_overlapping_bodies():
-				if area.is_in_group("unit") :
-					$Sprite.modulate = Color(1, 0, 0)
 		else:
-			$Sprite.modulate = Color(0, 1, 0)
 			placable = true
 			
-			
+		if placable == true:
+			$Sprite.modulate = Color(0, 1, 0)
+		else:
+			$Sprite.modulate = Color(1, 0, 0)
+	
 	
 	
 	elif previewingUnit == true:
-
 		if $placableDetect.get_overlapping_areas().size() > 0:
 			var unitSpawnArea = 0
 			for area in $placableDetect.get_overlapping_areas():
