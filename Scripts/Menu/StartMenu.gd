@@ -34,6 +34,14 @@ func _ready():
 	
 	dropmenu.get_popup().connect("id_pressed", self, "_on_MenuButton_pressed")
 
+
+func _physics_process(delta):
+	$CanvasLayer/Background.get_rect().size.x = get_viewport().size.x
+	$CanvasLayer/Background.get_rect().size.y = get_viewport().size.y
+	$CanvasLayer/Background.rect_scale.x = get_viewport().size.x / $CanvasLayer/Background.texture.get_size().x
+	$CanvasLayer/Background.rect_scale.y = get_viewport().size.y / $CanvasLayer/Background.texture.get_size().y
+
+
 func load_data(path):
 	var file = File.new()
 	var content
@@ -41,6 +49,9 @@ func load_data(path):
 	content= file.get_as_text()
 	file.close()
 	return parse_json(content)
+
+
+
 
 #Menu buttons
 func _on_quit_game_pressed():
