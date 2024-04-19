@@ -1,8 +1,8 @@
 extends Node
 
 onready var GlobalVariable= get_node("/root/GlobalVariables")
-onready var input_text : LineEdit  = get_node("CanvasLayer/Background/Newgame/Savenametext")
-onready var dropmenu : MenuButton  = get_node("CanvasLayer/Background/Loadgame/PanelContainer/Savefiles")
+onready var input_text : LineEdit  = get_node("CanvasLayer/Newgame/Savenametext")
+onready var dropmenu : MenuButton  = get_node("CanvasLayer/Loadgame/PanelContainer/Savefiles")
 
 onready var dir = Directory.new()
 onready var savedir="user://Saves/"
@@ -31,7 +31,6 @@ func _ready():
 	dir.list_dir_end()
 	
 	dropmenu.get_popup().connect("id_pressed", self, "_on_MenuButton_pressed")
-	pass
 
 func load_data(path):
 	var file = File.new()
@@ -40,37 +39,30 @@ func load_data(path):
 	content= file.get_as_text()
 	file.close()
 	return parse_json(content)
-#Menu buttons
 
+#Menu buttons
 func _on_quit_game_pressed():
 	get_tree().quit()
-	pass # Replace with function body.
-
 
 func _on_Load_game_pressed():
-	$CanvasLayer/Background/MenuButtons.hide()
-	$CanvasLayer/Background/Loadgame.show()
-	pass # Replace with function body.
-
+	$CanvasLayer/MenuButtons.hide()
+	$CanvasLayer/Loadgame.show()
 
 func _on_Newgame_pressed():
-	$CanvasLayer/Background/MenuButtons.hide()
-	$CanvasLayer/Background/Newgame.show()
-	pass # Replace with function body.
+	$CanvasLayer/MenuButtons.hide()
+	$CanvasLayer/Newgame.show()
 
 
 
 #New game functions
-
 func _on_Backbutton_pressed():
-	$CanvasLayer/Background/MenuButtons.show()
-	$CanvasLayer/Background/Newgame.hide()
-	pass # Replace with function body.
+	$CanvasLayer/MenuButtons.show()
+	$CanvasLayer/Newgame.hide()
 
 func _on_Start_game_pressed():
 	var file = File.new()
 	if input_text.text=="":
-		$CanvasLayer/Background/Newgame/Warning.show()
+		$CanvasLayer/Newgame/Warning.show()
 		return
 	var disallowedcharacters=[
 		"/",
@@ -87,32 +79,29 @@ func _on_Start_game_pressed():
 	]
 	for i in disallowedcharacters:
 		if i in input_text.text:
-			$CanvasLayer/Background/Newgame/Warning3.show()
+			$CanvasLayer/Newgame/Warning3.show()
 			return
 	if file.file_exists(savedir + input_text.text + ".dat"):
-		$CanvasLayer/Background/Newgame/Warning2.show()
+		$CanvasLayer/Newgame/Warning2.show()
 		return
 	
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
 	get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
-	#TransitionScreen.change_scene(startgamepath, 'intro')
-	pass # Replace with function body.
+	#TransitionScreen.change_scene(startgamepath, 'intro').
 
 func _on_Savenametext_text_changed(new_text):
-	if $CanvasLayer/Background/Newgame/Warning.visible:
-		$CanvasLayer/Background/Newgame/Warning.hide()
-	if $CanvasLayer/Background/Newgame/Warning2.visible:
-		$CanvasLayer/Background/Newgame/Warning2.hide()
-	if $CanvasLayer/Background/Newgame/Warning3.visible:
-		$CanvasLayer/Background/Newgame/Warning3.hide()
-	pass # Replace with function body.
-#Load game functions
+	if $CanvasLayer/Newgame/Warning.visible:
+		$CanvasLayer/Newgame/Warning.hide()
+	if $CanvasLayer/Newgame/Warning2.visible:
+		$CanvasLayer/Newgame/Warning2.hide()
+	if $CanvasLayer/Newgame/Warning3.visible:
+		$CanvasLayer/Newgame/Warning3.hide()
 
+#Load game functions
 func _on_Backbutton_pressed2():
-	$CanvasLayer/Background/MenuButtons.show()
-	$CanvasLayer/Background/Loadgame.hide()
-	pass # Replace with function body.
+	$CanvasLayer/MenuButtons.show()
+	$CanvasLayer/Loadgame.hide()
 
 func _on_MenuButton_pressed(id):
 	dropmenu.text=dropmenu.get_popup().get_item_text(id/10)
@@ -120,7 +109,7 @@ func _on_MenuButton_pressed(id):
 func _on_Load_savegame_pressed():
 	var file = File.new()
 	if not file.file_exists(savedir + dropmenu.text + ".dat"):
-		$CanvasLayer/Background/Loadgame/Warning.show()
+		$CanvasLayer/Loadgame/Warning.show()
 		return
 	
 	var dict=load_data(savedir + dropmenu.text + ".dat")
