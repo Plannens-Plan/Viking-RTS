@@ -13,7 +13,6 @@ var cameraMaxSpeed = 100
 #cam zoom
 var cameraSpeed = 0
 var zoomValue = 1
-var zoomMax = 2.5
 var zoomMin = 0.5
 
 var scene
@@ -45,6 +44,8 @@ func _physics_process(delta):
 	if zoomValue < zoom.x:
 		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.12*(zoom.x-zoomValue)-0.01)
 		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.12*(zoom.y-zoomValue)-0.01)
+	zoom.x = clamp(zoom.x,zoomMin,mapSize.x/(get_viewport().size.x))
+	zoom.y = clamp(zoom.x,zoomMin,mapSize.y/(get_viewport().size.y))
 	
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):
@@ -56,8 +57,8 @@ func inputChecker():
 	if Input.is_action_just_pressed("cam down"):
 		holdingDown = true
 	if Input.is_action_just_released("zoom in"):
-		if zoom.x < zoomMax:
-			zoomValue = min(zoomValue + 0.25, zoomMax)
+		if zoom.x < mapSize.y/(get_viewport().size.y):
+			zoomValue = min(zoomValue + 0.25, mapSize.y/(get_viewport().size.y))
 	if Input.is_action_just_released("zoom out"):
 		if zoom.x > zoomMin:
 			zoomValue = max(zoomValue - 0.25, zoomMin)
