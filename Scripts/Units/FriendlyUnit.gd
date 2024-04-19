@@ -4,7 +4,6 @@ var shiftHeld = false
 
 func _ready():
 	friendly = true
-	set_target_location(position)
 	outlineColor = Color(0, 1, 1, 1)
 	updateElements()
 

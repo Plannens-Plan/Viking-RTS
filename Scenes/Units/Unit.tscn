@@ -63,7 +63,11 @@ shape = SubResource( 3 )
 
 [node name="UnitAudio" type="AudioStreamPlayer2D" parent="."]
 
+[node name="CollisionTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
+[connection signal="timeout" from="CollisionTimer" to="." method="_on_CollisionTimer_timeout"]
