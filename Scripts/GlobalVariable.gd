@@ -7,7 +7,7 @@ export var RemainingTroops=0
 export var Exiting=false
 export var Friendly=false
 export var id=0
-export var saves = {}
+export var saves = []
 #lav data her
 #export var yyy = xxx
 
