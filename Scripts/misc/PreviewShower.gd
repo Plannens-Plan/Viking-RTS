@@ -23,16 +23,21 @@ var previewingUnit = false
 var previewingStructure = false
 
 func _ready():
+	print(collisionScaleX)
 	$Sprite.texture = sprite
 	$Sprite.scale.x = spriteWidth
 	$Sprite.scale.y = spriteHeight
 	if collisionScaleX != null:
-		$placableDetect/CollisionShape2D.shape = RectangleShape2D
-		$placableDetect/CollisionShape2D.shape.extents.x = collisionScaleX
-		$placableDetect/CollisionShape2D.shape.extents.y = collisionScaleY
+		print("not balls")
+		var rect = RectangleShape2D.new()
+		rect.extents = Vector2(collisionScaleX,collisionScaleY)
+		$placableDetect/CollisionShape2D.shape = rect
+		
 	if collisionScaleRadius != null:
-		$placableDetect/CollisionShape2D.shape = CircleShape2D
-		$placableDetect/CollisionShape2D.shape.radius = collisionScaleRadius
+		print("balls")
+		var circle = CircleShape2D.new()
+		circle.radius = collisionScaleRadius
+		$placableDetect/CollisionShape2D.shape = circle
 
 func _physics_process(delta):
 	position = get_global_mouse_position()
@@ -41,17 +46,17 @@ func _physics_process(delta):
 			var obstacle = 0
 			for area in $placableDetect.get_overlapping_areas():
 				if area.is_in_group("Building") || area.is_in_group("Terrain") :
+					print(area.get_groups())
 					obstacle += 1
 			for bodies in $placableDetect.get_overlapping_bodies():
 				if bodies.is_in_group("unit") :
 					obstacle += 1
-				if obstacle > 0:
-					placable = true
-				else:
-					placable = false
+			if obstacle > 0:
+				placable = false
+			else:
+				placable = true
 		else:
 			placable = true
-			
 		if placable == true:
 			$Sprite.modulate = Color(0, 1, 0)
 		else:
@@ -76,7 +81,7 @@ func _physics_process(delta):
 				var obstacle = 0
 				for area in $placableDetect.get_overlapping_areas():
 					if area.is_in_group("Building") || area.is_in_group("Terrain"):
-						obstacle=+1
+						obstacle+=1
 				if obstacle > 0:
 					placable=false
 				else:

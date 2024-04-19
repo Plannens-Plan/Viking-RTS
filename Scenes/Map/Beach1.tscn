@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Structures/Warehouse.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map/savemapstate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Structures/TradingPost.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
@@ -462,12 +462,6 @@ visible = false
 
 [node name="Friendly" type="YSort" parent="Structures"]
 
-[node name="Deposit" parent="Structures/Friendly" instance=ExtResource( 9 )]
-position = Vector2( 584, 417 )
-
-[node name="Barracks" parent="Structures/Friendly" instance=ExtResource( 13 )]
-position = Vector2( 608, 1231 )
-
 [node name="Enemy" type="YSort" parent="Structures"]
 
 [node name="Miners" type="Node" parent="."]
@@ -591,7 +585,7 @@ position = Vector2( 4887, 2659 )
 [node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6002, 3210 )
+position = Vector2( 1464, 1393 )
 
 [node name="FriendlyUnits" type="YSort" parent="."]
 
@@ -629,6 +623,8 @@ position = Vector2( 2466, 434 )
 
 [node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
 position = Vector2( 94, 884 )
+
+[node name="savemapstate" parent="." instance=ExtResource( 9 )]
 
 [connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]

@@ -12,7 +12,7 @@ extents = Vector2( 162.75, 110.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 166 )
 
-[node name="Warehouse" type="Area2D"]
+[node name="Warehouse" type="Area2D" groups=["Building"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
