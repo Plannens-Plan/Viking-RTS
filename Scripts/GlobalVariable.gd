@@ -27,10 +27,15 @@ export var VikingRts={
 		FriendlySpearmen=10
 	},
 	structureLocation={
-		beach = {structures=[{structureType = "",structurePosition = Vector2()}]},
-		engvik = {structures=[{structureType = "",structurePosition = Vector2()}]},
-		bun = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		beach = [],
+		engvik = [],
+		bun = [],
 		},
+	resourceLocation={
+		beach = {},
+		engvik = {},
+		bun = {},
+	},
 	progression={
 		beach=false,
 		engvik=false,
@@ -44,7 +49,7 @@ export var Default={
 		wood=100,
 		food=100,
 		stone=100,
-		silver=100
+		silver=600
 	},
 	units={
 		FriendlyAxemen=5,
@@ -52,7 +57,16 @@ export var Default={
 		FriendlyThrall=2,
 		FriendlySpearmen=10
 	},
-	structures=[],
+	structureLocation={
+		beach = [],
+		engvik = [],
+		bun = [],
+		},
+	resourceLocation={
+		beach = {},
+		engvik = {},
+		bun = {},
+	},
 	progression={
 		beach=false,
 		engvik=false,

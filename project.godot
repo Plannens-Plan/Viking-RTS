@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Viking RTS"
-run/main_scene="res://Scenes/Map/Beach1.tscn"
+run/main_scene="res://Scenes/Network.tscn"
 config/icon="res://Assets/Images/Icons/icon.png"
 
 [autoload]
@@ -90,6 +90,7 @@ GlobalVariables="*res://Scenes/GlobalVariables.tscn"
 TransitionScreen="*res://Scenes/GUI/TransitionScreen.tscn"
 Network="*res://Scripts/Network.gd"
 BackgroundMusicPlayer="*res://Scenes/misc/BackgroundMusicPlayer.tscn"
+Pausemenu="*res://Scripts/Menu/Pausemenu.gd"
 
 [editor_plugins]
 
