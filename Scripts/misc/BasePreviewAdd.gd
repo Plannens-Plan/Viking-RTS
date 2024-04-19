@@ -11,10 +11,10 @@ var unit = false
 
 var unitType
 
-var previewWoodCost
-var previewStoneCost
-var previewFoodCost
-var previewSilverCost
+var previewWoodCost = 0
+var previewStoneCost = 0
+var previewFoodCost = 0
+var previewSilverCost = 0
 
 func _on_Button_pressed():
 	if structure == true:
@@ -40,9 +40,9 @@ func loadPreview():
 	previewShowerInst.previewingStructure = structure
 	previewShowerInst.previewingUnit = unit
 	if structure:
-		previewWoodCost = previewShowerInst.woodCost
-		previewStoneCost = previewShowerInst.stoneCost
-		previewFoodCost = previewShowerInst.foodCost
-		previewSilverCost = previewShowerInst.silverCost
+		previewShowerInst.woodCost = previewWoodCost
+		previewShowerInst.stoneCost = previewStoneCost
+		previewShowerInst.foodCost = previewFoodCost
+		previewShowerInst.silverCost = previewSilverCost
 	var world = get_tree().current_scene
 	world.add_child(previewShowerInst)
