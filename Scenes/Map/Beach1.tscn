@@ -29,7 +29,7 @@ outlines = [ PoolVector2Array( 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.
 [node name="Node2D2" type="Node2D"]
 script = ExtResource( 14 )
 
-[node name="MusicPlayer" parent="." instance=ExtResource( 16 )]
+[node name="CombatMusicPlayer" parent="." instance=ExtResource( 16 )]
 
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 5000.0
