@@ -56,6 +56,10 @@ rect_pivot_offset = Vector2( -33, 151 )
 disabled = true
 text = "Engvik"
 
+[node name="CampaignIconVillage" type="Sprite" parent="Control"]
+position = Vector2( 556, 798 )
+texture = ExtResource( 2 )
+
 [node name="Clouds" type="Sprite" parent="Control"]
 position = Vector2( -30.125, 737.5 )
 scale = Vector2( 1.375, 1.375 )
@@ -87,10 +91,6 @@ position = Vector2( 352, 1089 )
 rotation = -1.18682
 scale = Vector2( 0.601923, 0.601923 )
 texture = ExtResource( 9 )
-
-[node name="CampaignIconVillage" type="Sprite" parent="Control"]
-position = Vector2( 556, 798 )
-texture = ExtResource( 2 )
 
 [node name="Pathway3" type="Sprite" parent="Control"]
 position = Vector2( 226, 983 )
