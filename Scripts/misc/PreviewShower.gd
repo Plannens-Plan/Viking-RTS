@@ -14,6 +14,8 @@ var placable = false
 var previewingUnit = false
 var previewingStructure = false
 
+var sadasd = 0
+
 func _ready():
 	$Sprite.texture = sprite
 	$Sprite.scale.x = spriteWidth
@@ -35,11 +37,12 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventMouseButton and event.get_button_index() == 1 and placable:
 		var scene = get_tree().current_scene
+		var newObject = shownObject.instance()
 		if previewingUnit:
-			scene.get_node("FriendlyUnits").add_child(shownObject)
-			shownObject.position = position
+			newObject.position = position
+			scene.get_node("FriendlyUnits").add_child(newObject)
 			queue_free()
 		if previewingStructure:
-			scene.get_node("Friendly").add_child(shownObject)
-			shownObject.position = position
+			newObject.position = position
+			scene.get_node("Structures").get_node("Friendly").add_child(newObject)
 			queue_free()
