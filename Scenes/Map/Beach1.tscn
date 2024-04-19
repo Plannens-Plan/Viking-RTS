@@ -15,7 +15,7 @@
 [ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Structures/EnemyTower.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/misc/CombatMusicPlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/misc/BackgroundMusicPlayer.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Structures/FriendlyTower.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=20]
@@ -29,7 +29,7 @@ outlines = [ PoolVector2Array( 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.
 [node name="Node2D2" type="Node2D"]
 script = ExtResource( 14 )
 
-[node name="CombatMusicPlayer" parent="." instance=ExtResource( 16 )]
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource( 16 )]
 
 [node name="Map" type="TextureRect" parent="."]
 margin_right = 5000.0
