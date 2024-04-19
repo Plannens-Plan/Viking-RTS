@@ -1,4 +1,5 @@
 extends Node2D
+onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 var sprite
 var shownObject
@@ -9,6 +10,10 @@ var collisionScaleRadius
 var collisionScaleX
 var collisionScaleY
 
+var woodCost = 0
+var stoneCost = 0
+var foodCost = 0
+var silverCost = 0
 
 var placable = false
 var unitPlacable = false
@@ -92,6 +97,7 @@ func _physics_process(delta):
 			$Sprite.modulate = Color(1, 0, 0)
 
 func _input(event):
+	var resources = GlobalVariable.VikingRts.resources
 	if event is InputEventMouseButton && event.get_button_index() == 1 && placable == true:
 		var scene = get_tree().current_scene
 		var newObject = shownObject.instance()
@@ -100,6 +106,11 @@ func _input(event):
 			scene.get_node("FriendlyUnits").add_child(newObject)
 			queue_free()
 		if previewingStructure:
-			newObject.position = position
-			scene.get_node("Structures").get_node("Friendly").add_child(newObject)
-			queue_free()
+			if resources.food >= foodCost and resources.wood >= woodCost and resources.stone >= stoneCost and resources.silver >= silverCost:
+				newObject.position = position
+				scene.get_node("Structures").get_node("Friendly").add_child(newObject)
+				resources.wood -= woodCost
+				resources.stone -= stoneCost
+				resources.food -= foodCost
+				resources.silver -= silverCost
+				queue_free()
