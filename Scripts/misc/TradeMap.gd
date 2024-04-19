@@ -12,6 +12,7 @@ var tradeBuyType
 var trades
 
 var popUpWait = 1
+var screenSize = 1.5
 
 #Reputation
 var reputation
@@ -35,11 +36,10 @@ var dicTrades = {
 
 
 func _physics_process(delta):
-	transform.x = Vector2(get_viewport().size.x / ($Sprite.texture.get_size().x * $Sprite.scale.x) ,0)
-	offset.y = (transform.x[0]*$Sprite.texture.get_size().x * $Sprite.scale.x) / 2 
-	transform.y = Vector2(get_viewport().size.y / ($Sprite.texture.get_size().y * $Sprite.scale.y) ,0)
-	offset.y = (transform.y[1]*$Sprite.texture.get_size().y * $Sprite.scale.y) / 2 
-	print(transform.y)
+	transform.x = Vector2(get_viewport().size.x / screenSize / ($Sprite.texture.get_size().x * $Sprite.scale.x) ,0)
+	offset.x = get_viewport().size.x / 2 - (transform.x[0]*$Sprite.texture.get_size().x * $Sprite.scale.x) / 2 
+	transform.y = Vector2(get_viewport().size.y / screenSize / ($Sprite.texture.get_size().y * $Sprite.scale.y) ,0)
+	offset.y = get_viewport().size.y / 2 - (transform.y[0] * $Sprite.texture.get_size().y * $Sprite.scale.y) / 2
 	if location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
