@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vikings Vs Saxons： Invasion of Britain 875 AD ｜ Cinematic-(p).ogg-8183ffc10f3fb23b1dd192e2fe358497.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Vikings Vs Saxons： Invasion of Britain 875 AD ｜ Cinematic-(p).ogg"
+dest_files=[ "res://.import/Vikings Vs Saxons： Invasion of Britain 875 AD ｜ Cinematic-(p).ogg-8183ffc10f3fb23b1dd192e2fe358497.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

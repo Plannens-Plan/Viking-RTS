@@ -11,7 +11,7 @@ func change_scene(target: String, type: String = 'dissolve') -> void:
 	
 	
 func transition_dissolve(target: String) -> void:
-	self.show()
+#	self.show()
 	$AnimationPlayer.play("dissolve")
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().change_scene(target)
@@ -19,17 +19,17 @@ func transition_dissolve(target: String) -> void:
 	
 	
 func transition_intro(target: String) -> void:
-	self.show()
+#	self.show()
 	$AnimationPlayer.play("intro")
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().change_scene(target)
 	$AnimationPlayer.play("IntroBack")
 
 
-func _input(event):
-	if event.is_action_pressed("Test") && $AnimationPlayer.is_playing() && $AnimationPlayer.assigned_animation == "intro":
-		$AnimationPlayer.clear_caches()
-		get_tree().change_scene(targetScene)
+#func _input(event):
+#	if event.is_action_pressed("Test") && $AnimationPlayer.is_playing() && $AnimationPlayer.assigned_animation == "intro":
+#		$AnimationPlayer.clear_caches()
+#		get_tree().change_scene(targetScene)
 
 func _on_Skip_pressed():
 	pass # Replace with function body.
