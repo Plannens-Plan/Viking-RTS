@@ -463,7 +463,7 @@ visible = false
 [node name="Friendly" type="YSort" parent="Structures"]
 
 [node name="Barracks" parent="Structures/Friendly" instance=ExtResource( 11 )]
-position = Vector2( 1236, 898 )
+position = Vector2( 1223, 881 )
 
 [node name="Enemy" type="YSort" parent="Structures"]
 
