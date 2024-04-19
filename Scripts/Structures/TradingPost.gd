@@ -12,8 +12,8 @@ func _input(event):
 		$TradeMap.show()
 		if scene.has_node("GUI"):
 			scene.get_node("GUI").hide()
-			if scene.get_node("GUI").visible == false:
-				print("buh")
+		if scene.has_node("selection"):
+			scene.get_node("selection")
 	
 	if mouseOver == false && event.is_action_pressed("leftClick") && $TradeMap.mouseOver != true:
 		$TradeMap.hide()
