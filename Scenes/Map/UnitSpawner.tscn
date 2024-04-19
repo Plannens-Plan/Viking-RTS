@@ -1,17 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Map/MinerSpawner.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map/SpearSpawner.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Map/Axeman.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Map/ArcherSpawner.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Map/UnitDisplay.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Map/UnitSpawner.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512.25, 214.875 )
 
 [node name="UnitSpawner" type="Area2D" groups=["unitSpawnArea"]]
-script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 514.75, 389.875 )
