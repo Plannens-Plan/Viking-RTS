@@ -18,7 +18,7 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Structures/enemyStructure.tscn" type="PackedScene" id=22]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 346.053, 903.796, 371.55, -16.1392, 438.247, 255.293, 457.093, 1499.48, 303.066, 6614.14, 80.4932, 6969.2, 17.3057, 5588.57, 284.159, 997.697, 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.482, 9.42267, 2922.66, 459.741, 3999.59, 445.699, 6540.78, 389.533, 6665.49 )
@@ -475,6 +475,9 @@ position = Vector2( 4899, 1181 )
 position = Vector2( 584, 417 )
 
 [node name="Enemy" type="YSort" parent="Structures"]
+
+[node name="enemyStructure" parent="Structures/Enemy" instance=ExtResource( 22 )]
+position = Vector2( 3420, 289 )
 
 [node name="Miners" type="Node" parent="."]
 
