@@ -6,8 +6,10 @@ func _ready():
 	GlobalVariable.Friendly=false
 	if progression.beach:
 		$Control/Engvik.disabled=false
+		$Control/Clouds.hide()
 	if progression.engvik:
 		$Control/Buns.disabled=false
+		$Control/Clouds2.hide()
 
 
 
