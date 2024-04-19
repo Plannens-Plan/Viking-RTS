@@ -54,7 +54,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		
 	var response_body = _body.get_string_from_utf8()
 	# Grab our JSON and handle any errors reported by our PHP code:
-	print(response_body)
+	#print(response_body)
 	var response = parse_json(response_body)
 	#print(response)
 	if response['error'] != "none":
@@ -64,7 +64,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 	# Check if we were requesting a nonce:
 	if response['command'] == 'get_nonce':
 		nonce = response['response']['nonce']
-		print("Got nonce: " + response['response']['nonce'])
+		#print("Got nonce: " + response['response']['nonce'])
 		return
 	if response["command"] == "account_login":
 		handlelogin(response["response"])
@@ -79,7 +79,7 @@ func _http_request_completed(_result, _response_code, _headers, _body):
 		checksavehandle(response["response"])
 		
 	# If not requesting a nonce, we handle all other requests here:
-	print("Response Body:\n" + response_body)
+	#print("Response Body:\n" + response_body)
 	
 
 func request_nonce():
@@ -95,7 +95,7 @@ func request_nonce():
 		printerr("HTTPRequest error: " + String(err))
 		return
 		
-	print("Requesting nonce...")
+	#print("Requesting nonce...")
 	
 func _send_request(request : Dictionary):
 	var client = HTTPClient.new()
@@ -123,7 +123,7 @@ func _send_request(request : Dictionary):
 		return
 		
 	# Print out request for debugging:
-	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
+	#print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 	
 
 func submit_save(id, savename, savedata):
