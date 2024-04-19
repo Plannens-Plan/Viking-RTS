@@ -37,7 +37,7 @@ func _ready():
 func _on_MenuButton_pressed(id):
 	dropmenu.text=dropmenu.get_popup().get_item_text(id/10)
 
-	
+
 func save_data(path, data):
 	var file = File.new()
 	file.open(path, File.WRITE)

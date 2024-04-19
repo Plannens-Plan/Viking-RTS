@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Images/Particles/Untitled-2.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Particles/BloodParticle.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Images/Particles/ShieldParticles.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+direction = Vector3( 10, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+anim_speed = 3.0
+anim_speed_random = 0.31
+
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=4]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, -1990.91, 0, 0, Vector2( 0.694444, -162.273 ), -201.671, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+direction = Vector3( 10, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 900.0
+linear_accel_curve = SubResource( 5 )
+anim_speed = 2.94
+
+[node name="BlockingParticles" type="Particles2D"]
+material = SubResource( 1 )
+emitting = false
+amount = 1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="BlockingExplosion" type="Particles2D" parent="."]
+material = SubResource( 3 )
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 6 )
+texture = ExtResource( 1 )

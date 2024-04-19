@@ -30,6 +30,7 @@ var newunit = true
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")
+onready var blockParticle = preload("res://Scenes/Particle/BlockingParticles.tscn")
 
 # Unit selection
 var selected = false
@@ -125,6 +126,10 @@ func setHealth(newHealth, canBeBlocked):
 		blockNumber = rng.randi_range(0, 100)
 		if blockNumber <= blockChance:
 			setAudioRandomBlock()
+			var blockParticleInstance = blockParticle.instance()
+			blockParticleInstance.get_node("BlockingExplosion").emitting = true
+			blockParticleInstance.emitting = true
+			add_child(blockParticleInstance)
 			$UnitAudio.play()
 			return
 	if health > newHealth:

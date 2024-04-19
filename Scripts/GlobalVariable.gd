@@ -26,7 +26,11 @@ export var VikingRts={
 		FriendlyThrall=2,
 		FriendlySpearmen=10
 	},
-	structures=[],
+	structureLocation={
+		beach = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		engvik = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		bun = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		},
 	progression={
 		beach=false,
 		engvik=false,
