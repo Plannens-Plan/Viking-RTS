@@ -15,6 +15,8 @@ func _on_Button_pressed():
 	if units[unitType] > 0:
 		units[unitType] -= 1
 		loadPreview()
+	else:
+		loadPreview()
 
 func loadPreview():
 	var previewShowerInst = previewShower.instance()
