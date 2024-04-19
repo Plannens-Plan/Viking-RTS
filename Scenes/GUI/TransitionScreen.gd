@@ -10,6 +10,8 @@ func change_scene(target: String, type: String = 'dissolve') -> void:
 func _physics_process(delta):
 	transform.x = Vector2(get_viewport().size.x / $Container.get_rect().size.x ,0)
 	transform.y = Vector2(0,get_viewport().size.y / $Container.get_rect().size.y)
+	$dissolve_rect.rect_size.x = get_viewport().size.x/transform.x[0]
+	$dissolve_rect.rect_size.y = get_viewport().size.y/transform.y[1]
 
 
 	
