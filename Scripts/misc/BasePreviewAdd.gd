@@ -12,10 +12,10 @@ var unit = false
 var unitType
 
 func _on_Button_pressed():
-	if units[unitType] > 0:
+	if units[unitType] > 0 && unit == true:
 		units[unitType] -= 1
 		loadPreview()
-	else:
+	elif structure == true:
 		loadPreview()
 
 func loadPreview():
