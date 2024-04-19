@@ -47,6 +47,10 @@ func _physics_process(delta):
 		$Panel/TradeText.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
 	else:
 		$Panel.hide()
+	if self.visible == true:
+		get_tree().current_scene.get_node("GUI").get_node("Minimap").hide()
+
+
 
 
 func _ready():
@@ -66,6 +70,8 @@ func _input(event):
 			$Panel/Warning.text="you dont have enougt resources"
 			$Panel/Warning.show()
 			$Panel/Warning/Timer.start()
+	if event.is_action_pressed("leftClick") && mouseOver != true && self.visible==true:
+		self.hide()
 
 
 

@@ -7,13 +7,9 @@ func _ready():
 	scene = get_tree().current_scene
 	pass
 
+func _process(delta):
+	print(scene.get_node("GUI").get_node("TradeMap").visible)
+
 func _input(event):
-	if mouseOver == true && event.is_action_pressed("leftClick"):
-		$TradeMap.show()
-		if scene.has_node("GUI"):
-			scene.get_node("GUI").hide()
-		if scene.has_node("selection"):
-			scene.get_node("selection")
-	
-	if mouseOver == false && event.is_action_pressed("leftClick") && $TradeMap.mouseOver != true:
-		$TradeMap.hide()
+	if mouseOver == true && event.is_action_released("leftClick"):
+			scene.get_node("GUI").get_node("TradeMap").show()
