@@ -6,7 +6,7 @@ onready var dropmenu : MenuButton  = get_node("CanvasLayer/Loadgame/PanelContain
 
 onready var dir = Directory.new()
 onready var savedir="user://Saves/"
-onready var startgamepath="res://Scenes/Map/Grandmap.tscn"
+onready var startgamepath = 'res://Scenes/Map/Grandmap.tscn'
 
 onready var Network = get_node("/root/Network")
 
@@ -93,8 +93,8 @@ func _on_Start_game_pressed():
 	
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
-	get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
-	#TransitionScreen.change_scene(startgamepath, 'intro').
+	#get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
+	TransitionScreen.change_scene(startgamepath, 'intro')
 
 func _on_Savenametext_text_changed(new_text):
 	if $CanvasLayer/Newgame/Warning.visible:
