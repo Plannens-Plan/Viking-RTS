@@ -18,7 +18,12 @@ export var VikingRts={
 		stone=100,
 		silver=600
 	},
-	units={},
+	units={
+		axemen=5,
+		archer=2,
+		thrall=2,
+		spearmen=10
+	},
 	structures=[],
 	progression={
 		beach=false,
@@ -35,7 +40,12 @@ export var Default={
 		stone=100,
 		silver=100
 	},
-	units={},
+	units={
+		axemen=5,
+		archer=2,
+		thrall=2,
+		spearmen=10
+	},
 	structures=[],
 	progression={
 		beach=false,

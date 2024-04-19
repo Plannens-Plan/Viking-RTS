@@ -81,18 +81,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Viking RTS"
-run/main_scene="res://Scenes/Menus/Startmenu.tscn"
+run/main_scene="res://Scenes/Map/Beach1.tscn"
 config/icon="res://Assets/Images/Icons/icon.png"
 
 [autoload]
 
 GlobalVariables="*res://Scenes/GlobalVariables.tscn"
 TransitionScreen="*res://Scenes/GUI/TransitionScreen.tscn"
-
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="keep"
 
 [editor_plugins]
 

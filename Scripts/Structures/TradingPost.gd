@@ -12,5 +12,3 @@ func _ready():
 func _physics_process(delta):
 	if selected:
 		scene.get_node("GUI").get_node("TradeMap").show()
-	else:
-		scene.get_node("GUI").get_node("TradeMap").hide()
