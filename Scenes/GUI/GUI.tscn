@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Structures/Build/BarracksBuild.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GUI/ResouceDisplay.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Map/Minimap/Minimap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Structures/Build/FarmHouseBuild.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Structures/Build/TowerBuild.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/misc/TradeMap.tscn" type="PackedScene" id=7]
 
 [node name="GUI" type="Control"]
 margin_right = 40.0
@@ -150,6 +151,9 @@ margin_right = 100.0
 margin_bottom = 24.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+
+[node name="TradeMap" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="BarrackControl" method="_on_Button_pressed"]

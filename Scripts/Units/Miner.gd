@@ -19,7 +19,7 @@ var maxInventory = 10000
 var itemType = null
 
 func _physics_process(delta):
-	if $AttackArea.get_overlapping_areas() != null && _arrived_at_location() == true:
+	if $AttackArea.get_overlapping_areas() != null:
 		for area in $AttackArea.get_overlapping_areas():
 			if area.is_in_group("WorkSpace"):
 				harvest = true
@@ -45,7 +45,7 @@ func _physics_process(delta):
 		itemType = null
 
 func _on_Timer_timeout():
-	if $AttackArea.get_overlapping_areas() != null && _arrived_at_location() == true:
+	if $AttackArea.get_overlapping_areas() != null:
 			for area in $AttackArea.get_overlapping_areas():
 				if area.is_in_group("WorkSpace"):
 					if area == harvestArea:

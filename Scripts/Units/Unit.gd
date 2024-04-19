@@ -1,11 +1,18 @@
 extends KinematicBody2D
 
 onready var navigation_agent = $NavigationAgent2D
+onready var collision_timer = $CollisionTimer
+
 # Movement
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 var direction = Vector2.ZERO
 var did_arrive = false
+var target = Vector2.ZERO
+var target_max = 1 
+var last_distance_to_target = Vector2.ZERO
+var current_distance_to_target = Vector2.ZERO
+var move_threshold = 1.0
 
 # Default unit stats
 var moveSpeed = 100
@@ -46,6 +53,7 @@ signal dead_soldier
 var outlineColor = Color(1, 1, 1, 1)
 
 func _ready():
+	target = position
 	updateElements()
 	
 
@@ -80,10 +88,14 @@ func attack():
 					return
 
 func _physics_process(delta):
-	if is_instance_valid(navigation_agent):
-		direction = position.direction_to(navigation_agent.get_next_location())
-		velocity = direction * moveSpeed
-		navigation_agent.set_velocity(velocity)
+	velocity = Vector2.ZERO
+	if position.distance_to(target) > target_max:
+		velocity = position.direction_to(target) * moveSpeed
+		velocity = move_and_slide(velocity)
+	if get_slide_count() > 0 and collision_timer.is_stopped():
+		collision_timer.start()
+		last_distance_to_target = position.distance_to(target)
+
 	if mouseOver and !selected:
 		$Sprite.material.set_shader_param("hide", false)
 		$Sprite.material.set_shader_param("line_thickness", 3)
@@ -91,23 +103,20 @@ func _physics_process(delta):
 		$Sprite.material.set_shader_param("hide", true)
 	updateHealthBar()
 
-func _arrived_at_location() -> bool:
-	return navigation_agent.is_navigation_finished()
+func _on_CollisionTimer_timeout():
+	if get_slide_count():
+		current_distance_to_target = position.distance_to(target)
+		if last_distance_to_target < current_distance_to_target + move_threshold:
+			target = position
 
-func set_target_location(target:Vector2):
-	navigation_agent.set_target_location(target)
+func set_target_location(targetInput:Vector2):
+	target = targetInput
 
-func _on_NavigationAgent2D_velocity_computed(safe_velocity):
-	if not _arrived_at_location():
-		velocity = move_and_slide(safe_velocity)
-		if velocity.x > 0:
-			$Sprite.flip_h = false
-		if velocity.x < 0:
-			$Sprite.flip_h = true
-	elif not did_arrive:
-		did_arrive = true
-		#emit_signal("path_changed", [])
-		#emit_signal("targed_reached")
+func arrived_at_location() -> bool:
+	if target == position:
+		return true
+	else:
+		return false
 
 func setHealth(newHealth, canBeBlocked):
 	if canBeBlocked:
@@ -221,3 +230,4 @@ func resetAudio(var audioPlayer):
 		"UnitVoiceLines":
 			$UnitVoiceLines.volume_db = 0
 			$UnitVoiceLines.pitch_scale = 1
+
