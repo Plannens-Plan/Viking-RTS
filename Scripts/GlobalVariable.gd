@@ -24,7 +24,11 @@ export var VikingRts={
 		thrall=2,
 		spearmen=10
 	},
-	structures=[],
+	structureLocation={
+		beach = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		engvik = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		bun = {structures=[{structureType = "",structurePosition = Vector2()}]},
+		},
 	progression={
 		beach=false,
 		engvik=false,

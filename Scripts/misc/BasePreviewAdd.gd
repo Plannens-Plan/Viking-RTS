@@ -29,7 +29,6 @@ func loadPreview():
 		previewShowerInst.collisionScaleRadius = null
 		previewShowerInst.collisionScaleX = object.instance().get_node("CollisionShape2D").shape.extents.x
 		previewShowerInst.collisionScaleY = object.instance().get_node("CollisionShape2D").shape.extents.y
-	print(previewShowerInst.collisionScaleY)
 	previewShowerInst.previewingStructure = structure
 	previewShowerInst.previewingUnit = unit
 	var world = get_tree().current_scene

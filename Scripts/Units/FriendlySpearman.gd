@@ -7,7 +7,7 @@ func _ready():
 		moveSpeed = 75
 		attackDamage = 35
 		attackSpeed = 1.75
-		blockChance = 25
+		blockChance = 100
 		attackSound = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
 	updateElements()
 
