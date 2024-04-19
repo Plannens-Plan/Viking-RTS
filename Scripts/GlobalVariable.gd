@@ -21,10 +21,10 @@ export var VikingRts={
 		silver=600
 	},
 	units={
-		axemen=5,
-		archer=2,
-		thrall=2,
-		spearmen=10
+		FriendlyAxemen=5,
+		FriendlyArcher=2,
+		FriendlyThrall=2,
+		FriendlySpearmen=10
 	},
 	structures=[],
 	progression={
@@ -43,10 +43,10 @@ export var Default={
 		silver=100
 	},
 	units={
-		axemen=5,
-		archer=2,
-		thrall=2,
-		spearmen=10
+		FriendlyAxemen=5,
+		FriendlyArcher=2,
+		FriendlyThrall=2,
+		FriendlySpearmen=10
 	},
 	structures=[],
 	progression={

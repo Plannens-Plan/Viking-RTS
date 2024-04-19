@@ -4,6 +4,7 @@
 [ext_resource path="res://Scenes/Map/SpearSpawner.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Map/Axeman.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Map/ArcherSpawner.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Map/unitDisplay.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512.25, 214.875 )
@@ -113,6 +114,83 @@ margin_top = 43.0
 margin_right = 803.0
 margin_bottom = 69.0
 text = "Archer"
+
+[node name="unitDisplay" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="Panel" type="PanelContainer" parent="unitDisplay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -334.0
+margin_top = -499.0
+margin_right = -84.0
+margin_bottom = -399.0
+
+[node name="Spearmen" type="RichTextLabel" parent="unitDisplay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -327.0
+margin_top = -492.0
+margin_right = -91.0
+margin_bottom = -406.0
+text = "Spearmen"
+
+[node name="Amount" type="RichTextLabel" parent="unitDisplay/Spearmen"]
+margin_left = 75.0
+margin_right = 115.0
+margin_bottom = 24.0
+
+[node name="Axemen" type="RichTextLabel" parent="unitDisplay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -327.0
+margin_top = -474.0
+margin_right = -217.0
+margin_bottom = -450.0
+text = "Axemen"
+
+[node name="Amount" type="RichTextLabel" parent="unitDisplay/Axemen"]
+margin_left = 75.0
+margin_right = 115.0
+margin_bottom = 24.0
+
+[node name="Archer" type="RichTextLabel" parent="unitDisplay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -327.0
+margin_top = -456.0
+margin_right = -217.0
+margin_bottom = -432.0
+text = "Archer"
+
+[node name="Amount" type="RichTextLabel" parent="unitDisplay/Archer"]
+margin_left = 75.0
+margin_right = 115.0
+margin_bottom = 24.0
+
+[node name="Thrall" type="RichTextLabel" parent="unitDisplay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -327.0
+margin_top = -438.0
+margin_right = -217.0
+margin_bottom = -414.0
+text = "Thrall"
+
+[node name="Amount" type="RichTextLabel" parent="unitDisplay/Thrall"]
+margin_left = 75.0
+margin_right = 115.0
+margin_bottom = 24.0
 
 [connection signal="pressed" from="Spear/CanvasLayer/Button" to="Spear" method="_on_Button_pressed"]
 [connection signal="pressed" from="Miner/CanvasLayer/Button" to="Miner" method="_on_Button_pressed"]
