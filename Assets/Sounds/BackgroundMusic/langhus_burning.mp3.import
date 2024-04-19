@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/langhus_burning.mp3-6216fea29a5c564a542d16f6c118d232.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/langhus_burning.mp3"
+dest_files=[ "res://.import/langhus_burning.mp3-6216fea29a5c564a542d16f6c118d232.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

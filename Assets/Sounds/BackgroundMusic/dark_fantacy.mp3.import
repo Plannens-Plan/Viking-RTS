@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dark_fantacy.mp3-3e0218f067978d5f95a4778a9432df8b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/dark_fantacy.mp3"
+dest_files=[ "res://.import/dark_fantacy.mp3-3e0218f067978d5f95a4778a9432df8b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

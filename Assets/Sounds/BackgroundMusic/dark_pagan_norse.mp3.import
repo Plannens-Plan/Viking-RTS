@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dark_pagan_norse.mp3-ff03cdeca32185bee82ffb24c5db685a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/dark_pagan_norse.mp3"
+dest_files=[ "res://.import/dark_pagan_norse.mp3-ff03cdeca32185bee82ffb24c5db685a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
