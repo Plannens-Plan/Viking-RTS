@@ -27,12 +27,14 @@ func _physics_process(delta):
 		$Sprite.material.set_shader_param("hide", true)
 	updateHealthBar()
 
+
+
+#mangler breaking effekt
 func setHealth(newHealth):
 	#if health > newHealth:
 		#var bloodParticleInstance = bloodParticle.instance()
 		#bloodParticleInstance.emitting = true
 		#add_child(bloodParticleInstance)
-	print(newHealth)
 	health = newHealth
 	$HealthBarTimer.start()
 	if health <= 0:
