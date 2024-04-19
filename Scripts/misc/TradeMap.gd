@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var mouseOver=false
 
@@ -12,6 +12,7 @@ var tradeBuyType
 var trades
 
 var popUpWait = 1
+var screenSize = 1.5
 
 #Reputation
 var reputation
@@ -35,10 +36,17 @@ var dicTrades = {
 
 
 func _physics_process(delta):
+	transform.x = Vector2(get_viewport().size.x / screenSize / ($Sprite.texture.get_size().x * $Sprite.scale.x) ,0)
+	offset.x = get_viewport().size.x / 2 - (transform.x[0]*$Sprite.texture.get_size().x * $Sprite.scale.x) / 2 
+	transform.y = Vector2(get_viewport().size.y / screenSize / ($Sprite.texture.get_size().y * $Sprite.scale.y) ,0)
+	offset.y = get_viewport().size.y / 2 - (transform.y[0] * $Sprite.texture.get_size().y * $Sprite.scale.y) / 2
 	if location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
+		$Panel.show()
 		$Panel/TradeText.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
+	else:
+		$Panel.hide()
 
 
 func _ready():

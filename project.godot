@@ -89,6 +89,11 @@ config/icon="res://Assets/Images/Icons/icon.png"
 GlobalVariables="*res://Scenes/GlobalVariables.tscn"
 TransitionScreen="*res://Scenes/GUI/TransitionScreen.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/godot_editor_discord_presence/plugin.cfg" )
@@ -107,6 +112,9 @@ common/drop_mouse_on_gui_input_disabled=true
 mp3={
 "loop": false,
 "loop_offset": 0
+}
+texture={
+"flags/filter": false
 }
 
 [input]
