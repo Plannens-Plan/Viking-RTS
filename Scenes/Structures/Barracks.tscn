@@ -63,29 +63,59 @@ text = "Unit inside barracks !
 Move them out first."
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
-margin_left = 46.0
-margin_top = -82.0
-margin_right = 200.0
-margin_bottom = 57.0
+margin_left = 131.0
+margin_top = -51.0
+margin_right = 300.0
+margin_bottom = 52.0
 
 [node name="PurchaseSpear" type="Button" parent="Panel"]
-margin_left = 1.0
-margin_top = 25.0
-margin_right = 153.0
-margin_bottom = 45.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.5
+margin_top = -44.0
+margin_right = 76.5
+margin_bottom = -24.0
 text = "Spearman"
 
+[node name="PurchaseAxe" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.5
+margin_top = -22.0
+margin_right = 76.5
+margin_bottom = -2.0
+text = "Axeman"
+
+[node name="PurchaseBow" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.5
+margin_right = 76.5
+margin_bottom = 20.0
+text = "Archer"
+
 [node name="PurchaseThrall" type="Button" parent="Panel"]
-margin_left = 1.0
-margin_top = 65.0
-margin_right = 155.0
-margin_bottom = 85.0
-text = "Gatherer"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.5
+margin_top = 22.0
+margin_right = 76.5
+margin_bottom = 42.0
+text = "Thrall (Gatherer)"
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
 [connection signal="pressed" from="Panel/PurchaseSpear" to="." method="_on_PurchaseSpear_pressed"]
+[connection signal="pressed" from="Panel/PurchaseAxe" to="." method="_on_PurchaseAxe_pressed"]
+[connection signal="pressed" from="Panel/PurchaseBow" to="." method="_on_PurchaseBow_pressed"]
 [connection signal="pressed" from="Panel/PurchaseThrall" to="." method="_on_PurchaseThrall_pressed"]

@@ -32,48 +32,46 @@ func unitCollision():
 		unitsInside = false
 		overlapping = false
 
+func buyUnit(var unitScene, var foodCost, var woodCost, var stoneCost, var silverCost):
+	unitCollision()
+	var timer
+	timer = Timer.new()
+	timer.connect("timeout", self, "_on_Timer_timeout")
+	var res = GlobalVariable.VikingRts.resources
+	if res.food >= foodCost and res.wood >= woodCost and res.stone >= stoneCost and res.silver >= silverCost:
+		if unitsInside == false:
+			var troop = unitScene.instance()
+			res.food -= foodCost
+			res.wood -= woodCost
+			res.stone -= stoneCost
+			res.silver -= silverCost
+			troop.position = position
+			var scene = get_tree().current_scene
+			scene.get_node("FriendlyUnits").add_child(troop)
+		else:
+			timer.wait_time = 2
+			add_child(timer)
+			timer.start()
+			$CanvasLayer/NoRoomMessage.show()
+
 func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
 	# Do something when the timer times out
 
 func _on_PurchaseSpear_pressed():
-	unitCollision()
-	var timer
-	timer = Timer.new()
-	timer.connect("timeout", self, "_on_Timer_timeout")
-	var res=GlobalVariable.VikingRts.resources
-	if res.food >= 15 and res.wood >= 8:
-		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn").instance()
-			res.food-=15
-			res.wood-=8
-			troop.position = position
-			var scene = get_tree().current_scene
-			scene.get_node("FriendlyUnits").add_child(troop)
-		else:
-			timer.wait_time = 2
-			add_child(timer)
-			timer.start()
-			$CanvasLayer/NoRoomMessage.show()
-			print("bruh")
+	buyUnit(load("res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn"), 75, 25, 0, 25)
+
+func _on_PurchaseAxe_pressed():
+	buyUnit(load("res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn"), 125, 10, 0, 35)
+
+func _on_PurchaseBow_pressed():
+	buyUnit(load("res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn"), 50, 75, 25, 50)
 
 func _on_PurchaseThrall_pressed():
-	var timer
-	timer = Timer.new()
-	timer.connect("timeout", self, "_on_Timer_timeout")
-	
-	var res=GlobalVariable.VikingRts.resources
-	if res.food >= 10 and res.wood >= 10:
-		if unitsInside == false:
-			var troop = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn").instance()
-			res.food-=10
-			res.wood-=10
-			troop.position = position
-			var scene = get_tree().current_scene
-			scene.get_node("FriendlyUnits").add_child(troop)
-			print("yep")
-		else:
-			timer.wait_time = 2
-			add_child(timer)
-			timer.start()
-			$CanvasLayer/NoRoomMessage.show()
+	buyUnit(load("res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn"), 50, 25, 50, 0)
+
+
+
+
+
+
