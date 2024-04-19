@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var mouseOver=false
 
@@ -35,10 +35,18 @@ var dicTrades = {
 
 
 func _physics_process(delta):
+	transform.x = Vector2(get_viewport().size.x / ($Sprite.texture.get_size().x * $Sprite.scale.x) ,0)
+	offset.y = (transform.x[0]*$Sprite.texture.get_size().x * $Sprite.scale.x) / 2 
+	transform.y = Vector2(get_viewport().size.y / ($Sprite.texture.get_size().y * $Sprite.scale.y) ,0)
+	offset.y = (transform.y[1]*$Sprite.texture.get_size().y * $Sprite.scale.y) / 2 
+	print(transform.y)
 	if location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
+		$Panel.show()
 		$Panel/TradeText.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
+	else:
+		$Panel.hide()
 
 
 func _ready():
