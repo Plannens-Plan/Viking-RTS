@@ -8,24 +8,26 @@ var numberOfSongs = 4
 # Set the number of combat songs
 var numberOfCombatSongs = 4
 var stopSpeed = 0.002
-var stop = false
-var inCombat = false
+var fadeOut = false
+var stopped = false
+var songType = "default"
 
 func _ready():
 	rng.randomize()
 
 func _process(delta):
 	if !playing:
-		if inCombat:
-			setToRandomCombatSong()
-		else:
-			setToRandomSong()
+		match songType:
+			"default":
+				setToRandomSong()
+			"combat":
+				setToRandomCombatSong()
 		play()
-	if stop:
+	if fadeOut:
 		volume_db = lerp(volume_db, -80, stopSpeed)
 		if volume_db <= -80:
-			emit_signal("music_stopped")
-			queue_free()
+			stopped = true
+		
 
 func resetChanges():
 	volume_db = 0
@@ -72,3 +74,12 @@ func setToRandomCombatSong():
 		4:
 			stream = load("res://Assets/Sounds/CombatMusic/where_the_brave_may_live_forever.mp3")
 			volume_db = -5
+
+func changeSongType(type):
+	match type:
+		"combat":
+			fadeOut = true
+			songType = type
+		"default":
+			fadeOut = true
+			songType = type

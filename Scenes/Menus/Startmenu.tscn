@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Menu/StartMenu.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/misc/BackgroundMusicPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Images/Backgrounds/great_heathen_army.jpg" type="Texture" id=3]
 
 [node name="Node2D2" type="Node2D"]
@@ -192,8 +191,6 @@ margin_top = 7.0
 margin_right = 103.0
 margin_bottom = 27.0
 text = "Select save"
-
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="CanvasLayer/MenuButtons/Newgamebutton" to="." method="_on_Newgame_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuButtons/Load game" to="." method="_on_Load_game_pressed"]

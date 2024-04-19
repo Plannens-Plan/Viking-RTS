@@ -22,7 +22,6 @@ margin_bottom = 40.0
 script = ExtResource( 1 )
 
 [node name="BarrackBuild" type="CanvasLayer" parent="BarrackControl"]
-visible = false
 
 [node name="Button" type="Button" parent="BarrackControl/BarrackBuild"]
 anchor_top = 1.0

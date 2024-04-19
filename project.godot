@@ -89,6 +89,7 @@ config/icon="res://Assets/Images/Icons/icon.png"
 GlobalVariables="*res://Scenes/GlobalVariables.tscn"
 TransitionScreen="*res://Scenes/GUI/TransitionScreen.tscn"
 Network="*res://Scripts/Network.gd"
+BackgroundMusicPlayer="*res://Scenes/misc/BackgroundMusicPlayer.tscn"
 
 [editor_plugins]
 
