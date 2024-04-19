@@ -2,7 +2,6 @@ extends "res://Scripts/Structures/FriendlyStructure.gd"
 
 #var overlap = get_node("CollisionShape2D")
 var unitsInside = false
-var buildingPlaced = false
 
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
@@ -11,9 +10,11 @@ func _ready():
 	maxHealth = 500
 	updateElements()
 
-func _on_PurchaseTroop_pressed():
-	if buildingPlaced == true:
-		$Panel.visible = !$Panel.visible
+func _physics_process(delta):
+	if selected:
+		$Panel.visible = true
+	else:
+		$Panel.visible = false
 
 func unitCollision():
 	var overlapping = false
@@ -35,7 +36,7 @@ func _on_Timer_timeout():
 	$CanvasLayer/NoRoomMessage.hide()
 	# Do something when the timer times out
 
-func _on_PurchaseSword_pressed():
+func _on_PurchaseSpear_pressed():
 	unitCollision()
 	var timer
 	timer = Timer.new()
@@ -56,7 +57,7 @@ func _on_PurchaseSword_pressed():
 			$CanvasLayer/NoRoomMessage.show()
 			print("bruh")
 
-func _on_PurchaseMiner_pressed():
+func _on_PurchaseThrall_pressed():
 	var timer
 	timer = Timer.new()
 	timer.connect("timeout", self, "_on_Timer_timeout")

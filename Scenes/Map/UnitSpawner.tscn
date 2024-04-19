@@ -1,38 +1,41 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Map/UnitSpawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/MinerSpawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/SpearSpawner.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Map/Axeman.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Map/ArcherSpawner.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 367.5, 846 )
+extents = Vector2( 512.25, 214.875 )
 
-[node name="UnitSpawner" type="Area2D"]
-script = ExtResource( 1 )
+[node name="UnitSpawner" type="Area2D" groups=["unitSpawnArea"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 0 )
+position = Vector2( 514.75, 389.875 )
 shape = SubResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+margin_left = -507.0
+margin_top = -209.0
+margin_right = 508.0
+margin_bottom = 218.0
+color = Color( 1, 1, 1, 0.478431 )
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Spear" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 2 )
 
-[node name="PurchaseSword" type="Button" parent="CanvasLayer/Control"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Spear"]
+
+[node name="Button" type="Button" parent="Spear/CanvasLayer"]
 margin_left = 813.0
 margin_top = 9.0
 margin_right = 1011.0
 margin_bottom = 35.0
 text = "Spearman"
 
-[node name="PurchaseMiner" type="Button" parent="CanvasLayer/Control"]
-margin_left = 813.0
-margin_top = 43.0
-margin_right = 1013.0
-margin_bottom = 69.0
-text = "Gatherer"
-
-[node name="NoRoomMessage" type="TextEdit" parent="CanvasLayer"]
+[node name="NoRoomMessage" type="TextEdit" parent="Spear/CanvasLayer"]
 visible = false
 margin_left = 184.0
 margin_top = 255.0
@@ -41,5 +44,77 @@ margin_bottom = 282.0
 rect_scale = Vector2( 2, 2 )
 text = "Unit inside another unit. Please spawn beside it."
 
-[connection signal="pressed" from="CanvasLayer/Control/PurchaseSword" to="." method="_on_PurchaseSword_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/PurchaseMiner" to="." method="_on_PurchaseMiner_pressed"]
+[node name="Miner" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Miner"]
+
+[node name="NoRoomMessage" type="TextEdit" parent="Miner/CanvasLayer"]
+visible = false
+margin_left = 184.0
+margin_top = 255.0
+margin_right = 518.0
+margin_bottom = 282.0
+rect_scale = Vector2( 2, 2 )
+text = "Unit inside another unit. Please spawn beside it."
+
+[node name="Button" type="Button" parent="Miner/CanvasLayer"]
+margin_left = 813.0
+margin_top = 43.0
+margin_right = 1013.0
+margin_bottom = 69.0
+text = "Thrall"
+
+[node name="Axeman" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Axeman"]
+
+[node name="NoRoomMessage" type="TextEdit" parent="Axeman/CanvasLayer"]
+visible = false
+margin_left = 184.0
+margin_top = 255.0
+margin_right = 518.0
+margin_bottom = 282.0
+rect_scale = Vector2( 2, 2 )
+text = "Unit inside another unit. Please spawn beside it."
+
+[node name="Button" type="Button" parent="Axeman/CanvasLayer"]
+margin_left = 604.0
+margin_top = 8.0
+margin_right = 804.0
+margin_bottom = 34.0
+text = "Axeman"
+
+[node name="ArcherSpawner" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ArcherSpawner"]
+
+[node name="NoRoomMessage" type="TextEdit" parent="ArcherSpawner/CanvasLayer"]
+visible = false
+margin_left = 184.0
+margin_top = 255.0
+margin_right = 518.0
+margin_bottom = 282.0
+rect_scale = Vector2( 2, 2 )
+text = "Unit inside another unit. Please spawn beside it."
+
+[node name="Button" type="Button" parent="ArcherSpawner/CanvasLayer"]
+margin_left = 603.0
+margin_top = 43.0
+margin_right = 803.0
+margin_bottom = 69.0
+text = "Archer"
+
+[connection signal="pressed" from="Spear/CanvasLayer/Button" to="Spear" method="_on_Button_pressed"]
+[connection signal="pressed" from="Miner/CanvasLayer/Button" to="Miner" method="_on_Button_pressed"]
+[connection signal="pressed" from="Axeman/CanvasLayer/Button" to="Axeman" method="_on_Button_pressed"]
+[connection signal="pressed" from="ArcherSpawner/CanvasLayer/Button" to="ArcherSpawner" method="_on_Button_pressed"]
