@@ -23,7 +23,6 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="MainScene" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Login" type="Button" parent="MainScene"]
 anchor_left = 0.5
@@ -136,6 +135,7 @@ text = "Password cannot contain these letters
 \\ / < >: ; | \" '  ` ´ < >"
 
 [node name="Signup" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Back" type="Button" parent="Signup"]
 anchor_left = 0.5
