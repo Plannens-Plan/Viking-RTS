@@ -27,8 +27,6 @@ func _physics_process(delta):
 		$Sprite.material.set_shader_param("hide", true)
 	updateHealthBar()
 
-
-
 #mangler breaking effekt
 func setHealth(newHealth):
 	#if health > newHealth:
