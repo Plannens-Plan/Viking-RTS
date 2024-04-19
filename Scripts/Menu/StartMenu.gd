@@ -97,7 +97,9 @@ func _on_Start_game_pressed():
 		".",
 		",",
 		"`",
-		"´"
+		"´",
+		"-",
+		"+"
 	]
 	for i in disallowedcharacters:
 		if i in input_text.text:
