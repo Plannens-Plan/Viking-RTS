@@ -22,8 +22,6 @@ var unitPlacable = false
 var previewingUnit = false
 var previewingStructure = false
 
-var sadasd = 0
-
 func _ready():
 	print(collisionScaleX)
 	$Sprite.texture = sprite
@@ -115,4 +113,4 @@ func _input(event):
 				resources.stone -= stoneCost
 				resources.food -= foodCost
 				resources.silver -= silverCost
-				queue_free()
+			queue_free()
