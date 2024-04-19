@@ -118,7 +118,7 @@ margin_top = -150.0
 margin_right = 124.5
 margin_bottom = -88.0
 text = "Username or password cannot contain these letters
-\\ / . : , ; ? * | \" ' , . ` ´"
+\\ / . : , ; ? * | \" ' , . ` ´ + -"
 
 [node name="Signup" type="CanvasLayer" parent="."]
 visible = false
@@ -198,7 +198,7 @@ margin_top = -150.0
 margin_right = 124.5
 margin_bottom = -88.0
 text = "Username or password cannot contain these letters
-\\ / . : , ; ? * | \" ' , . ` ´"
+\\ / . : , ; ? * | \" ' , . ` ´ + -"
 
 [connection signal="pressed" from="MainScene/Login" to="." method="_on_Login_pressed"]
 [connection signal="pressed" from="MainScene/Signup" to="." method="_on_Signup_pressed"]

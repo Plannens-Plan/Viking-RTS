@@ -193,7 +193,9 @@ func _on_Logingame_pressed():
 		".",
 		",",
 		"`",
-		"´"
+		"´",
+		"-",
+		"+"
 	]
 	for i in disallowedcharacters:
 		if i in $Login/Username.text:
@@ -257,7 +259,9 @@ func _on_Signupgame_pressed():
 		".",
 		",",
 		"`",
-		"´"
+		"´",
+		"-",
+		"+"
 	]
 	for i in disallowedcharacters:
 		if i in $Signup/Username.text:
