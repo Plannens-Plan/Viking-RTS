@@ -95,7 +95,8 @@ func _on_Start_game_pressed():
 	
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
-	TransitionScreen.change_scene(startgamepath, 'intro')
+	get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
+	#TransitionScreen.change_scene(startgamepath, 'intro')
 	pass # Replace with function body.
 
 func _on_Savenametext_text_changed(new_text):

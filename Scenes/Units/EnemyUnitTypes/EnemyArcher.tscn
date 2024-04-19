@@ -6,8 +6,8 @@
 [ext_resource path="res://Scripts/Units/EnemyArcher.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 18, 16.75 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 486.333
@@ -29,7 +29,7 @@ texture = ExtResource( 3 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 1, 20 )
 shape = SubResource( 6 )
 
 [node name="AttackArea" type="Area2D" parent="."]

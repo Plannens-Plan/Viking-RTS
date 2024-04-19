@@ -18,7 +18,7 @@ export var VikingRts={
 		stone=100,
 		silver=600
 	},
-	units=[],
+	units={},
 	structures=[],
 	progression={
 		beach=false,
@@ -35,7 +35,7 @@ export var Default={
 		stone=100,
 		silver=100
 	},
-	units=[],
+	units={},
 	structures=[],
 	progression={
 		beach=false,
