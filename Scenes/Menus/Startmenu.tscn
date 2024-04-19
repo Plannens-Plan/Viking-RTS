@@ -7,8 +7,6 @@
 [node name="Node2D2" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource( 2 )]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
@@ -196,6 +194,8 @@ margin_top = 7.0
 margin_right = 103.0
 margin_bottom = 27.0
 text = "Select save"
+
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="CanvasLayer/MenuButtons/Newgamebutton" to="." method="_on_Newgame_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuButtons/Load game" to="." method="_on_Load_game_pressed"]
