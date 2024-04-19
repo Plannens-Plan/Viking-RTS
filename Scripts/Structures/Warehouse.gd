@@ -1,15 +1,12 @@
-extends Area2D
+extends "res://Scripts/Structures/FriendlyStructure.gd"
 
 var itemType = null
-
-
 
 func _ready():
 	pass
 
 func _physics_process(delta):
 	deposit()
-
 
 func deposit():
 	if get_overlapping_bodies().size() > 0:

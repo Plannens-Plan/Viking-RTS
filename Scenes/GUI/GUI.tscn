@@ -35,15 +35,15 @@ hint_tooltip = "40 wood"
 mouse_filter = 1
 text = "Build Barrack"
 
-[node name="FarmHouseControl" type="Control" parent="."]
+[node name="WarehouseControl" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
 
-[node name="FarmHouseControl" type="CanvasLayer" parent="FarmHouseControl"]
+[node name="FarmHouseCanvasLayer" type="CanvasLayer" parent="WarehouseControl"]
 visible = false
 
-[node name="Button" type="Button" parent="FarmHouseControl/FarmHouseControl"]
+[node name="Button" type="Button" parent="WarehouseControl/FarmHouseCanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 224.0
@@ -52,7 +52,7 @@ margin_right = 407.0
 margin_bottom = -28.0
 hint_tooltip = "40 wood"
 mouse_filter = 1
-text = "Build Farm House"
+text = "Build Warehouse "
 
 [node name="TowerControl" type="Control" parent="."]
 margin_right = 40.0
@@ -157,7 +157,7 @@ visible = false
 
 [connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="BarrackControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="FarmHouseControl/FarmHouseControl/Button" to="FarmHouseControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="WarehouseControl/FarmHouseCanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="WarehouseControl/FarmHouseCanvasLayer/Button" to="WarehouseControl" method="_on_Button_pressed"]
 [connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="TowerControl" method="_on_Button_pressed"]
