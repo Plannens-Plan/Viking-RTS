@@ -41,18 +41,15 @@ func _physics_process(delta):
 					placable = false
 		else:
 			$Sprite.modulate = Color(0, 1, 0)
-			print("NONONONON")
 			placable = true
 	elif previewingUnit == true:
 		if previewingUnit == true && $placableDetect.get_overlapping_areas().size() > 0:
 			for area in $placableDetect.get_overlapping_areas():
 				if area.is_in_group("unitSpawnArea"):
-					print("HAHAHAHAHAHHA")
 					$Sprite.modulate = Color(0, 1, 0)
 					placable = true
 		else:
 			$Sprite.modulate = Color(1, 0, 0)
-			print("NONONONON")
 			placable = false
 
 func _input(event):
