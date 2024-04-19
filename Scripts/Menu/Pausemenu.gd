@@ -28,9 +28,7 @@ func _on_BackToMenu_pressed():
 	get_tree().paused =false
 	GlobalVariable.Exiting=true
 	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
-	
-	pass # Replace with function body.
-
+	BackgroundMusicPlayer.changeSongType("default")
 
 #func save_data(path, data):
 #	var file = File.new()
@@ -45,11 +43,9 @@ func _on_Save_pressed():
 	var data = GlobalVariable.VikingRts
 	#save_data(savedir + savename + ".dat", data)
 	Network.update_save(GlobalVariable.id,savename,to_json(data))
-	pass # Replace with function body.
-
 
 func _on_Button_pressed():
 	get_tree().paused =false
 	GlobalVariable.Exiting=true
 	get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
-	pass # Replace with function body.
+	BackgroundMusicPlayer.changeSongType("default")

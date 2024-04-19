@@ -11,7 +11,6 @@ onready var winScreen = preload("res://Scenes/GUI/EndScreen.tscn").instance()
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 
 func _ready():
-	BackgroundMusicPlayer.changeSongType("combat")
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
@@ -24,11 +23,13 @@ func _ready():
 			eu.remove_child(n)
 		for n in fu.get_children():
 			fu.remove_child(n)
+		BackgroundMusicPlayer.changeSongType("default")
 	else:
 		friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 		fcount = friendlyUnits.size()
 		enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 		ecount = enemyUnits.size()
+		BackgroundMusicPlayer.changeSongType("combat")
 
 func _on_EnemyUnits_child_exiting_tree(node):
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
@@ -49,16 +50,11 @@ func _on_EnemyUnits_child_exiting_tree(node):
 		GlobalVariable.VikingRts.progression.beach=true
 		
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
-	pass # Replace with function body.
-
 
 func _on_FriendlyUnits_child_exiting_tree(node):
-
-	
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
 
 	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.beach==false:
 		GlobalVariable.RemainingTroops = fcount
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
-	pass # Replace with function body.
