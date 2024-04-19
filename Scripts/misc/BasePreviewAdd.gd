@@ -15,7 +15,7 @@ func _on_Button_pressed():
 	if units[unitType] > 0 && unit == true:
 		units[unitType] -= 1
 		loadPreview()
-	elif structure == true:
+	if structure == true:
 		loadPreview()
 
 func loadPreview():
