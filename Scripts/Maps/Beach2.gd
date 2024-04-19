@@ -42,9 +42,11 @@ func _on_EnemyUnits_child_exiting_tree(node):
 		
 		var FriendlyUnits = scene.get_node("FriendlyUnits")
 		for i in FriendlyUnits.get_children():
-			units.append({
-			scene=i.filename,
-		})
+			var unitfile = i.filename 
+			var shortlength=unitfile.substr(37).split(".tscn")[0]
+			if not units.has(shortlength):
+				units[shortlength]=0
+			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression.engvik=true
 		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 	pass # Replace with function body.
