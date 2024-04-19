@@ -10,7 +10,7 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Map/savemapstate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Structures/TradingPost.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Structures/Barracks.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
@@ -458,9 +458,12 @@ current = true
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 visible = false
 
-[node name="Structures" type="Node" parent="."]
+[node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]
+
+[node name="Barracks" parent="Structures/Friendly" instance=ExtResource( 11 )]
+position = Vector2( 1236, 898 )
 
 [node name="Enemy" type="YSort" parent="Structures"]
 
@@ -617,9 +620,6 @@ position = Vector2( 1325, 876 )
 position = Vector2( 1954, 331 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
-
-[node name="TradingPost" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2466, 434 )
 
 [node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
 position = Vector2( 94, 884 )

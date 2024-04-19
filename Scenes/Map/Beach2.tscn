@@ -42,7 +42,7 @@ current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
-[node name="Structures" type="Node" parent="."]
+[node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]
 
