@@ -6,6 +6,12 @@ func change_scene(target: String, type: String = 'dissolve') -> void:
 	else:
 		transition_dissolve(target)
 	
+
+func _physics_process(delta):
+	transform.x = Vector2(get_viewport().size.x / $Container.get_rect().size.x ,0)
+	transform.y = Vector2(0,get_viewport().size.y / $Container.get_rect().size.y)
+
+
 	
 func transition_dissolve(target: String) -> void:
 	$AnimationPlayer.play("dissolve")

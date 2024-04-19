@@ -31,8 +31,10 @@ func _ready():
 	
 	
 func _process(_delta):
-	
-	# Check if we are good to send a request:
+#	$BackgroundLayer/Background.get_rect().size.x = 255
+#	$BackgroundLayer/Background.get_rect().size.y = 255
+#	$BackgroundLayer/Background.rect_scale.x = 255 / $BackgroundLayer/Background.texture.get_size().x
+#	$BackgroundLayer/Background.rect_scale.y = 255 / $BackgroundLayer/Background.texture.get_size().y
 	if is_requesting:
 		return
 		
@@ -44,7 +46,11 @@ func _process(_delta):
 		request_nonce()
 	else:
 		_send_request(request_queue.pop_front())
-		
+	
+
+	
+
+	
 	
 func _http_request_completed(_result, _response_code, _headers, _body):
 	is_requesting = false
