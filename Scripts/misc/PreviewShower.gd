@@ -31,44 +31,6 @@ func _ready():
 		$placableDetect/CollisionShape2D.shape = CircleShape2D
 		$placableDetect/CollisionShape2D.shape.radius = collisionScaleRadius
 
-
-
-
-
-
-#func _physics_process(delta):
-#	position = get_global_mouse_position()
-#	if previewingUnit == false:
-#		if $placableDetect.get_overlapping_areas().size() > 0:
-#			for area in $placableDetect.get_overlapping_areas():
-#				if area.is_in_group("Building") || area.is_in_group("Terrain") :
-#					$Sprite.modulate = Color(1, 0, 0)
-#					placable = false
-#			for area in $placableDetect.get_overlapping_bodies():
-#				if area.is_in_group("unit") :
-#					$Sprite.modulate = Color(1, 0, 0)
-#					placable = false
-#		else:
-#			$Sprite.modulate = Color(0, 1, 0)
-#			#print("NONONONON")
-#			placable = true
-#	elif previewingUnit == true:
-#		if previewingUnit == true && $placableDetect.get_overlapping_areas().size() > 0:
-#			for area in $placableDetect.get_overlapping_areas():
-#				if area.is_in_group("unitSpawnArea"):
-#					#print("HAHAHAHAHAHHA")
-#					$Sprite.modulate = Color(0, 1, 0)
-#					placable = true
-#		else:
-#			$Sprite.modulate = Color(1, 0, 0)
-#			#print("NONONONON")
-#			placable = false
-
-
-
-
-
-
 func _physics_process(delta):
 	position = get_global_mouse_position()
 	if previewingUnit == false:
@@ -83,12 +45,7 @@ func _physics_process(delta):
 		else:
 			$Sprite.modulate = Color(0, 1, 0)
 			placable = true
-			
-			
-	
-	
 	elif previewingUnit == true:
-
 		if $placableDetect.get_overlapping_areas().size() > 0:
 			var unitSpawnArea = 0
 			for area in $placableDetect.get_overlapping_areas():
@@ -118,15 +75,6 @@ func _physics_process(delta):
 		else:
 			$Sprite.modulate = Color(1, 0, 0)
 
-
-
-
-
-
-
-
-
-
 func _input(event):
 	if event is InputEventMouseButton && event.get_button_index() == 1 && placable == true:
 		var scene = get_tree().current_scene
@@ -139,8 +87,3 @@ func _input(event):
 			newObject.position = position
 			scene.get_node("Structures").get_node("Friendly").add_child(newObject)
 			queue_free()
-
-
-
-
-
