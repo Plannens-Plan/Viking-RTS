@@ -9,14 +9,13 @@ var numberOfSongs = 4
 var numberOfCombatSongs = 4
 var stopSpeed = 0.002
 var fadeOut = false
-var stopped = false
 var songType = "default"
 
 func _ready():
 	rng.randomize()
 
 func _process(delta):
-	if !playing:
+	if !playing or volume_db <= -50:
 		match songType:
 			"default":
 				setToRandomSong()
@@ -25,9 +24,8 @@ func _process(delta):
 		play()
 	if fadeOut:
 		volume_db = lerp(volume_db, -80, stopSpeed)
-		if volume_db <= -80:
-			stopped = true
-		
+		if volume_db <= -50:
+			fadeOut = false
 
 func resetChanges():
 	volume_db = 0

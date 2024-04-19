@@ -4,7 +4,6 @@ extends Control
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 onready var remainingTroops = GlobalVariable.RemainingTroops
 
-
 func _ready():
 	print (remainingTroops)
 	
@@ -22,7 +21,9 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
+	BackgroundMusicPlayer.changeSongType("default")
 
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
+	BackgroundMusicPlayer.changeSongType("default")
