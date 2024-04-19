@@ -108,6 +108,9 @@ mp3={
 "loop": false,
 "loop_offset": 0
 }
+texture={
+"flags/filter": false
+}
 
 [input]
 

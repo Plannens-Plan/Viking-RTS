@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/united kingdom.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/UI/Grandmap/Campaign_Icon_Village.png" type="Texture" id=2]
@@ -7,13 +7,17 @@
 [ext_resource path="res://Scenes/Menus/Pausemenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Images/UI/Grandmap/Campaign_Icon_Forest.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/UI/Grandmap/Campaign_Icon_Farm.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/UI/Grandmap/clouds.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/UI/Grandmap/pathway.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Map" type="TextureRect" parent="."]
-margin_right = 701.0
-margin_bottom = 813.0
+margin_left = 4.0
+margin_top = -4.0
+margin_right = 705.0
+margin_bottom = 809.0
 rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
@@ -51,6 +55,16 @@ rect_pivot_offset = Vector2( -33, 151 )
 disabled = true
 text = "Engvik"
 
+[node name="Clouds" type="Sprite" parent="Control"]
+position = Vector2( 351, 1014 )
+scale = Vector2( 1.375, 1.375 )
+texture = ExtResource( 8 )
+
+[node name="Clouds2" type="Sprite" parent="Control"]
+position = Vector2( 529, 780 )
+scale = Vector2( 1.51981, 1.53944 )
+texture = ExtResource( 8 )
+
 [node name="Buns" type="Button" parent="Control"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 524.0
@@ -60,6 +74,18 @@ margin_bottom = 832.0
 rect_pivot_offset = Vector2( -33, 151 )
 disabled = true
 text = "Buns"
+
+[node name="Pathway" type="Sprite" parent="."]
+position = Vector2( 616, 934 )
+rotation = -0.402574
+scale = Vector2( 0.601923, 0.601923 )
+texture = ExtResource( 9 )
+
+[node name="Pathway2" type="Sprite" parent="."]
+position = Vector2( 526, 1049 )
+rotation = -1.42448
+scale = Vector2( 0.601923, 0.601923 )
+texture = ExtResource( 9 )
 
 [node name="CampaignIconVillage" type="Sprite" parent="."]
 position = Vector2( 556, 798 )
