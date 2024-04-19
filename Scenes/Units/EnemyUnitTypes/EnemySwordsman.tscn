@@ -6,8 +6,8 @@
 [ext_resource path="res://Assets/Images/Units/enemy_swordsman.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.5, 17.5 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 17.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 52.0865
@@ -29,8 +29,8 @@ texture = ExtResource( 4 )
 region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 10 )
-shape = SubResource( 1 )
+position = Vector2( 0, 29 )
+shape = SubResource( 6 )
 
 [node name="AttackArea" type="Area2D" parent="."]
 

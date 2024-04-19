@@ -12,7 +12,7 @@ var target = Vector2.ZERO
 var target_max = 1 
 var last_distance_to_target = Vector2.ZERO
 var current_distance_to_target = Vector2.ZERO
-var move_threshold = 1.0
+var move_threshold = 5
 
 # Default unit stats
 var moveSpeed = 100
@@ -92,9 +92,10 @@ func _physics_process(delta):
 	if position.distance_to(target) > target_max:
 		velocity = position.direction_to(target) * moveSpeed
 		velocity = move_and_slide(velocity)
-	if get_slide_count() > 0 and collision_timer.is_stopped():
-		collision_timer.start()
-		last_distance_to_target = position.distance_to(target)
+	if position.distance_to(target) < 60: 
+		if get_slide_count() > 0 and collision_timer.is_stopped():
+			collision_timer.start()
+			last_distance_to_target = position.distance_to(target)
 
 	if mouseOver and !selected:
 		$Sprite.material.set_shader_param("hide", false)

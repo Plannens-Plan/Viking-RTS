@@ -6,8 +6,8 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 18, 12.25 )
+[sub_resource type="CircleShape2D" id=7]
+radius = 14.0357
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 41.5, 61 )
@@ -27,7 +27,7 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 1, 1, 167, 193 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7 )
+position = Vector2( 0, 21 )
 shape = SubResource( 7 )
 
 [node name="MouseOver" type="Area2D" parent="."]
@@ -72,6 +72,7 @@ shape = SubResource( 6 )
 [node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
 [node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
