@@ -111,8 +111,8 @@ func mapPinBuilder():
 		subMapPinBuilder(scene.get_node("Resources"),"Stone", "res://Assets/Images/Icons/StoneMarker.png", $Viewport/Resource/Stone)
 	#Structure
 	if scene.has_node("Structures"):
-		subMapPinBuilder(scene.get_node("Structures"), "Friendly", "res://Assets/Images/Icons/StructureMarker.png",$Viewport/Structure/Friendly)
-		subMapPinBuilder(scene.get_node("Structures"), "Enemy","res://Assets/Images/Icons/monkey_banana.png",$Viewport/Structure/Enemy)
+		subMapPinBuilder(scene.get_node("Structures"), "Friendly", "res://Assets/Images/Icons/FriendlyStructureMarker.png",$Viewport/Structure/Friendly)
+		subMapPinBuilder(scene.get_node("Structures"), "Enemy","res://Assets/Images/Icons/EnemyStructureMarker.png",$Viewport/Structure/Enemy)
 
 
 func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var localNode):
