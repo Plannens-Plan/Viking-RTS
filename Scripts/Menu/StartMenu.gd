@@ -54,8 +54,6 @@ func _on_Newgame_pressed():
 	$CanvasLayer/MenuButtons.hide()
 	$CanvasLayer/Newgame.show()
 
-
-
 #New game functions
 func _on_Backbutton_pressed():
 	$CanvasLayer/MenuButtons.show()
