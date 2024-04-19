@@ -75,7 +75,6 @@ func _physics_process(delta):
 					$Sprite.modulate = Color(1, 0, 0)
 		else:
 			$Sprite.modulate = Color(0, 1, 0)
-			#print("NONONONON")
 			placable = true
 			
 			

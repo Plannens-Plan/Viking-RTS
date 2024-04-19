@@ -6,8 +6,8 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Units/FriendlyArcher.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 17.25 )
+[sub_resource type="CircleShape2D" id=4]
+radius = 17.0294
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -29,8 +29,8 @@ texture = ExtResource( 1 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
-shape = SubResource( 1 )
+position = Vector2( 0, 20 )
+shape = SubResource( 4 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 
@@ -68,6 +68,7 @@ shape = SubResource( 3 )
 [node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
 [node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]

@@ -3,11 +3,16 @@ extends Control
 onready var previewShower = preload("res://Scenes/misc/PreviewShower.tscn")
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
+onready var units = GlobalVariable.VikingRts.units
+
 var object
 var structure = false
 var unit = false
 
+var unitType
+
 func _on_Button_pressed():
+	units[unitType] -= 1
 	loadPreview()
 
 func loadPreview():

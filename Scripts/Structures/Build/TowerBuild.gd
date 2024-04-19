@@ -1,7 +1,7 @@
 extends "res://Scripts/misc/BasePreviewAdd.gd"
 
 func _ready():
-	object = load("res://Scenes/Structures/Tower.tscn")
+	object = load("res://Scenes/Structures/FriendlyTower.tscn")
 	structure = true
 	if GlobalVariable.Friendly:
 		$TowerCanvasLayer.show()

@@ -6,8 +6,8 @@
 [ext_resource path="res://Scripts/Units/FriendlySpearman.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 18, 16.75 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 15.0333
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
@@ -30,7 +30,7 @@ region_enabled = true
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 24 )
 shape = SubResource( 6 )
 
 [node name="MouseOver" type="Area2D" parent="."]
@@ -69,6 +69,7 @@ shape = SubResource( 5 )
 [node name="UnitVoiceLines" type="AudioStreamPlayer" parent="."]
 
 [node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
