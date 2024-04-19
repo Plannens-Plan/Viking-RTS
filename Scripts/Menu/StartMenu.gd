@@ -8,6 +8,8 @@ onready var dir = Directory.new()
 onready var savedir="user://Saves/"
 onready var startgamepath="res://Scenes/Map/Grandmap.tscn"
 
+onready var Network = get_node("/root/Network")
+
 func _ready():
 	GlobalVariable.Exiting=false
 	
@@ -75,7 +77,11 @@ func _on_Start_game_pressed():
 		"|",
 		"\\",
 		'"',
-		"'"
+		"'",
+		".",
+		",",
+		"`",
+		"´"
 	]
 	for i in disallowedcharacters:
 		if i in input_text.text:
