@@ -3,21 +3,22 @@ extends Control
 onready var previewShower = preload("res://Scenes/misc/PreviewShower.tscn")
 
 var object
+var structure = false
+var unit = false
 
-func _ready():
-	pass
+func _on_Button_pressed():
+	loadPreview()
 
-func _physics_process(delta):
-	pass
-
-func loadObject():
-	object = load("res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn").instance()
+func loadPreview():
 	var previewShowerInst = previewShower.instance()
-	previewShowerInst.sprite = object.get_node("Sprite").texture
-	previewShowerInst.spriteWidth = object.get_node("Sprite").scale.x
-	previewShowerInst.spriteHeight = object.get_node("Sprite").scale.y
-	previewShowerInst.collisionScaleX = object.get_node("CollisionShape2D").scale.x
-	previewShowerInst.collisionScaleY = object.get_node("CollisionShape2D").scale.y
+	previewShowerInst.shownObject = object
+	previewShowerInst.sprite = object.instance().get_node("Sprite").texture
+	previewShowerInst.spriteWidth = object.instance().get_node("Sprite").scale.x
+	previewShowerInst.spriteHeight = object.instance().get_node("Sprite").scale.y
+	previewShowerInst.collisionScaleX = object.instance().get_node("CollisionShape2D").scale.x
+	previewShowerInst.collisionScaleY = object.instance().get_node("CollisionShape2D").scale.y
+	previewShowerInst.previewingStructure = structure
+	previewShowerInst.previewingUnit = unit
 	var world = get_tree().current_scene
 	world.add_child(previewShowerInst)
 
