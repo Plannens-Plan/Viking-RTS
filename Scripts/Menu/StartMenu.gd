@@ -12,25 +12,28 @@ onready var Network = get_node("/root/Network")
 
 func _ready():
 	GlobalVariable.Exiting=false
-	
-	if dropmenu.get_popup().items.size()>0:
-		while dropmenu.get_popup().items.size()>0:
-			dropmenu.get_popup().remove_item(0)
-	if !dir.dir_exists(savedir):
-		dir.make_dir(savedir)
-	dir.open(savedir)
-	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		var id=dropmenu.get_popup().items.size()
-		var filename=file.substr(0,file.length()-4)
-		if(filename==""):
-			continue
-		dropmenu.get_popup().add_item(filename, id)
-		
-	dir.list_dir_end()
+	Network.get_saves(GlobalVariable.id)
+	Network.get_node(".").connect("saves", self, "dropmenuloaditems")
+	Network.get_node(".").connect("alreadyinuse", self, "alreadyinuse")
+	Network.get_node(".").connect("notinuse", self, "notinuse")
+#	if dropmenu.get_popup().items.size()>0:
+#		while dropmenu.get_popup().items.size()>0:
+#			dropmenu.get_popup().remove_item(0)
+#	if !dir.dir_exists(savedir):
+#		dir.make_dir(savedir)
+#	dir.open(savedir)
+#	dir.list_dir_begin()
+#	while true:
+#		var file = dir.get_next()
+#		if file == "":
+#			break
+#		var id=dropmenu.get_popup().items.size()
+#		var filename=file.substr(0,file.length()-4)
+#		if(filename==""):
+#			continue
+#		dropmenu.get_popup().add_item(filename, id)
+#
+#	dir.list_dir_end()
 	
 	dropmenu.get_popup().connect("id_pressed", self, "_on_MenuButton_pressed")
 
@@ -41,14 +44,19 @@ func _physics_process(delta):
 	$CanvasLayer/Background.rect_scale.x = get_viewport().size.x / $CanvasLayer/Background.texture.get_size().x
 	$CanvasLayer/Background.rect_scale.y = get_viewport().size.y / $CanvasLayer/Background.texture.get_size().y
 
+func dropmenuloaditems():
+	var saves=GlobalVariable.saves
+	for i in saves:
+		var id=dropmenu.get_popup().items.size()
+		dropmenu.get_popup().add_item(i.save,id)
 
-func load_data(path):
-	var file = File.new()
-	var content
-	file.open(path,File.READ)
-	content= file.get_as_text()
-	file.close()
-	return parse_json(content)
+#func load_data(path):
+#	var file = File.new()
+#	var content
+#	file.open(path,File.READ)
+#	content= file.get_as_text()
+#	file.close()
+#	return parse_json(content)
 
 
 
@@ -65,15 +73,12 @@ func _on_Newgame_pressed():
 	$CanvasLayer/MenuButtons.hide()
 	$CanvasLayer/Newgame.show()
 
-
-
 #New game functions
 func _on_Backbutton_pressed():
 	$CanvasLayer/MenuButtons.show()
 	$CanvasLayer/Newgame.hide()
 
 func _on_Start_game_pressed():
-	var file = File.new()
 	if input_text.text=="":
 		$CanvasLayer/Newgame/Warning.show()
 		return
@@ -98,13 +103,16 @@ func _on_Start_game_pressed():
 		if i in input_text.text:
 			$CanvasLayer/Newgame/Warning3.show()
 			return
-	if file.file_exists(savedir + input_text.text + ".dat"):
-		$CanvasLayer/Newgame/Warning2.show()
-		return
-	
+			
+	Network.check_save(GlobalVariable.id, input_text.text)
+func alreadyinuse():
+	$CanvasLayer/Newgame/Warning2.show()
+	return
+func notinuse():
 	GlobalVariable.VikingRts=GlobalVariable.Default
 	GlobalVariable.VikingRts.savename=input_text.text
 	#get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
+	Network.submit_save(GlobalVariable.id, GlobalVariable.VikingRts.savename, to_json(GlobalVariable.VikingRts))
 	TransitionScreen.change_scene(startgamepath, 'intro')
 
 func _on_Savenametext_text_changed(new_text):
@@ -124,13 +132,25 @@ func _on_MenuButton_pressed(id):
 	dropmenu.text=dropmenu.get_popup().get_item_text(id/10)
 	
 func _on_Load_savegame_pressed():
-	var file = File.new()
-	if not file.file_exists(savedir + dropmenu.text + ".dat"):
-		$CanvasLayer/Loadgame/Warning.show()
-		return
+	var found=false
+	var index=0
+	if GlobalVariable.saves.size()>1:
+		index=-1
+		for i in GlobalVariable.saves:
+			
+			if i.save == dropmenu.text:
+				found=true
+				index+=1
+				break
+		if not found:
+			$CanvasLayer/Loadgame/Warning.show()
+			return
 	
-	var dict=load_data(savedir + dropmenu.text + ".dat")
-
+#	var dict=load_data(savedir + dropmenu.text + ".dat")
+	GlobalVariable.VikingRts=GlobalVariable.Default
+	var dict = parse_json(GlobalVariable.saves[index].data)
+	print(index)
+	print(GlobalVariable.saves[index].save)
 	for key in dict:
 		if GlobalVariable.VikingRts.has(key):
 			if typeof(GlobalVariable.VikingRts[key]) ==18:
@@ -140,6 +160,7 @@ func _on_Load_savegame_pressed():
 
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
+	
 	TransitionScreen.change_scene(startgamepath)
 	
 

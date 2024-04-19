@@ -1,6 +1,7 @@
 extends CanvasLayer
 onready var savedir="user://Saves/"
 onready var GlobalVariable= get_node("/root/GlobalVariables")
+onready var Network = get_node("/root/Network")
 
 func _ready():
 	var scene = get_tree().current_scene
@@ -31,18 +32,19 @@ func _on_BackToMenu_pressed():
 	pass # Replace with function body.
 
 
-func save_data(path, data):
-	var file = File.new()
-	file.open(path, File.WRITE)
-	
-	file.store_string(to_json(data))
-	file.close()
-	
+#func save_data(path, data):
+#	var file = File.new()
+#	file.open(path, File.WRITE)
+#
+#	file.store_string(to_json(data))
+#	file.close()
+#
 func _on_Save_pressed():
 	var savename=GlobalVariable.VikingRts.savename
 	#save_currentmapstate()
 	var data = GlobalVariable.VikingRts
-	save_data(savedir + savename + ".dat", data)
+	#save_data(savedir + savename + ".dat", data)
+	Network.update_save(GlobalVariable.id,savename,to_json(data))
 	pass # Replace with function body.
 
 

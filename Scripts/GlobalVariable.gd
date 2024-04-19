@@ -7,7 +7,7 @@ export var RemainingTroops=0
 export var Exiting=false
 export var Friendly=false
 export var id=0
-export var saves = {}
+export var saves = []
 #lav data her
 #export var yyy = xxx
 
@@ -21,10 +21,10 @@ export var VikingRts={
 		silver=600
 	},
 	units={
-		axemen=5,
-		archer=2,
-		thrall=2,
-		spearmen=10
+		FriendlyAxemen=5,
+		FriendlyArcher=2,
+		FriendlyThrall=2,
+		FriendlySpearmen=10
 	},
 	structureLocation={
 		beach = {structures=[{structureType = "",structurePosition = Vector2()}]},
@@ -47,10 +47,10 @@ export var Default={
 		silver=100
 	},
 	units={
-		axemen=5,
-		archer=2,
-		thrall=2,
-		spearmen=10
+		FriendlyAxemen=5,
+		FriendlyArcher=2,
+		FriendlyThrall=2,
+		FriendlySpearmen=10
 	},
 	structures=[],
 	progression={
