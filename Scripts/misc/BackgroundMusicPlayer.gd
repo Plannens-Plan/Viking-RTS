@@ -3,6 +3,8 @@ extends AudioStreamPlayer
 var rng = RandomNumberGenerator.new()
 var lastSongNumber
 var numberOfSongs = 4
+var stopSpeed = 0.002
+var stop = false
 
 func _ready():
 	rng.randomize()
@@ -11,6 +13,11 @@ func _process(delta):
 	if !playing:
 		setToRandomSong()
 		play()
+	if stop:
+		volume_db = lerp(volume_db, -80, stopSpeed)
+		if volume_db <= -80:
+			emit_signal("music_stopped")
+			queue_free()
 
 func setToRandomSong():
 	var songNumber = rng.randi_range(1, numberOfSongs)
