@@ -21,8 +21,14 @@ func loadPreview():
 	previewShowerInst.sprite = object.instance().get_node("Sprite").texture
 	previewShowerInst.spriteWidth = object.instance().get_node("Sprite").scale.x
 	previewShowerInst.spriteHeight = object.instance().get_node("Sprite").scale.y
-	previewShowerInst.collisionScaleX = object.instance().get_node("CollisionShape2D").shape.extents.x
-	previewShowerInst.collisionScaleY = object.instance().get_node("CollisionShape2D").shape.extents.y
+	if object.instance().get_node("CollisionShape2D").shape == CircleShape2D:
+		previewShowerInst.collisionScaleRadius = object.instance().get_node("CollisionShape2D").shape.radius
+		previewShowerInst.collisionScaleX = null
+		previewShowerInst.collisionScaleY = null
+	if object.instance().get_node("CollisionShape2D").shape == RectangleShape2D:
+		previewShowerInst.collisionScaleRadius = null
+		previewShowerInst.collisionScaleX = object.instance().get_node("CollisionShape2D").shape.extents.x
+		previewShowerInst.collisionScaleY = object.instance().get_node("CollisionShape2D").shape.extents.y
 	print(previewShowerInst.collisionScaleY)
 	previewShowerInst.previewingStructure = structure
 	previewShowerInst.previewingUnit = unit

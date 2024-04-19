@@ -5,6 +5,7 @@ var shownObject
 var spriteWidth
 var spriteHeight
 
+var collisionScaleRadius
 var collisionScaleX
 var collisionScaleY
 
@@ -22,8 +23,14 @@ func _ready():
 	$Sprite.texture = sprite
 	$Sprite.scale.x = spriteWidth
 	$Sprite.scale.y = spriteHeight
-	$placableDetect/CollisionShape2D.shape.extents.x = collisionScaleX
-	$placableDetect/CollisionShape2D.shape.extents.y = collisionScaleY
+	if collisionScaleX != null:
+		$placableDetect/CollisionShape2D.shape = RectangleShape2D
+		$placableDetect/CollisionShape2D.shape.extents.x = collisionScaleX
+		$placableDetect/CollisionShape2D.shape.extents.y = collisionScaleY
+	if collisionScaleRadius != null:
+		$placableDetect/CollisionShape2D.shape = CircleShape2D
+		$placableDetect/CollisionShape2D.shape.radius = collisionScaleRadius
+
 
 
 
