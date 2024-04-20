@@ -6,5 +6,8 @@ func _ready():
 	unit = true
 	unitType = "FriendlySpearman"
 	
-	
-	
+func _process(delta):
+	if units.FriendlySpearman <= 0:
+		$Button.disabled = true
+	else:
+		$Button.disabled = false
