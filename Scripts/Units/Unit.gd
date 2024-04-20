@@ -157,6 +157,7 @@ func die():
 	deathEffectInst.unitSprite = $Sprite.texture
 	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
 	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
+	deathEffectInst.unit = true
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position

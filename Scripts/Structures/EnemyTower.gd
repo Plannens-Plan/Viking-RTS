@@ -24,10 +24,11 @@ func shoot():
 			if body.is_in_group("friendlyUnit") && friendly == false:
 				body.setHealth(body.health - damage, true)
 				$Timer.start()
-				resetAudio()
-				$StructureAudio.stream = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
-				$StructureAudio.pitch_scale = rng.randf_range(0.6, 1.4)
-				$StructureAudio.play()
+				if !$StructureAudio.playing:
+					resetAudio()
+					$StructureAudio.stream = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
+					$StructureAudio.pitch_scale = rng.randf_range(0.6, 1.4)
+					$StructureAudio.play()
 				peopleShot += 1
 				if peopleShot >= amountOfArchers:
 					peopleShot = 0

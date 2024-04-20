@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/intense_fire.mp3-6bd9c2df0312065a97a9f35ce94fb7f6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Structures/intense_fire.mp3"
+dest_files=[ "res://.import/intense_fire.mp3-6bd9c2df0312065a97a9f35ce94fb7f6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

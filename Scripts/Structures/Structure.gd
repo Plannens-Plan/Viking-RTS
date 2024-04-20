@@ -1,5 +1,7 @@
 extends Area2D
 
+onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
+
 var mouseOver = false
 var selected = false
 
@@ -36,7 +38,6 @@ func setHealth(newHealth):
 			resetAudio()
 			$StructureAudio.stream = load("res://Assets/Sounds/Structures/fire_puff.mp3")
 			$StructureAudio.pitch_scale = rng.randf_range(0.8,1.2)
-			$StructureAudio.volume_db = -5
 			$StructureAudio.play()
 		#var bloodParticleInstance = bloodParticle.instance()
 		#bloodParticleInstance.emitting = true
@@ -47,6 +48,14 @@ func setHealth(newHealth):
 		die()
 
 func die():
+	var deathEffectInst = death_effect.instance()
+	deathEffectInst.unitSprite = $Sprite.texture
+	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
+	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
+	deathEffectInst.unit = false
+	var world = get_tree().current_scene
+	world.add_child(deathEffectInst)
+	deathEffectInst.global_position = global_position
 	emit_signal("dead_building")
 	queue_free()
 
