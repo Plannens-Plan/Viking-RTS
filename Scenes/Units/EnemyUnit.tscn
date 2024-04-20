@@ -17,8 +17,8 @@ extents = Vector2( 41.5, 61 )
 radius = 81.0
 height = 52.0
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 535.35
+[sub_resource type="CircleShape2D" id=6]
+radius = 2500.0
 
 [node name="EnemyUnit" type="KinematicBody2D" groups=["enemyUnit"]]
 script = ExtResource( 3 )
@@ -68,7 +68,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true

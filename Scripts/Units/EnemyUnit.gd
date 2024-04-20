@@ -1,6 +1,6 @@
 extends "res://Scripts/Units/Unit.gd"
 
-var closestDistance = 1000
+var closestDistance = 2500
 var closestUnit = null
 
 func _ready():
@@ -23,4 +23,4 @@ func TargetFriendly():
 		if is_instance_valid(closestUnit):
 			set_target_location(closestUnit.position)
 		else:
-			closestDistance = 1000
+			closestDistance = 2500

@@ -12,8 +12,8 @@ radius = 15.0
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 61 )
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 535.35
+[sub_resource type="CircleShape2D" id=8]
+radius = 2500.0
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 18, 31.5 )
@@ -65,7 +65,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="PanicTimer" type="Timer" parent="."]
 wait_time = 2.0
