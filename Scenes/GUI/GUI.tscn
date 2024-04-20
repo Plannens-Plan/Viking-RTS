@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Structures/Build/BarracksBuild.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GUI/ResouceDisplay.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scripts/Structures/Build/TowerBuild.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/misc/TradeMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Structures/Build/TradingPostBuild.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/GUI/BuildPanel.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Materials/GUIPanel.tres" type="StyleBox" id=10]
 
 [node name="GUI" type="Control"]
 margin_right = 40.0
@@ -17,84 +19,116 @@ margin_bottom = 40.0
 
 [node name="ViewportContainer" parent="Minimap" instance=ExtResource( 4 )]
 
-[node name="BarrackControl" type="Control" parent="."]
+[node name="BuildPanel" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 1 )
+script = ExtResource( 9 )
 
-[node name="BarrackBuild" type="CanvasLayer" parent="BarrackControl"]
+[node name="BuildPanelCanvas" type="CanvasLayer" parent="BuildPanel"]
 visible = false
 
-[node name="Button" type="Button" parent="BarrackControl/BarrackBuild"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = -46.0
-margin_right = 204.0
-margin_bottom = -26.0
+[node name="BuildPanel" type="Panel" parent="BuildPanel/BuildPanelCanvas"]
+anchor_left = 0.111
+anchor_top = 0.891
+anchor_right = 0.111
+anchor_bottom = 0.891
+margin_left = -105.664
+margin_top = -58.6
+margin_right = 105.336
+margin_bottom = 58.4
+custom_styles/panel = ExtResource( 10 )
+
+[node name="BarrackControl" type="Control" parent="BuildPanel/BuildPanelCanvas/BuildPanel"]
+margin_left = -11.0
+margin_top = -475.0
+margin_right = 29.0
+margin_bottom = -435.0
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl"]
+anchor_left = 2.912
+anchor_top = 14.2
+anchor_right = 2.912
+anchor_bottom = 14.2
+margin_left = -91.48
+margin_top = -10.0
+margin_right = 91.52
+margin_bottom = 10.0
 hint_tooltip = "200 Wood
 100 Stone"
 mouse_filter = 1
 text = "Build Barrack"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="WarehouseControl" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="WarehouseControl" type="Control" parent="BuildPanel/BuildPanelCanvas/BuildPanel"]
+margin_left = -11.0
+margin_top = -475.0
+margin_right = 29.0
+margin_bottom = -435.0
 script = ExtResource( 5 )
 
-[node name="WarehouseCanvasLayer" type="CanvasLayer" parent="WarehouseControl"]
-visible = false
-
-[node name="Button" type="Button" parent="WarehouseControl/WarehouseCanvasLayer"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = -69.0
-margin_right = 204.0
-margin_bottom = -49.0
+[node name="Button" type="Button" parent="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl"]
+anchor_left = 2.912
+anchor_top = 13.625
+anchor_right = 2.912
+anchor_bottom = 13.625
+margin_left = -91.48
+margin_top = -10.0001
+margin_right = 91.52
+margin_bottom = 9.99994
 hint_tooltip = "150 Wood
 150 Stone
 50 Silver"
 mouse_filter = 1
 text = "Build Warehouse "
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="TowerControl" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="TowerControl" type="Control" parent="BuildPanel/BuildPanelCanvas/BuildPanel"]
+margin_left = -11.0
+margin_top = -475.0
+margin_right = 29.0
+margin_bottom = -435.0
 script = ExtResource( 6 )
 
-[node name="TowerCanvasLayer" type="CanvasLayer" parent="TowerControl"]
-visible = false
-
-[node name="Button" type="Button" parent="TowerControl/TowerCanvasLayer"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = -92.0
-margin_right = 204.0
-margin_bottom = -72.0
+[node name="Button" type="Button" parent="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl"]
+anchor_left = 2.912
+anchor_top = 13.05
+anchor_right = 2.912
+anchor_bottom = 13.05
+margin_left = -91.48
+margin_top = -10.0
+margin_right = 91.52
+margin_bottom = 10.0
 hint_tooltip = "250 Wood
 50 Stone
 100 Food
 50 Silver"
 mouse_filter = 1
 text = "Build Tower"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="TradingPostControl" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="TradingPostControl" type="Control" parent="BuildPanel/BuildPanelCanvas/BuildPanel"]
+margin_left = -11.0
+margin_top = -475.0
+margin_right = 29.0
+margin_bottom = -435.0
 script = ExtResource( 8 )
 
-[node name="TradingPostCanvasLayer" type="CanvasLayer" parent="TradingPostControl"]
-visible = false
-
-[node name="Button" type="Button" parent="TradingPostControl/TradingPostCanvasLayer"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = -116.0
-margin_right = 204.0
-margin_bottom = -96.0
+[node name="Button" type="Button" parent="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl"]
+anchor_left = 2.912
+anchor_top = 12.45
+anchor_right = 2.912
+anchor_bottom = 12.45
+margin_left = -91.48
+margin_top = -10.0
+margin_right = 91.52
+margin_bottom = 9.99997
 hint_tooltip = "200 Wood
 50 Food
 50 Silver"
@@ -113,16 +147,17 @@ margin_left = -266.0
 margin_top = -115.0
 margin_right = -16.0
 margin_bottom = -15.0
+custom_styles/panel = ExtResource( 10 )
 
 [node name="Wood" type="RichTextLabel" parent="ResouceDisplay"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -259.0
-margin_top = -108.0
-margin_right = -23.0
-margin_bottom = -22.0
+margin_left = -256.0
+margin_top = -104.0
+margin_right = -20.0
+margin_bottom = -18.0
 text = "Wood"
 
 [node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Wood"]
@@ -135,10 +170,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -259.0
-margin_top = -90.0
-margin_right = -149.0
-margin_bottom = -66.0
+margin_left = -256.0
+margin_top = -86.0
+margin_right = -146.0
+margin_bottom = -62.0
 text = "Stone"
 
 [node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Stone"]
@@ -151,10 +186,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -259.0
-margin_top = -72.0
-margin_right = -149.0
-margin_bottom = -48.0
+margin_left = -256.0
+margin_top = -68.0
+margin_right = -146.0
+margin_bottom = -44.0
 text = "Silver"
 
 [node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Silver"]
@@ -167,10 +202,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -259.0
-margin_top = -54.0
-margin_right = -149.0
-margin_bottom = -30.0
+margin_left = -256.0
+margin_top = -50.0
+margin_right = -146.0
+margin_bottom = -26.0
 text = "Food"
 
 [node name="Amount" type="RichTextLabel" parent="ResouceDisplay/Food"]
@@ -183,11 +218,11 @@ margin_bottom = 24.0
 [node name="TradeMap" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="BarrackControl/BarrackBuild/Button" to="BarrackControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="WarehouseControl/WarehouseCanvasLayer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="WarehouseControl/WarehouseCanvasLayer/Button" to="WarehouseControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="TowerControl/TowerCanvasLayer/Button" to="TowerControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="TradingPostControl/TradingPostCanvasLayer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="TradingPostControl/TradingPostCanvasLayer/Button" to="TradingPostControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl" method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl" method="_on_Button_pressed"]

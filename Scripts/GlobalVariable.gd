@@ -15,10 +15,10 @@ export var saves = []
 export var VikingRts={
 	savename="",
 	resources={
-		wood=100,
-		food=100,
-		stone=100,
-		silver=600
+		wood=500,
+		food=500,
+		stone=500,
+		silver=500
 	},
 	units={
 		FriendlyAxemen=5,
