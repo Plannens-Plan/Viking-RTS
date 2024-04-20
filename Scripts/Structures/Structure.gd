@@ -31,7 +31,13 @@ func _physics_process(delta):
 
 #mangler breaking effekt
 func setHealth(newHealth):
-	#if health > newHealth:
+	if health > newHealth:
+		if !$StructureAudio.playing:
+			resetAudio()
+			$StructureAudio.stream = load("res://Assets/Sounds/Structures/fire_puff.mp3")
+			$StructureAudio.pitch_scale = rng.randf_range(0.8,1.2)
+			$StructureAudio.volume_db = -5
+			$StructureAudio.play()
 		#var bloodParticleInstance = bloodParticle.instance()
 		#bloodParticleInstance.emitting = true
 		#add_child(bloodParticleInstance)
