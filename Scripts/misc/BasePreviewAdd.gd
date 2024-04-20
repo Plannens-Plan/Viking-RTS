@@ -30,6 +30,7 @@ func loadPreview():
 	previewShowerInst.sprite = object.instance().get_node("Sprite").texture
 	previewShowerInst.spriteWidth = object.instance().get_node("Sprite").scale.x
 	previewShowerInst.spriteHeight = object.instance().get_node("Sprite").scale.y
+	previewShowerInst.spritePosition = object.instance().get_node("Sprite").position
 	print(object.instance().get_node("CollisionShape2D").shape)
 	if object.instance().get_node("CollisionShape2D").shape is CircleShape2D:
 		previewShowerInst.collisionScaleRadius = object.instance().get_node("CollisionShape2D").shape.radius
@@ -47,5 +48,6 @@ func loadPreview():
 		previewShowerInst.stoneCost = previewStoneCost
 		previewShowerInst.foodCost = previewFoodCost
 		previewShowerInst.silverCost = previewSilverCost
+	previewShowerInst.collisionPosition = object.instance().get_node("CollisionShape2D").position
 	var world = get_tree().current_scene
 	world.add_child(previewShowerInst)

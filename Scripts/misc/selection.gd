@@ -46,8 +46,8 @@ func checker():
 			mousePosition.x = clamp(get_global_mouse_position().x ,cam.position.x - get_viewport().size.x * cam.zoom.x/2 , get_viewport().size.x * cam.zoom.x/2 + cam.position.x)
 			mousePosition.y = clamp(get_global_mouse_position().y ,cam.position.y - get_viewport().size.y * cam.zoom.y/2 , get_viewport().size.y * cam.zoom.y/2 + cam.position.y)
 		else:
-			mousePosition.x = get_global_mouse_position().x #clamp(get_global_mouse_position().x ,0 , get_viewport().size.x)
-			mousePosition.y = get_global_mouse_position().y#clamp(get_global_mouse_position().y ,0 , get_viewport().size.y)
+			mousePosition.x = get_global_mouse_position().x 
+			mousePosition.y = get_global_mouse_position().y 
 		
 		if mousePosition.x > massSelectionStartingPointX:
 			$Sprite.position.x = massSelectionStartingPointX
