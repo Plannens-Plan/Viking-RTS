@@ -14,6 +14,8 @@ var friendly
 # The RGB color code for the unit's outline, default value is white
 var outlineColor = Color(1, 1, 1, 1)
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	updateElements()
 
@@ -65,3 +67,7 @@ func updateHealthBar():
 	# Healh bar fade out
 	elif !selected:
 		$HealthBar.modulate.a = lerp($HealthBar.modulate.a, 0, healthBarFadeSpeed)
+
+func resetAudio():
+	$StructureAudio.volume_db = 0
+	$StructureAudio.pitch_scale = 1

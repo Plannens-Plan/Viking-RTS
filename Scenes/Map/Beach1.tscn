@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Structures/EnemyTower.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Structures/EnemyChurch.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=20]
@@ -473,6 +474,9 @@ position = Vector2( 1367, 2134 )
 
 [node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 2019, 2294 )
+
+[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 15 )]
+position = Vector2( 1408, 1755 )
 
 [node name="Miners" type="Node" parent="."]
 
