@@ -16,7 +16,7 @@ extents = Vector2( 41.5, 61 )
 radius = 83.0
 height = 8.0
 
-[node name="FriendlyThrall" type="KinematicBody2D" groups=["friendlyUnit", "harvester", "unit"]]
+[node name="FriendlyThrall" type="KinematicBody2D" groups=["friendlyThrall", "friendlyUnit", "harvester", "unit"]]
 collision_layer = 3
 script = ExtResource( 1 )
 

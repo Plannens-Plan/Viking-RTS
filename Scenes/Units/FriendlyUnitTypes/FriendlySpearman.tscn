@@ -15,7 +15,7 @@ extents = Vector2( 41.5, 61 )
 [sub_resource type="CircleShape2D" id=5]
 radius = 90.0056
 
-[node name="FriendlySpearman" type="KinematicBody2D" groups=["friendlyUnit", "unit"]]
+[node name="FriendlySpearman" type="KinematicBody2D" groups=["friendlySpearman", "friendlyUnit", "unit"]]
 script = ExtResource( 4 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

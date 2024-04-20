@@ -104,6 +104,10 @@ func checkWin():
 				units[shortlength]=0
 			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression[str(self.name)] = true
+		units.FriendlyAxemen += get_tree().get_nodes_in_group("friendlyAxeman").size()
+		units.FriendlyArcher += get_tree().get_nodes_in_group("friendlyArcher").size()
+		units.FriendlyThrall += get_tree().get_nodes_in_group("friendlyThrall").size()
+		units.FriendlySpearmen += get_tree().get_nodes_in_group("friendlySpearman").size()
 		saveemit()
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 

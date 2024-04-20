@@ -24,10 +24,10 @@ export var VikingRts={
 		silver=500
 	},
 	units={
-		FriendlyAxemen=5,
+		FriendlyAxemen=3,
 		FriendlyArcher=2,
-		FriendlyThrall=2,
-		FriendlySpearmen=10
+		FriendlyThrall=0,
+		FriendlySpearmen=6
 	},
 	structureLocation={
 		beach = [],
@@ -55,10 +55,10 @@ export var Default={
 		silver=500
 	},
 	units={
-		FriendlyAxemen=5,
+		FriendlyAxemen=3,
 		FriendlyArcher=2,
-		FriendlyThrall=2,
-		FriendlySpearmen=10
+		FriendlyThrall=0,
+		FriendlySpearmen=6
 	},
 	structureLocation={
 		beach = [],
