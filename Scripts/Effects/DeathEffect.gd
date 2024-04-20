@@ -31,6 +31,7 @@ func _ready():
 		$DeathSound.pitch_scale = rng.randf_range(0.7,1.3)
 		$DeathSound.play()
 	else:
+		$DeathSound.pitch_scale = rng.randf_range(0.8,1.2)
 		$DeathSound.stream = load("res://Assets/Sounds/Structures/intense_fire.mp3")
 		$DeathSound.play()
 
