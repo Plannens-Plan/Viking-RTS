@@ -164,7 +164,7 @@ func _on_Load_savegame_pressed():
 
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
-	
+	print(GlobalVariable.VikingRts)
 	TransitionScreen.change_scene(startgamepath)
 	
 
