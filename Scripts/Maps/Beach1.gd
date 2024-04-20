@@ -4,6 +4,7 @@ extends Node2D
 var friendlyUnits
 var fcount
 
+var enemyBuildings
 var enemyUnits
 var ecount
 
@@ -15,6 +16,7 @@ func _ready():
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
+	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
 	ecount = enemyUnits.size()
 	if GlobalVariable.VikingRts.progression.get(str(self.name)):
 		GlobalVariable.Friendly=true
@@ -68,10 +70,28 @@ func _ready():
 #	#
 #	pass
 
+func _on_Enemy_child_exiting_tree(node):
+	checkWin()
+
 func _on_EnemyUnits_child_exiting_tree(node):
+	checkWin()
+
+func _on_FriendlyUnits_child_exiting_tree(node):
+	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
+	fcount = friendlyUnits.size()
+
+	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
+		GlobalVariable.RemainingTroops = fcount
+		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
+func saveemit():
+	var scene = get_tree().current_scene
+	if scene.has_node("savemapstate"):
+		scene.get_node("savemapstate").savemapstate()		
+
+func checkWin():
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
-	ecount = enemyUnits.size()
-	
+	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
+	ecount = enemyUnits.size() + enemyBuildings.size()
 	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
@@ -87,14 +107,5 @@ func _on_EnemyUnits_child_exiting_tree(node):
 		saveemit()
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 
-func _on_FriendlyUnits_child_exiting_tree(node):
-	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
-	fcount = friendlyUnits.size()
 
-	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
-		GlobalVariable.RemainingTroops = fcount
-		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
-func saveemit():
-	var scene = get_tree().current_scene
-	if scene.has_node("savemapstate"):
-		scene.get_node("savemapstate").savemapstate()		
+
