@@ -5,10 +5,12 @@ var sprite
 var shownObject
 var spriteWidth
 var spriteHeight
+var spritePosition
 
 var collisionScaleRadius
 var collisionScaleX
 var collisionScaleY
+var collisionPosition
 
 var woodCost = 0
 var stoneCost = 0
@@ -27,17 +29,17 @@ func _ready():
 	$Sprite.texture = sprite
 	$Sprite.scale.x = spriteWidth
 	$Sprite.scale.y = spriteHeight
+	$Sprite.position = spritePosition
 	if collisionScaleX != null:
-		print("not balls")
 		var rect = RectangleShape2D.new()
 		rect.extents = Vector2(collisionScaleX,collisionScaleY)
 		$placableDetect/CollisionShape2D.shape = rect
 		
 	if collisionScaleRadius != null:
-		print("balls")
 		var circle = CircleShape2D.new()
 		circle.radius = collisionScaleRadius
 		$placableDetect/CollisionShape2D.shape = circle
+	$placableDetect/CollisionShape2D.position = collisionPosition
 
 func _physics_process(delta):
 	position = get_global_mouse_position()
