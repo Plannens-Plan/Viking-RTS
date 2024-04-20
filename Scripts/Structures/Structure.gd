@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
+onready var fireParticle = preload("res://Scenes/Particle/FireParticles.tscn")
 
 var mouseOver = false
 var selected = false
@@ -39,9 +40,9 @@ func setHealth(newHealth):
 			$StructureAudio.stream = load("res://Assets/Sounds/Structures/fire_puff.mp3")
 			$StructureAudio.pitch_scale = rng.randf_range(0.8,1.2)
 			$StructureAudio.play()
-		#var bloodParticleInstance = bloodParticle.instance()
-		#bloodParticleInstance.emitting = true
-		#add_child(bloodParticleInstance)
+		var fireParticleInstance = fireParticle.instance()
+		fireParticleInstance.emitting = true
+		add_child(fireParticleInstance)
 	health = newHealth
 	$HealthBarTimer.start()
 	if health <= 0:

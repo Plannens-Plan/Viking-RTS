@@ -12,7 +12,6 @@ export var saves = []
 #export var yyy = xxx
 signal save
 func emitsignal():
-	print("global emit")
 	emit_signal("save")
 
 export var VikingRts={
@@ -24,10 +23,10 @@ export var VikingRts={
 		silver=500
 	},
 	units={
-		FriendlyAxemen=3,
+		FriendlyAxeman=3,
 		FriendlyArcher=2,
 		FriendlyThrall=0,
-		FriendlySpearmen=6
+		FriendlySpearman=6
 	},
 	structureLocation={
 		beach = [],
@@ -55,10 +54,10 @@ export var Default={
 		silver=500
 	},
 	units={
-		FriendlyAxemen=3,
+		FriendlyAxeman=3,
 		FriendlyArcher=2,
 		FriendlyThrall=0,
-		FriendlySpearmen=6
+		FriendlySpearman=6
 	},
 	structureLocation={
 		beach = [],

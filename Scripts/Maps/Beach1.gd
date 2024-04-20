@@ -7,6 +7,7 @@ var fcount
 var enemyBuildings
 var enemyUnits
 var ecount
+var ifready = false
 
 onready var winScreen = preload("res://Scenes/GUI/EndScreen.tscn").instance()
 onready var GlobalVariable= get_node("/root/GlobalVariables")
@@ -26,6 +27,9 @@ func _ready():
 			eu.remove_child(n)
 		for n in fu.get_children():
 			fu.remove_child(n)
+		var es = get_tree().current_scene.get_node("Structures/Enemy")
+		for n in es.get_children():
+			es.remove_child(n)
 		var Structures = get_tree().current_scene.get_node("Structures/Friendly")
 		var location = GlobalVariable.VikingRts.structureLocation.get(str(self.name))
 		for i in location:
@@ -33,7 +37,6 @@ func _ready():
 			struct.position.x =i.position.x
 			struct.position.y =i.position.y
 			Structures.add_child(struct)
-		
 		var res = get_tree().current_scene.get_node("Resources")
 		for i in res.get_children():
 			for j in i.get_children():
@@ -53,7 +56,7 @@ func _ready():
 		enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 		ecount = enemyUnits.size()
 		BackgroundMusicPlayer.changeSongType("combat")
-		
+	ifready=true
 #func savemapstate():
 #	#Structures
 #	var Structures = get_tree().current_scene.get_node("Structures/Friendly")
@@ -95,20 +98,21 @@ func checkWin():
 	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
-		var scene = get_tree().current_scene
-		var FriendlyUnits = scene.get_node("FriendlyUnits")
-		for i in FriendlyUnits.get_children():
-			var unitfile = i.filename 
-			var shortlength=unitfile.substr(37).split(".tscn")[0]
-			if not units.has(shortlength):
-				units[shortlength]=0
-			units[shortlength]+=1
+#		var scene = get_tree().current_scene
+#		var FriendlyUnits = scene.get_node("FriendlyUnits")
+#		for i in FriendlyUnits.get_children():
+#			var unitfile = i.filename 
+#			var shortlength=unitfile.substr(37).split(".tscn")[0]
+#			if not units.has(shortlength):
+#				units[shortlength]=0
+#			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression[str(self.name)] = true
 		units.FriendlyAxemen += get_tree().get_nodes_in_group("friendlyAxeman").size()
 		units.FriendlyArcher += get_tree().get_nodes_in_group("friendlyArcher").size()
 		units.FriendlyThrall += get_tree().get_nodes_in_group("friendlyThrall").size()
 		units.FriendlySpearmen += get_tree().get_nodes_in_group("friendlySpearman").size()
-		saveemit()
+		if ifready:
+			saveemit()
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 
 
