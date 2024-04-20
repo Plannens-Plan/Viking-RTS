@@ -39,7 +39,7 @@ func _ready():
 		var circle = CircleShape2D.new()
 		circle.radius = collisionScaleRadius
 		$placableDetect/CollisionShape2D.shape = circle
-	$placableDetect/CollisionShape2D.position = collisionPosition
+		$placableDetect/CollisionShape2D.position = collisionPosition
 
 func _physics_process(delta):
 	position = get_global_mouse_position()

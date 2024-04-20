@@ -21,7 +21,6 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="MainScene" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Login" type="Button" parent="MainScene"]
 anchor_left = 0.5
@@ -45,6 +44,7 @@ margin_bottom = 30.0
 text = "Signup"
 
 [node name="Login" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Back" type="Button" parent="Login"]
 anchor_left = 0.5

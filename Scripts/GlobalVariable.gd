@@ -10,7 +10,10 @@ export var id=0
 export var saves = []
 #lav data her
 #export var yyy = xxx
-
+signal save
+func emitsignal():
+	print("global emit")
+	emit_signal("save")
 
 export var VikingRts={
 	savename="",
@@ -73,3 +76,18 @@ export var Default={
 		buns=false
 	}
 }
+
+func defaultsave():
+	print("Default save load")
+	#VikingRts={}
+	#VikingRts=Default
+	var dict = Default
+	for key in dict:
+		if VikingRts.has(key):
+			if typeof(VikingRts[key]) ==18:
+				var dict2=dict[key]
+				for key2 in dict2:
+					VikingRts[key][key2] = dict2[key2]
+
+			else:
+				VikingRts[key]=dict[key]

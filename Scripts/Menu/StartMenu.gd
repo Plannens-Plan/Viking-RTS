@@ -111,7 +111,8 @@ func alreadyinuse():
 	$CanvasLayer/Newgame/Warning2.show()
 	return
 func notinuse():
-	GlobalVariable.VikingRts=GlobalVariable.Default
+	GlobalVariable.defaultsave()
+	print(GlobalVariable.VikingRts)
 	GlobalVariable.VikingRts.savename=input_text.text
 	#get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
 	Network.submit_save(GlobalVariable.id, GlobalVariable.VikingRts.savename, to_json(GlobalVariable.VikingRts))
@@ -149,7 +150,8 @@ func _on_Load_savegame_pressed():
 			return
 	
 #	var dict=load_data(savedir + dropmenu.text + ".dat")
-	GlobalVariable.VikingRts=GlobalVariable.Default
+	GlobalVariable.defaultsave()
+	print(GlobalVariable.VikingRts)
 	var dict = parse_json(GlobalVariable.saves[index].data)
 	print(index)
 	print(GlobalVariable.saves[index].save)
