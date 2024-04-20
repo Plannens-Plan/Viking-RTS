@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire_puff.mp3-a4ec2105e656f6a19412a3dc59d3b57d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Structures/fire_puff.mp3"
+dest_files=[ "res://.import/fire_puff.mp3-a4ec2105e656f6a19412a3dc59d3b57d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
