@@ -27,12 +27,23 @@ func _ready():
 		var Structures = get_tree().current_scene.get_node("Structures/Friendly")
 		var location = GlobalVariable.VikingRts.structureLocation.get(str(self.name))
 		for i in location:
-			print(i)
 			var struct = load(i.structure).instance()
 			struct.position.x =i.position.x
 			struct.position.y =i.position.y
 			Structures.add_child(struct)
-			
+		
+		var res = get_tree().current_scene.get_node("Resources")
+		for i in res.get_children():
+			for j in i.get_children():
+				i.remove_child(j)
+		var savedres = GlobalVariable.VikingRts.resourceLocation.get(str(self.name))
+		for i in savedres:
+			var type = res.get_node(i)
+			for j in savedres[i]:
+				var struct = load(j.type).instance()
+				struct.position.x =j.position.x
+				struct.position.y =j.position.y
+				type.add_child(struct)
 		BackgroundMusicPlayer.changeSongType("default")
 	else:
 		friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")

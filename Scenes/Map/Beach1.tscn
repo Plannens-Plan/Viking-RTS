@@ -601,6 +601,9 @@ position = Vector2( 4887, 2659 )
 
 [node name="EnemyUnits" type="YSort" parent="."]
 
+[node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 1286, 2710 )
+
 [node name="FriendlyUnits" type="YSort" parent="."]
 
 [node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 12 )]
@@ -633,9 +636,6 @@ position = Vector2( 1329, 1100 )
 [node name="selection" parent="." instance=ExtResource( 5 )]
 
 [node name="savemapstate" parent="." instance=ExtResource( 9 )]
-
-[node name="EnemySpearman" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1617, 2755 )
 
 [connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]

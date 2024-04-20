@@ -36,7 +36,7 @@ func inputter():
 		selector()
 
 func checker():
-	print(cam)
+	#print(cam)
 	if held == true:
 		if massSelectionStartingPointX == null && massSelectionStartingPointY == null:
 			massSelectionStartingPointX = get_global_mouse_position().x as float
