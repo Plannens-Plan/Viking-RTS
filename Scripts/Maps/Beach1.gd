@@ -7,6 +7,7 @@ var fcount
 var enemyBuildings
 var enemyUnits
 var ecount
+var ifready = false
 
 onready var winScreen = preload("res://Scenes/GUI/EndScreen.tscn").instance()
 onready var GlobalVariable= get_node("/root/GlobalVariables")
@@ -26,6 +27,9 @@ func _ready():
 			eu.remove_child(n)
 		for n in fu.get_children():
 			fu.remove_child(n)
+		var es = get_tree().current_scene.get_node("Structures/Enemy")
+		for n in es.get_children():
+			es.remove_child(n)
 		var Structures = get_tree().current_scene.get_node("Structures/Friendly")
 		var location = GlobalVariable.VikingRts.structureLocation.get(str(self.name))
 		for i in location:
@@ -53,7 +57,7 @@ func _ready():
 		enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 		ecount = enemyUnits.size()
 		BackgroundMusicPlayer.changeSongType("combat")
-		
+	ifready=true
 #func savemapstate():
 #	#Structures
 #	var Structures = get_tree().current_scene.get_node("Structures/Friendly")
@@ -104,7 +108,8 @@ func checkWin():
 				units[shortlength]=0
 			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression[str(self.name)] = true
-		saveemit()
+		if ifready:
+			saveemit()
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 
 

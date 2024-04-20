@@ -52,6 +52,16 @@ func savemapstate():
 				},
 				type=j.filename
 			})
+	#Units
+	var FriendlyUnits = scene.get_node("FriendlyUnits")
+	var units= GlobalVariable.VikingRts.units
+	for i in FriendlyUnits.get_children():
+		
+		var unitfile = i.filename 
+		var shortlength=unitfile.substr(37).split(".tscn")[0]
+		if not units.has(shortlength):
+			units[shortlength]=0
+		units[shortlength]+=1
 		#print(resloc[resname.name])
 	#print("Global")
 	#print(GlobalVariable.VikingRts.resourceLocation)
