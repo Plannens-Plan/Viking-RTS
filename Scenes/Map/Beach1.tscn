@@ -460,6 +460,9 @@ current = true
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 visible = false
 
+[node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
+position = Vector2( 94, 884 )
+
 [node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]
@@ -631,9 +634,6 @@ position = Vector2( 1325, 876 )
 position = Vector2( 1329, 1100 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
-
-[node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
-position = Vector2( 94, 884 )
 
 [node name="savemapstate" parent="." instance=ExtResource( 9 )]
 

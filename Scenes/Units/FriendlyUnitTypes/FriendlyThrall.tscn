@@ -17,7 +17,7 @@ radius = 83.0
 height = 8.0
 
 [node name="FriendlyThrall" type="KinematicBody2D" groups=["friendlyUnit", "harvester", "unit"]]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
