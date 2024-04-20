@@ -42,9 +42,10 @@ func savemapstate():
 		for i in Res.get_children():
 			var resname= i
 			var resloc=GlobalVariable.VikingRts.resourceLocation[map]
+			
 			#print(resloc)
-			if !resloc.has(resname.name):
-				resloc[resname.name]=[]
+
+			resloc[resname.name]=[]
 			#print(resloc[resname.name])
 			for j in resname.get_children():
 				resloc[resname.name].append({

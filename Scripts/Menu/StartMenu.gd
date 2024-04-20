@@ -151,10 +151,10 @@ func _on_Load_savegame_pressed():
 	
 #	var dict=load_data(savedir + dropmenu.text + ".dat")
 	GlobalVariable.defaultsave()
-	print(GlobalVariable.VikingRts)
+	#print(GlobalVariable.VikingRts)
 	var dict = parse_json(GlobalVariable.saves[index].data)
-	print(index)
-	print(GlobalVariable.saves[index].save)
+	#print(index)
+	#print(GlobalVariable.saves[index].save)
 	for key in dict:
 		if GlobalVariable.VikingRts.has(key):
 			if typeof(GlobalVariable.VikingRts[key]) ==18:
@@ -164,7 +164,7 @@ func _on_Load_savegame_pressed():
 
 			else:
 				GlobalVariable.VikingRts[key]=dict[key]
-	print(GlobalVariable.VikingRts)
+	#print(GlobalVariable.VikingRts)
 	TransitionScreen.change_scene(startgamepath)
 	
 

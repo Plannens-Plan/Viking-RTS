@@ -40,7 +40,9 @@ func _ready():
 		var res = get_tree().current_scene.get_node("Resources")
 		for i in res.get_children():
 			for j in i.get_children():
+				#print(j)
 				i.remove_child(j)
+			#print(i.get_children())
 		var savedres = GlobalVariable.VikingRts.resourceLocation.get(str(self.name))
 		for i in savedres:
 			var type = res.get_node(i)
