@@ -101,14 +101,14 @@ func checkWin():
 	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
-		var scene = get_tree().current_scene
-		var FriendlyUnits = scene.get_node("FriendlyUnits")
-		for i in FriendlyUnits.get_children():
-			var unitfile = i.filename 
-			var shortlength=unitfile.substr(37).split(".tscn")[0]
-			if not units.has(shortlength):
-				units[shortlength]=0
-			units[shortlength]+=1
+#		var scene = get_tree().current_scene
+#		var FriendlyUnits = scene.get_node("FriendlyUnits")
+#		for i in FriendlyUnits.get_children():
+#			var unitfile = i.filename 
+#			var shortlength=unitfile.substr(37).split(".tscn")[0]
+#			if not units.has(shortlength):
+#				units[shortlength]=0
+#			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression[str(self.name)] = true
 		if ifready:
 			saveemit()
