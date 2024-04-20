@@ -12,7 +12,6 @@ export var saves = []
 #export var yyy = xxx
 signal save
 func emitsignal():
-	print("global emit")
 	emit_signal("save")
 
 export var VikingRts={

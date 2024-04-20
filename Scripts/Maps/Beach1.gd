@@ -77,8 +77,6 @@ func _on_Enemy_child_exiting_tree(node):
 	checkWin()
 
 func _on_EnemyUnits_child_exiting_tree(node):
-	print($EnemyUnits.get_child_count())
-	print($EnemyUnits.get_children())
 	checkWin()
 
 func _on_FriendlyUnits_child_exiting_tree(node):
@@ -97,7 +95,6 @@ func checkWin():
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
 	ecount = enemyUnits.size() + enemyBuildings.size()
-	print(str(" ecount = ",ecount," GlobalVariable.Exiting = ",GlobalVariable.Exiting," GlobalVariable.VikingRts.progression.get(str(self.name)) = ",GlobalVariable.VikingRts.progression.get(str(self.name))))
 	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
