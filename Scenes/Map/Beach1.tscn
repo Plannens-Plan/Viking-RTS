@@ -461,6 +461,7 @@ current = true
 visible = false
 
 [node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 94, 884 )
 
 [node name="Structures" type="YSort" parent="."]
