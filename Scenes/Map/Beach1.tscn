@@ -36,8 +36,6 @@ texture = ExtResource( 1 )
 scale = Vector2( 16.2374, 0.68157 )
 navpoly = SubResource( 1 )
 
-[node name="tree" type="Node" parent="."]
-
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1000, 2051 )
 current = true

@@ -47,12 +47,13 @@ func _on_BackToMenu_pressed():
 func _on_Save_pressed():
 	var units= GlobalVariable.VikingRts.units
 	var scene = get_tree().current_scene
+	
+	saveemit()
 	if scene.has_node("FriendlyUnits"):
 		units.FriendlyAxeman -= get_tree().get_nodes_in_group("friendlyAxeman").size()
 		units.FriendlyArcher -= get_tree().get_nodes_in_group("friendlyArcher").size()
 		units.FriendlyThrall -= get_tree().get_nodes_in_group("friendlyThrall").size()
 		units.FriendlySpearman -= get_tree().get_nodes_in_group("friendlySpearman").size()
-	saveemit()
 	if get_node(".").has_node("Background"):
 		var savename=GlobalVariable.VikingRts.savename
 		#save_currentmapstate()
