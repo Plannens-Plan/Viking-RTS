@@ -224,6 +224,9 @@ func _on_Logingame_pressed():
 		if i in $Login/Password.text:
 			$Login/Warning3.show()
 			return
+	if $Login/Password.text=="" or $Login/Username.text == "":
+		$Login/Warning4.show()
+		return
 	$Login/Back.disabled=true
 	$Login/Login.disabled=true	
 	$Login/Username.editable=false
@@ -265,6 +268,8 @@ func _on_Login_text_changed(new_text):
 		$Login/Warning2.hide()
 	if $Login/Warning3.visible:
 		$Login/Warning3.hide()
+	if $Login/Warning4.visible:
+		$Login/Warning4.hide()
 	pass # Replace with function body.
 
 
@@ -310,6 +315,9 @@ func _on_Signupgame_pressed():
 		if i in $Signup/Password.text:
 			$Signup/Warning3.show()
 			return
+	if $Signup/Password.text == "" or $Signup/Username.text == "":
+		$Signup/Warning4.show()
+		return
 	$Signup/Back.disabled=true
 	$Signup/Signup.disabled=true
 	$Signup/Username.editable=false
@@ -340,6 +348,8 @@ func _on_signup_text_changed(new_text):
 		$Signup/Warning2.visible=false
 	if $Signup/Warning3.visible:
 		$Signup/Warning3.visible=false
+	if $Signup/Warning4.visible:
+		$Signup/Warning4.visible=false
 	pass # Replace with function body.
 
 

@@ -21,6 +21,7 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="MainScene" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Login" type="Button" parent="MainScene"]
 anchor_left = 0.5
@@ -44,7 +45,6 @@ margin_bottom = 30.0
 text = "Signup"
 
 [node name="Login" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Back" type="Button" parent="Login"]
 anchor_left = 0.5
@@ -132,6 +132,19 @@ margin_bottom = -88.0
 text = "Password cannot contain these letters
 \\ / < >: ; | \" '  ` ´ < >"
 
+[node name="Warning4" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -120.0
+margin_right = 136.0
+margin_bottom = -88.0
+text = "Please input something in both text fields!"
+
 [node name="Signup" type="CanvasLayer" parent="."]
 visible = false
 
@@ -216,6 +229,19 @@ margin_right = 124.5
 margin_bottom = -88.0
 text = "Password cannot contain these letters
 \\ / < >: ; | \" '  ` ´ < >"
+
+[node name="Warning4" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -120.0
+margin_right = 136.0
+margin_bottom = -88.0
+text = "Please input something in both text fields!"
 
 [node name="Success" type="Panel" parent="Signup"]
 visible = false
