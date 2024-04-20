@@ -16,7 +16,7 @@ func _ready():
 	fcount = friendlyUnits.size()
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	ecount = enemyUnits.size()
-	if GlobalVariable.VikingRts.progression.beach:
+	if GlobalVariable.VikingRts.progression.get(str(self.name)):
 		GlobalVariable.Friendly=true
 		var eu = get_tree().current_scene.get_node("EnemyUnits")
 		var fu = get_tree().current_scene.get_node("FriendlyUnits")
@@ -25,8 +25,8 @@ func _ready():
 		for n in fu.get_children():
 			fu.remove_child(n)
 		var Structures = get_tree().current_scene.get_node("Structures/Friendly")
-		var beach = GlobalVariable.VikingRts.structureLocation.beach
-		for i in beach:
+		var location = GlobalVariable.VikingRts.structureLocation.get(str(self.name))
+		for i in location:
 			print(i)
 			var struct = load(i.structure).instance()
 			struct.position.x =i.position.x
@@ -61,11 +61,10 @@ func _on_EnemyUnits_child_exiting_tree(node):
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	ecount = enemyUnits.size()
 	
-	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.beach==false:
+	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
 		var scene = get_tree().current_scene
-		
 		var FriendlyUnits = scene.get_node("FriendlyUnits")
 		for i in FriendlyUnits.get_children():
 			var unitfile = i.filename 
@@ -73,7 +72,7 @@ func _on_EnemyUnits_child_exiting_tree(node):
 			if not units.has(shortlength):
 				units[shortlength]=0
 			units[shortlength]+=1
-		GlobalVariable.VikingRts.progression.beach=true
+		GlobalVariable.VikingRts.progression[str(self.name)] = true
 		
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 
@@ -81,6 +80,6 @@ func _on_FriendlyUnits_child_exiting_tree(node):
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
 
-	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.beach==false:
+	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
