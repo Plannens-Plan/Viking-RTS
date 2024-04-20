@@ -140,11 +140,11 @@ func _on_Load_savegame_pressed():
 	if GlobalVariable.saves.size()>1:
 		index=-1
 		for i in GlobalVariable.saves:
-			
 			if i.save == dropmenu.text:
 				found=true
-				index+=1
 				break
+			index+=1
+				
 		if not found:
 			$CanvasLayer/Loadgame/Warning.show()
 			return
