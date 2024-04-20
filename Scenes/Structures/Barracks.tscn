@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Images/Structures/viking_longhouse.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Structures/Barracks.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Materials/GUIPanel.tres" type="StyleBox" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 342.5, 136.5 )
@@ -63,10 +64,11 @@ text = "Unit inside barracks !
 Move them out first."
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 131.0
-margin_top = -51.0
-margin_right = 300.0
-margin_bottom = 52.0
+margin_left = -91.0
+margin_top = 148.0
+margin_right = 90.0
+margin_bottom = 262.0
+custom_styles/panel = ExtResource( 6 )
 
 [node name="PurchaseSpear" type="Button" parent="Panel"]
 anchor_left = 0.5
