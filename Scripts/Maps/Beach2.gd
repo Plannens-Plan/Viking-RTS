@@ -49,6 +49,7 @@ func _on_EnemyUnits_child_exiting_tree(node):
 				units[shortlength]=0
 			units[shortlength]+=1
 		GlobalVariable.VikingRts.progression.engvik=true
+		saveemit()
 		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 
 func _on_FriendlyUnits_child_exiting_tree(node):
@@ -60,3 +61,7 @@ func _on_FriendlyUnits_child_exiting_tree(node):
 		GlobalVariable.RemainingTroops = fcount
 		get_tree().change_scene("res://Scenes/GUI/EndScreen.tscn")
 	pass # Replace with function body.
+func saveemit():
+	var scene = get_tree().current_scene
+	if scene.has_node("savemapstate"):
+		scene.get_node("savemapstate").savemapstate()

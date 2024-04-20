@@ -45,9 +45,8 @@ func _on_BackToMenu_pressed():
 #	file.close()
 #
 func _on_Save_pressed():
-	
+	saveemit()
 	if get_node(".").has_node("Background"):
-		emit_signal("save")
 		var savename=GlobalVariable.VikingRts.savename
 		#save_currentmapstate()
 		var data = GlobalVariable.VikingRts
@@ -56,10 +55,15 @@ func _on_Save_pressed():
 		Network.update_save(GlobalVariable.id,savename,to_json(data))
 
 func _on_Button_pressed():
-	
+	saveemit()
 	if get_node(".").has_node("Background"):
 		get_tree().paused =false
 		GlobalVariable.Exiting=true
-		emit_signal("save")
+		 
 		get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
 		BackgroundMusicPlayer.changeSongType("default")
+
+func saveemit():
+	var scene = get_tree().current_scene
+	if scene.has_node("savemapstate"):
+		scene.get_node("savemapstate").savemapstate()
