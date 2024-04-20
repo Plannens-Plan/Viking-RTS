@@ -10,6 +10,7 @@ var ecount
 onready var winScreen = preload("res://Scenes/GUI/EndScreen.tscn").instance()
 onready var GlobalVariable= get_node("/root/GlobalVariables")
 
+
 func _ready():
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
