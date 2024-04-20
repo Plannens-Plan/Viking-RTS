@@ -77,7 +77,7 @@ margin_left = -115.0
 margin_top = -100.0
 margin_right = 115.0
 margin_bottom = -76.0
-text = "Username"
+placeholder_text = "Username"
 
 [node name="Password" type="LineEdit" parent="Login"]
 anchor_left = 0.5
@@ -89,7 +89,7 @@ margin_top = -70.0
 margin_right = 115.0
 margin_bottom = -46.0
 rect_pivot_offset = Vector2( -132, 42 )
-text = "Password"
+placeholder_text = "Password"
 
 [node name="Warning" type="RichTextLabel" parent="Login"]
 visible = false
@@ -166,7 +166,7 @@ margin_left = -115.0
 margin_top = -100.0
 margin_right = 115.0
 margin_bottom = -76.0
-text = "Username"
+placeholder_text = "Username"
 
 [node name="Password" type="LineEdit" parent="Signup"]
 anchor_left = 0.5
@@ -178,7 +178,7 @@ margin_top = -70.0
 margin_right = 115.0
 margin_bottom = -46.0
 rect_pivot_offset = Vector2( -132, 42 )
-text = "Password"
+placeholder_text = "Password"
 
 [node name="Warning" type="RichTextLabel" parent="Signup"]
 visible = false

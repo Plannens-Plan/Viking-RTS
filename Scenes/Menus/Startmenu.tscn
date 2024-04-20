@@ -92,7 +92,7 @@ margin_left = -55.0
 margin_top = -29.5
 margin_right = 55.0
 margin_bottom = -5.5
-text = "New save"
+placeholder_text = "New save"
 
 [node name="Warning" type="RichTextLabel" parent="CanvasLayer/Newgame"]
 visible = false
