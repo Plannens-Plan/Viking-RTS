@@ -89,6 +89,10 @@ func attack():
 					return
 
 func _physics_process(delta):
+	if velocity.x < 0:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
 	velocity = Vector2.ZERO
 	if position.distance_to(target) > target_max:
 		velocity = position.direction_to(target) * moveSpeed
