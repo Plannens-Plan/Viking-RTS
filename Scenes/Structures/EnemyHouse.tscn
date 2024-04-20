@@ -4,27 +4,26 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=4]
-[ext_resource path="res://Scripts/Structures/FriendlyStructure.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Structures/EnemyHouse.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 259.5, 170 )
+extents = Vector2( 227, 171.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 335.5, 135 )
+extents = Vector2( 256, 166 )
 
-[node name="FriendlyStructure" type="Area2D" groups=["Building", "friendlyBuilding"]]
+[node name="EnemyHouse" type="Area2D" groups=["Building", "enemy", "enemyBuilding"]]
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
-position = Vector2( 1, 1.52588e-05 )
-scale = Vector2( 0.568027, 0.568027 )
+position = Vector2( -7.62939e-06, 1 )
+scale = Vector2( 0.360032, 0.670683 )
 texture = ExtResource( 1 )
 region_rect = Rect2( -71.144, -58.0491, 1042.66, 700.277 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0.5, 0 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]

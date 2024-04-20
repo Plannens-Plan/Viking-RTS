@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LevelObjects/tree.tscn" type="PackedScene" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Map/savemapstate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Structures/Barracks.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Structures/EnemyHouse.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/Structures/TradingPost.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Structures/EnemyTower.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Structures/EnemyChurch.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=21]
@@ -463,13 +464,19 @@ visible = false
 
 [node name="Friendly" type="YSort" parent="Structures"]
 
-[node name="Barracks" parent="Structures/Friendly" instance=ExtResource( 11 )]
-position = Vector2( 1223, 881 )
-
-[node name="TradingPost" parent="Structures/Friendly" instance=ExtResource( 15 )]
-position = Vector2( 2348, 504 )
-
 [node name="Enemy" type="YSort" parent="Structures"]
+
+[node name="EnemyHouse" parent="Structures/Enemy" instance=ExtResource( 11 )]
+position = Vector2( 817, 2136 )
+
+[node name="EnemyChurch" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 1367, 2134 )
+
+[node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 11 )]
+position = Vector2( 2019, 2294 )
+
+[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 15 )]
+position = Vector2( 1408, 1755 )
 
 [node name="Miners" type="Node" parent="."]
 
@@ -592,7 +599,7 @@ position = Vector2( 4887, 2659 )
 [node name="EnemyUnits" type="YSort" parent="."]
 
 [node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 1464, 1393 )
+position = Vector2( 1286, 2710 )
 
 [node name="FriendlyUnits" type="YSort" parent="."]
 
@@ -621,7 +628,7 @@ position = Vector2( 1113, 952 )
 position = Vector2( 1325, 876 )
 
 [node name="FriendlyAxeman3" parent="FriendlyUnits" instance=ExtResource( 19 )]
-position = Vector2( 1954, 331 )
+position = Vector2( 1329, 1100 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 

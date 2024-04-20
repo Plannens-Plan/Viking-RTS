@@ -55,6 +55,8 @@ margin_right = 154.0
 margin_bottom = 75.0
 text = "Farm Land"
 
+[node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
 [connection signal="pressed" from="CollisionShape2D/PurchaseMenu" to="." method="_on_PurchaseMenu_pressed"]
