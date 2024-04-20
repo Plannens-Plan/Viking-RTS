@@ -69,9 +69,3 @@ func _on_PurchaseBow_pressed():
 
 func _on_PurchaseThrall_pressed():
 	buyUnit(load("res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn"), 50, 25, 50, 0)
-
-
-
-
-
-
