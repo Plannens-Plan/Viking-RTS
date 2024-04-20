@@ -5,6 +5,8 @@ onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 onready var units = GlobalVariable.VikingRts.units
 
+var resources
+
 var object
 var structure = false
 var unit = false
@@ -15,6 +17,9 @@ var previewWoodCost = 0
 var previewStoneCost = 0
 var previewFoodCost = 0
 var previewSilverCost = 0
+
+func _ready():
+	resources = GlobalVariable.VikingRts.resources
 
 func _on_Button_pressed():
 	if structure == true:

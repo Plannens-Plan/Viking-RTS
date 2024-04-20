@@ -7,5 +7,9 @@ func _ready():
 	previewStoneCost = 150
 	previewFoodCost = 0
 	previewSilverCost = 50
-	if GlobalVariable.Friendly:
-		$WarehouseCanvasLayer.show()
+
+func _process(delta):
+	if resources.wood < previewWoodCost or resources.stone < previewStoneCost or resources.food < previewFoodCost or resources.silver < previewSilverCost:
+		$Button.disabled = true
+	else:
+		$Button.disabled = false
