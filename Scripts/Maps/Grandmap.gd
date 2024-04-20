@@ -15,12 +15,12 @@ func _ready():
 func _on_Beach_pressed():
 	if progression.beach:
 		GlobalVariable.Friendly=true
-	get_tree().change_scene("res://Scenes/Map/Beach1.tscn")
+	TransitionScreen.change_scene("res://Scenes/Map/Beach1.tscn")
 
 func _on_Engvik_pressed():
 	if progression.engvik:
 		GlobalVariable.Friendly=true
-	get_tree().change_scene("res://Scenes/Map/Beach2.tscn")
+	TransitionScreen.change_scene("res://Scenes/Map/Beach2.tscn")
 
 func _on_Buns_pressed():
 	get_tree().quit()
