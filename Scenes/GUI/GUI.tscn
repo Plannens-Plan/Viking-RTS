@@ -25,6 +25,7 @@ margin_bottom = 40.0
 script = ExtResource( 9 )
 
 [node name="BuildPanelCanvas" type="CanvasLayer" parent="BuildPanel"]
+visible = false
 
 [node name="BuildPanel" type="Panel" parent="BuildPanel/BuildPanelCanvas"]
 anchor_left = 0.111
