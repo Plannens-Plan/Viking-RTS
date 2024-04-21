@@ -62,6 +62,9 @@ func mapPinUpdater():
 	#Enemy
 	subMapPinUpdater(scene,"EnemyUnits",$Viewport/Enemy)
 	
+	#Neutral
+	subMapPinUpdater(scene, "NeutralUnits", $Viewport/Neutral)
+	
 	#Resource
 	if scene.has_node("Resources"):
 		subMapPinUpdater(scene.get_node("Resources"),"Wood", $Viewport/Resource/Wood)
@@ -104,6 +107,8 @@ func mapPinBuilder():
 	subMapPinBuilder(scene, "FriendlyUnits", "res://Assets/Images/Icons/FriendlyUnit.png", $Viewport/Friendly)
 	#Enemy
 	subMapPinBuilder(scene, "EnemyUnits", "res://Assets/Images/Icons/EnemyUnit.png", $Viewport/Enemy)
+	#Neutral
+	subMapPinBuilder(scene, "NeutralUnits", "res://Assets/Images/Icons/Monk marker.png", $Viewport/Neutral)
 	#Ressource (ændre maybe til at den er lidt pænerer
 	if scene.has_node("Resources"):
 		subMapPinBuilder(scene.get_node("Resources"),"Wood", "res://Assets/Images/Icons/WoodMarker.png", $Viewport/Resource/Wood)

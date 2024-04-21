@@ -225,26 +225,28 @@ position = Vector2( 5137, 2245 )
 [node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 2 )]
 position = Vector2( 5150, 2479 )
 
-[node name="Monk" parent="EnemyUnits" instance=ExtResource( 17 )]
-position = Vector2( 6489, 2537 )
-
-[node name="Monk2" parent="EnemyUnits" instance=ExtResource( 17 )]
-position = Vector2( 5685, 2116 )
-
-[node name="Monk3" parent="EnemyUnits" instance=ExtResource( 17 )]
-position = Vector2( 6325, 1617 )
-
-[node name="Monk4" parent="EnemyUnits" instance=ExtResource( 17 )]
-position = Vector2( 5999, 2711 )
-
-[node name="Monk5" parent="EnemyUnits" instance=ExtResource( 17 )]
-position = Vector2( 6344, 2956 )
-
 [node name="FriendlyUnits" type="YSort" parent="."]
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 
 [node name="savemapstate" parent="." instance=ExtResource( 9 )]
+
+[node name="NeutralUnits" type="YSort" parent="."]
+
+[node name="Monk" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 6489, 2537 )
+
+[node name="Monk2" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 5685, 2116 )
+
+[node name="Monk3" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 6325, 1617 )
+
+[node name="Monk4" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 5999, 2711 )
+
+[node name="Monk5" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 6344, 2956 )
 
 [connection signal="child_exiting_tree" from="Structures/Enemy" to="." method="_on_Enemy_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]

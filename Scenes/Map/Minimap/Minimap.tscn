@@ -46,6 +46,8 @@ texture = ExtResource( 2 )
 
 [node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
 
+[node name="Neutral" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+
 [node name="Area2D" type="Area2D" parent="Node2D/ViewportContainer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/ViewportContainer/Area2D"]
