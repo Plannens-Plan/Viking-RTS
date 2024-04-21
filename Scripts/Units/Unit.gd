@@ -30,7 +30,7 @@ var newunit = true
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")
-onready var blockParticle = preload("res://Scenes/Particle/BlockingParticles.tscn")
+onready var blockParticle = preload("res://Scenes/Particle/Blockingparticles.tscn")
 
 # Unit selection
 var selected = false
