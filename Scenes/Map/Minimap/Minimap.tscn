@@ -28,16 +28,6 @@ texture = ExtResource( 1 )
 self_modulate = Color( 1, 1, 1, 0.52549 )
 texture = ExtResource( 2 )
 
-[node name="Structure" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
-
-[node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
-
-[node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
-
-[node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
-
-[node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
-
 [node name="Resource" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
 
 [node name="Food" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
@@ -45,6 +35,16 @@ texture = ExtResource( 2 )
 [node name="Wood" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
 
 [node name="Stone" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Resource"]
+
+[node name="Structure" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+
+[node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
+
+[node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport/Structure"]
+
+[node name="Enemy" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
+
+[node name="Friendly" type="Node2D" parent="Node2D/ViewportContainer/Viewport"]
 
 [node name="Area2D" type="Area2D" parent="Node2D/ViewportContainer"]
 
