@@ -25,8 +25,8 @@ func savemapstate():
 			map = "engvik"
 		if "Buns" in scene.filename:
 			map = "bun"
-		print("map" + map)
-		print("scene " + scene.name)
+		#print("map" + map)
+		#print("scene " + scene.name)
 		var beach = GlobalVariable.VikingRts.structureLocation[map]
 		for i in Structures.get_children():
 			beach.append({
