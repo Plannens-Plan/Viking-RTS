@@ -13,11 +13,13 @@ func _ready():
 		$Control/Clouds2.hide()
 
 func _on_Beach_pressed():
+	$Control/Beach.disabled=true
 	if progression.beach:
 		GlobalVariable.Friendly=true
 	TransitionScreen.change_scene("res://Scenes/Map/Beach1.tscn")
 
 func _on_Engvik_pressed():
+	$Control/Engvik.disabled=true
 	if progression.engvik:
 		GlobalVariable.Friendly=true
 	TransitionScreen.change_scene("res://Scenes/Map/Beach2.tscn")
