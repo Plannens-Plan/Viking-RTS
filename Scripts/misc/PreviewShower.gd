@@ -109,7 +109,8 @@ func _input(event):
 			units[unitType] -= 1
 			newObject.position = position
 			scene.get_node("FriendlyUnits").add_child(newObject)
-			queue_free()
+			if units[unitType] <= 0:
+				queue_free()
 		if previewingStructure:
 			if resources.food >= foodCost and resources.wood >= woodCost and resources.stone >= stoneCost and resources.silver >= silverCost:
 				newObject.position = position
