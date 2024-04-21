@@ -14,7 +14,6 @@
 [ext_resource path="res://Scenes/Structures/Warehouse.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=13]
 
-
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -798, 4356, -2555, 3859, -1830, 2483, 869, -625, 1172, -665, 1981, 4952, -2230, 2351, -2078, 1799, -1253, 976, 3815, -1672, 8761, -633, 7990, 4554, -423, -766, -1890, 1048, -1263, -423 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 2, 6, 7, 8 ), PoolIntArray( 9, 10, 11, 5, 4 ), PoolIntArray( 12, 3, 2, 8 ), PoolIntArray( 7, 13, 8 ), PoolIntArray( 8, 14, 12 ) ]

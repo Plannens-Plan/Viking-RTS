@@ -47,6 +47,8 @@ visible = false
 [node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
 position = Vector2( 314, 1663 )
 
+[node name="DeathEffects" type="YSort" parent="."]
+
 [node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]

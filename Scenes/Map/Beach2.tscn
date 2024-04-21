@@ -45,6 +45,8 @@ current = true
 [node name="UnitSpawner" parent="." instance=ExtResource( 9 )]
 position = Vector2( 427, 475 )
 
+[node name="DeathEffects" type="YSort" parent="."]
+
 [node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]
