@@ -29,6 +29,11 @@ current = true
 
 [node name="Pausemenu" parent="." instance=ExtResource( 5 )]
 
+[node name="MonkeyMan" type="Sprite" parent="."]
+position = Vector2( 279, 45 )
+scale = Vector2( 0.066445, 0.066445 )
+texture = ExtResource( 10 )
+
 [node name="Control" type="Node2D" parent="."]
 position = Vector2( 400, 700 )
 
