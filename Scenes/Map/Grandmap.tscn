@@ -28,6 +28,11 @@ current = true
 
 [node name="Pausemenu" parent="." instance=ExtResource( 5 )]
 
+[node name="MonkeyMan" type="Sprite" parent="."]
+position = Vector2( 279, 45 )
+scale = Vector2( 0.066445, 0.066445 )
+texture = ExtResource( 10 )
+
 [node name="Control" type="Node2D" parent="."]
 position = Vector2( 400, 700 )
 
@@ -110,11 +115,6 @@ position = Vector2( 518, 1129 )
 rotation = 1.68075
 scale = Vector2( 0.601923, 0.601923 )
 texture = ExtResource( 9 )
-
-[node name="MonkeyMan" type="Sprite" parent="Control"]
-position = Vector2( -121, -655 )
-scale = Vector2( 0.066445, 0.066445 )
-texture = ExtResource( 10 )
 
 [connection signal="pressed" from="Control/Beach" to="." method="_on_Beach_pressed"]
 [connection signal="pressed" from="Control/Engvik" to="." method="_on_Engvik_pressed"]
