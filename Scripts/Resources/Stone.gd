@@ -6,7 +6,7 @@ var ressourceAmmount = 500
 var harvestAmmount = 50
 var workTime = 0.1
 var pickUp = 0 
-var itemType = "Stone"
+var itemType = "stone"
 
 func Work():
 	var rngwood = RandomNumberGenerator.new()

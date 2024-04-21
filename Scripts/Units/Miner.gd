@@ -15,10 +15,18 @@ var harvest = false
 var harvestArea
 
 var inventory = 0
-var maxInventory = 10000
+var maxInventory = 1000
 var itemType = null
+var inventoryDic = {
+	"stone" : 0,
+	"wood" : 0,
+	"food" : 0,
+	"silver" : 0,
+	}
 
 func _physics_process(delta):
+	if inventory < maxInventory:
+		$Encumbered.hide()
 	if $AttackArea.get_overlapping_areas() != null:
 		for area in $AttackArea.get_overlapping_areas():
 			if area.is_in_group("WorkSpace"):
@@ -27,14 +35,12 @@ func _physics_process(delta):
 				if $WorkTimer.is_stopped() == true || $WorkTimer.is_paused()==true:
 					$WorkTimer.wait_time = area.workTime
 					$WorkTimer.start()
-				if inventory < maxInventory && itemType == area.itemType && area.pickUp > 0 || inventory < maxInventory && itemType == null && area.pickUp > 0:
-					if itemType == null:
-						area.pickUp -= 1
-						inventory += 1
-						itemType = area.itemType
-					else: 
-						area.pickUp -= 1
-						inventory += 1
+				if inventory < maxInventory:
+					area.pickUp -= 1
+					inventoryDic[area.itemType] += 1
+					inventory += 1
+				else:
+					$Encumbered.show()
 	else:
 		harvest = false
 	

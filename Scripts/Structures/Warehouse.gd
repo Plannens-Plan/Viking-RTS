@@ -12,14 +12,13 @@ func deposit():
 	if get_overlapping_bodies().size() > 0:
 		for body in get_overlapping_bodies():
 			if body.is_in_group("harvester") && body.inventory > 0:
-				itemType = body.itemType
-				match itemType:
-					"Wood":
-						GlobalVariables.VikingRts.resources.wood += 1
-					"Food":
-						GlobalVariables.VikingRts.resources.food += 1
-					"Stone":
-						GlobalVariables.VikingRts.resources.stone += 1
-					"Silver":
-						GlobalVariables.VikingRts.resources.silver += 1
-				body.inventory-=1
+				depositItemType(body,"wood")
+				depositItemType(body,"silver")
+				depositItemType(body,"food")
+				depositItemType(body,"stone")
+
+func depositItemType(var body, var itemType):
+	if body.inventoryDic[itemType]> 0:
+		GlobalVariables.VikingRts.resources[itemType] += 1
+		body.inventory-=1
+	pass
