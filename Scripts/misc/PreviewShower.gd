@@ -121,3 +121,5 @@ func _input(event):
 				resources.food -= foodCost
 				resources.silver -= silverCost
 			queue_free()
+	if event is InputEventMouseButton && event.get_button_index() == 2:
+		queue_free()
