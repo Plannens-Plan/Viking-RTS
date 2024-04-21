@@ -79,6 +79,9 @@ margin_left = -75.5
 margin_top = -44.0
 margin_right = 76.5
 margin_bottom = -24.0
+hint_tooltip = "75 Food
+25 Wood
+25 Silver"
 text = "Spearman"
 
 [node name="PurchaseAxe" type="Button" parent="Panel"]
@@ -90,6 +93,9 @@ margin_left = -75.5
 margin_top = -22.0
 margin_right = 76.5
 margin_bottom = -2.0
+hint_tooltip = "125 Food
+10 Wood
+35 Silver"
 text = "Axeman"
 
 [node name="PurchaseBow" type="Button" parent="Panel"]
@@ -100,6 +106,10 @@ anchor_bottom = 0.5
 margin_left = -75.5
 margin_right = 76.5
 margin_bottom = 20.0
+hint_tooltip = "50 Food
+75 Wood
+25 Stone
+50 Silver"
 text = "Archer"
 
 [node name="PurchaseThrall" type="Button" parent="Panel"]
@@ -111,6 +121,9 @@ margin_left = -75.5
 margin_top = 22.0
 margin_right = 76.5
 margin_bottom = 42.0
+hint_tooltip = "50 Food
+25 Wood
+50 Stone"
 text = "Thrall (Gatherer)"
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
