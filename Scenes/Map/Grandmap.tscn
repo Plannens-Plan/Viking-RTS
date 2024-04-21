@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/real_grand_map.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/UI/Grandmap/Campaign_Icon_Village.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Images/UI/Grandmap/Campaign_Icon_Farm.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Images/UI/Grandmap/clouds.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Images/UI/Grandmap/pathway.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Images/Icons/monkey_banana.png" type="Texture" id=10]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -109,6 +110,11 @@ position = Vector2( 518, 1129 )
 rotation = 1.68075
 scale = Vector2( 0.601923, 0.601923 )
 texture = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( -121, -655 )
+scale = Vector2( 0.066445, 0.066445 )
+texture = ExtResource( 10 )
 
 [connection signal="pressed" from="Control/Beach" to="." method="_on_Beach_pressed"]
 [connection signal="pressed" from="Control/Engvik" to="." method="_on_Engvik_pressed"]
