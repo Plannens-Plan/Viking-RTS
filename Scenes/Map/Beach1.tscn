@@ -101,7 +101,7 @@ position = Vector2( 6344, 2956 )
 
 [node name="Miners" type="Node" parent="."]
 
-[node name="Resources" type="Node" parent="."]
+[node name="Resources" type="YSort" parent="."]
 
 [node name="Wood" type="YSort" parent="Resources"]
 
