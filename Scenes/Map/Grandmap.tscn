@@ -111,7 +111,7 @@ rotation = 1.68075
 scale = Vector2( 0.601923, 0.601923 )
 texture = ExtResource( 9 )
 
-[node name="Sprite" type="Sprite" parent="Control"]
+[node name="MonkeyMan" type="Sprite" parent="Control"]
 position = Vector2( -121, -655 )
 scale = Vector2( 0.066445, 0.066445 )
 texture = ExtResource( 10 )
