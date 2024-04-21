@@ -84,21 +84,6 @@ position = Vector2( 6128, 1044 )
 [node name="EnemyHouse6" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 6772, 2018 )
 
-[node name="Monk" parent="Structures/Enemy" instance=ExtResource( 17 )]
-position = Vector2( 6489, 2537 )
-
-[node name="Monk2" parent="Structures/Enemy" instance=ExtResource( 17 )]
-position = Vector2( 5685, 2116 )
-
-[node name="Monk3" parent="Structures/Enemy" instance=ExtResource( 17 )]
-position = Vector2( 6325, 1617 )
-
-[node name="Monk4" parent="Structures/Enemy" instance=ExtResource( 17 )]
-position = Vector2( 5999, 2711 )
-
-[node name="Monk5" parent="Structures/Enemy" instance=ExtResource( 17 )]
-position = Vector2( 6344, 2956 )
-
 [node name="Miners" type="Node" parent="."]
 
 [node name="Resources" type="YSort" parent="."]
@@ -239,6 +224,21 @@ position = Vector2( 5137, 2245 )
 
 [node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 2 )]
 position = Vector2( 5150, 2479 )
+
+[node name="Monk" parent="EnemyUnits" instance=ExtResource( 17 )]
+position = Vector2( 6489, 2537 )
+
+[node name="Monk2" parent="EnemyUnits" instance=ExtResource( 17 )]
+position = Vector2( 5685, 2116 )
+
+[node name="Monk3" parent="EnemyUnits" instance=ExtResource( 17 )]
+position = Vector2( 6325, 1617 )
+
+[node name="Monk4" parent="EnemyUnits" instance=ExtResource( 17 )]
+position = Vector2( 5999, 2711 )
+
+[node name="Monk5" parent="EnemyUnits" instance=ExtResource( 17 )]
+position = Vector2( 6344, 2956 )
 
 [node name="FriendlyUnits" type="YSort" parent="."]
 
