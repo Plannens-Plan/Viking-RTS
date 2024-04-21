@@ -97,6 +97,7 @@ func checkWin():
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
 	ecount = enemyUnits.size() + enemyBuildings.size()
+	print(str(self.name))
 	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
 		GlobalVariable.RemainingTroops = fcount
 		var units= GlobalVariable.VikingRts.units
