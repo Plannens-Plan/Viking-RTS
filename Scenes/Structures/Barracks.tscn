@@ -128,8 +128,6 @@ text = "Thrall (Gatherer)"
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
 [connection signal="pressed" from="Panel/PurchaseSpear" to="." method="_on_PurchaseSpear_pressed"]
