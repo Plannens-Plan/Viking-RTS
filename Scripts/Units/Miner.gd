@@ -25,7 +25,7 @@ var inventoryDic = {
 	}
 
 func _physics_process(delta):
-	if inventory <= maxInventory:
+	if inventory < maxInventory:
 		$Encumbered.hide()
 	if $AttackArea.get_overlapping_areas() != null:
 		for area in $AttackArea.get_overlapping_areas():
@@ -35,7 +35,7 @@ func _physics_process(delta):
 				if $WorkTimer.is_stopped() == true || $WorkTimer.is_paused()==true:
 					$WorkTimer.wait_time = area.workTime
 					$WorkTimer.start()
-				if inventory < maxInventory:
+				if inventory <= maxInventory:
 					area.pickUp -= 1
 					inventoryDic[area.itemType] += 1
 					inventory += 1
