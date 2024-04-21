@@ -34,7 +34,7 @@ func _on_BackToMenu_pressed():
 	if get_node(".").has_node("Background"):
 		get_tree().paused =false
 		GlobalVariable.Exiting=true
-		get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
+		TransitionScreen.change_scene("res://Scenes/Menus/Startmenu.tscn")
 		BackgroundMusicPlayer.changeSongType("default")
 
 #func save_data(path, data):
@@ -68,7 +68,7 @@ func _on_Button_pressed():
 		get_tree().paused =false
 		GlobalVariable.Exiting=true
 		 
-		get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
+		TransitionScreen.change_scene("res://Scenes/Map/Grandmap.tscn")
 		BackgroundMusicPlayer.changeSongType("default")
 
 func saveemit():

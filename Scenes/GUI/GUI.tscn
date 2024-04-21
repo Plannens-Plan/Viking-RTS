@@ -213,10 +213,10 @@ margin_left = 60.0
 margin_right = 100.0
 margin_bottom = 24.0
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
-
 [node name="TradeMap" parent="." instance=ExtResource( 7 )]
 visible = false
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl" method="_on_Button_pressed"]

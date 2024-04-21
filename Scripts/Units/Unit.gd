@@ -88,7 +88,7 @@ func attack():
 					return
 
 func _physics_process(delta):
-	if velocity.x < 0:
+	if target.x < position.x:
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
