@@ -94,6 +94,8 @@ func saveemit():
 		scene.get_node("savemapstate").savemapstate()		
 
 func checkWin():
+	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
+	fcount = friendlyUnits.size()
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
 	ecount = enemyUnits.size() + enemyBuildings.size()
