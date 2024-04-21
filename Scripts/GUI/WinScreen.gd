@@ -20,10 +20,10 @@ func _ready():
 		timer.start()
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Scenes/Map/Grandmap.tscn")
+	TransitionScreen.change_scene("res://Scenes/Map/Grandmap.tscn")
 	BackgroundMusicPlayer.changeSongType("default")
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://Scenes/Menus/Startmenu.tscn")
+	TransitionScreen.change_scene("res://Scenes/Menus/Startmenu.tscn")
 	BackgroundMusicPlayer.changeSongType("default")
