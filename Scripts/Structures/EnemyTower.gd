@@ -1,4 +1,4 @@
-extends "res://Scripts/Structures/EnemyStructure.gd"
+extends "res://Scripts/Structures/enemyStructure.gd"
 
 var damage = 25
 var attackSpeed = 3
