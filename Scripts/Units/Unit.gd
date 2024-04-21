@@ -61,7 +61,7 @@ func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
 		for body in $AttackArea.get_overlapping_bodies():
 			if friendly == true:
-				if body.is_in_group("enemyUnit"):
+				if body.is_in_group("enemyUnit") or body.is_in_group("neutralUnit"):
 					body.setHealth(body.health - attackDamage, true)
 					if attackSound != null:
 						setAttackSound()

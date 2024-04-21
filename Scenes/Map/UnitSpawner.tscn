@@ -21,6 +21,7 @@ margin_left = -507.0
 margin_top = -209.0
 margin_right = 508.0
 margin_bottom = 218.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0.478431 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CollisionShape2D"]
