@@ -218,11 +218,7 @@ visible = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
 
-[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/BarrackControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/WarehouseControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/TowerControl" method="_on_Button_pressed"]
-[connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl/Button" to="BuildPanel/BuildPanelCanvas/BuildPanel/TradingPostControl" method="_on_Button_pressed"]
