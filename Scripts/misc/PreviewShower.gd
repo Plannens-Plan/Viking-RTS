@@ -29,7 +29,6 @@ var previewingUnit = false
 var previewingStructure = false
 
 func _ready():
-	print(collisionScaleX)
 	$Sprite.texture = sprite
 	$Sprite.scale.x = spriteWidth
 	$Sprite.scale.y = spriteHeight
@@ -52,7 +51,6 @@ func _physics_process(delta):
 			var obstacle = 0
 			for area in $placableDetect.get_overlapping_areas():
 				if area.is_in_group("Building") || area.is_in_group("Terrain") :
-					print(area.get_groups())
 					obstacle += 1
 			for bodies in $placableDetect.get_overlapping_bodies():
 				if bodies.is_in_group("unit") :
