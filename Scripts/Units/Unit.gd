@@ -27,6 +27,7 @@ var friendly = false
 # Chance to block an attack in percent
 var blockChance = 0
 var newunit = true
+var stop = false
 
 onready var death_effect = preload("res://Scenes/Effects/DeathEffect.tscn")
 onready var bloodParticle = preload("res://Scenes/Particle/BloodParticle.tscn")
@@ -88,18 +89,19 @@ func attack():
 					return
 
 func _physics_process(delta):
-	if target.x < position.x:
-		$Sprite.flip_h = true
-	else:
-		$Sprite.flip_h = false
-	velocity = Vector2.ZERO
-	if position.distance_to(target) > target_max:
-		velocity = position.direction_to(target) * moveSpeed
-		velocity = move_and_slide(velocity)
-	if position.distance_to(target) < 60: 
-		if get_slide_count() > 0 and collision_timer.is_stopped():
-			collision_timer.start()
-			last_distance_to_target = position.distance_to(target)
+	if !stop:
+		if target.x < position.x:
+			$Sprite.flip_h = true
+		else:
+			$Sprite.flip_h = false
+		velocity = Vector2.ZERO
+		if position.distance_to(target) > target_max:
+			velocity = position.direction_to(target) * moveSpeed
+			velocity = move_and_slide(velocity)
+		if position.distance_to(target) < 60: 
+			if get_slide_count() > 0 and collision_timer.is_stopped():
+				collision_timer.start()
+				last_distance_to_target = position.distance_to(target)
 
 	if mouseOver and !selected:
 		$Sprite.material.set_shader_param("hide", false)

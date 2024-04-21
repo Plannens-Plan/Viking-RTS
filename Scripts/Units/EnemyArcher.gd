@@ -12,4 +12,9 @@ func _ready():
 	updateElements()
 
 func _physics_process(delta):
-	pass
+	if $AttackArea.get_overlapping_bodies().size() > 0:
+		for body in $AttackArea.get_overlapping_bodies():
+			if body.is_in_group("friendlyUnit"):
+				stop = true
+			else:
+				stop = false
