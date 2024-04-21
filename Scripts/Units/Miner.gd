@@ -25,7 +25,7 @@ var inventoryDic = {
 	}
 
 func _physics_process(delta):
-	if inventory < maxInventory:
+	if inventory <= maxInventory:
 		$Encumbered.hide()
 	if $AttackArea.get_overlapping_areas() != null:
 		for area in $AttackArea.get_overlapping_areas():
