@@ -31,6 +31,7 @@ func _on_Continue_pressed():
 
 
 func _on_BackToMenu_pressed():
+	saveemit()
 	if get_node(".").has_node("Background"):
 		get_tree().paused =false
 		GlobalVariable.Exiting=true
