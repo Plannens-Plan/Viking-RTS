@@ -42,6 +42,8 @@ current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
+[node name="Previews" type="Node" parent="."]
+
 [node name="UnitSpawner" parent="." instance=ExtResource( 9 )]
 position = Vector2( 427, 475 )
 

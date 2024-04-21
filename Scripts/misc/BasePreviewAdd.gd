@@ -10,7 +10,7 @@ var object
 var structure = false
 var unit = false
 
-var unitType
+var previewUnitType
 
 var previewWoodCost = 0
 var previewStoneCost = 0
@@ -18,13 +18,12 @@ var previewFoodCost = 0
 var previewSilverCost = 0
 
 func _on_Button_pressed():
-	if structure == true:
-		loadPreview()
-	elif units[unitType] and units[unitType] > 0 and unit == true:
-		units[unitType] -= 1
-		loadPreview()
+	loadPreview()
 
 func loadPreview():
+	var world = get_tree().current_scene
+	if world.get_node("Previews").get_child_count() > 0:
+		world.get_node("Previews").get_child(0).queue_free()
 	var previewShowerInst = previewShower.instance()
 	previewShowerInst.shownObject = object
 	previewShowerInst.sprite = object.instance().get_node("Sprite").texture
@@ -48,6 +47,8 @@ func loadPreview():
 		previewShowerInst.stoneCost = previewStoneCost
 		previewShowerInst.foodCost = previewFoodCost
 		previewShowerInst.silverCost = previewSilverCost
+	if unit:
+		previewShowerInst.unitType = previewUnitType
+
 	previewShowerInst.collisionPosition = object.instance().get_node("CollisionShape2D").position
-	var world = get_tree().current_scene
-	world.add_child(previewShowerInst)
+	world.get_node("Previews").add_child(previewShowerInst)

@@ -1,6 +1,8 @@
 extends Node2D
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
+onready var units = GlobalVariable.VikingRts.units
+
 var sprite
 var shownObject
 var spriteWidth
@@ -11,6 +13,8 @@ var collisionScaleRadius
 var collisionScaleX
 var collisionScaleY
 var collisionPosition
+
+var unitType
 
 var woodCost = 0
 var stoneCost = 0
@@ -104,6 +108,7 @@ func _input(event):
 		var scene = get_tree().current_scene
 		var newObject = shownObject.instance()
 		if previewingUnit:
+			units[unitType] -= 1
 			newObject.position = position
 			scene.get_node("FriendlyUnits").add_child(newObject)
 			queue_free()
