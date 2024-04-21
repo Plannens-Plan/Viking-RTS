@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=2]
@@ -8,16 +8,15 @@
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Structures/Warehouse.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map/UnitSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Map/savemapstate.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Structures/EnemyHouse.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemyArcher.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Structures/EnemyChurch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySwordsman.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Structures/EnemyTower.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/Monk.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyArcher.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyThrall.tscn" type="PackedScene" id=21]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 346.053, 903.796, 371.55, -16.1392, 438.247, 255.293, 457.093, 1499.48, 303.066, 6614.14, 80.4932, 6969.2, 17.3057, 5588.57, 284.159, 997.697, 10.8391, 1272.06, 30.6083, 89.4992, 276.707, 224.482, 9.42267, 2922.66, 459.741, 3999.59, 445.699, 6540.78, 389.533, 6665.49 )
@@ -43,14 +42,66 @@ current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
+[node name="UnitSpawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 427, 475 )
+
 [node name="Structures" type="YSort" parent="."]
 
 [node name="Friendly" type="YSort" parent="Structures"]
 
-[node name="Deposit" parent="Structures/Friendly" instance=ExtResource( 9 )]
-position = Vector2( 584, 417 )
-
 [node name="Enemy" type="YSort" parent="Structures"]
+position = Vector2( -128, -634 )
+
+[node name="EnemyChurch" parent="Structures/Enemy" instance=ExtResource( 14 )]
+position = Vector2( 6942, 3605 )
+
+[node name="EnemyHouse" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 5773, 4096 )
+
+[node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6350, 3605 )
+
+[node name="EnemyHouse3" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6022, 3041 )
+
+[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 6564, 3105 )
+
+[node name="EnemyTower2" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 6521, 4167 )
+
+[node name="EnemyTower3" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5196, 3568 )
+
+[node name="EnemyTower4" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5579, 2926 )
+
+[node name="EnemyHouse4" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 5744, 3589 )
+
+[node name="EnemyTower5" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5267, 4031 )
+
+[node name="EnemyTower6" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5523, 4559 )
+
+[node name="EnemyTower7" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5994, 2699 )
+
+[node name="EnemyTower8" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 6336, 2606 )
+
+[node name="EnemyTower9" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5837, 4887 )
+
+[node name="EnemyHouse5" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6157, 4480 )
+
+[node name="EnemyHouse6" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6414, 4815 )
+
+[node name="EnemyHouse7" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6678, 2720 )
 
 [node name="Miners" type="Node" parent="."]
 
@@ -172,58 +223,109 @@ position = Vector2( 4763, 1957 )
 
 [node name="EnemyUnits" type="YSort" parent="."]
 
-[node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 1352, 1995 )
-
-[node name="EnemyArcher" parent="EnemyUnits" instance=ExtResource( 13 )]
-position = Vector2( 1562, 2227 )
-
-[node name="EnemyArcher2" parent="EnemyUnits" instance=ExtResource( 13 )]
-position = Vector2( 1351, 2249 )
-
-[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 1514, 1964 )
-
-[node name="EnemySwordsman" parent="EnemyUnits" instance=ExtResource( 15 )]
-position = Vector2( 1769, 1985 )
-
-[node name="EnemySwordsman2" parent="EnemyUnits" instance=ExtResource( 15 )]
-position = Vector2( 1131, 2038 )
-
 [node name="Monk" parent="EnemyUnits" instance=ExtResource( 18 )]
-position = Vector2( 1208, 2654 )
+position = Vector2( 6072, 3447 )
 
 [node name="Monk2" parent="EnemyUnits" instance=ExtResource( 18 )]
-position = Vector2( 1571, 2627 )
+position = Vector2( 6172, 3226 )
 
 [node name="Monk3" parent="EnemyUnits" instance=ExtResource( 18 )]
-position = Vector2( 1405, 2667 )
+position = Vector2( 6343, 2656 )
+
+[node name="Monk4" parent="EnemyUnits" instance=ExtResource( 18 )]
+position = Vector2( 6585, 3155 )
+
+[node name="Monk5" parent="EnemyUnits" instance=ExtResource( 18 )]
+position = Vector2( 6863, 3483 )
+
+[node name="EnemyArcher" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6343, 3782 )
+
+[node name="EnemyArcher2" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6628, 3590 )
+
+[node name="EnemyArcher3" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6550, 2898 )
+
+[node name="EnemyArcher4" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6692, 2628 )
+
+[node name="EnemyArcher5" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6913, 2428 )
+
+[node name="EnemyArcher6" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6500, 3832 )
+
+[node name="EnemyArcher7" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 6742, 3340 )
+
+[node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5695, 3875 )
+
+[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5588, 3796 )
+
+[node name="EnemySpearman3" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5780, 3704 )
+
+[node name="EnemySpearman4" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5773, 3982 )
+
+[node name="EnemySwordsman" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5816, 2656 )
+
+[node name="EnemySwordsman2" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 6008, 2585 )
+
+[node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5994, 2713 )
+
+[node name="EnemySwordsman4" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5915, 2777 )
+
+[node name="EnemySwordsman5" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 6329, 2193 )
+
+[node name="EnemySwordsman6" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 6186, 2214 )
+
+[node name="EnemySwordsman7" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 6215, 2364 )
+
+[node name="EnemySwordsman8" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5274, 3533 )
+
+[node name="EnemySwordsman9" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5409, 3576 )
+
+[node name="EnemySpearman5" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5224, 2713 )
+
+[node name="EnemySpearman6" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5295, 3127 )
+
+[node name="EnemySpearman7" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5780, 3191 )
+
+[node name="EnemySwordsman10" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5958, 4131 )
+
+[node name="EnemySpearman8" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 5381, 2635 )
+
+[node name="EnemySwordsman11" parent="EnemyUnits" instance=ExtResource( 15 )]
+position = Vector2( 5303, 2777 )
+
+[node name="EnemyArcher8" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 5274, 2556 )
+
+[node name="EnemyArcher9" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 5331, 2934 )
+
+[node name="EnemyArcher10" parent="EnemyUnits" instance=ExtResource( 13 )]
+position = Vector2( 5210, 3618 )
 
 [node name="FriendlyUnits" type="YSort" parent="."]
-
-[node name="FriendlySpearman" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 1276, 1429 )
-
-[node name="FriendlySpearman2" parent="FriendlyUnits" instance=ExtResource( 12 )]
-position = Vector2( 1589, 1390 )
-
-[node name="FriendlyAxeman" parent="FriendlyUnits" instance=ExtResource( 19 )]
-position = Vector2( 1769, 1374 )
-
-[node name="FriendlyAxeman2" parent="FriendlyUnits" instance=ExtResource( 19 )]
-position = Vector2( 961, 1504 )
-
-[node name="FriendlyArcher" parent="FriendlyUnits" instance=ExtResource( 20 )]
-position = Vector2( 1105, 1302 )
-
-[node name="FriendlyArcher2" parent="FriendlyUnits" instance=ExtResource( 20 )]
-position = Vector2( 1522, 1253 )
-
-[node name="FriendlyThrall" parent="FriendlyUnits" instance=ExtResource( 21 )]
-position = Vector2( 1113, 952 )
-
-[node name="FriendlyThrall2" parent="FriendlyUnits" instance=ExtResource( 21 )]
-position = Vector2( 1325, 876 )
 
 [node name="selection" parent="." instance=ExtResource( 5 )]
 

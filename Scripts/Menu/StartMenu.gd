@@ -138,11 +138,14 @@ func _on_Load_savegame_pressed():
 	var found=false
 	var index=0
 	if GlobalVariable.saves.size()>1:
-		index=-1
+		index=0
 		for i in GlobalVariable.saves:
 			if i.save == dropmenu.text:
 				found=true
+				print(index)
+				print(i.save)
 				break
+				
 			index+=1
 				
 		if not found:
@@ -151,8 +154,9 @@ func _on_Load_savegame_pressed():
 	
 #	var dict=load_data(savedir + dropmenu.text + ".dat")
 	GlobalVariable.defaultsave()
-	#print(GlobalVariable.VikingRts)
+	print(GlobalVariable.VikingRts)
 	var dict = parse_json(GlobalVariable.saves[index].data)
+	#print(dict)
 	#print(index)
 	#print(GlobalVariable.saves[index].save)
 	for key in dict:
