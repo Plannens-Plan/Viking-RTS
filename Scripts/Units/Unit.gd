@@ -56,7 +56,6 @@ var outlineColor = Color(1, 1, 1, 1)
 func _ready():
 	target = position
 	updateElements()
-	
 
 func attack():
 	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:

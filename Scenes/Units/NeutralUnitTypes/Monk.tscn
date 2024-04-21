@@ -13,12 +13,12 @@ radius = 15.0
 extents = Vector2( 41.5, 61 )
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 2500.0
+radius = 796.332
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 18, 31.5 )
 
-[node name="Monk" type="KinematicBody2D" groups=["enemyUnit", "unit"]]
+[node name="Monk" type="KinematicBody2D" groups=["unit"]]
 script = ExtResource( 2 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -77,6 +77,8 @@ shape = SubResource( 6 )
 
 [node name="CollisionTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]

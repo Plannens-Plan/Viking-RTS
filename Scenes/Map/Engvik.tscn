@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlyAxeman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Camera/PlayerCam.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Units/EnemyUnitTypes/Monk.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Units/NeutralUnitTypes/Monk.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Resources/Wood.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Resources/Stone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Resources/Food.tscn" type="PackedScene" id=7]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySpearman.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Structures/Warehouse.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Units/FriendlyUnitTypes/FriendlySpearman.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -798, 4356, -2555, 3859, -1830, 2483, 869, -625, 1172, -665, 1981, 4952, -2230, 2351, -2078, 1799, -1253, 976, 3815, -1672, 8761, -633, 7990, 4554, -423, -766, -1890, 1048, -1263, -423 )
