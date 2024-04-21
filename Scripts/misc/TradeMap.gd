@@ -44,6 +44,7 @@ func _physics_process(delta):
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
 		$Panel.show()
+		reputation = clamp(reputation, 0, 50)
 		$Panel/TradeText.text = str(trades[0]+reputation , " " , trades[1] , " for " , trades[2]-reputation , " " , trades[3])
 	else:
 		$Panel.hide()
@@ -62,10 +63,11 @@ func _input(event):
 	if event.is_action_pressed("leftClick") && location != null:
 		reputation = dicReputation[location]
 		trades = dicTrades[location]
-		if GlobalVariables.VikingRts.resources.get(trades[3]) >= trades[2]:
+		reputation = clamp(reputation, 0, 50)
+		if GlobalVariables.VikingRts.resources.get(trades[3]) >= trades[2]-reputation:
 			GlobalVariables.VikingRts.resources[trades[1]] += trades[0] + reputation
 			GlobalVariables.VikingRts.resources[trades[3]] -= trades[2] - reputation
-			dicReputation[location] += 10
+			dicReputation[location] += 5
 		else: 
 			$Panel/Warning.text="you dont have enougt resources"
 			$Panel/Warning.show()
