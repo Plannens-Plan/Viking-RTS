@@ -5,6 +5,7 @@ onready var progression=GlobalVariable.VikingRts.progression
 
 func _ready():
 	GlobalVariable.Friendly=false
+	GlobalVariable.Exiting=false
 	if progression.beach:
 		$Control/Engvik.disabled=false
 		$Control/Clouds.hide()
