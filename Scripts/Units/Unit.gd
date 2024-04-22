@@ -21,9 +21,13 @@ var friction = 0.5
 var health = 100
 var maxHealth = 100
 var attackDamage = 25
+
+
 # Time between each attack in seconds
 var attackSpeed = 1
 var friendly = false
+
+
 # Chance to block an attack in percent
 var blockChance = 0
 var newunit = true
@@ -54,39 +58,30 @@ signal dead_soldier
 # The RGB color code for the unit's outline, default value is white
 var outlineColor = Color(1, 1, 1, 1)
 
+#Targets
+var enemyTargetsUnit = []
+var enemyTargetsStructure = []
+
 func _ready():
 	target = position
 	updateElements()
 
 func attack():
-	if $AttackArea.get_overlapping_bodies().size() > 0 && $AttackTimer.time_left <= 0:
-		for body in $AttackArea.get_overlapping_bodies():
-			if friendly == true:
-				if body.is_in_group("enemyUnit") or body.is_in_group("neutralUnit"):
-					body.setHealth(body.health - attackDamage, true)
-					if attackSound != null:
-						setAttackSound()
-						$UnitAudio.play()
-					$AttackTimer.start()
-					return
-			elif friendly == false:
-				if body.is_in_group("friendlyUnit"):
-					body.setHealth(body.health - attackDamage, true)
-					if attackSound != null:
-						setAttackSound()
-						$UnitAudio.play()
-					$AttackTimer.start()
-					return
-	if $AttackArea.get_overlapping_areas().size() > 0 && $AttackTimer.time_left <= 0 && !$AttackArea.get_overlapping_bodies().size() < 0:
-		for area in $AttackArea.get_overlapping_areas():
-			if friendly == true:
-				if area.is_in_group("enemyBuilding"):
-					area.setHealth(area.health - attackDamage)
-					if attackSound != null:
-						setAttackSound()
-						$UnitAudio.play()
-					$AttackTimer.start()
-					return
+	if enemyTargetsUnit.size() > 0 && $AttackTimer.time_left == 0:
+		var body = enemyTargetsUnit[0]
+		body.setHealth(body.health - attackDamage, true)
+		if attackSound != null:
+			setAttackSound()
+			$UnitAudio.play()
+		$AttackTimer.start()
+		return
+	elif enemyTargetsStructure.size() > 0 && $AttackTimer.time_left == 0:
+		var body = enemyTargetsStructure[0]
+		body.setHealth(body.health - attackDamage)
+		if attackSound != null:
+			setAttackSound()
+			$UnitAudio.play()
+		$AttackTimer.start()
 
 func _physics_process(delta):
 	if !stop:
@@ -243,3 +238,34 @@ func resetAudio(var audioPlayer):
 			$UnitVoiceLines.volume_db = 0
 			$UnitVoiceLines.pitch_scale = 1
 
+func _on_AttackArea_body_entered(body):
+	if friendly == true:
+		if body.is_in_group("enemyUnit") or body.is_in_group("neutralUnit"):
+			enemyTargetsUnit.append(body)
+			return
+	elif friendly == false:
+		if body.is_in_group("friendlyUnit"):
+			enemyTargetsUnit.append(body)
+			return
+			
+func _on_AttackArea_body_exited(body):
+	if friendly == true:
+		if body.is_in_group("enemyUnit") or body.is_in_group("neutralUnit"):
+			enemyTargetsUnit.erase(body)
+			return
+	elif friendly == false:
+		if body.is_in_group("friendlyUnit"):
+			enemyTargetsUnit.erase(body)
+			return
+			
+func _on_AttackArea_area_entered(area):
+	if friendly == true:
+		if area.is_in_group("enemyBuilding"):
+			enemyTargetsStructure.append(area)
+			return
+			
+func _on_AttackArea_area_exited(area):
+	if friendly == true:
+		if area.is_in_group("enemyBuilding"):
+			enemyTargetsStructure.erase(area)
+			return

@@ -86,4 +86,8 @@ texture = ExtResource( 6 )
 [connection signal="timeout" from="WorkTimer" to="." method="_on_Timer_timeout"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_AttackArea_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_AttackArea_area_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_AttackArea_body_exited"]
 [connection signal="timeout" from="CollisionTimer" to="." method="_on_CollisionTimer_timeout"]
