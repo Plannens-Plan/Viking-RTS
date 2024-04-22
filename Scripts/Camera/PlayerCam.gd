@@ -44,8 +44,13 @@ func _physics_process(delta):
 	if zoomValue < zoom.x:
 		zoom.x = lerp(zoom.x, zoom.x - zoomValue, 0.12*(zoom.x-zoomValue)-0.01)
 		zoom.y = lerp(zoom.y, zoom.x - zoomValue, 0.12*(zoom.y-zoomValue)-0.01)
+	
 	zoom.x = clamp(zoom.x,zoomMin,mapSize.x/(get_viewport().size.x))
 	zoom.y = clamp(zoom.x,zoomMin,mapSize.y/(get_viewport().size.y))
+	if zoom.x > zoom.y:
+		zoom.x = zoom.y
+	elif zoom.x < zoom.y:
+		zoom.y = zoom.x
 	
 func inputChecker():
 	if Input.is_action_just_pressed("cam left"):

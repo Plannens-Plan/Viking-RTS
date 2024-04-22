@@ -30,6 +30,7 @@ region_rect = Rect2( -19.976, -15.5091, 387.7, 918.899 )
 shape = SubResource( 5 )
 
 [node name="ShootingArea" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ShootingArea"]
 visible = false

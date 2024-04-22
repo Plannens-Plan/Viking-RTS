@@ -53,7 +53,7 @@ func _physics_process(delta):
 				if area.is_in_group("Building") || area.is_in_group("Terrain") :
 					obstacle += 1
 			for bodies in $placableDetect.get_overlapping_bodies():
-				if bodies.is_in_group("unit") :
+				if bodies.is_in_group("unit") || bodies.is_in_group("Terrain"):
 					obstacle += 1
 			if obstacle > 0:
 				placable = false
