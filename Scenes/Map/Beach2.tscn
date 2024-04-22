@@ -97,7 +97,7 @@ position = Vector2( 6047, 2460 )
 position = Vector2( 3469, 1726 )
 
 [node name="EnemyTower6" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 5161, 2585 )
+position = Vector2( 5108, 1449 )
 
 [node name="EnemyHouse11" parent="Structures/Enemy" instance=ExtResource( 12 )]
 position = Vector2( 3866, 3868 )
@@ -121,7 +121,7 @@ position = Vector2( 4685, 3522 )
 position = Vector2( 5679, 4052 )
 
 [node name="EnemyTower11" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 6508, 3166 )
+position = Vector2( 5379, 3003 )
 
 [node name="Resources" type="YSort" parent="."]
 
@@ -131,7 +131,7 @@ position = Vector2( 6508, 3166 )
 position = Vector2( 5679, 1205 )
 
 [node name="WoodArea15" parent="Resources/Wood" instance=ExtResource( 7 )]
-position = Vector2( 5334, 2980 )
+position = Vector2( 4896, 3233 )
 
 [node name="WoodArea16" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5532, 2511 )
@@ -323,7 +323,7 @@ position = Vector2( 5668, 3572 )
 position = Vector2( 6579, 2705 )
 
 [node name="EnemySpearman16" parent="EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 5365, 3362 )
+position = Vector2( 5142, 3570 )
 
 [node name="EnemySpearman17" parent="EnemyUnits" instance=ExtResource( 10 )]
 position = Vector2( 6014, 2802 )
