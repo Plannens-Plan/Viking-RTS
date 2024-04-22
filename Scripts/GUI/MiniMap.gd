@@ -14,6 +14,7 @@ var cameraSpritePosition = Vector2(0,0)
 var mapSize = Vector2(2560,1440)
 var mapScaledDifference
 var mapPin
+var mapPinMapScaler
 
 
 var scaler = Vector2(400,400)
@@ -51,7 +52,8 @@ func mapPinCreator(var pos,var img,var loc):
 	var newMapPin = load(mapPinPath).instance()
 	newMapPin.position = pos * mapScaledDifference
 	newMapPin.texture = load(img)
-	newMapPin.scale = scaler/load(img).get_size() * mapScaledDifference
+	newMapPin.scale = scaler/load(img).get_size() * mapPinMapScaler
+	print(newMapPin.scale)
 	loc.add_child(newMapPin)
 
 
@@ -82,22 +84,25 @@ func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
 		if localNode.get_child_count() == getMainNode.get_node(sceneChildCounter).get_child_count():
 			for mapPin in localNode.get_child_count():
 				localNode.get_child(mapPin).position = getMainNode.get_node(sceneChildCounter).get_child(mapPin).position * mapScaledDifference
-				localNode.get_child(mapPin).scale = scaler / localNode.get_child(mapPin).get_texture().get_size() * mapScaledDifference
 	pass
 
 
 func updateScene():
 	scene = get_tree().current_scene 
 	mapSize = scene.get_node("Map").get_size() * scene.get_node("Map").get_scale()
-	mapScaledDifference = self.rect_size / mapSize
 	cameraPath = scene.get_node("PlayerCam")
+	mapScaledDifference = self.rect_size / mapSize
+	if mapScaledDifference.x > mapScaledDifference.y:
+		mapPinMapScaler =  mapScaledDifference.y
+	else:
+		mapPinMapScaler =  mapScaledDifference.x
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
 
 func minimapResizer():
 	$Viewport.size = get_viewport().size / screenSize
 	self.rect_size = $Viewport.size
-	$Viewport/Background.scale = $Viewport.size * 2 / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
+	$Viewport/Background.scale = $Viewport.size  / $Viewport/Background.get_texture().get_size() #* mapScaledDifference
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
 
