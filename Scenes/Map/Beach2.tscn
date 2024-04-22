@@ -127,7 +127,7 @@ position = Vector2( 4537, 2556 )
 position = Vector2( 4254, 2138 )
 
 [node name="StoneArea6" parent="Resources/Stone" instance=ExtResource( 8 )]
-position = Vector2( 5000, 3501 )
+position = Vector2( 4686, 3984 )
 
 [node name="Food" type="YSort" parent="Resources"]
 
@@ -179,10 +179,10 @@ position = Vector2( 4887, 2659 )
 position = Vector2( 5679, 1205 )
 
 [node name="WoodArea15" parent="Resources/Wood" instance=ExtResource( 7 )]
-position = Vector2( 5742, 3552 )
+position = Vector2( 4445, 3531 )
 
 [node name="WoodArea16" parent="Resources/Wood" instance=ExtResource( 7 )]
-position = Vector2( 5532, 2511 )
+position = Vector2( 5507, 2553 )
 
 [node name="WoodArea" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 2432, 916 )
