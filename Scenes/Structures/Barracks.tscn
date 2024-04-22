@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/Materials/GUIPanel.tres" type="StyleBox" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 803.5, 210.5 )
+extents = Vector2( 562.5, 148 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 256, 166 )
@@ -20,21 +20,19 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 5 )
-position = Vector2( 1, 1.52588e-05 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -25.8101, -47.4955, 3223.56, 854.823 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4.5, -2.5 )
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -149.0
-margin_top = -312.0
-margin_right = 347.0
-margin_bottom = -152.0
+margin_left = -148.0
+margin_top = -253.0
+margin_right = 348.0
+margin_bottom = -93.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 3 )
@@ -66,9 +64,9 @@ Move them out first."
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = -90.0
-margin_top = 228.0
+margin_top = 161.0
 margin_right = 91.0
-margin_bottom = 342.0
+margin_bottom = 275.0
 custom_styles/panel = ExtResource( 6 )
 
 [node name="PurchaseSpear" type="Button" parent="Panel"]

@@ -7,27 +7,26 @@
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 337.5, 192.5 )
+extents = Vector2( 237.5, 137 )
 
 [node name="Warehouse" type="Area2D" groups=["Building"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 5 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -25.011, -33.1318, 1359.47, 803.093 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -149.0
-margin_top = -280.0
+margin_top = -242.0
 margin_right = 347.0
-margin_bottom = -120.0
+margin_bottom = -82.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 3 )

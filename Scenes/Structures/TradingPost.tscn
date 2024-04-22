@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Structures/TradingPost.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 288.5, 197 )
+extents = Vector2( 205, 139.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 166 )
@@ -18,7 +18,7 @@ script = ExtResource( 7 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 3 )
 position = Vector2( 1, 1.52588e-05 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -19.9825, -15.6668, 1156.51, 779.208 )
@@ -28,9 +28,9 @@ shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -149.0
-margin_top = -303.0
+margin_top = -247.0
 margin_right = 347.0
-margin_bottom = -143.0
+margin_bottom = -87.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 4 )

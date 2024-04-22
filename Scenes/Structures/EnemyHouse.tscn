@@ -7,28 +7,26 @@
 [ext_resource path="res://Scripts/Structures/EnemyHouse.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 321.5, 171.5 )
+extents = Vector2( 232.5, 127.5 )
 
 [node name="EnemyHouse" type="Area2D" groups=["Building", "enemy", "enemyBuilding"]]
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
-position = Vector2( -1, 0 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -22.5577, -30.5469, 1325.98, 741.809 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -3.5, 0 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -148.0
-margin_top = -285.0
-margin_right = 348.0
-margin_bottom = -125.0
+margin_left = -149.0
+margin_top = -236.0
+margin_right = 347.0
+margin_bottom = -76.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 2 )
