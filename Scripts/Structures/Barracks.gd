@@ -6,8 +6,8 @@ var unitsInside = false
 onready var GlobalVariable = get_node("/root/GlobalVariables")
 
 func _ready():
-	health = 500
-	maxHealth = 500
+	health = 1000
+	maxHealth = 1000
 	updateElements()
 
 func _physics_process(delta):

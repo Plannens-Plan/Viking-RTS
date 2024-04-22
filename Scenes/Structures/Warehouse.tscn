@@ -1,33 +1,33 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Images/Structures/viking_longhouse.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Structures/warehouse.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Structures/Warehouse.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 162.75, 110.5 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 256, 166 )
+extents = Vector2( 337.5, 192.5 )
 
 [node name="Warehouse" type="Area2D" groups=["Building"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 5 )
-scale = Vector2( 0.267517, 0.471888 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -25.011, -33.1318, 1359.47, 803.093 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -149.0
-margin_top = -275.0
+margin_top = -280.0
 margin_right = 347.0
-margin_bottom = -115.0
+margin_bottom = -120.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 3 )
@@ -40,10 +40,10 @@ one_shot = true
 
 [node name="MouseOver" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="MouseOver"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-position = Vector2( 0, -1 )
-shape = SubResource( 2 )
+position = Vector2( 1.5, 1.5 )
+shape = SubResource( 1 )
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
 

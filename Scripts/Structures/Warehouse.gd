@@ -3,7 +3,9 @@ extends "res://Scripts/Structures/FriendlyStructure.gd"
 var itemType = null
 
 func _ready():
-	pass
+	health = 500
+	maxHealth = 500
+	updateElements()
 
 func _physics_process(delta):
 	deposit()
