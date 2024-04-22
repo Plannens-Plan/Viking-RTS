@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Structures/FriendlyTower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Structures/tower.png" type="Texture" id=2]
@@ -7,23 +7,27 @@
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 94.5, 195 )
+extents = Vector2( 94.5, 60.5 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 812.178
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 95.5, 197.5 )
 
 [node name="FriendlyTower" type="Area2D" groups=["Building", "friendlyBuilding"]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 5 )
-position = Vector2( 0, 1 )
+position = Vector2( -10, 1 )
 scale = Vector2( 0.5, 0.425 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( -19.976, -15.5091, 387.7, 918.899 )
+region_rect = Rect2( -19.976, -15.5091, 479.404, 928.302 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 134.5 )
 shape = SubResource( 5 )
 
 [node name="ShootingArea" type="Area2D" parent="."]
@@ -55,8 +59,8 @@ collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-position = Vector2( 13.5, -0.5 )
-shape = SubResource( 5 )
+position = Vector2( -0.5, -3.5 )
+shape = SubResource( 6 )
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
 
