@@ -67,7 +67,7 @@ func _input(event):
 		if GlobalVariables.VikingRts.resources.get(trades[3]) >= trades[2]-reputation:
 			GlobalVariables.VikingRts.resources[trades[1]] += trades[0] + reputation
 			GlobalVariables.VikingRts.resources[trades[3]] -= trades[2] - reputation
-			dicReputation[location] += 50
+			dicReputation[location] += 5
 		else: 
 			$Panel/Warning.text="you dont have enougt resources"
 			$Panel/Warning.show()
