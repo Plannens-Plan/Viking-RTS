@@ -23,10 +23,13 @@ func _ready():
 		GlobalVariable.Friendly=true
 		var eu = get_tree().current_scene.get_node("EnemyUnits")
 		var fu = get_tree().current_scene.get_node("FriendlyUnits")
+		var nu = get_tree().current_scene.get_node("NeutralUnits")
 		for n in eu.get_children():
 			eu.remove_child(n)
 		for n in fu.get_children():
 			fu.remove_child(n)
+		for n in nu.get_children():
+			nu.remove_child(n)
 		var es = get_tree().current_scene.get_node("Structures/Enemy")
 		for n in es.get_children():
 			es.remove_child(n)
