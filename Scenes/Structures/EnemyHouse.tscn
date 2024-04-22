@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Images/Structures/anglohouse.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://Scripts/Structures/EnemyHouse.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 232.5, 127.5 )
+extents = Vector2( 232.5, 69.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 233, 130.5 )
 
 [node name="EnemyHouse" type="Area2D" groups=["Building", "enemy", "enemyBuilding"]]
 script = ExtResource( 5 )
@@ -20,6 +23,7 @@ region_enabled = true
 region_rect = Rect2( -22.5577, -30.5469, 1325.98, 741.809 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 60.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
@@ -41,8 +45,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-position = Vector2( -3.5, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
 

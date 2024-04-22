@@ -7,10 +7,10 @@
 [ext_resource path="res://Scripts/Structures/TradingPost.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 205, 139.5 )
+extents = Vector2( 205, 66.75 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 256, 166 )
+extents = Vector2( 205, 143 )
 
 [node name="TradingPost" type="Area2D" groups=["Building", "friendlyBuilding"]]
 script = ExtResource( 7 )
@@ -24,6 +24,7 @@ region_enabled = true
 region_rect = Rect2( -19.9825, -15.6668, 1156.51, 779.208 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 72.75 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]

@@ -8,10 +8,10 @@
 [ext_resource path="res://Assets/Materials/GUIPanel.tres" type="StyleBox" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 684.25, 182.75 )
+extents = Vector2( 684.25, 89.875 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 256, 166 )
+extents = Vector2( 685, 176 )
 
 [node name="Barracks" type="Area2D" groups=["Building", "friendlyBuilding"]]
 collision_layer = 5
@@ -26,6 +26,7 @@ region_enabled = true
 region_rect = Rect2( -25.8101, -47.4955, 3223.56, 854.823 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 92.875 )
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
@@ -47,7 +48,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-position = Vector2( 0, -1 )
+position = Vector2( 0, 5 )
 shape = SubResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
