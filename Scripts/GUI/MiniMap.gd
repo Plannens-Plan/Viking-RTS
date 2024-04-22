@@ -53,7 +53,6 @@ func mapPinCreator(var pos,var img,var loc):
 	newMapPin.position = pos * mapScaledDifference
 	newMapPin.texture = load(img)
 	newMapPin.scale = scaler/load(img).get_size() * mapPinMapScaler
-	print(newMapPin.scale)
 	loc.add_child(newMapPin)
 
 
