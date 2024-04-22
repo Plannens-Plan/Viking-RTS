@@ -84,6 +84,7 @@ func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
 		if localNode.get_child_count() == getMainNode.get_node(sceneChildCounter).get_child_count():
 			for mapPin in localNode.get_child_count():
 				localNode.get_child(mapPin).position = getMainNode.get_node(sceneChildCounter).get_child(mapPin).position * mapScaledDifference
+				localNode.get_child(mapPin).scale = scaler / localNode.get_child(mapPin).get_texture().get_size() * mapPinMapScaler
 	pass
 
 
