@@ -40,6 +40,7 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="MouseOver" type="Area2D" parent="."]
+collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
@@ -64,6 +65,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="DetectArea" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 visible = false
