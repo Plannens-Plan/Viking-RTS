@@ -45,7 +45,7 @@ func buyUnit(var unitScene, var foodCost, var woodCost, var stoneCost, var silve
 			res.wood -= woodCost
 			res.stone -= stoneCost
 			res.silver -= silverCost
-			troop.position = position
+			troop.position = Vector2(position.x - 485 * $Sprite.scale.x, position.y + 330 * $Sprite.scale.y)
 			var scene = get_tree().current_scene
 			scene.get_node("FriendlyUnits").add_child(troop)
 		else:
