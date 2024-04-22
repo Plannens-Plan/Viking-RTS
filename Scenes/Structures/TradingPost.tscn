@@ -13,7 +13,6 @@ extents = Vector2( 205, 66.75 )
 extents = Vector2( 205, 143 )
 
 [node name="TradingPost" type="Area2D" groups=["Building", "friendlyBuilding"]]
-position = Vector2( 0, -40 )
 script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]

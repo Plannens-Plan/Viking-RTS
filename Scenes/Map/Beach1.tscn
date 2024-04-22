@@ -42,249 +42,249 @@ visible = false
 [node name="UnitSpawner" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1899, 1529 )
 
-[node name="Objects" type="YSort" parent="."]
+[node name="DeathEffects" type="YSort" parent="."]
 
-[node name="DeathEffects" type="YSort" parent="Objects"]
+[node name="Structures" type="YSort" parent="."]
 
-[node name="Friendly" type="YSort" parent="Objects"]
+[node name="Friendly" type="YSort" parent="Structures"]
 
-[node name="Enemy" type="YSort" parent="Objects"]
+[node name="Enemy" type="YSort" parent="Structures"]
 
-[node name="EnemyHouse" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 8256, 2465 )
 
-[node name="EnemyChurch" parent="Objects/Enemy" instance=ExtResource( 16 )]
+[node name="EnemyChurch" parent="Structures/Enemy" instance=ExtResource( 16 )]
 position = Vector2( 9174, 1832 )
 
-[node name="EnemyHouse2" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 6592, 1510 )
 
-[node name="EnemyTower" parent="Objects/Enemy" instance=ExtResource( 15 )]
+[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 15 )]
 position = Vector2( 6007, 1458 )
 
-[node name="EnemyTower2" parent="Objects/Enemy" instance=ExtResource( 15 )]
+[node name="EnemyTower2" parent="Structures/Enemy" instance=ExtResource( 15 )]
 position = Vector2( 5996, 2442 )
 
-[node name="EnemyHouse3" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse3" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 9559, 2516 )
 
-[node name="EnemyHouse4" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse4" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 8316, 1317 )
 
-[node name="EnemyHouse5" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse5" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 7606, 1181 )
 
-[node name="EnemyHouse6" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse6" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 7344, 2008 )
 
-[node name="EnemyHouse7" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse7" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 10237, 1842 )
 
-[node name="EnemyHouse8" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse8" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 10924, 2300 )
 
-[node name="EnemyHouse9" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse9" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 11139, 1422 )
 
-[node name="EnemyHouse10" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse10" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 10016, 1228 )
 
-[node name="EnemyTower3" parent="Objects/Enemy" instance=ExtResource( 15 )]
+[node name="EnemyTower3" parent="Structures/Enemy" instance=ExtResource( 15 )]
 position = Vector2( 8804, 1763 )
 
-[node name="EnemyHouse11" parent="Objects/Enemy" instance=ExtResource( 11 )]
+[node name="EnemyHouse11" parent="Structures/Enemy" instance=ExtResource( 11 )]
 position = Vector2( 6749, 2349 )
 
-[node name="EnemyUnits" type="YSort" parent="Objects"]
+[node name="Resources" type="YSort" parent="."]
 
-[node name="EnemySpearman" parent="Objects/EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6352, 2258 )
+[node name="Wood" type="YSort" parent="Resources"]
 
-[node name="EnemySpearman2" parent="Objects/EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6337, 2040 )
-
-[node name="EnemySpearman3" parent="Objects/EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 6319, 1791 )
-
-[node name="EnemyArcher" parent="Objects/EnemyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6435, 2122 )
-
-[node name="EnemyArcher3" parent="Objects/EnemyUnits" instance=ExtResource( 12 )]
-position = Vector2( 6429, 1892 )
-
-[node name="EnemySwordsman2" parent="Objects/EnemyUnits" instance=ExtResource( 2 )]
-position = Vector2( 6249, 1902 )
-
-[node name="EnemySwordsman3" parent="Objects/EnemyUnits" instance=ExtResource( 2 )]
-position = Vector2( 6262, 2136 )
-
-[node name="EnemySpearman4" parent="Objects/EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 7952, 1940 )
-
-[node name="EnemySpearman5" parent="Objects/EnemyUnits" instance=ExtResource( 10 )]
-position = Vector2( 9162, 1327 )
-
-[node name="EnemyArcher2" parent="Objects/EnemyUnits" instance=ExtResource( 12 )]
-position = Vector2( 9860, 2068 )
-
-[node name="EnemySwordsman" parent="Objects/EnemyUnits" instance=ExtResource( 2 )]
-position = Vector2( 8789, 2184 )
-
-[node name="FriendlyUnits" type="YSort" parent="Objects"]
-
-[node name="NeutralUnits" type="YSort" parent="Objects"]
-
-[node name="Monk" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 8560, 1931 )
-
-[node name="Monk2" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 9546, 2161 )
-
-[node name="Monk3" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 7820, 1513 )
-
-[node name="Monk4" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 7478, 2505 )
-
-[node name="Monk5" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 9651, 1588 )
-
-[node name="Monk6" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 10766, 1912 )
-
-[node name="Monk7" parent="Objects/NeutralUnits" instance=ExtResource( 17 )]
-position = Vector2( 7138, 1709 )
-
-[node name="Resources" type="YSort" parent="Objects"]
-
-[node name="Wood" type="YSort" parent="Objects/Resources"]
-
-[node name="WoodArea14" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea14" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 8679, 1382 )
 
-[node name="WoodArea16" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea16" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 10575, 1918 )
 
-[node name="WoodArea" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 9657, 1297 )
 
-[node name="WoodArea2" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea2" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 11285, 2464 )
 
-[node name="WoodArea3" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea3" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 4992, 1729 )
 
-[node name="WoodArea4" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea4" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 7697, 2109 )
 
-[node name="WoodArea5" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea5" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 2307, 1163 )
 
-[node name="WoodArea9" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea9" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 2438, 2726 )
 
-[node name="WoodArea10" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea10" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5376, 1218 )
 
-[node name="WoodArea11" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea11" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 3417, 2421 )
 
-[node name="WoodArea12" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea12" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5086, 2556 )
 
-[node name="WoodArea13" parent="Objects/Resources/Wood" instance=ExtResource( 7 )]
+[node name="WoodArea13" parent="Resources/Wood" instance=ExtResource( 7 )]
 position = Vector2( 5890, 1957 )
 
-[node name="Stone" type="YSort" parent="Objects/Resources"]
+[node name="Stone" type="YSort" parent="Resources"]
 
-[node name="StoneArea" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 3040, 2529 )
 
-[node name="StoneArea2" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea2" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 8226, 1762 )
 
-[node name="StoneArea3" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea3" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 4599, 1131 )
 
-[node name="StoneArea4" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea4" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 4537, 2556 )
 
-[node name="StoneArea5" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea5" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 3736, 1621 )
 
-[node name="StoneArea6" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea6" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 10993, 1758 )
 
-[node name="StoneArea7" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea7" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 10235, 2517 )
 
-[node name="StoneArea8" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea8" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 9502, 1097 )
 
-[node name="StoneArea9" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea9" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 506, 1836 )
 
-[node name="StoneArea10" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea10" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 643, 2711 )
 
-[node name="StoneArea11" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea11" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 405, 1300 )
 
-[node name="StoneArea12" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea12" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 7163, 1504 )
 
-[node name="StoneArea13" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea13" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 6338, 2659 )
 
-[node name="StoneArea14" parent="Objects/Resources/Stone" instance=ExtResource( 8 )]
+[node name="StoneArea14" parent="Resources/Stone" instance=ExtResource( 8 )]
 position = Vector2( 2263, 1495 )
 
-[node name="Food" type="YSort" parent="Objects/Resources"]
+[node name="Food" type="YSort" parent="Resources"]
 
-[node name="FoodArea" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 4196, 1905 )
 
-[node name="FoodArea3" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea3" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 1346, 1211 )
 
-[node name="FoodArea4" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea4" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 3282, 1833 )
 
-[node name="FoodArea5" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea5" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 2965, 1136 )
 
-[node name="FoodArea6" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea6" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 5358, 2121 )
 
-[node name="FoodArea7" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea7" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 9233, 1147 )
 
-[node name="FoodArea8" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea8" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 3789, 2452 )
 
-[node name="FoodArea9" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea9" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 6915, 1093 )
 
-[node name="FoodArea10" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea10" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 7143, 2628 )
 
-[node name="FoodArea12" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea12" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 8916, 2462 )
 
-[node name="FoodArea14" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea14" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 7606, 1656 )
 
-[node name="FoodArea2" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea2" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 10883, 2728 )
 
-[node name="FoodArea11" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea11" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 9723, 2804 )
 
-[node name="FoodArea13" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea13" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 10739, 1139 )
 
-[node name="FoodArea15" parent="Objects/Resources/Food" instance=ExtResource( 6 )]
+[node name="FoodArea15" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 8183, 2003 )
+
+[node name="EnemyUnits" type="YSort" parent="."]
+
+[node name="EnemySpearman" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6352, 2258 )
+
+[node name="EnemySpearman2" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6337, 2040 )
+
+[node name="EnemySpearman3" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 6319, 1791 )
+
+[node name="EnemyArcher" parent="EnemyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6435, 2122 )
+
+[node name="EnemyArcher3" parent="EnemyUnits" instance=ExtResource( 12 )]
+position = Vector2( 6429, 1892 )
+
+[node name="EnemySwordsman2" parent="EnemyUnits" instance=ExtResource( 2 )]
+position = Vector2( 6249, 1902 )
+
+[node name="EnemySwordsman3" parent="EnemyUnits" instance=ExtResource( 2 )]
+position = Vector2( 6262, 2136 )
+
+[node name="EnemySpearman4" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 7952, 1940 )
+
+[node name="EnemySpearman5" parent="EnemyUnits" instance=ExtResource( 10 )]
+position = Vector2( 9162, 1327 )
+
+[node name="EnemyArcher2" parent="EnemyUnits" instance=ExtResource( 12 )]
+position = Vector2( 9860, 2068 )
+
+[node name="EnemySwordsman" parent="EnemyUnits" instance=ExtResource( 2 )]
+position = Vector2( 8789, 2184 )
+
+[node name="FriendlyUnits" type="YSort" parent="."]
+
+[node name="NeutralUnits" type="YSort" parent="."]
+
+[node name="Monk" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 8560, 1931 )
+
+[node name="Monk2" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 9546, 2161 )
+
+[node name="Monk3" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 7820, 1513 )
+
+[node name="Monk4" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 7478, 2505 )
+
+[node name="Monk5" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 9651, 1588 )
+
+[node name="Monk6" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 10766, 1912 )
+
+[node name="Monk7" parent="NeutralUnits" instance=ExtResource( 17 )]
+position = Vector2( 7138, 1709 )
 
 [node name="Sky" type="StaticBody2D" parent="." groups=["Terrain"]]
 
@@ -296,6 +296,6 @@ shape = SubResource( 1 )
 
 [node name="savemapstate" parent="." instance=ExtResource( 9 )]
 
-[connection signal="child_exiting_tree" from="Objects/Enemy" to="." method="_on_Enemy_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Objects/EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
-[connection signal="child_exiting_tree" from="Objects/FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Structures/Enemy" to="." method="_on_Enemy_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="FriendlyUnits" to="." method="_on_FriendlyUnits_child_exiting_tree"]

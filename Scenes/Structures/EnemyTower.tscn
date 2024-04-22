@@ -16,7 +16,6 @@ radius = 812.178
 extents = Vector2( 95.75, 197 )
 
 [node name="EnemyTower" type="Area2D" groups=["Building", "enemy", "enemyBuilding"]]
-position = Vector2( 0, -105 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

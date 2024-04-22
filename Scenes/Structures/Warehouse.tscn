@@ -13,7 +13,6 @@ extents = Vector2( 237.5, 65 )
 extents = Vector2( 238, 137.5 )
 
 [node name="Warehouse" type="Area2D" groups=["Building"]]
-position = Vector2( 0, -45 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
