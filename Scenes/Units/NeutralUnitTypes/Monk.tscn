@@ -63,6 +63,7 @@ one_shot = true
 [node name="DetectArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+visible = false
 shape = SubResource( 8 )
 
 [node name="PanicTimer" type="Timer" parent="."]
