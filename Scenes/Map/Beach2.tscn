@@ -29,7 +29,7 @@ mouse_filter = 2
 texture = ExtResource( 1 )
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1000, 2051 )
+position = Vector2( 955, 2440 )
 current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
@@ -38,7 +38,7 @@ visible = false
 [node name="Previews" type="Node" parent="."]
 
 [node name="UnitSpawner" parent="." instance=ExtResource( 9 )]
-position = Vector2( 314, 1663 )
+position = Vector2( 446, 2075 )
 
 [node name="DeathEffects" type="YSort" parent="."]
 
@@ -213,7 +213,7 @@ position = Vector2( 5782, 805 )
 position = Vector2( 3260, 3802 )
 
 [node name="FoodArea6" parent="Resources/Food" instance=ExtResource( 6 )]
-position = Vector2( 1069, 2337 )
+position = Vector2( 707, 3156 )
 
 [node name="FoodArea7" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 2406, 2351 )
