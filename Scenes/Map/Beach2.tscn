@@ -38,7 +38,6 @@ navpoly = SubResource( 1 )
 
 [node name="PlayerCam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 549, 469 )
-current = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
