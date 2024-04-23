@@ -73,6 +73,8 @@ wait_time = 2.0
 [node name="CollisionTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AttackTimer" type="Timer" parent="."]
+
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_velocity_computed"]
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
