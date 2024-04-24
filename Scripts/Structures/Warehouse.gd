@@ -21,7 +21,7 @@ func deposit():
 
 func depositItemType(var body, var itemType):
 	if body.inventoryDic[itemType]> 0:
-		GlobalVariables.VikingRts.resources[itemType] += 1
-		body.inventoryDic[itemType] -= 1
-		body.inventory-=1
+		GlobalVariables.VikingRts.resources[itemType] += 2
+		body.inventoryDic[itemType] -= 2
+		body.inventory -= 2
 	pass
