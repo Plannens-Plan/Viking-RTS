@@ -40,89 +40,6 @@ visible = false
 [node name="UnitSpawner" parent="." instance=ExtResource( 9 )]
 position = Vector2( 446, 2075 )
 
-[node name="DeathEffects" type="YSort" parent="."]
-
-[node name="Structures" type="YSort" parent="."]
-
-[node name="Friendly" type="YSort" parent="Structures"]
-
-[node name="Enemy" type="YSort" parent="Structures"]
-
-[node name="EnemyHouse" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 4931, 2995 )
-
-[node name="EnemyChurch" parent="Structures/Enemy" instance=ExtResource( 14 )]
-position = Vector2( 7074, 1749 )
-
-[node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 4320, 1426 )
-
-[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 3946, 437 )
-
-[node name="EnemyTower2" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 3739, 2738 )
-
-[node name="EnemyHouse3" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 4823, 4201 )
-
-[node name="EnemyHouse4" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 5668, 1765 )
-
-[node name="EnemyHouse5" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6318, 1270 )
-
-[node name="EnemyHouse6" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 7024, 1113 )
-
-[node name="EnemyChurch2" parent="Structures/Enemy" instance=ExtResource( 14 )]
-position = Vector2( 5129, 964 )
-
-[node name="EnemyChurch3" parent="Structures/Enemy" instance=ExtResource( 14 )]
-position = Vector2( 6005, 3237 )
-
-[node name="EnemyHouse7" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6531, 2068 )
-
-[node name="EnemyHouse8" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6708, 3811 )
-
-[node name="EnemyHouse9" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 7066, 2939 )
-
-[node name="EnemyHouse10" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6047, 2460 )
-
-[node name="EnemyTower4" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 3469, 1726 )
-
-[node name="EnemyTower6" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 5108, 1449 )
-
-[node name="EnemyHouse11" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 3866, 3868 )
-
-[node name="EnemyHouse12" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6315, 760 )
-
-[node name="EnemyHouse13" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 6531, 4493 )
-
-[node name="EnemyHouse14" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 4955, 2098 )
-
-[node name="EnemyTower8" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 3435, 4132 )
-
-[node name="EnemyHouse15" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 4685, 3522 )
-
-[node name="EnemyHouse16" parent="Structures/Enemy" instance=ExtResource( 12 )]
-position = Vector2( 5679, 4052 )
-
-[node name="EnemyTower11" parent="Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 5379, 3003 )
-
 [node name="Resources" type="YSort" parent="."]
 
 [node name="Wood" type="YSort" parent="Resources"]
@@ -238,6 +155,89 @@ position = Vector2( 6038, 2232 )
 
 [node name="FoodArea14" parent="Resources/Food" instance=ExtResource( 6 )]
 position = Vector2( 5187, 1767 )
+
+[node name="Structures" type="YSort" parent="."]
+
+[node name="Friendly" type="YSort" parent="Structures"]
+
+[node name="Enemy" type="YSort" parent="Structures"]
+
+[node name="EnemyHouse" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 4931, 2995 )
+
+[node name="EnemyChurch" parent="Structures/Enemy" instance=ExtResource( 14 )]
+position = Vector2( 7074, 1749 )
+
+[node name="EnemyHouse2" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 4320, 1426 )
+
+[node name="EnemyTower" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 3946, 437 )
+
+[node name="EnemyTower2" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 3739, 2738 )
+
+[node name="EnemyHouse3" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 4823, 4201 )
+
+[node name="EnemyHouse4" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 5668, 1765 )
+
+[node name="EnemyHouse5" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6318, 1270 )
+
+[node name="EnemyHouse6" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 7024, 1113 )
+
+[node name="EnemyChurch2" parent="Structures/Enemy" instance=ExtResource( 14 )]
+position = Vector2( 5129, 964 )
+
+[node name="EnemyChurch3" parent="Structures/Enemy" instance=ExtResource( 14 )]
+position = Vector2( 6005, 3237 )
+
+[node name="EnemyHouse7" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6531, 2068 )
+
+[node name="EnemyHouse8" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6708, 3811 )
+
+[node name="EnemyHouse9" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 7066, 2939 )
+
+[node name="EnemyHouse10" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6047, 2460 )
+
+[node name="EnemyTower4" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 3469, 1726 )
+
+[node name="EnemyTower6" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5108, 1449 )
+
+[node name="EnemyHouse11" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 3866, 3868 )
+
+[node name="EnemyHouse12" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6315, 760 )
+
+[node name="EnemyHouse13" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 6531, 4493 )
+
+[node name="EnemyHouse14" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 4955, 2098 )
+
+[node name="EnemyTower8" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 3435, 4132 )
+
+[node name="EnemyHouse15" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 4685, 3522 )
+
+[node name="EnemyHouse16" parent="Structures/Enemy" instance=ExtResource( 12 )]
+position = Vector2( 5679, 4052 )
+
+[node name="EnemyTower11" parent="Structures/Enemy" instance=ExtResource( 16 )]
+position = Vector2( 5379, 3003 )
+
+[node name="DeathEffects" type="YSort" parent="."]
 
 [node name="EnemyUnits" type="YSort" parent="."]
 
