@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=2]
@@ -20,6 +20,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 567.5, 334 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 126.75, 3966.25 )
 
 [node name="engvik" type="Node2D"]
 script = ExtResource( 2 )
@@ -436,6 +439,26 @@ position = Vector2( 7048, 4536 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ruin"]
 position = Vector2( 5167.5, 339 )
 shape = SubResource( 1 )
+
+[node name="MapEdge2" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapEdge2"]
+position = Vector2( -128.75, 2480 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapEdge2"]
+position = Vector2( 3751, -130 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapEdge2"]
+position = Vector2( 3747, 5095 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapEdge2"]
+position = Vector2( 7624, 2459 )
+shape = SubResource( 2 )
 
 [connection signal="child_exiting_tree" from="Objects/Structures/Enemy" to="." method="_on_Enemy_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="Objects/EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
