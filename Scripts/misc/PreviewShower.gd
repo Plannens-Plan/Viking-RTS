@@ -65,9 +65,6 @@ func _physics_process(delta):
 			$Sprite.modulate = Color(0, 1, 0)
 		else:
 			$Sprite.modulate = Color(1, 0, 0)
-	
-	
-	
 	elif previewingUnit == true:
 		if $placableDetect.get_overlapping_areas().size() > 0:
 			var unitSpawnArea = 0
