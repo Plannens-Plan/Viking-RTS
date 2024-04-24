@@ -22,11 +22,9 @@ var health = 100
 var maxHealth = 100
 var attackDamage = 25
 
-
 # Time between each attack in seconds
 var attackSpeed = 1
 var friendly = false
-
 
 # Chance to block an attack in percent
 var blockChance = 0
@@ -150,12 +148,14 @@ func setHealth(newHealth, canBeBlocked):
 
 func die():
 	var deathEffectInst = death_effect.instance()
+	deathEffectInst.spritePosX = $Sprite.position.x
+	deathEffectInst.spritePosY = $Sprite.position.y
 	deathEffectInst.unitSprite = $Sprite.texture
 	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
 	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
 	deathEffectInst.unit = true
 	var world = get_tree().current_scene
-	world.get_node("DeathEffects").add_child(deathEffectInst)
+	world.get_node("Objects").get_node("DeathEffects").add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
 	emit_signal("dead_soldier")
 	queue_free()

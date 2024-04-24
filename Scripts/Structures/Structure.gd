@@ -50,12 +50,14 @@ func setHealth(newHealth):
 
 func die():
 	var deathEffectInst = death_effect.instance()
+	deathEffectInst.spritePosX = $Sprite.position.x
+	deathEffectInst.spritePosY = $Sprite.position.y
 	deathEffectInst.unitSprite = $Sprite.texture
 	deathEffectInst.unitSpriteWidth = $Sprite.scale.x
 	deathEffectInst.unitSpriteHeight = $Sprite.scale.y
 	deathEffectInst.unit = false
 	var world = get_tree().current_scene
-	world.get_node("DeathEffects").add_child(deathEffectInst)
+	world.get_node("Objects/DeathEffects").add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
 	emit_signal("dead_building")
 	queue_free()

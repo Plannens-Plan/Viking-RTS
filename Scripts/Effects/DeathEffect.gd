@@ -1,6 +1,8 @@
 extends Node2D
 
 var unitSprite
+var spritePosX
+var spritePosY
 var unitSpriteWidth
 var unitSpriteHeight
 var rng = RandomNumberGenerator.new()
@@ -8,6 +10,8 @@ var deathSoundNumber
 var unit = false
 
 func _ready():
+	$Sprite.position.x = spritePosX
+	$Sprite.position.y = spritePosY
 	$Sprite.texture = unitSprite
 	$Sprite.scale.x = unitSpriteWidth
 	$Sprite.scale.y = unitSpriteHeight

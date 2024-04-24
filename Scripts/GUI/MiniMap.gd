@@ -16,7 +16,6 @@ var mapScaledDifference
 var mapPin
 var mapPinMapScaler
 
-
 var scaler = Vector2(400,400)
 var areaStartingPosition = Vector2(100,100)
 var camDrag
@@ -28,7 +27,6 @@ onready var loc = $Viewport/Friendly
 #en X del af skærmen (skærm/X=minimap Størrelse
 var screenSize = 5.5
 
-
 func _physics_process(delta):
 	updateScene()
 	minimapResizer()
@@ -36,7 +34,6 @@ func _physics_process(delta):
 	mapPinBuilder()
 	mapPinUpdater()
 	camDragger()
-
 
 func cameraResize():
 	cameraZoom = cameraPath.zoom
@@ -55,27 +52,26 @@ func mapPinCreator(var pos,var img,var loc):
 	newMapPin.scale = scaler/load(img).get_size() * mapPinMapScaler
 	loc.add_child(newMapPin)
 
-
 func mapPinUpdater():
 	#Friendly
-	subMapPinUpdater(scene,"FriendlyUnits",$Viewport/Friendly)
+	subMapPinUpdater(scene.get_node("Objects"),"FriendlyUnits",$Viewport/Friendly)
 	
 	#Enemy
-	subMapPinUpdater(scene,"EnemyUnits",$Viewport/Enemy)
+	subMapPinUpdater(scene.get_node("Objects"),"EnemyUnits",$Viewport/Enemy)
 	
 	#Neutral
-	subMapPinUpdater(scene, "NeutralUnits", $Viewport/Neutral)
+	subMapPinUpdater(scene.get_node("Objects"), "NeutralUnits", $Viewport/Neutral)
 	
 	#Resource
-	if scene.has_node("Resources"):
-		subMapPinUpdater(scene.get_node("Resources"),"Wood", $Viewport/Resource/Wood)
-		subMapPinUpdater(scene.get_node("Resources"),"Food", $Viewport/Resource/Food)
-		subMapPinUpdater(scene.get_node("Resources"),"Stone", $Viewport/Resource/Stone)
+	if scene.has_node("Objects/Resources"):
+		subMapPinUpdater(scene.get_node("Objects/Resources"),"Wood", $Viewport/Resource/Wood)
+		subMapPinUpdater(scene.get_node("Objects/Resources"),"Food", $Viewport/Resource/Food)
+		subMapPinUpdater(scene.get_node("Objects/Resources"),"Stone", $Viewport/Resource/Stone)
 	
 	#Structures
-	if scene.has_node("Structures"):
-		subMapPinUpdater(scene.get_node("Structures"),"Friendly",$Viewport/Structure/Friendly)
-		subMapPinUpdater(scene.get_node("Structures"),"Enemy",$Viewport/Structure/Enemy)
+	if scene.has_node("Objects/Structures"):
+		subMapPinUpdater(scene.get_node("Objects/Structures"),"Friendly",$Viewport/Structure/Friendly)
+		subMapPinUpdater(scene.get_node("Objects/Structures"),"Enemy",$Viewport/Structure/Enemy)
 
 
 func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
@@ -84,8 +80,6 @@ func subMapPinUpdater(var getMainNode, var sceneChildCounter, var localNode):
 			for mapPin in localNode.get_child_count():
 				localNode.get_child(mapPin).position = getMainNode.get_node(sceneChildCounter).get_child(mapPin).position * mapScaledDifference
 				localNode.get_child(mapPin).scale = scaler / localNode.get_child(mapPin).get_texture().get_size() * mapPinMapScaler
-	pass
-
 
 func updateScene():
 	scene = get_tree().current_scene 
@@ -98,7 +92,6 @@ func updateScene():
 		mapPinMapScaler =  mapScaledDifference.x
 	$Viewport/Background.texture = scene.get_node("Map").get_texture()
 
-
 func minimapResizer():
 	$Viewport.size = get_viewport().size / screenSize
 	self.rect_size = $Viewport.size
@@ -106,24 +99,22 @@ func minimapResizer():
 	$Area2D/CollisionShape2D.position = $Viewport.size/2
 	$Area2D/CollisionShape2D.scale = $Viewport.size/areaStartingPosition/2
 
-
 func mapPinBuilder():
 	#Friendly
-	subMapPinBuilder(scene, "FriendlyUnits", "res://Assets/Images/Icons/FriendlyUnit.png", $Viewport/Friendly)
+	subMapPinBuilder(scene.get_node("Objects"), "FriendlyUnits", "res://Assets/Images/Icons/FriendlyUnit.png", $Viewport/Friendly)
 	#Enemy
-	subMapPinBuilder(scene, "EnemyUnits", "res://Assets/Images/Icons/EnemyUnit.png", $Viewport/Enemy)
+	subMapPinBuilder(scene.get_node("Objects"), "EnemyUnits", "res://Assets/Images/Icons/EnemyUnit.png", $Viewport/Enemy)
 	#Neutral
-	subMapPinBuilder(scene, "NeutralUnits", "res://Assets/Images/Icons/Monk marker.png", $Viewport/Neutral)
+	subMapPinBuilder(scene.get_node("Objects"), "NeutralUnits", "res://Assets/Images/Icons/Monk marker.png", $Viewport/Neutral)
 	#Ressource (ændre maybe til at den er lidt pænerer
-	if scene.has_node("Resources"):
-		subMapPinBuilder(scene.get_node("Resources"),"Wood", "res://Assets/Images/Icons/WoodMarker.png", $Viewport/Resource/Wood)
-		subMapPinBuilder(scene.get_node("Resources"),"Food", "res://Assets/Images/Icons/FoodMarker.png", $Viewport/Resource/Food)
-		subMapPinBuilder(scene.get_node("Resources"),"Stone", "res://Assets/Images/Icons/StoneMarker.png", $Viewport/Resource/Stone)
+	if scene.has_node("Objects/Resources"):
+		subMapPinBuilder(scene.get_node("Objects/Resources"),"Wood", "res://Assets/Images/Icons/WoodMarker.png", $Viewport/Resource/Wood)
+		subMapPinBuilder(scene.get_node("Objects/Resources"),"Food", "res://Assets/Images/Icons/FoodMarker.png", $Viewport/Resource/Food)
+		subMapPinBuilder(scene.get_node("Objects/Resources"),"Stone", "res://Assets/Images/Icons/StoneMarker.png", $Viewport/Resource/Stone)
 	#Structure
-	if scene.has_node("Structures"):
-		subMapPinBuilder(scene.get_node("Structures"), "Friendly", "res://Assets/Images/Icons/FriendlyStructureMarker.png",$Viewport/Structure/Friendly)
-		subMapPinBuilder(scene.get_node("Structures"), "Enemy","res://Assets/Images/Icons/EnemyStructureMarker.png",$Viewport/Structure/Enemy)
-
+	if scene.has_node("Objects/Structures"):
+		subMapPinBuilder(scene.get_node("Objects/Structures"), "Friendly", "res://Assets/Images/Icons/FriendlyStructureMarker.png",$Viewport/Structure/Friendly)
+		subMapPinBuilder(scene.get_node("Objects/Structures"), "Enemy","res://Assets/Images/Icons/EnemyStructureMarker.png",$Viewport/Structure/Enemy)
 
 func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var localNode):
 	if getSceneNode.has_node(sceneChildCounter):
@@ -132,7 +123,6 @@ func subMapPinBuilder(var getSceneNode, var sceneChildCounter, var img, var loca
 			mapPinCreator(Vector2(0,0), img, localNode)
 		if ammount > 0:
 			localNode.get_child(0).queue_free()
-
 
 func camDragger():
 	
@@ -143,7 +133,6 @@ func camDragger():
 	if Input.is_action_just_released("leftClick"):
 		camDrag = false
 		scene.get_node("selection").selectionStopper = false
-		
 		
 	if camDrag==true:
 		camDragPosition = get_local_mouse_position() / mapScaledDifference

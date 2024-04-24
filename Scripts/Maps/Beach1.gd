@@ -21,26 +21,26 @@ func _ready():
 	ecount = enemyUnits.size()
 	if GlobalVariable.VikingRts.progression.get(str(self.name)):
 		GlobalVariable.Friendly=true
-		var eu = get_tree().current_scene.get_node("EnemyUnits")
-		var fu = get_tree().current_scene.get_node("FriendlyUnits")
-		var nu = get_tree().current_scene.get_node("NeutralUnits")
+		var eu = get_tree().current_scene.get_node("Objects").get_node("EnemyUnits")
+		var fu = get_tree().current_scene.get_node("Objects").get_node("FriendlyUnits")
+		var nu = get_tree().current_scene.get_node("Objects").get_node("NeutralUnits")
 		for n in eu.get_children():
 			eu.remove_child(n)
 		for n in fu.get_children():
 			fu.remove_child(n)
 		for n in nu.get_children():
 			nu.remove_child(n)
-		var es = get_tree().current_scene.get_node("Structures/Enemy")
+		var es = get_tree().current_scene.get_node("Objects").get_node("Structures/Enemy")
 		for n in es.get_children():
 			es.remove_child(n)
-		var Structures = get_tree().current_scene.get_node("Structures/Friendly")
+		var Structures = get_tree().current_scene.get_node("Objects").get_node("Structures/Friendly")
 		var location = GlobalVariable.VikingRts.structureLocation.get(str(self.name))
 		for i in location:
 			var struct = load(i.structure).instance()
 			struct.position.x =i.position.x
 			struct.position.y =i.position.y
 			Structures.add_child(struct)
-		var res = get_tree().current_scene.get_node("Resources")
+		var res = get_tree().current_scene.get_node("Objects").get_node("Resources")
 		for i in res.get_children():
 			for j in i.get_children():
 				#print(j)

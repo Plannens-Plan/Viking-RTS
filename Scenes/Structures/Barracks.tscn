@@ -20,20 +20,21 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 5 )
+position = Vector2( 0, -93 )
 scale = Vector2( 0.425, 0.425 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -25.8101, -47.4955, 3223.56, 854.823 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 92.875 )
+position = Vector2( 0.887512, -0.125 )
 shape = SubResource( 2 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -149.0
-margin_top = -279.0
-margin_right = 347.0
-margin_bottom = -119.0
+margin_left = -148.112
+margin_top = -372.0
+margin_right = 347.888
+margin_bottom = -212.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 3 )
@@ -45,6 +46,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MouseOver" type="Area2D" parent="."]
+position = Vector2( 0.887512, -93 )
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
@@ -65,10 +67,10 @@ text = "Unit inside barracks !
 Move them out first."
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 107.0
-margin_top = -56.0
-margin_right = 288.0
-margin_bottom = 58.0
+margin_left = 107.888
+margin_top = -149.0
+margin_right = 288.888
+margin_bottom = -35.0
 custom_styles/panel = ExtResource( 6 )
 
 [node name="PurchaseSpear" type="Button" parent="Panel"]
@@ -128,6 +130,7 @@ hint_tooltip = "50 Food
 text = "Thrall (Gatherer)"
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0.887512, -93 )
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]

@@ -17,7 +17,7 @@ func savemapstate():
 	print("savemapstate")
 	if ifready:
 		var scene = get_tree().current_scene
-		var Structures = scene.get_node("Structures/Friendly")
+		var Structures = scene.get_node("Objects").get_node("Structures/Friendly")
 		var map = ""
 		if "Beach1" in scene.filename:
 			map = "beach"
@@ -38,7 +38,7 @@ func savemapstate():
 			})
 		
 		#Resources
-		var Res = scene.get_node("Resources")
+		var Res = scene.get_node("Objects").get_node("Resources")
 		for i in Res.get_children():
 			var resname= i
 			var resloc=GlobalVariable.VikingRts.resourceLocation[map]

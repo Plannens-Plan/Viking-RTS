@@ -17,20 +17,21 @@ script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
+position = Vector2( -0.125, -60 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -22.5577, -30.5469, 1325.98, 741.809 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 60.5 )
+position = Vector2( -0.125, 0.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -149.0
-margin_top = -236.0
-margin_right = 347.0
-margin_bottom = -76.0
+margin_left = -149.125
+margin_top = -296.0
+margin_right = 346.875
+margin_bottom = -136.0
 rect_scale = Vector2( 0.6, 0.6 )
 value = 100.0
 texture_under = ExtResource( 2 )
@@ -42,6 +43,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MouseOver" type="Area2D" parent="."]
+position = Vector2( -0.125, -60 )
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
@@ -49,6 +51,7 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="StructureAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.125, -60 )
 
 [connection signal="mouse_entered" from="MouseOver" to="." method="_on_MouseOver_mouse_entered"]
 [connection signal="mouse_exited" from="MouseOver" to="." method="_on_MouseOver_mouse_exited"]
