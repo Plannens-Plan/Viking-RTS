@@ -7,7 +7,7 @@ onready var remainingTroops = GlobalVariable.RemainingTroops
 func _ready():
 	print (remainingTroops)
 	
-	if remainingTroops > 1:
+	if remainingTroops >= 1:
 		$Label.text = "You won wow. \nYour remaining troops: " + str(remainingTroops-1)
 	else:
 		$Button.hide()

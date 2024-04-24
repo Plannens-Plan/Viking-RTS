@@ -17,7 +17,7 @@ func _input(ev):
 	#var scene = get_tree().current_scene
 	if Input.is_action_just_released("Pause"):
 		if get_node(".").has_node("Background"):
-			get_tree().paused =!get_tree().paused
+			get_tree().paused = !get_tree().paused
 			$Background.visible = !$Background.visible 
 		
 

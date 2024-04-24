@@ -88,7 +88,7 @@ func _on_FriendlyUnits_child_exiting_tree(node):
 	friendlyUnits = get_tree().get_nodes_in_group("friendlyUnit")
 	fcount = friendlyUnits.size()
 
-	if fcount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
+	if fcount == 1 && GlobalVariable.Exiting == false && GlobalVariable.VikingRts.progression.get(str(self.name)) == false:
 		GlobalVariable.RemainingTroops = fcount
 		TransitionScreen.change_scene("res://Scenes/GUI/EndScreen.tscn")
 func saveemit():
@@ -102,9 +102,9 @@ func checkWin():
 	enemyUnits = get_tree().get_nodes_in_group("enemyUnit")
 	enemyBuildings = get_tree().get_nodes_in_group("enemyBuilding")
 	ecount = enemyUnits.size() + enemyBuildings.size()
-	if ecount == 1 && GlobalVariable.Exiting ==false && GlobalVariable.VikingRts.progression.get(str(self.name))==false:
+	if ecount == 1 && GlobalVariable.Exiting == false && GlobalVariable.VikingRts.progression.get(str(self.name)) == false:
 		GlobalVariable.RemainingTroops = fcount
-		var units= GlobalVariable.VikingRts.units
+		var units = GlobalVariable.VikingRts.units
 #		var scene = get_tree().current_scene
 #		var FriendlyUnits = scene.get_node("FriendlyUnits")
 #		for i in FriendlyUnits.get_children():
