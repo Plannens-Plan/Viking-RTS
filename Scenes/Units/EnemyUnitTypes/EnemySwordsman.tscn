@@ -5,15 +5,12 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/Units/enemy_swordsman.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 17.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 52.0865
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 41.5, 61 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 2500.0
@@ -37,14 +34,23 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 visible = false
+scale = Vector2( 8, 8 )
 shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="AttackArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-shape = SubResource( 5 )
+position = Vector2( 0, 29 )
+shape = SubResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 
@@ -54,6 +60,7 @@ margin_top = -64.0
 margin_right = 442.0
 margin_bottom = 96.0
 rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
 value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
@@ -66,7 +73,7 @@ one_shot = true
 [node name="DetectArea" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 visible = false
 shape = SubResource( 7 )
 

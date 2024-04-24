@@ -1,6 +1,7 @@
 extends "res://Scripts/Units/EnemyUnit.gd"
 
 func _ready():
+	finalUnit = true
 	if newunit:
 		health = 100
 		maxHealth = 100

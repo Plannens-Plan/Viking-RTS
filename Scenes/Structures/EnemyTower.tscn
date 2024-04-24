@@ -1,16 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Structures/EnemyTower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Structures/tower.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=4]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 94.5, 61.5 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 812.178
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95.75, 197 )
@@ -34,9 +34,17 @@ shape = SubResource( 5 )
 position = Vector2( 0, -133 )
 collision_layer = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ShootingArea"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootingArea"]
+position = Vector2( 1, 0 )
+scale = Vector2( 100, 100 )
 shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="ShootingArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 

@@ -56,9 +56,12 @@ signal dead_soldier
 # The RGB color code for the unit's outline, default value is white
 var outlineColor = Color(1, 1, 1, 1)
 
-#Targets
+# Targets
 var enemyTargetsUnit = []
 var enemyTargetsStructure = []
+
+# Is this the end of a inheritance chain, aka the actual unit to be put into battle.
+var finalUnit
 
 func _ready():
 	target = position
@@ -95,7 +98,12 @@ func _physics_process(delta):
 			if get_slide_count() > 0 and collision_timer.is_stopped():
 				collision_timer.start()
 				last_distance_to_target = position.distance_to(target)
-
+	
+	if mouseOver:
+		$AttackArea/Sprite.visible = true
+	else:
+		$AttackArea/Sprite.visible = false
+	
 	if mouseOver and !selected:
 		$Sprite.material.set_shader_param("hide", false)
 		$Sprite.material.set_shader_param("line_thickness", 3)
@@ -178,6 +186,9 @@ func updateElements():
 		$AttackTimer.start()
 	$Sprite.material.set_shader_param("line_color", outlineColor)
 	maxSpeed = moveSpeed
+	if finalUnit:
+		$AttackArea/Sprite.scale.x = $AttackArea/CollisionShape2D.scale.x * $AttackArea/Sprite.scale.x
+		$AttackArea/Sprite.scale.y = $AttackArea/CollisionShape2D.scale.y * $AttackArea/Sprite.scale.y
 
 func setAudioRandomGrunt():
 	rng.randomize()

@@ -5,15 +5,12 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Units/FriendlySpearman.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 15.0333
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 41.5, 61 )
-
 [sub_resource type="CircleShape2D" id=5]
-radius = 90.0056
 
 [node name="FriendlySpearman" type="KinematicBody2D" groups=["friendlySpearman", "friendlyUnit", "unit"]]
 script = ExtResource( 4 )
@@ -38,7 +35,8 @@ collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-shape = SubResource( 2 )
+position = Vector2( 0, 24 )
+shape = SubResource( 6 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -56.0
@@ -46,6 +44,7 @@ margin_top = -96.0
 margin_right = 440.0
 margin_bottom = 64.0
 rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
 value = 100.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 3 )
@@ -60,7 +59,15 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 visible = false
+scale = Vector2( 12, 12 )
 shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="AttackArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 

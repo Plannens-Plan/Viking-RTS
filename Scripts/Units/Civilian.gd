@@ -5,6 +5,7 @@ var targetX
 var targetY
 
 func _ready():
+	finalUnit = true
 	delay_timer = $PanicTimer
 	delay_timer.one_shot = true
 	delay_timer.start()

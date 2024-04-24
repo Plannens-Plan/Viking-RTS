@@ -5,15 +5,12 @@
 [ext_resource path="res://Assets/Images/Units/enemy_archer.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Units/EnemyArcher.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 14.0
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 486.333
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 41.5, 61 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 2500.0
@@ -29,7 +26,7 @@ texture = ExtResource( 3 )
 region_rect = Rect2( -41.9959, -24.6479, 212.003, 386.905 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 20 )
+position = Vector2( 0, 19 )
 shape = SubResource( 6 )
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -37,14 +34,23 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 visible = false
+scale = Vector2( 50, 50 )
 shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="AttackArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-shape = SubResource( 3 )
+position = Vector2( 0, 19 )
+shape = SubResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 
@@ -54,6 +60,7 @@ margin_top = -66.0
 margin_right = 443.0
 margin_bottom = 94.0
 rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
 value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 1 )

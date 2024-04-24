@@ -13,8 +13,14 @@ func _ready():
 	$Timer.wait_time = attackSpeed
 	$Timer.one_shot = true
 	$Timer.start()
+	$ShootingArea/Sprite.scale.x = $ShootingArea/CollisionShape2D.scale.x * $ShootingArea/Sprite.scale.x
+	$ShootingArea/Sprite.scale.y = $ShootingArea/CollisionShape2D.scale.y * $ShootingArea/Sprite.scale.y
 
 func _physics_process(delta):
+	if mouseOver:
+		$ShootingArea/Sprite.visible = true
+	else:
+		$ShootingArea/Sprite.visible = false
 	shoot()
 
 func shoot():
@@ -24,10 +30,11 @@ func shoot():
 			if body.is_in_group("enemyUnit") && friendly == true:
 				body.setHealth(body.health - damage, true)
 				$Timer.start()
-				resetAudio()
-				$StructureAudio.stream = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
-				$StructureAudio.pitch_scale = rng.randf_range(0.6, 1.4)
-				$StructureAudio.play()
+				if !$StructureAudio.playing:
+					resetAudio()
+					$StructureAudio.stream = load("res://Assets/Sounds/Units/quick_whoosh.mp3")
+					$StructureAudio.pitch_scale = rng.randf_range(0.6, 1.4)
+					$StructureAudio.play()
 				peopleShot += 1
 				if peopleShot >= amountOfArchers:
 					peopleShot = 0

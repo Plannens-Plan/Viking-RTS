@@ -13,8 +13,14 @@ func _ready():
 	$Timer.wait_time = attackSpeed
 	$Timer.one_shot = true
 	$Timer.start()
+	$ShootingArea/Sprite.scale.x = $ShootingArea/CollisionShape2D.scale.x * $ShootingArea/Sprite.scale.x
+	$ShootingArea/Sprite.scale.y = $ShootingArea/CollisionShape2D.scale.y * $ShootingArea/Sprite.scale.y
 
 func _physics_process(delta):
+	if mouseOver:
+		$ShootingArea/Sprite.visible = true
+	else:
+		$ShootingArea/Sprite.visible = false
 	shoot()
 
 func shoot():

@@ -1,6 +1,7 @@
 extends "res://Scripts/Units/FriendlyUnit.gd"
 
 func _ready():
+	finalUnit = true
 	if newunit:
 		health = 75
 		maxHealth = 75

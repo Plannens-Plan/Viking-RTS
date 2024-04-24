@@ -6,16 +6,12 @@
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
 [ext_resource path="res://Assets/Images/Icons/Encumbered.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 14.0357
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 41.5, 61 )
-
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 83.0
-height = 8.0
+[sub_resource type="CircleShape2D" id=8]
 
 [node name="FriendlyThrall" type="KinematicBody2D" groups=["friendlyThrall", "friendlyUnit", "harvester", "unit"]]
 collision_layer = 3
@@ -36,7 +32,8 @@ collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-shape = SubResource( 5 )
+position = Vector2( 0, 21 )
+shape = SubResource( 7 )
 
 [node name="WorkTimer" type="Timer" parent="."]
 
@@ -46,6 +43,7 @@ margin_top = -63.0
 margin_right = 445.0
 margin_bottom = 97.0
 rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
 value = 100.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
@@ -64,7 +62,15 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 visible = false
-shape = SubResource( 6 )
+scale = Vector2( 5, 5 )
+shape = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="AttackArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 7 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 

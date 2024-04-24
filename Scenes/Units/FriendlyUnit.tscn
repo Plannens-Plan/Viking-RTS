@@ -1,21 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Units/FriendlyUnit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Units/for_honor_viking.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/UI/health_bar_background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/UI/health_bar_progress.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/Outline.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Images/UI/circle.png" type="Texture" id=6]
 
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 35.0
-height = 48.0
+[sub_resource type="CircleShape2D" id=7]
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 41.5, 61 )
+[sub_resource type="CircleShape2D" id=8]
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 79.0
-height = 60.0
+[sub_resource type="CircleShape2D" id=6]
+radius = 116.276
 
 [node name="FriendlyUnit" type="KinematicBody2D" groups=["friendlyUnit", "unit"]]
 script = ExtResource( 1 )
@@ -32,14 +29,14 @@ region_rect = Rect2( -52.342, -38.657, 518.961, 637.253 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 6 )
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="MouseOver" type="Area2D" parent="."]
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseOver"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -57.0
@@ -60,8 +57,16 @@ one_shot = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 position = Vector2( 2, 6 )
 shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="AttackArea"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 3.8743e-07, 5.66244e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 
