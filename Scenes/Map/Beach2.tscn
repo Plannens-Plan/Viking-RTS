@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Images/Backgrounds/grassland.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Maps/Beach1.gd" type="Script" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://Scenes/Units/EnemyUnitTypes/EnemySwordsman.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Structures/EnemyTower.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Units/NeutralUnitTypes/Monk.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 567.5, 334 )
 
 [node name="engvik" type="Node2D"]
 script = ExtResource( 2 )
@@ -192,7 +195,7 @@ position = Vector2( 6318, 1270 )
 position = Vector2( 7024, 1113 )
 
 [node name="EnemyChurch2" parent="Objects/Structures/Enemy" instance=ExtResource( 14 )]
-position = Vector2( 5129, 964 )
+position = Vector2( 5154, 1095 )
 
 [node name="EnemyChurch3" parent="Objects/Structures/Enemy" instance=ExtResource( 14 )]
 position = Vector2( 6005, 3237 )
@@ -213,7 +216,7 @@ position = Vector2( 6047, 2460 )
 position = Vector2( 3469, 1726 )
 
 [node name="EnemyTower6" parent="Objects/Structures/Enemy" instance=ExtResource( 16 )]
-position = Vector2( 5108, 1449 )
+position = Vector2( 5039, 1388 )
 
 [node name="EnemyHouse11" parent="Objects/Structures/Enemy" instance=ExtResource( 12 )]
 position = Vector2( 3866, 3868 )
@@ -395,7 +398,7 @@ position = Vector2( 5779, 2887 )
 position = Vector2( 6360, 2920 )
 
 [node name="Monk6" parent="Objects/NeutralUnits" instance=ExtResource( 18 )]
-position = Vector2( 4735, 825 )
+position = Vector2( 4732, 881 )
 
 [node name="Monk7" parent="Objects/NeutralUnits" instance=ExtResource( 18 )]
 position = Vector2( 5091, 3429 )
@@ -427,6 +430,12 @@ position = Vector2( 7048, 4536 )
 [node name="selection" parent="." instance=ExtResource( 5 )]
 
 [node name="savemapstate" parent="." instance=ExtResource( 11 )]
+
+[node name="Ruin" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ruin"]
+position = Vector2( 5167.5, 339 )
+shape = SubResource( 1 )
 
 [connection signal="child_exiting_tree" from="Objects/Structures/Enemy" to="." method="_on_Enemy_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="Objects/EnemyUnits" to="." method="_on_EnemyUnits_child_exiting_tree"]
