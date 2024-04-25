@@ -1,4 +1,4 @@
-#Danens Plan
+Danens Plan
 
 Hvis du vil have spillet som en exe fil, kig i mappem GameExe
 For browser version kan du gå på https://plannensplan.dk/
