@@ -1,3 +1,7 @@
-# Viking-RTS
- 
-![](https://media.discordapp.net/attachments/1153224188711141396/1229410834841862235/revertcommitsteins.gif?ex=662f9510&is=661d2010&hm=16cb3d4ba10002b54be44340fefce147745e7e7029a9112e5f803421a18a2bee&=)
+#Danens Plan
+
+Hvis du vil have spillet som en exe fil, kig i mappem GameExe
+For browser version kan du gå på https://plannensplan.dk/
+
+Hvis du leder efter PHP og SQL, kig i mappen PHP & SQL
+
